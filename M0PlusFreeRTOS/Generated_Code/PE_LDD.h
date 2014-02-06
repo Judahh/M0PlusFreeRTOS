@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-06, 15:50, # CodeGen: 1
+**     Date/Time   : 2014-02-06, 18:27, # CodeGen: 5
 **     Abstract    :
 **
 **     Settings    :
@@ -42,6 +42,7 @@
 #include "Bit2.h"
 #include "Bit3.h"
 #include "AS1.h"
+#include "WAIT1.h"
 
 
 /*

@@ -41,6 +41,7 @@
 #include "Bit2.h"
 #include "Bit3.h"
 #include "AS1.h"
+#include "WAIT1.h"
 
 #ifdef __cplusplus
 extern "C" {

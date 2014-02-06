@@ -385,9 +385,9 @@ PE_DEBUGHALT();
         </boolgroup>
         <boolgroup name="non-LDD SWI" v="Disabled" />
         <Preemptive v="yes" />
-        <Use_Co_Routines v="no" />
+        <Use_Co_Routines v="yes" />
         <Idle_should_yield v="yes" />
-        <Task_Name_Length v="12" />
+        <Task_Name_Length v="15" />
         <Minimal_Stack_Size v="200" />
         <Maximum_Priorities v="6" />
         <Maximum_Coroutine_Priorities v="2" />
@@ -402,7 +402,7 @@ PE_DEBUGHALT();
         <boolgroup name="LDD Tick" v="Disabled" />
       </group>
       <group name="Queues">
-        <Queue_Registry_Size v="0" />
+        <Queue_Registry_Size v="5" />
         <Queue_Sets v="no" />
       </group>
       <group name="Semaphores and Mutexes">
@@ -843,6 +843,29 @@ PE_DEBUGHALT();
       <event name="OnTxComplete" v="generate code">
         <Event_procedure_name v="AS1_OnTxComplete" />
       </event>
+    </Events>
+  </Bean>
+  <Bean name="WAIT1" type="Wait">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="WAIT1" />
+      <boolgroup name="Manual Clock Values" v="Disabled" />
+      <Delay100usFunction v="Delay100US" />
+      <boolgroup name="RTOS" v="Disabled" />
+      <boolgroup name="Watchdog" v="Disabled" />
+    </Properties>
+    <Methods>
+      <Wait10Cycles v="generate code" />
+      <Wait100Cycles v="generate code" />
+      <WaitCycles v="generate code" />
+      <WaitLongCycles v="generate code" />
+      <Waitms v="generate code" />
+      <Waitus v="generate code" />
+      <Waitns v="generate code" />
+      <WaitOSms v="generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>

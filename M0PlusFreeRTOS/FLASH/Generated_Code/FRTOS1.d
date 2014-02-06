@@ -49,6 +49,7 @@ Generated_Code/FRTOS1.o: ../Generated_Code/FRTOS1.c \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit2.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit3.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/AS1.h \
+ C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/WAIT1.h \
  ../Generated_Code/FRTOS1.h ../Generated_Code/portTicks.h \
  ../Generated_Code/Cpu.h ../Generated_Code/FreeRTOSConfig.h
 
@@ -151,6 +152,8 @@ C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit2.h:
 C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit3.h:
 
 C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/AS1.h:
+
+C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/WAIT1.h:
 
 ../Generated_Code/FRTOS1.h:
 

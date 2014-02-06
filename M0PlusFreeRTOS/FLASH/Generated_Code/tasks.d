@@ -52,6 +52,7 @@ Generated_Code/tasks.o: ../Generated_Code/tasks.c \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit2.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit3.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/AS1.h \
+ C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/WAIT1.h \
  ../Generated_Code/FreeRTOS.h ../Generated_Code/task.h \
  ../Generated_Code/timers.h ../Generated_Code/StackMacros.h
 
@@ -160,6 +161,8 @@ C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit2.h:
 C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit3.h:
 
 C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/AS1.h:
+
+C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/WAIT1.h:
 
 ../Generated_Code/FreeRTOS.h:
 

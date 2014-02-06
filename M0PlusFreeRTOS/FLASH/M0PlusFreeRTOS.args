@@ -9,6 +9,7 @@
 "./Generated_Code/heap_2.o"
 "./Generated_Code/heap_1.o"
 "./Generated_Code/croutine.o"
+"./Generated_Code/WAIT1.o"
 "./Generated_Code/Vectors.o"
 "./Generated_Code/UTIL2.o"
 "./Generated_Code/UTIL1.o"

@@ -9,7 +9,7 @@
 void taskBlueLedwork(void) {
 	Bit3_NegVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	Bit3_SetVal(0);
+	//Bit3_SetVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 }
 
@@ -47,7 +47,7 @@ static portTASK_FUNCTION( TaskBlueLed, pvParameters) {
 /**************************************************************************/
 signed portBASE_TYPE taskBlueLedStart(void) {
 	xTaskHandle TaskBlueLedHandle = NULL;
-	return FRTOS1_xTaskCreate(TaskBlueLed, /* pointer to the task */
+	return xTaskCreate(TaskBlueLed, /* pointer to the task */
 	(signed portCHAR *) "Task Blue Led", /* task name for kernel awareness debugging */
 	configMINIMAL_STACK_SIZE, /* task stack size */
 	(void*) NULL, /* optional task startup argument */

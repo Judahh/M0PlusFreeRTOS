@@ -106,16 +106,16 @@
 #define configHEAP_SECTION_NAME_STRING            ".m_data_20000000" /* heap section name (use e.g. ".m_data_20000000" for gcc and "m_data_20000000" for IAR). Check your linker file for the name used. */
 #endif
 /*----------------------------------------------------------*/
-#define configMAX_TASK_NAME_LEN                   12 /* task name length */
+#define configMAX_TASK_NAME_LEN                   15 /* task name length */
 #define configUSE_TRACE_FACILITY                  0
 #define configUSE_STATS_FORMATTING_FUNCTIONS      (configUSE_TRACE_FACILITY || configGENERATE_RUN_TIME_STATS)
 #define configUSE_16_BIT_TICKS                    0
 #define configIDLE_SHOULD_YIELD                   1
-#define configUSE_CO_ROUTINES                     0
+#define configUSE_CO_ROUTINES                     1
 #define configUSE_MUTEXES                         1
 #define configCHECK_FOR_STACK_OVERFLOW            1 /* 0 is disabling stack overflow. Set it to 1 for Method1 or 2 for Method2 */
 #define configUSE_RECURSIVE_MUTEXES               1
-#define configQUEUE_REGISTRY_SIZE                 0
+#define configQUEUE_REGISTRY_SIZE                 5
 #define configUSE_QUEUE_SETS                      0
 #define configUSE_COUNTING_SEMAPHORES             1
 #define configUSE_APPLICATION_TASK_TAG            0

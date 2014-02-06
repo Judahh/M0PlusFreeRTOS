@@ -6,7 +6,7 @@
 **     Component   : FreeRTOS
 **     Version     : Component 01.335, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-06, 15:50, # CodeGen: 1
+**     Date/Time   : 2014-02-06, 18:48, # CodeGen: 6
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -35,9 +35,9 @@
 **                Core Clock                               : yes
 **            non-LDD SWI                                  : Disabled
 **            Preemptive                                   : yes
-**            Use Co-Routines                              : no
+**            Use Co-Routines                              : yes
 **            Idle should yield                            : yes
-**            Task Name Length                             : 12
+**            Task Name Length                             : 15
 **            Minimal Stack Size                           : 200
 **            Maximum Priorities                           : 6
 **            Maximum Coroutine Priorities                 : 2
@@ -50,7 +50,7 @@
 **            non-LDD Tick                                 : Disabled
 **            LDD Tick                                     : Disabled
 **          Queues                                         : Settings for Queues
-**            Queue Registry Size                          : 0
+**            Queue Registry Size                          : 5
 **            Queue Sets                                   : no
 **          Semaphores and Mutexes                         : Settings for Mutex and Semaphore
 **            Use Mutexes                                  : yes

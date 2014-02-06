@@ -50,6 +50,7 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit2.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit3.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/AS1.h \
+ C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/WAIT1.h \
  ../Sources/Tasks/TaskBlueLed.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/FreeRTOS.h \
  C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/task.h \
@@ -156,6 +157,8 @@ C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit2.h:
 C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/Bit3.h:
 
 C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/AS1.h:
+
+C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code/WAIT1.h:
 
 ../Sources/Tasks/TaskBlueLed.h:
 

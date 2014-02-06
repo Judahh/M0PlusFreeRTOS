@@ -9,7 +9,7 @@
 void taskGreenLedwork(void) {
 	Bit2_NegVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	Bit2_SetVal(0);
+	//Bit2_SetVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 }
 
