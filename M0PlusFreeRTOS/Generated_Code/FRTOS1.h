@@ -6,7 +6,7 @@
 **     Component   : FreeRTOS
 **     Version     : Component 01.335, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-06, 18:48, # CodeGen: 6
+**     Date/Time   : 2014-02-13, 22:26, # CodeGen: 26
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -16,7 +16,7 @@
 **          Static Sources                                 : Disabled
 **          Classic CodeWarrior                            : no
 **          Disabled Interrupts in Startup                 : yes
-**          Utility                                        : UTIL2
+**          Utility                                        : UTIL1
 **          Application Task Tags                          : no
 **          Use Trace Facility                             : no
 **          Trace Hooks                                    : Disabled
@@ -27,8 +27,8 @@
 **            Kinetis                                      : Enabled
 **              ARM Family                                 : Cortex M0+
 **              Floating Point Support                     : no
-**              Max SysCall Interrupt Priority             : 1
-**              RTOS Interrupt Priority                    : 2
+**              Max SysCall Interrupt Priority             : 3
+**              RTOS Interrupt Priority                    : 3
 **              Lowest Interrupt Priority                  : 3
 **              Compiler Optimization Level                : 0
 **              SysTick                                    : Enabled
@@ -37,10 +37,10 @@
 **            Preemptive                                   : yes
 **            Use Co-Routines                              : yes
 **            Idle should yield                            : yes
-**            Task Name Length                             : 15
-**            Minimal Stack Size                           : 200
-**            Maximum Priorities                           : 6
-**            Maximum Coroutine Priorities                 : 2
+**            Task Name Length                             : 25
+**            Minimal Stack Size                           : 40
+**            Maximum Priorities                           : 5
+**            Maximum Coroutine Priorities                 : 5
 **            Stackoverflow checking method                : Method 1
 **            Cleanup Resources                            : yes
 **          Ticks                                          : Settings for the periodic tick timer
@@ -50,77 +50,75 @@
 **            non-LDD Tick                                 : Disabled
 **            LDD Tick                                     : Disabled
 **          Queues                                         : Settings for Queues
-**            Queue Registry Size                          : 5
+**            Queue Registry Size                          : 0
 **            Queue Sets                                   : no
 **          Semaphores and Mutexes                         : Settings for Mutex and Semaphore
-**            Use Mutexes                                  : yes
-**            Use Recursive Mutexes                        : yes
+**            Use Mutexes                                  : no
+**            Use Recursive Mutexes                        : no
 **          Timers                                         : Disabled
 **          Memory                                         : Settings for the memory and heap allocation
-**            Memory Allocation Scheme                     : Scheme 2
+**            Memory Allocation Scheme                     : Scheme 1
 **            User Heap Section                            : Disabled
-**            Total Heap Size                              : 2048
+**            Total Heap Size                              : 750
 **          Command Interpreter                            : Disabled
 **          Shell                                          : Disabled
 **     Contents    :
-**         xTaskCreate                    - portBASE_TYPE FRTOS1_xTaskCreate(pdTASK_CODE pvTaskCode, const portCHAR *...
-**         vTaskDelete                    - void FRTOS1_vTaskDelete(xTaskHandle pxTask);
-**         vTaskStartScheduler            - void FRTOS1_vTaskStartScheduler(void);
-**         vTaskEndScheduler              - void FRTOS1_vTaskEndScheduler(void);
-**         vTaskSuspend                   - void FRTOS1_vTaskSuspend(xTaskHandle pxTaskToSuspend);
-**         vTaskSuspendAll                - void FRTOS1_vTaskSuspendAll(void);
-**         vTaskResume                    - void FRTOS1_vTaskResume(xTaskHandle pxTaskToResume);
-**         xTaskResumeAll                 - portBASE_TYPE FRTOS1_xTaskResumeAll(void);
-**         xTaskResumeFromISR             - portBASE_TYPE FRTOS1_xTaskResumeFromISR(xTaskHandle pxTaskToResume);
-**         taskYIELD                      - void FRTOS1_taskYIELD(void);
-**         taskENTER_CRITICAL             - void FRTOS1_taskENTER_CRITICAL(void);
-**         taskEXIT_CRITICAL              - void FRTOS1_taskEXIT_CRITICAL(void);
-**         taskDISABLE_INTERRUPTS         - void FRTOS1_taskDISABLE_INTERRUPTS(void);
-**         taskENABLE_INTERRUPTS          - void FRTOS1_taskENABLE_INTERRUPTS(void);
-**         vTaskDelay                     - void FRTOS1_vTaskDelay(portTickType xTicksToDelay);
-**         vTaskDelayUntil                - void FRTOS1_vTaskDelayUntil(portTickType *pxPreviousWakeTime, portTickType...
-**         uxTaskPriorityGet              - unsigned_portBASE_TYPE FRTOS1_uxTaskPriorityGet(xTaskHandle pxTask);
-**         vTaskPrioritySet               - void FRTOS1_vTaskPrioritySet(xTaskHandle pxTask, unsigned_portBASE_TYPE...
-**         xTaskGetTickCount              - portTickType FRTOS1_xTaskGetTickCount(void);
-**         xTaskGetTickCountFromISR       - portTickType FRTOS1_xTaskGetTickCountFromISR(void);
-**         xSemaphoreCreateRecursiveMutex - xSemaphoreHandle FRTOS1_xSemaphoreCreateRecursiveMutex(void);
-**         xSemaphoreTakeRecursive        - bool FRTOS1_xSemaphoreTakeRecursive(xSemaphoreHandle xMutex, portTickType...
-**         xSemaphoreGiveRecursive        - bool FRTOS1_xSemaphoreGiveRecursive(xSemaphoreHandle xMutex);
-**         xSemaphoreCreateMutex          - xSemaphoreHandle FRTOS1_xSemaphoreCreateMutex(void);
-**         xSemaphoreTake                 - bool FRTOS1_xSemaphoreTake(xSemaphoreHandle xMutex, portTickType xBlockTime);
-**         xSemaphoreGive                 - bool FRTOS1_xSemaphoreGive(xSemaphoreHandle xMutex);
-**         vSemaphoreCreateBinary         - void FRTOS1_vSemaphoreCreateBinary(xSemaphoreHandle xSemaphore);
-**         xSemaphoreCreateCounting       - xSemaphoreHandle FRTOS1_xSemaphoreCreateCounting(unsigned_portBASE_TYPE...
-**         xSemaphoreGiveFromISR          - bool FRTOS1_xSemaphoreGiveFromISR(xSemaphoreHandle xSemaphore,...
-**         xSemaphoreTakeFromISR          - bool FRTOS1_xSemaphoreTakeFromISR(xSemaphoreHandle xSemaphore,...
-**         vSemaphoreDelete               - void FRTOS1_vSemaphoreDelete(xSemaphoreHandle xSemaphore);
-**         xSemaphoreGetMutexHolder       - void* FRTOS1_xSemaphoreGetMutexHolder(xSemaphoreHandle xSemaphore);
-**         pvPortMalloc                   - pVoid FRTOS1_pvPortMalloc(size_t xWantedSize);
-**         vPortFree                      - void FRTOS1_vPortFree(void *pv);
-**         xPortGetFreeHeapSize           - Tsize_t FRTOS1_xPortGetFreeHeapSize(void);
-**         xTaskGetSchedulerState         - portBASE_TYPE FRTOS1_xTaskGetSchedulerState(void);
-**         uxTaskGetStackHighWaterMark    - unsigned_portBASE_TYPE FRTOS1_uxTaskGetStackHighWaterMark(xTaskHandle xTask);
-**         uxTaskGetNumberOfTasks         - unsigned_portBASE_TYPE FRTOS1_uxTaskGetNumberOfTasks(void);
-**         uxQueueMessagesWaiting         - unsigned_portBASE_TYPE FRTOS1_uxQueueMessagesWaiting(xQueueHandle xQueue);
-**         uxQueueMessagesWaitingfromISR  - unsigned_portBASE_TYPE FRTOS1_uxQueueMessagesWaitingfromISR(xQueueHandle...
-**         xQueueCreate                   - xQueueHandle FRTOS1_xQueueCreate(unsigned_portBASE_TYPE uxQueueLength,...
-**         vQueueDelete                   - void FRTOS1_vQueueDelete(xQueueHandle pxQueueToDelete);
-**         xQueueReset                    - portBASE_TYPE FRTOS1_xQueueReset(xQueueHandle xQueue);
-**         xQueueSendToBack               - portBASE_TYPE FRTOS1_xQueueSendToBack(xQueueHandle xQueue, const void...
-**         xQueueSendToFront              - portBASE_TYPE FRTOS1_xQueueSendToFront(xQueueHandle xQueue, const void...
-**         xQueueReceive                  - portBASE_TYPE FRTOS1_xQueueReceive(xQueueHandle xQueue, void *pvBuffer,...
-**         xQueueOverwrite                - portBASE_TYPE FRTOS1_xQueueOverwrite(xQueueHandle xQueue, const void...
-**         xQueueOverwriteFromISR         - portBASE_TYPE FRTOS1_xQueueOverwriteFromISR(xQueueHandle xQueue, const void...
-**         xQueuePeek                     - portBASE_TYPE FRTOS1_xQueuePeek(xQueueHandle xQueue, void *pvBuffer,...
-**         xQueuePeekFromISR              - portBASE_TYPE FRTOS1_xQueuePeekFromISR(xQueueHandle xQueue, void *pvBuffer,...
-**         xQueueSendToBackFromISR        - portBASE_TYPE FRTOS1_xQueueSendToBackFromISR(xQueueHandle xQueue, const void...
-**         xQueueSendToFrontFromISR       - portBASE_TYPE FRTOS1_xQueueSendToFrontFromISR(xQueueHandle xQueue, const void...
-**         xQueueReceiveFromISR           - portBASE_TYPE FRTOS1_xQueueReceiveFromISR(xQueueHandle xQueue, void...
-**         vQueueAddToRegistry            - void FRTOS1_vQueueAddToRegistry(xQueueHandle xQueue, char *pcQueueName);
-**         vQueueUnregisterQueue          - void FRTOS1_vQueueUnregisterQueue(xQueueHandle xQueue);
-**         xQueueIsQueueFullFromISR       - portBASE_TYPE FRTOS1_xQueueIsQueueFullFromISR(xQueueHandle xQueue);
-**         xQueueIsQueueEmptyFromISR      - portBASE_TYPE FRTOS1_xQueueIsQueueEmptyFromISR(xQueueHandle xQueue);
-**         Init                           - void FRTOS1_Init(void);
+**         xTaskCreate                   - portBASE_TYPE FRTOS1_xTaskCreate(pdTASK_CODE pvTaskCode, const portCHAR *...
+**         vTaskDelete                   - void FRTOS1_vTaskDelete(xTaskHandle pxTask);
+**         vTaskStartScheduler           - void FRTOS1_vTaskStartScheduler(void);
+**         vTaskEndScheduler             - void FRTOS1_vTaskEndScheduler(void);
+**         vTaskSuspend                  - void FRTOS1_vTaskSuspend(xTaskHandle pxTaskToSuspend);
+**         vTaskSuspendAll               - void FRTOS1_vTaskSuspendAll(void);
+**         vTaskResume                   - void FRTOS1_vTaskResume(xTaskHandle pxTaskToResume);
+**         xTaskResumeAll                - portBASE_TYPE FRTOS1_xTaskResumeAll(void);
+**         xTaskResumeFromISR            - portBASE_TYPE FRTOS1_xTaskResumeFromISR(xTaskHandle pxTaskToResume);
+**         vTaskStepTick                 - void FRTOS1_vTaskStepTick(portTickType xTicksToJump);
+**         taskYIELD                     - void FRTOS1_taskYIELD(void);
+**         taskENTER_CRITICAL            - void FRTOS1_taskENTER_CRITICAL(void);
+**         taskEXIT_CRITICAL             - void FRTOS1_taskEXIT_CRITICAL(void);
+**         taskDISABLE_INTERRUPTS        - void FRTOS1_taskDISABLE_INTERRUPTS(void);
+**         taskENABLE_INTERRUPTS         - void FRTOS1_taskENABLE_INTERRUPTS(void);
+**         vTaskDelay                    - void FRTOS1_vTaskDelay(portTickType xTicksToDelay);
+**         vTaskDelayUntil               - void FRTOS1_vTaskDelayUntil(portTickType *pxPreviousWakeTime, portTickType...
+**         uxTaskPriorityGet             - unsigned_portBASE_TYPE FRTOS1_uxTaskPriorityGet(xTaskHandle pxTask);
+**         vTaskPrioritySet              - void FRTOS1_vTaskPrioritySet(xTaskHandle pxTask, unsigned_portBASE_TYPE...
+**         xTaskGetTickCount             - portTickType FRTOS1_xTaskGetTickCount(void);
+**         xTaskGetTickCountFromISR      - portTickType FRTOS1_xTaskGetTickCountFromISR(void);
+**         xSemaphoreCreateMutex         - xSemaphoreHandle FRTOS1_xSemaphoreCreateMutex(void);
+**         xSemaphoreTake                - bool FRTOS1_xSemaphoreTake(xSemaphoreHandle xMutex, portTickType xBlockTime);
+**         xSemaphoreGive                - bool FRTOS1_xSemaphoreGive(xSemaphoreHandle xMutex);
+**         vSemaphoreCreateBinary        - void FRTOS1_vSemaphoreCreateBinary(xSemaphoreHandle xSemaphore);
+**         xSemaphoreCreateCounting      - xSemaphoreHandle FRTOS1_xSemaphoreCreateCounting(unsigned_portBASE_TYPE...
+**         xSemaphoreGiveFromISR         - bool FRTOS1_xSemaphoreGiveFromISR(xSemaphoreHandle xSemaphore,...
+**         xSemaphoreTakeFromISR         - bool FRTOS1_xSemaphoreTakeFromISR(xSemaphoreHandle xSemaphore,...
+**         vSemaphoreDelete              - void FRTOS1_vSemaphoreDelete(xSemaphoreHandle xSemaphore);
+**         xSemaphoreGetMutexHolder      - void* FRTOS1_xSemaphoreGetMutexHolder(xSemaphoreHandle xSemaphore);
+**         pvPortMalloc                  - pVoid FRTOS1_pvPortMalloc(size_t xWantedSize);
+**         vPortFree                     - void FRTOS1_vPortFree(void *pv);
+**         xPortGetFreeHeapSize          - Tsize_t FRTOS1_xPortGetFreeHeapSize(void);
+**         xTaskGetSchedulerState        - portBASE_TYPE FRTOS1_xTaskGetSchedulerState(void);
+**         uxTaskGetStackHighWaterMark   - unsigned_portBASE_TYPE FRTOS1_uxTaskGetStackHighWaterMark(xTaskHandle xTask);
+**         uxTaskGetNumberOfTasks        - unsigned_portBASE_TYPE FRTOS1_uxTaskGetNumberOfTasks(void);
+**         uxQueueMessagesWaiting        - unsigned_portBASE_TYPE FRTOS1_uxQueueMessagesWaiting(xQueueHandle xQueue);
+**         uxQueueMessagesWaitingfromISR - unsigned_portBASE_TYPE FRTOS1_uxQueueMessagesWaitingfromISR(xQueueHandle...
+**         xQueueCreate                  - xQueueHandle FRTOS1_xQueueCreate(unsigned_portBASE_TYPE uxQueueLength,...
+**         vQueueDelete                  - void FRTOS1_vQueueDelete(xQueueHandle pxQueueToDelete);
+**         xQueueReset                   - portBASE_TYPE FRTOS1_xQueueReset(xQueueHandle xQueue);
+**         xQueueSendToBack              - portBASE_TYPE FRTOS1_xQueueSendToBack(xQueueHandle xQueue, const void...
+**         xQueueSendToFront             - portBASE_TYPE FRTOS1_xQueueSendToFront(xQueueHandle xQueue, const void...
+**         xQueueReceive                 - portBASE_TYPE FRTOS1_xQueueReceive(xQueueHandle xQueue, void *pvBuffer,...
+**         xQueueOverwrite               - portBASE_TYPE FRTOS1_xQueueOverwrite(xQueueHandle xQueue, const void...
+**         xQueueOverwriteFromISR        - portBASE_TYPE FRTOS1_xQueueOverwriteFromISR(xQueueHandle xQueue, const void...
+**         xQueuePeek                    - portBASE_TYPE FRTOS1_xQueuePeek(xQueueHandle xQueue, void *pvBuffer,...
+**         xQueuePeekFromISR             - portBASE_TYPE FRTOS1_xQueuePeekFromISR(xQueueHandle xQueue, void *pvBuffer,...
+**         xQueueSendToBackFromISR       - portBASE_TYPE FRTOS1_xQueueSendToBackFromISR(xQueueHandle xQueue, const void...
+**         xQueueSendToFrontFromISR      - portBASE_TYPE FRTOS1_xQueueSendToFrontFromISR(xQueueHandle xQueue, const void...
+**         xQueueReceiveFromISR          - portBASE_TYPE FRTOS1_xQueueReceiveFromISR(xQueueHandle xQueue, void...
+**         vQueueAddToRegistry           - void FRTOS1_vQueueAddToRegistry(xQueueHandle xQueue, char *pcQueueName);
+**         vQueueUnregisterQueue         - void FRTOS1_vQueueUnregisterQueue(xQueueHandle xQueue);
+**         xQueueIsQueueFullFromISR      - portBASE_TYPE FRTOS1_xQueueIsQueueFullFromISR(xQueueHandle xQueue);
+**         xQueueIsQueueEmptyFromISR     - portBASE_TYPE FRTOS1_xQueueIsQueueEmptyFromISR(xQueueHandle xQueue);
+**         Init                          - void FRTOS1_Init(void);
 **
 **     License : Open Source (LGPL)
 **     FreeRTOS (c) Copyright 2003-2013 Richard Barry, http: www.FreeRTOS.org
@@ -153,7 +151,7 @@
 #include "PE_Const.h"
 #include "IO_Map.h"
 /* Include inherited components */
-#include "UTIL2.h"
+#include "UTIL1.h"
 
 #include "Cpu.h"
 #include "FreeRTOS.h"
@@ -533,110 +531,6 @@ void vPortTickHandler(void);
 **         uxNewPriority   - The priority to which
 **                           the task will be set.
 **     Returns     : Nothing
-** ===================================================================
-*/
-
-#define FRTOS1_xSemaphoreTakeRecursive(xMutex, xBlockTime) \
-  xSemaphoreTakeRecursive(xMutex, xBlockTime)
-
-/*
-** ===================================================================
-**     Method      :  FRTOS1_xSemaphoreTakeRecursive (component FreeRTOS)
-**     Description :
-**         Macro to recursively obtain, or 'take', a mutex type
-**         semaphore. The mutex must have previously been created using
-**         a call to xSemaphoreCreateRecursiveMutex();
-**         This macro must not be used on mutexes created using
-**         xSemaphoreCreateMutex(). A mutex used recursively can be
-**         'taken' repeatedly by the owner. The mutex doesn't become
-**         available again until the owner has called
-**         xSemaphoreGiveRecursive() for each successful 'take' request.
-**         For example, if a task successfully 'takes' the same mutex 5
-**         times then the mutex will not be available to any other task
-**         until it has also  'given' the mutex back exactly five times.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xMutex          - A handle to the mutex being obtained.
-**                           This is the handle returned by
-**                           xSemaphoreCreateRecursiveMutex();
-**         xBlockTime      - The time in ticks to wait
-**                           for the semaphore to become available.  The
-**                           macro portTICK_RATE_MS can be used to
-**                           convert this to a real time.  A block time
-**                           of zero can be used to poll the semaphore.
-**                           If the task already owns the semaphore then
-**                           xSemaphoreTakeRecursive() will return
-**                           immediately no matter what the value of
-**                           xBlockTime.
-**     Returns     :
-**         ---             - Returns pdTRUE if the semaphore was
-**                           obtained.  pdFALSE if xBlockTime expired
-**                           without the semaphore becoming available.
-** ===================================================================
-*/
-
-#define FRTOS1_xSemaphoreGiveRecursive(xMutex) \
-  xSemaphoreGiveRecursive(xMutex)
-
-/*
-** ===================================================================
-**     Method      :  FRTOS1_xSemaphoreGiveRecursive (component FreeRTOS)
-**     Description :
-**         Macro to recursively release, or 'give', a mutex type
-**         semaphore. The mutex must have previously been created using
-**         a call to xSemaphoreCreateRecursiveMutex();
-**         This macro must not be used on mutexes created using
-**         xSemaphoreCreateMutex(). A mutex used recursively can be
-**         'taken' repeatedly by the owner. The mutex doesn't become
-**         available again until the owner has called
-**         xSemaphoreGiveRecursive() for each successful 'take' request.
-**         For example, if a task successfully 'takes' the same mutex 5
-**         times then the mutex will not be available to any other task
-**         until it has also  'given' the mutex back exactly five times.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xMutex          - A handle to the mutex being released,
-**                           or 'given'.  This is the handle returned by
-**                           xSemaphoreCreateMutex();
-**     Returns     :
-**         ---             - Returns pdTRUE if the semaphore was given.
-** ===================================================================
-*/
-
-#define FRTOS1_xSemaphoreCreateRecursiveMutex() \
-  xSemaphoreCreateRecursiveMutex()
-
-/*
-** ===================================================================
-**     Method      :  FRTOS1_xSemaphoreCreateRecursiveMutex (component FreeRTOS)
-**     Description :
-**         Macro that implements a recursive mutex by using the
-**         existing queue mechanism.
-**         Mutexes created using this macro can be accessed using the
-**         xSemaphoreTakeRecursive() and xSemaphoreGiveRecursive()
-**         macros.  The  xSemaphoreTake() and xSemaphoreGive() macros
-**         should not be used.
-**         A mutex used recursively can be 'taken' repeatedly by the
-**         owner. The mutex doesn't become available again until the
-**         owner has called xSemaphoreGiveRecursive() for each
-**         successful 'take' request.  For example, if a task
-**         successfully 'takes' the same mutex 5 times then the mutex
-**         will not be available to any other task until it has also
-**         'given' the mutex back exactly five times.
-**         This type of semaphore uses a priority inheritance mechanism
-**         so a task 'taking' a semaphore MUST ALWAYS 'give' the
-**         semaphore back once the semaphore it is no longer required.
-**         Mutex type semaphores cannot be used from within interrupt
-**         service routines.
-**         See vSemaphoreCreateBinary() for an alternative
-**         implementation that can be used for pure synchronisation
-**         (where one task or interrupt always 'gives' the semaphore
-**         and another always 'takes' the semaphore) and from within
-**         interrupt service routines.
-**     Parameters  : None
-**     Returns     :
-**         ---             - Handle to the created mutex semaphore.
-**                           Should be of type  xSemaphoreHandle.
 ** ===================================================================
 */
 
@@ -1561,6 +1455,37 @@ void FRTOS1_Init(void);
 **     Returns     :
 **         ---             - The count of ticks since
 **                           vTaskStartScheduler was called. 
+** ===================================================================
+*/
+
+#define FRTOS1_vTaskStepTick(xTicksToJump) \
+  vTaskStepTick(xTicksToJump)
+/*
+** ===================================================================
+**     Method      :  FRTOS1_vTaskStepTick (component FreeRTOS)
+**     Description :
+**          If the RTOS is configured to use tickless idle
+**         functionality then the tick interrupt will be stopped, and
+**         the microcontroller placed into a low power state, whenever
+**         the Idle task is the only task able to execute. Upon exiting
+**         the low power state the tick count value must be corrected
+**         to account for the time that passed while it was stopped.
+**         If a FreeRTOS port includes a default
+**         portSUPPRESS_TICKS_AND_SLEEP() implementation, then
+**         vTaskStepTick() is used internally to ensure the correct
+**         tick count value is maintained. vTaskStepTick() is a public
+**         API function to allow the default
+**         portSUPPRESS_TICKS_AND_SLEEP() implementation to be
+**         overridden, and for a portSUPPRESS_TICKS_AND_SLEEP() to be
+**         provided if the port being used does not provide a default. 
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         xTicksToJump    - The number of RTOS ticks
+**                           that have passed since the tick interrupt
+**                           was stopped. For correct operation the
+**                           parameter must be less than or equal to the
+**                           portSUPPRESS_TICKS_AND_SLEEP() parameter. 
+**     Returns     : Nothing
 ** ===================================================================
 */
 

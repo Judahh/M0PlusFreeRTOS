@@ -5,7 +5,7 @@
 -gdwarf-2
 -gstrict-dwarf
 -x assembler-with-cpp
--I"C:/Users/JH/workspace/CodeWarrior/M0PlusFreeRTOS/Generated_Code"
+-I"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code"
 -Wall
 -c
 -fmessage-length=0

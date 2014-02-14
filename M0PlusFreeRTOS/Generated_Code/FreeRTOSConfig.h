@@ -96,33 +96,33 @@
 #define configSYSTICK_USE_CORE_CLOCK              1 /* System Tick is using core clock  */
 #define configSYSTICK_CLOCK_DIVIDER               1 /* no divider */
 #define configSYSTICK_CLOCK_HZ                    ((configCPU_CLOCK_HZ)/configSYSTICK_CLOCK_DIVIDER) /* frequency of system tick counter */
-#define configMINIMAL_STACK_SIZE                  ((unsigned portSHORT)200)
+#define configMINIMAL_STACK_SIZE                  ((unsigned portSHORT)40)
 /*----------------------------------------------------------*/
 /* Heap Memory */
-#define configFRTOS_MEMORY_SCHEME                 2 /* either 1 (only alloc), 2 (alloc/free), 3 (malloc) or 4 (coalesc blocks) */
-#define configTOTAL_HEAP_SIZE                     ((size_t)(2048)) /* size of heap in bytes */
+#define configFRTOS_MEMORY_SCHEME                 1 /* either 1 (only alloc), 2 (alloc/free), 3 (malloc) or 4 (coalesc blocks) */
+#define configTOTAL_HEAP_SIZE                     ((size_t)(750)) /* size of heap in bytes */
 #define configUSE_HEAP_SECTION_NAME               0 /* set to 1 if a custom section name (configHEAP_SECTION_NAME_STRING) shall be used, 0 otherwise */
 #if configUSE_HEAP_SECTION_NAME
 #define configHEAP_SECTION_NAME_STRING            ".m_data_20000000" /* heap section name (use e.g. ".m_data_20000000" for gcc and "m_data_20000000" for IAR). Check your linker file for the name used. */
 #endif
 /*----------------------------------------------------------*/
-#define configMAX_TASK_NAME_LEN                   15 /* task name length */
+#define configMAX_TASK_NAME_LEN                   25 /* task name length */
 #define configUSE_TRACE_FACILITY                  0
 #define configUSE_STATS_FORMATTING_FUNCTIONS      (configUSE_TRACE_FACILITY || configGENERATE_RUN_TIME_STATS)
 #define configUSE_16_BIT_TICKS                    0
 #define configIDLE_SHOULD_YIELD                   1
 #define configUSE_CO_ROUTINES                     1
-#define configUSE_MUTEXES                         1
+#define configUSE_MUTEXES                         0
 #define configCHECK_FOR_STACK_OVERFLOW            1 /* 0 is disabling stack overflow. Set it to 1 for Method1 or 2 for Method2 */
-#define configUSE_RECURSIVE_MUTEXES               1
-#define configQUEUE_REGISTRY_SIZE                 5
+#define configUSE_RECURSIVE_MUTEXES               0
+#define configQUEUE_REGISTRY_SIZE                 0
 #define configUSE_QUEUE_SETS                      0
 #define configUSE_COUNTING_SEMAPHORES             1
 #define configUSE_APPLICATION_TASK_TAG            0
 #define configUSE_TICKLESS_IDLE                   0
 
-#define configMAX_PRIORITIES                      ((unsigned portBASE_TYPE)6)
-#define configMAX_CO_ROUTINE_PRIORITIES           2
+#define configMAX_PRIORITIES                      ((unsigned portBASE_TYPE)5)
+#define configMAX_CO_ROUTINE_PRIORITIES           5
 
 /* Software timer definitions. */
 #define configUSE_TIMERS                          0
@@ -179,13 +179,13 @@
 #define configPRIO_BITS                           2 /* 4 priority levels on ARM Cortex M0+ (Kinetis L Family) */
 
 /* The lowest interrupt priority that can be used in a call to a "set priority" function. */
-#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY   2
+#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY   3
 
 /* The highest interrupt priority that can be used by any interrupt service
    routine that makes calls to interrupt safe FreeRTOS API functions.  DO NOT CALL
    INTERRUPT SAFE FREERTOS API FUNCTIONS FROM ANY INTERRUPT THAT HAS A HIGHER
    PRIORITY THAN THIS! (higher priorities are lower numeric values on an ARM Cortex-M). */
-#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY 1
+#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY 3
 
 /* Interrupt priorities used by the kernel port layer itself.  These are generic
    to all Cortex-M ports, and do not rely on any particular library functions. */

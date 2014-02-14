@@ -7,9 +7,9 @@
 #include "TaskRedLed.h"
 
 void taskRedLedwork(void) {
-	Bit1_NegVal(0);
+	Bit3_NegVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	//Bit1_SetVal(0);
+	Bit3_SetVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 }
 
@@ -47,8 +47,8 @@ static portTASK_FUNCTION( TaskRedLed, pvParameters) {
 /**************************************************************************/
 signed portBASE_TYPE taskRedLedStart(void) {
 	xTaskHandle TaskRedLedHandle = NULL;
-	return xTaskCreate(TaskRedLed, /* pointer to the task */
-	(signed portCHAR *) "Task Red Led", /* task name for kernel awareness debugging */
+	return FRTOS1_xTaskCreate(TaskRedLed, /* pointer to the task */
+	(signed portCHAR *) "TaskRedLed", /* task name for kernel awareness debugging */
 	configMINIMAL_STACK_SIZE, /* task stack size */
 	(void*) NULL, /* optional task startup argument */
 	tskIDLE_PRIORITY, /* initial priority */

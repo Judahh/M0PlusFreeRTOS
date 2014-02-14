@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-06, 18:27, # CodeGen: 5
+**     Date/Time   : 2014-02-13, 19:50, # CodeGen: 14
 **     Abstract    :
 **
 **     Settings    :
@@ -37,6 +37,7 @@
   #include "Bit3.h"
   #include "AS1.h"
   #include "WAIT1.h"
+  #include "TU1.h"
   #include "Events.h"
 
 
@@ -71,7 +72,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x0C  0x00000030   -   ivINT_Reserved12              unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x0D  0x00000034   -   ivINT_Reserved13              unused by PE */
     (tIsrFunc)&vPortPendSVHandler,     /* 0x0E  0x00000038   -   ivINT_PendableSrvReq          used by PE */
-    (tIsrFunc)&vPortTickHandler,       /* 0x0F  0x0000003C   -   ivINT_SysTick                 used by PE */
+    (tIsrFunc)&vPortTickHandler,       /* 0x0F  0x0000003C   2   ivINT_SysTick                 used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x10  0x00000040   -   ivINT_DMA0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x11  0x00000044   -   ivINT_DMA1                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x12  0x00000048   -   ivINT_DMA2                    unused by PE */

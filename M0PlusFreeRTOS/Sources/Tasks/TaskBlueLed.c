@@ -7,9 +7,9 @@
 #include "TaskBlueLed.h"
 
 void taskBlueLedwork(void) {
-	Bit3_NegVal(0);
+	Bit1_NegVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	//Bit3_SetVal(0);
+	Bit1_SetVal(0);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 }
 
@@ -20,7 +20,7 @@ void taskBlueLedwork(void) {
  name used when the task is created in the method just below.
  */
 /**************************************************************************/
-static portTASK_FUNCTION( TaskBlueLed, pvParameters) {
+static portTASK_FUNCTION(TaskBlueLed, pvParameters) {
 	(void) pvParameters; /* parameter not used */
 	// Do any required initialisation or 
 	// set up any hardware before the task
@@ -38,7 +38,6 @@ static portTASK_FUNCTION( TaskBlueLed, pvParameters) {
 //		vTaskDelay(100);  // Wait 100 ticks or 1 second
 	}
 }
-
 /**************************************************************************/
 /*! 
  Creates a new task for the FreeRTOS Kernel and add it to the
@@ -47,8 +46,8 @@ static portTASK_FUNCTION( TaskBlueLed, pvParameters) {
 /**************************************************************************/
 signed portBASE_TYPE taskBlueLedStart(void) {
 	xTaskHandle TaskBlueLedHandle = NULL;
-	return xTaskCreate(TaskBlueLed, /* pointer to the task */
-	(signed portCHAR *) "Task Blue Led", /* task name for kernel awareness debugging */
+	return FRTOS1_xTaskCreate(TaskBlueLed, /* pointer to the task */
+	(signed portCHAR *) "TaskBlueLed", /* task name for kernel awareness debugging */
 	configMINIMAL_STACK_SIZE, /* task stack size */
 	(void*) NULL, /* optional task startup argument */
 	tskIDLE_PRIORITY, /* initial priority */

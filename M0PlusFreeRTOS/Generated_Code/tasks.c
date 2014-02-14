@@ -73,7 +73,7 @@ task.h is included from an application file. */
 
 #include "Events.h"
 #if ( ( configUSE_TRACE_FACILITY == 1 ) && ( configUSE_STATS_FORMATTING_FUNCTIONS == 1 ) )
-#include "UTIL2.h" /* interface to utility because used for safe string routines */ /* << EST */
+#include "UTIL1.h" /* interface to utility because used for safe string routines */ /* << EST */
 #endif
 
 /* FreeRTOS includes. */
@@ -2822,16 +2822,16 @@ tskTCB *pxNewTCB;
 #if 0
                                 sprintf( ( char * ) pcWriteBuffer, ( char * ) "%s\t\t%c\t%u\t%u\t%u\r\n", pxTaskStatusArray[ x ].pcTaskName, cStatus, ( unsigned int ) pxTaskStatusArray[ x ].uxCurrentPriority, ( unsigned int ) pxTaskStatusArray[ x ].usStackHighWaterMark, ( unsigned int ) pxTaskStatusArray[ x ].xTaskNumber );
 #else /* << EST */
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)pxTaskStatusArray[ x ].pcTaskName);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
-              UTIL2_chcat(pcWriteBuffer, bufSize, (unsigned char)cStatus);
-              UTIL2_chcat(pcWriteBuffer, bufSize, (unsigned char)'\t');
-              UTIL2_strcatNum32u((unsigned char*)pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].uxCurrentPriority);
-              UTIL2_chcat(pcWriteBuffer, bufSize, (unsigned char)'\t');
-              UTIL2_strcatNum32u(pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].usStackHighWaterMark);
-              UTIL2_chcat(pcWriteBuffer, bufSize, (unsigned char)'\t');
-              UTIL2_strcatNum32u(pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].xTaskNumber);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\r\n");
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)pxTaskStatusArray[ x ].pcTaskName);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
+              UTIL1_chcat(pcWriteBuffer, bufSize, (unsigned char)cStatus);
+              UTIL1_chcat(pcWriteBuffer, bufSize, (unsigned char)'\t');
+              UTIL1_strcatNum32u((unsigned char*)pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].uxCurrentPriority);
+              UTIL1_chcat(pcWriteBuffer, bufSize, (unsigned char)'\t');
+              UTIL1_strcatNum32u(pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].usStackHighWaterMark);
+              UTIL1_chcat(pcWriteBuffer, bufSize, (unsigned char)'\t');
+              UTIL1_strcatNum32u(pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].xTaskNumber);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\r\n");
 #endif
                                 pcWriteBuffer += strlen( ( char * ) pcWriteBuffer );
                         }
@@ -2919,12 +2919,12 @@ tskTCB *pxNewTCB;
 #if 0
                                                         sprintf( ( char * ) pcWriteBuffer, ( char * ) "%s\t\t%u\t\t%u%%\r\n", pxTaskStatusArray[ x ].pcTaskName, ( unsigned int ) pxTaskStatusArray[ x ].ulRunTimeCounter, ( unsigned int ) ulStatsAsPercentage );
 #else /* << EST */
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)pxTaskStatusArray[ x ].pcTaskName);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
-              UTIL2_strcatNum32u((unsigned char*)pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].ulRunTimeCounter);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
-              UTIL2_strcatNum32u(pcWriteBuffer, bufSize, ulStatsAsPercentage);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"%\r\n");
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)pxTaskStatusArray[ x ].pcTaskName);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
+              UTIL1_strcatNum32u((unsigned char*)pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].ulRunTimeCounter);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
+              UTIL1_strcatNum32u(pcWriteBuffer, bufSize, ulStatsAsPercentage);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"%\r\n");
 #endif
                                                 }
                                                 #endif
@@ -2944,10 +2944,10 @@ tskTCB *pxNewTCB;
 #if 0
               sprintf( ( char * ) pcWriteBuffer, ( char * ) "%s\t\t%u\t\t<1%%\r\n", pxTaskStatusArray[ x ].pcTaskName, ( unsigned int ) pxTaskStatusArray[ x ].ulRunTimeCounter );
 #else /* << EST */
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)pxTaskStatusArray[ x ].pcTaskName);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
-              UTIL2_strcatNum32u((unsigned char*)pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].ulRunTimeCounter);
-              UTIL2_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t<1%\r\n");
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)pxTaskStatusArray[ x ].pcTaskName);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t");
+              UTIL1_strcatNum32u((unsigned char*)pcWriteBuffer, bufSize, pxTaskStatusArray[ x ].ulRunTimeCounter);
+              UTIL1_strcat(pcWriteBuffer, bufSize, (const unsigned char*)"\t\t<1%\r\n");
 #endif
                                                 }
                                                 #endif
