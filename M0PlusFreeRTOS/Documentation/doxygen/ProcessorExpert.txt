@@ -33,6 +33,7 @@
 - \subpage LedRed
 - \subpage AS1
 - \subpage TU1
+- \subpage I2C0
 
 
 */

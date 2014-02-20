@@ -413,7 +413,7 @@ PE_DEBUGHALT();
       <group name="Memory">
         <Memory_Allocation_Scheme v="Scheme 1" />
         <boolgroup name="User Heap Section" v="Disabled" />
-        <Total_Heap_Size v="750" />
+        <Total_Heap_Size v="5000" />
       </group>
       <boolgroup name="Command Interpreter" v="Disabled" />
       <boolgroup name="Shell" v="Disabled" />

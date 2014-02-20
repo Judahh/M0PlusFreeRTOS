@@ -18,6 +18,7 @@
 "./Generated_Code/LedRed.o"
 "./Generated_Code/LedGreen.o"
 "./Generated_Code/LedBlue.o"
+"./Generated_Code/I2C0.o"
 "./Generated_Code/FRTOS1.o"
 "./Generated_Code/Cpu.o"
 "./Generated_Code/AS1.o"

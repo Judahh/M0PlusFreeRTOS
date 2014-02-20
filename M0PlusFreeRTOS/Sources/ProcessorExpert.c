@@ -38,6 +38,7 @@
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
+#include "I2C0.h"
 #include "Tasks/TaskBlueLed.h"
 #include "Tasks/TaskGreenLed.h"
 #include "Tasks/TaskRedLed.h"
