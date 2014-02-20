@@ -27,6 +27,7 @@
 "./Sources/Tasks/TaskRedLed.o"
 "./Sources/Tasks/TaskGreenLed.o"
 "./Sources/Tasks/TaskBlueLed.o"
+"./Sources/Util/Accelerometer.o"
 "./Sources/sa_mtb.o"
 "./Sources/ProcessorExpert.o"
 "./Sources/Events.o"

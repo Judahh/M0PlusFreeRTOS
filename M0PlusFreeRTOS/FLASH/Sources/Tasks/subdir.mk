@@ -44,7 +44,7 @@ OBJS_OS_FORMAT += \
 # Each subdirectory must supply rules for building sources it contributes
 Sources/Tasks/TaskBlueLed.o: ../Sources/Tasks/TaskBlueLed.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #4 $<'
+	@echo 'Executing target #5 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskBlueLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskBlueLed.o"
 	@echo 'Finished building: $<'
@@ -52,7 +52,7 @@ Sources/Tasks/TaskBlueLed.o: ../Sources/Tasks/TaskBlueLed.c
 
 Sources/Tasks/TaskGreenLed.o: ../Sources/Tasks/TaskGreenLed.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #5 $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskGreenLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskGreenLed.o"
 	@echo 'Finished building: $<'
@@ -60,7 +60,7 @@ Sources/Tasks/TaskGreenLed.o: ../Sources/Tasks/TaskGreenLed.c
 
 Sources/Tasks/TaskRedLed.o: ../Sources/Tasks/TaskRedLed.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #6 $<'
+	@echo 'Executing target #7 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskRedLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskRedLed.o"
 	@echo 'Finished building: $<'

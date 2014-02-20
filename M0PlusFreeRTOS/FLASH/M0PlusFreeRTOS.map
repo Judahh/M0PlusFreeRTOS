@@ -699,6 +699,31 @@ Discarded input sections
  .bss           0x00000000        0x0 ./Sources/Tasks/TaskBlueLed.o
  .text.taskBlueLedStop
                 0x00000000        0xc ./Sources/Tasks/TaskBlueLed.o
+ .text          0x00000000        0x0 ./Sources/Util/Accelerometer.o
+ .data          0x00000000        0x0 ./Sources/Util/Accelerometer.o
+ .bss           0x00000000        0x0 ./Sources/Util/Accelerometer.o
+ .bss.deviceData
+                0x00000000        0x8 ./Sources/Util/Accelerometer.o
+ .text.MMA8451_ReadReg
+                0x00000000       0x9c ./Sources/Util/Accelerometer.o
+ .text.MMA8451_WriteReg
+                0x00000000       0x74 ./Sources/Util/Accelerometer.o
+ .bss.xyz       0x00000000        0x4 ./Sources/Util/Accelerometer.o
+ .text.accelerometerTestRun
+                0x00000000       0xc4 ./Sources/Util/Accelerometer.o
+ .debug_info    0x00000000      0x220 ./Sources/Util/Accelerometer.o
+ .debug_abbrev  0x00000000      0x100 ./Sources/Util/Accelerometer.o
+ .debug_loc     0x00000000       0xa8 ./Sources/Util/Accelerometer.o
+ .debug_aranges
+                0x00000000       0x30 ./Sources/Util/Accelerometer.o
+ .debug_macinfo
+                0x00000000    0x35014 ./Sources/Util/Accelerometer.o
+ .debug_line    0x00000000      0x454 ./Sources/Util/Accelerometer.o
+ .debug_str     0x00000000      0x22c ./Sources/Util/Accelerometer.o
+ .comment       0x00000000       0x7a ./Sources/Util/Accelerometer.o
+ .ARM.attributes
+                0x00000000       0x31 ./Sources/Util/Accelerometer.o
+ .debug_frame   0x00000000       0x70 ./Sources/Util/Accelerometer.o
  .text          0x00000000        0x0 ./Sources/sa_mtb.o
  .data          0x00000000        0x0 ./Sources/sa_mtb.o
  .bss           0x00000000        0x0 ./Sources/sa_mtb.o
@@ -885,6 +910,7 @@ LOAD ./Project_Settings/Startup_Code/__arm_end.o
 LOAD ./Sources/Tasks/TaskRedLed.o
 LOAD ./Sources/Tasks/TaskGreenLed.o
 LOAD ./Sources/Tasks/TaskBlueLed.o
+LOAD ./Sources/Util/Accelerometer.o
 LOAD ./Sources/sa_mtb.o
 LOAD ./Sources/ProcessorExpert.o
 LOAD ./Sources/Events.o

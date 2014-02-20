@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 32
+#Progress monitor hint: 33
 first : all
 -include ../makefile.init
 
@@ -15,6 +15,7 @@ RM := "$(GNU_Make_Install_DirEnv)/rm" -rf
 -include sources.mk
 -include subdir.mk
 -include Sources/subdir.mk
+-include Sources/Util/subdir.mk
 -include Sources/Tasks/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
 -include Generated_Code/subdir.mk
@@ -60,7 +61,7 @@ all: warning-messages explicit-dependencies M0PlusFreeRTOS.elf secondary-outputs
 # Tool invocations
 M0PlusFreeRTOS.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/ProcessorExpert.ld
 	@echo 'Building target: $@'
-	@echo 'Executing target #33 $@'
+	@echo 'Executing target #34 $@'
 	@echo 'Invoking: ARM Ltd Windows GCC C Linker'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED) @"M0PlusFreeRTOS.args" -o"M0PlusFreeRTOS.elf"
 	@echo 'Finished building target: $@'
