@@ -28,9 +28,9 @@
 
 \page page_components Components 
 
-- \subpage Bit1
-- \subpage Bit2
-- \subpage Bit3
+- \subpage LedBlue
+- \subpage LedGreen
+- \subpage LedRed
 - \subpage AS1
 - \subpage TU1
 

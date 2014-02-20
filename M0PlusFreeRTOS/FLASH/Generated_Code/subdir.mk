@@ -7,11 +7,11 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS_QUOTED += \
 "../Generated_Code/AS1.c" \
-"../Generated_Code/Bit1.c" \
-"../Generated_Code/Bit2.c" \
-"../Generated_Code/Bit3.c" \
 "../Generated_Code/Cpu.c" \
 "../Generated_Code/FRTOS1.c" \
+"../Generated_Code/LedBlue.c" \
+"../Generated_Code/LedGreen.c" \
+"../Generated_Code/LedRed.c" \
 "../Generated_Code/PE_LDD.c" \
 "../Generated_Code/TU1.c" \
 "../Generated_Code/UTIL1.c" \
@@ -31,11 +31,11 @@ C_SRCS_QUOTED += \
 
 C_SRCS += \
 ../Generated_Code/AS1.c \
-../Generated_Code/Bit1.c \
-../Generated_Code/Bit2.c \
-../Generated_Code/Bit3.c \
 ../Generated_Code/Cpu.c \
 ../Generated_Code/FRTOS1.c \
+../Generated_Code/LedBlue.c \
+../Generated_Code/LedGreen.c \
+../Generated_Code/LedRed.c \
 ../Generated_Code/PE_LDD.c \
 ../Generated_Code/TU1.c \
 ../Generated_Code/UTIL1.c \
@@ -64,11 +64,11 @@ S_DEPS_QUOTED += \
 
 OBJS += \
 ./Generated_Code/AS1.o \
-./Generated_Code/Bit1.o \
-./Generated_Code/Bit2.o \
-./Generated_Code/Bit3.o \
 ./Generated_Code/Cpu.o \
 ./Generated_Code/FRTOS1.o \
+./Generated_Code/LedBlue.o \
+./Generated_Code/LedGreen.o \
+./Generated_Code/LedRed.o \
 ./Generated_Code/PE_LDD.o \
 ./Generated_Code/TU1.o \
 ./Generated_Code/UTIL1.o \
@@ -89,11 +89,11 @@ OBJS += \
 
 C_DEPS += \
 ./Generated_Code/AS1.d \
-./Generated_Code/Bit1.d \
-./Generated_Code/Bit2.d \
-./Generated_Code/Bit3.d \
 ./Generated_Code/Cpu.d \
 ./Generated_Code/FRTOS1.d \
+./Generated_Code/LedBlue.d \
+./Generated_Code/LedGreen.d \
+./Generated_Code/LedRed.d \
 ./Generated_Code/PE_LDD.d \
 ./Generated_Code/TU1.d \
 ./Generated_Code/UTIL1.d \
@@ -116,11 +116,11 @@ S_DEPS += \
 
 OBJS_QUOTED += \
 "./Generated_Code/AS1.o" \
-"./Generated_Code/Bit1.o" \
-"./Generated_Code/Bit2.o" \
-"./Generated_Code/Bit3.o" \
 "./Generated_Code/Cpu.o" \
 "./Generated_Code/FRTOS1.o" \
+"./Generated_Code/LedBlue.o" \
+"./Generated_Code/LedGreen.o" \
+"./Generated_Code/LedRed.o" \
 "./Generated_Code/PE_LDD.o" \
 "./Generated_Code/TU1.o" \
 "./Generated_Code/UTIL1.o" \
@@ -141,11 +141,11 @@ OBJS_QUOTED += \
 
 C_DEPS_QUOTED += \
 "./Generated_Code/AS1.d" \
-"./Generated_Code/Bit1.d" \
-"./Generated_Code/Bit2.d" \
-"./Generated_Code/Bit3.d" \
 "./Generated_Code/Cpu.d" \
 "./Generated_Code/FRTOS1.d" \
+"./Generated_Code/LedBlue.d" \
+"./Generated_Code/LedGreen.d" \
+"./Generated_Code/LedRed.d" \
 "./Generated_Code/PE_LDD.d" \
 "./Generated_Code/TU1.d" \
 "./Generated_Code/UTIL1.d" \
@@ -165,11 +165,11 @@ C_DEPS_QUOTED += \
 
 OBJS_OS_FORMAT += \
 ./Generated_Code/AS1.o \
-./Generated_Code/Bit1.o \
-./Generated_Code/Bit2.o \
-./Generated_Code/Bit3.o \
 ./Generated_Code/Cpu.o \
 ./Generated_Code/FRTOS1.o \
+./Generated_Code/LedBlue.o \
+./Generated_Code/LedGreen.o \
+./Generated_Code/LedRed.o \
 ./Generated_Code/PE_LDD.o \
 ./Generated_Code/TU1.o \
 ./Generated_Code/UTIL1.o \
@@ -198,33 +198,9 @@ Generated_Code/AS1.o: ../Generated_Code/AS1.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/Bit1.o: ../Generated_Code/Bit1.c
-	@echo 'Building file: $<'
-	@echo 'Executing target #10 $<'
-	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/Bit1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/Bit1.o"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-Generated_Code/Bit2.o: ../Generated_Code/Bit2.c
-	@echo 'Building file: $<'
-	@echo 'Executing target #11 $<'
-	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/Bit2.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/Bit2.o"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-Generated_Code/Bit3.o: ../Generated_Code/Bit3.c
-	@echo 'Building file: $<'
-	@echo 'Executing target #12 $<'
-	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/Bit3.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/Bit3.o"
-	@echo 'Finished building: $<'
-	@echo ' '
-
 Generated_Code/Cpu.o: ../Generated_Code/Cpu.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #13 $<'
+	@echo 'Executing target #10 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/Cpu.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/Cpu.o"
 	@echo 'Finished building: $<'
@@ -232,9 +208,33 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c
 
 Generated_Code/FRTOS1.o: ../Generated_Code/FRTOS1.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #14 $<'
+	@echo 'Executing target #11 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/FRTOS1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/FRTOS1.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Generated_Code/LedBlue.o: ../Generated_Code/LedBlue.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #12 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/LedBlue.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/LedBlue.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Generated_Code/LedGreen.o: ../Generated_Code/LedGreen.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #13 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/LedGreen.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/LedGreen.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Generated_Code/LedRed.o: ../Generated_Code/LedRed.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #14 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/LedRed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/LedRed.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 

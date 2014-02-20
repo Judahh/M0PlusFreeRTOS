@@ -413,7 +413,7 @@ PE_DEBUGHALT();
       <group name="Memory">
         <Memory_Allocation_Scheme v="Scheme 1" />
         <boolgroup name="User Heap Section" v="Disabled" />
-        <Total_Heap_Size v="750" />
+        <Total_Heap_Size v="5000" />
       </group>
       <boolgroup name="Command Interpreter" v="Disabled" />
       <boolgroup name="Shell" v="Disabled" />
@@ -635,11 +635,11 @@ PE_DEBUGHALT();
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="Bit1" type="BitIO_LDD">
+  <Bean name="LedBlue" type="BitIO_LDD">
     <Enabled v="Y" />
     <Template v="FRBD_KL25Z_LEDRGB_BLUE" />
     <Properties>
-      <Component_name v="Bit1" />
+      <Component_name v="LedBlue" />
       <Pin_for_I_O v="ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1" />
       <Pin_signal v="" />
       <Direction v="Output" />
@@ -669,11 +669,11 @@ PE_DEBUGHALT();
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="Bit2" type="BitIO_LDD">
+  <Bean name="LedGreen" type="BitIO_LDD">
     <Enabled v="Y" />
     <Template v="FRBD_KL25Z_LEDRGB_GREEN" />
     <Properties>
-      <Component_name v="Bit2" />
+      <Component_name v="LedGreen" />
       <Pin_for_I_O v="TSI0_CH12/PTB19/TPM2_CH1" />
       <Pin_signal v="" />
       <Direction v="Output" />
@@ -703,11 +703,11 @@ PE_DEBUGHALT();
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="Bit3" type="BitIO_LDD">
+  <Bean name="LedRed" type="BitIO_LDD">
     <Enabled v="Y" />
     <Template v="FRBD_KL25Z_LEDRGB_RED" />
     <Properties>
-      <Component_name v="Bit3" />
+      <Component_name v="LedRed" />
       <Pin_for_I_O v="TSI0_CH11/PTB18/TPM2_CH0" />
       <Pin_signal v="" />
       <Direction v="Output" />

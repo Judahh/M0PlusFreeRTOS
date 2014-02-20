@@ -7,10 +7,10 @@
 #include "TaskRedLed.h"
 
 void taskRedLedwork(void) {
-	Bit3_NegVal(0);
-	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	Bit3_SetVal(0);
-	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
+	LedRed_NegVal(0);
+	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	LedRed_SetVal(0);
+	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/

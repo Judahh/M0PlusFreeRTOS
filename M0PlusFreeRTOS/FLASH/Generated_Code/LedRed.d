@@ -1,4 +1,4 @@
-Generated_Code/Bit2.o: ../Generated_Code/Bit2.c \
+Generated_Code/LedRed.o: ../Generated_Code/LedRed.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
@@ -17,7 +17,7 @@ Generated_Code/Bit2.o: ../Generated_Code/Bit2.c \
  ../Generated_Code/projdefs.h ../Generated_Code/FreeRTOSConfig.h \
  ../Generated_Code/portable.h ../Generated_Code/portmacro.h \
  ../Generated_Code/mpu_wrappers.h ../Generated_Code/task.h \
- ../Generated_Code/list.h ../Generated_Code/Bit2.h \
+ ../Generated_Code/list.h ../Generated_Code/LedRed.h \
  ../Generated_Code/PE_Types.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
@@ -72,7 +72,7 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
 
 ../Generated_Code/list.h:
 
-../Generated_Code/Bit2.h:
+../Generated_Code/LedRed.h:
 
 ../Generated_Code/PE_Types.h:
 

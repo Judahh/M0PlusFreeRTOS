@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-13, 19:50, # CodeGen: 14
+**     Date/Time   : 2014-02-20, 11:30, # CodeGen: 29
 **     Abstract    :
 **
 **     Settings    :
@@ -38,9 +38,9 @@
 #include "FRTOS1.h"
 #include "UTIL1.h"
 #include "UTIL2.h"
-#include "Bit1.h"
-#include "Bit2.h"
-#include "Bit3.h"
+#include "LedBlue.h"
+#include "LedGreen.h"
+#include "LedRed.h"
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
@@ -224,12 +224,12 @@ void PE_low_level_init(void)
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));                                   
   /* ### FreeRTOS "FRTOS1" init code ... */
   vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
-  /* ### BitIO_LDD "Bit1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)Bit1_Init(NULL);
-  /* ### BitIO_LDD "Bit2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)Bit2_Init(NULL);
-  /* ### BitIO_LDD "Bit3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)Bit3_Init(NULL);
+  /* ### BitIO_LDD "LedBlue" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)LedBlue_Init(NULL);
+  /* ### BitIO_LDD "LedGreen" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)LedGreen_Init(NULL);
+  /* ### BitIO_LDD "LedRed" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)LedRed_Init(NULL);
   /* ### Serial_LDD "AS1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)AS1_Init(NULL);
 }

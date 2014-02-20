@@ -32,9 +32,9 @@
 #include "FRTOS1.h"
 #include "UTIL1.h"
 #include "UTIL2.h"
-#include "Bit1.h"
-#include "Bit2.h"
-#include "Bit3.h"
+#include "LedBlue.h"
+#include "LedGreen.h"
+#include "LedRed.h"
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
@@ -52,19 +52,19 @@
 void setLed(int index) {
 	switch (index) {
 		case 1:
-			Bit2_NegVal(0);
-			Bit3_SetVal(0);
-			Bit1_SetVal(0);
+			LedGreen_NegVal(0);
+			LedRed_SetVal(0);
+			LedBlue_SetVal(0);
 		break;
 		case 2:
-			Bit3_NegVal(0);
-			Bit2_SetVal(0);
-			Bit1_SetVal(0);
+			LedRed_NegVal(0);
+			LedGreen_SetVal(0);
+			LedBlue_SetVal(0);
 		break;
 		default:
-			Bit1_NegVal(0);
-			Bit2_SetVal(0);
-			Bit3_SetVal(0);
+			LedBlue_NegVal(0);
+			LedGreen_SetVal(0);
+			LedRed_SetVal(0);
 		break;
 	}
 }
@@ -92,23 +92,22 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 		};
 	}
 
-//	if (taskBlueLedStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
+	if (taskBlueLedStart() != pdPASS ) {
+		for (;;) {
+		};
+	}
 
 	FRTOS1_vTaskStartScheduler();
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
-	/*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
-#ifdef PEX_RTOS_START
-	PEX_RTOS_START(); /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
-#endif
-	/*** End of RTOS startup code.  ***/
-	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-	for (;;) {
-	}
-	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+  /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
+  #ifdef PEX_RTOS_START
+    PEX_RTOS_START();                  /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
+  #endif
+  /*** End of RTOS startup code.  ***/
+  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+  for(;;){}
+  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END ProcessorExpert */

@@ -320,70 +320,70 @@ Module "UTIL2"     (component Utility)
    - UTIL2_strCutTail -Removes a tailing substring from a string. The string passed will be modified (the tail is cut by 
                 writing a zero byte to the string!)
 
-Module "Bit1"      (component FRBD_KL25Z_LEDRGB_BLUE)
-   - Bit1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+Module "LedBlue"   (component FRBD_KL25Z_LEDRGB_BLUE)
+   - LedBlue_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
                 interrupt priority, sets pin routing, sets timing, etc. If the "Enable in init. code" is set to "yes" value 
                 then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
                 is not necessary and needn't to be generated.
-   - Bit1_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
-                etc.
-   - Bit1_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
+   - LedBlue_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts 
+                vectors, etc.
+   - LedBlue_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
                 returned. If the direction is [output] then the last written value is read and returned (see <Safe mode> 
                 property for limitations). This method cannot be disabled if direction is [input].
-   - Bit1_PutVal -The specified output value is set. If the direction is <b>input</b>, the component saves the value to a 
+   - LedBlue_PutVal -The specified output value is set. If the direction is <b>input</b>, the component saves the value to a 
                 memory or a register and this value will be written to the pin after switching to the output mode (using 
                 <tt>SetDir(TRUE)</tt>; see <a href="BitIOProperties.html#SafeMode">Safe mode</a> property for limitations). If 
                 the direction is <b>output</b>, it writes the value to the pin. (Method is available only if the direction = 
                 <u><tt>output</tt></u> or <u><tt>input/output</tt></u>).
-   - Bit1_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available only 
-                if the direction = _[output]_ or _[input/output]_.
-   - Bit1_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if the 
-                direction = _[output]_ or _[input/output]_.
-   - Bit1_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
+   - LedBlue_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available 
+                only if the direction = _[output]_ or _[input/output]_.
+   - LedBlue_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if 
+                the direction = _[output]_ or _[input/output]_.
+   - LedBlue_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
                 only if the direction = _[output]_ or _[input/output]_.
 
-Module "Bit2"      (component FRBD_KL25Z_LEDRGB_GREEN)
-   - Bit2_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc. If the "Enable in init. code" is set to "yes" value 
-                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
-                is not necessary and needn't to be generated.
-   - Bit2_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
-                etc.
-   - Bit2_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
+Module "LedGreen"  (component FRBD_KL25Z_LEDRGB_GREEN)
+   - LedGreen_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and 
+                sets interrupt priority, sets pin routing, sets timing, etc. If the "Enable in init. code" is set to "yes" 
+                value then the device is also enabled(see the description of the Enable() method). In this case the Enable() 
+                method is not necessary and needn't to be generated.
+   - LedGreen_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts 
+                vectors, etc.
+   - LedGreen_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
                 returned. If the direction is [output] then the last written value is read and returned (see <Safe mode> 
                 property for limitations). This method cannot be disabled if direction is [input].
-   - Bit2_PutVal -The specified output value is set. If the direction is <b>input</b>, the component saves the value to a 
+   - LedGreen_PutVal -The specified output value is set. If the direction is <b>input</b>, the component saves the value to a 
                 memory or a register and this value will be written to the pin after switching to the output mode (using 
                 <tt>SetDir(TRUE)</tt>; see <a href="BitIOProperties.html#SafeMode">Safe mode</a> property for limitations). If 
                 the direction is <b>output</b>, it writes the value to the pin. (Method is available only if the direction = 
                 <u><tt>output</tt></u> or <u><tt>input/output</tt></u>).
-   - Bit2_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available only 
-                if the direction = _[output]_ or _[input/output]_.
-   - Bit2_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if the 
-                direction = _[output]_ or _[input/output]_.
-   - Bit2_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
+   - LedGreen_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available 
+                only if the direction = _[output]_ or _[input/output]_.
+   - LedGreen_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if 
+                the direction = _[output]_ or _[input/output]_.
+   - LedGreen_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
                 only if the direction = _[output]_ or _[input/output]_.
 
-Module "Bit3"      (component FRBD_KL25Z_LEDRGB_RED)
-   - Bit3_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+Module "LedRed"    (component FRBD_KL25Z_LEDRGB_RED)
+   - LedRed_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
                 interrupt priority, sets pin routing, sets timing, etc. If the "Enable in init. code" is set to "yes" value 
                 then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
                 is not necessary and needn't to be generated.
-   - Bit3_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
-                etc.
-   - Bit3_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
+   - LedRed_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts 
+                vectors, etc.
+   - LedRed_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
                 returned. If the direction is [output] then the last written value is read and returned (see <Safe mode> 
                 property for limitations). This method cannot be disabled if direction is [input].
-   - Bit3_PutVal -The specified output value is set. If the direction is <b>input</b>, the component saves the value to a 
+   - LedRed_PutVal -The specified output value is set. If the direction is <b>input</b>, the component saves the value to a 
                 memory or a register and this value will be written to the pin after switching to the output mode (using 
                 <tt>SetDir(TRUE)</tt>; see <a href="BitIOProperties.html#SafeMode">Safe mode</a> property for limitations). If 
                 the direction is <b>output</b>, it writes the value to the pin. (Method is available only if the direction = 
                 <u><tt>output</tt></u> or <u><tt>input/output</tt></u>).
-   - Bit3_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available only 
-                if the direction = _[output]_ or _[input/output]_.
-   - Bit3_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if the 
-                direction = _[output]_ or _[input/output]_.
-   - Bit3_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
+   - LedRed_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available 
+                only if the direction = _[output]_ or _[input/output]_.
+   - LedRed_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if 
+                the direction = _[output]_ or _[input/output]_.
+   - LedRed_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
                 only if the direction = _[output]_ or _[input/output]_.
 
 Module "AS1"       (component FRDM_KL25Z_UART)

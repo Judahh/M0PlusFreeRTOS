@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-13, 19:50, # CodeGen: 14
+**     Date/Time   : 2014-02-20, 11:30, # CodeGen: 29
 **     Abstract    :
 **
 **     Settings    :
@@ -38,9 +38,9 @@
 #include "FRTOS1.h"
 #include "UTIL1.h"
 #include "UTIL2.h"
-#include "Bit1.h"
-#include "Bit2.h"
-#include "Bit3.h"
+#include "LedBlue.h"
+#include "LedGreen.h"
+#include "LedRed.h"
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
