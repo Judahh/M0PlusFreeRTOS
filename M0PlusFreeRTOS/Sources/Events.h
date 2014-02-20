@@ -40,6 +40,7 @@
 #include "LedBlue.h"
 #include "LedGreen.h"
 #include "LedRed.h"
+#include "Util/Accelerometer.h"
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
