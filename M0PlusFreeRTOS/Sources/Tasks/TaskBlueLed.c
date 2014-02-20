@@ -6,7 +6,7 @@
  */
 #include "TaskBlueLed.h"
 
-void taskBlueLedwork(void) {
+void taskBlueLedWork(void) {
 	LedBlue_NegVal(0);
 	FRTOS1_vTaskDelay(1500 / portTICK_RATE_MS);
 	LedBlue_SetVal(0);
@@ -31,7 +31,7 @@ static portTASK_FUNCTION(TaskBlueLed, pvParameters) {
 	// The code within the for loop is your actual
 	// task that will continously execute
 	for (;;) {
-		taskBlueLedwork();
+		taskBlueLedWork();
 
 		// vTaskDelay will cause the task to be delayed for 
 		// a specified number of ticks

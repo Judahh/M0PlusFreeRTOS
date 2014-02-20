@@ -13,7 +13,7 @@
 #include "task.h"
 #include "LedRed.h"
 
-void taskRedLedwork(void);
+void taskRedLedWork(void);
 signed portBASE_TYPE taskRedLedStart(void);
 signed portBASE_TYPE taskRedLedStop(void);
 

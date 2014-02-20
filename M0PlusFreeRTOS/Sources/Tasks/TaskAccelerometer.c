@@ -1,16 +1,13 @@
 /*
- * TaskGreenLed.c
+ * TaskAccelerometer.c
  *
  *  Created on: Feb 6, 2014
  *      Author: JH
  */
-#include "TaskGreenLed.h"
+#include "TaskAccelerometer.h"
 
-void taskGreenLedWork(void) {
-	LedGreen_NegVal(0);
-	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	LedGreen_SetVal(0);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+void taskAccelerometerWork(void) {
+	accelerometerTestRun();
 }
 
 /**************************************************************************/
@@ -20,7 +17,7 @@ void taskGreenLedWork(void) {
  name used when the task is created in the method just below.
  */
 /**************************************************************************/
-static portTASK_FUNCTION(TaskGreenLed, pvParameters) {
+static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 	(void) pvParameters; /* parameter not used */
 	// Do any required initialisation or 
 	// set up any hardware before the task
@@ -31,28 +28,27 @@ static portTASK_FUNCTION(TaskGreenLed, pvParameters) {
 	// The code within the for loop is your actual
 	// task that will continously execute
 	for (;;) {
-		taskGreenLedWork();
+		taskAccelerometerWork();
 
 		// vTaskDelay will cause the task to be delayed for 
 		// a specified number of ticks
 //		vTaskDelay(100);  // Wait 100 ticks or 1 second
 	}
 }
-
 /**************************************************************************/
 /*! 
  Creates a new task for the FreeRTOS Kernel and add it to the
  scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskGreenLedStart(void) {
-	xTaskHandle TaskGreenLedHandle = NULL;
-	return FRTOS1_xTaskCreate(TaskGreenLed, /* pointer to the task */
-	(signed portCHAR *) "TaskGreenLed", /* task name for kernel awareness debugging */
+signed portBASE_TYPE taskAccelerometerStart(void) {
+	xTaskHandle TaskAccelerometerHandle = NULL;
+	return FRTOS1_xTaskCreate(TaskAccelerometer, /* pointer to the task */
+	(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
 	configMINIMAL_STACK_SIZE, /* task stack size */
 	(void*) NULL, /* optional task startup argument */
 	tskIDLE_PRIORITY, /* initial priority */
-	TaskGreenLedHandle);
+	TaskAccelerometerHandle);
 }
 
 /**************************************************************************/
@@ -60,7 +56,7 @@ signed portBASE_TYPE taskGreenLedStart(void) {
  Stops the task and deletes it from the task scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskGreenLedStop(void) {
+signed portBASE_TYPE taskAccelerometerStop(void) {
 //	if (!taskHandles[TASKHANDLE_TASK])
 //		return 0;
 //

@@ -11,10 +11,10 @@
 #include "FreeRTOS.h"
 #include "FRTOS1.h"
 #include "task.h"
-#include "LedBlue.h"
+#include "Util/Accelerometer.h"
 
-void taskBlueLedWork(void);
-signed portBASE_TYPE taskBlueLedStart(void);
-signed portBASE_TYPE taskBlueLedStop(void);
+void taskAccelerometerWork(void);
+signed portBASE_TYPE taskAccelerometerStart(void);
+signed portBASE_TYPE taskAccelerometerStop(void);
 
 #endif /* TASKBLUELED_H_ */

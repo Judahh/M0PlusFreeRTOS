@@ -13,7 +13,7 @@
 #include "task.h"
 #include "LedGreen.h"
 
-void taskGreenLedwork(void);
+void taskGreenLedWork(void);
 signed portBASE_TYPE taskGreenLedStart(void);
 signed portBASE_TYPE taskGreenLedStop(void);
 
