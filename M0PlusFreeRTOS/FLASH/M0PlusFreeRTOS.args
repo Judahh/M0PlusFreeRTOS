@@ -24,6 +24,7 @@
 "./Generated_Code/AS1.o"
 "./Project_Settings/Startup_Code/__arm_start.o"
 "./Project_Settings/Startup_Code/__arm_end.o"
+"./Sources/Tasks/TaskRotateLed.o"
 "./Sources/Tasks/TaskRedLed.o"
 "./Sources/Tasks/TaskGreenLed.o"
 "./Sources/Tasks/TaskBlueLed.o"

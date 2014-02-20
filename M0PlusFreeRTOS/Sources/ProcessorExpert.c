@@ -43,6 +43,7 @@
 #include "Tasks/TaskGreenLed.h"
 #include "Tasks/TaskRedLed.h"
 #include "Tasks/TaskAccelerometer.h"
+#include "Tasks/TaskRotateLed.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -50,26 +51,6 @@
 #include "IO_Map.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-
-void setLed(int index) {
-	switch (index) {
-		case 1:
-			LedGreen_NegVal(0);
-			LedRed_SetVal(0);
-			LedBlue_SetVal(0);
-		break;
-		case 2:
-			LedRed_NegVal(0);
-			LedGreen_SetVal(0);
-			LedBlue_SetVal(0);
-		break;
-		default:
-			LedBlue_NegVal(0);
-			LedGreen_SetVal(0);
-			LedRed_SetVal(0);
-		break;
-	}
-}
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
@@ -98,23 +79,34 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //		for (;;) {
 //		};
 //	}
-	
-	if (taskAccelerometerStart() != pdPASS ) {
-		for (;;) {
-		};
+//	
+//	if (taskAccelerometerStart() != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
+
+	uint8_t taskAccelerometerRes;
+	taskAccelerometerRes = accelerometerInit();
+	for (;;) {
+		accelerometerTestRun(taskAccelerometerRes);
 	}
+	
+//
+//	if (taskRotateLedStart() != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
 
 //	FRTOS1_vTaskStartScheduler();
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
-	/*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
-#ifdef PEX_RTOS_START
-	PEX_RTOS_START(); /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
-#endif
-	/*** End of RTOS startup code.  ***/
-	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-	for (;;) {
-	}
-	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+  /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
+  #ifdef PEX_RTOS_START
+    PEX_RTOS_START();                  /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
+  #endif
+  /*** End of RTOS startup code.  ***/
+  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+  for(;;){}
+  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END ProcessorExpert */

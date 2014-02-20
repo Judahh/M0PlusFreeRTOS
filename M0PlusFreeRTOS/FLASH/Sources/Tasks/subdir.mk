@@ -10,42 +10,49 @@ C_SRCS_QUOTED += \
 "../Sources/Tasks/TaskBlueLed.c" \
 "../Sources/Tasks/TaskGreenLed.c" \
 "../Sources/Tasks/TaskRedLed.c" \
+"../Sources/Tasks/TaskRotateLed.c" \
 
 C_SRCS += \
 ../Sources/Tasks/TaskAccelerometer.c \
 ../Sources/Tasks/TaskBlueLed.c \
 ../Sources/Tasks/TaskGreenLed.c \
 ../Sources/Tasks/TaskRedLed.c \
+../Sources/Tasks/TaskRotateLed.c \
 
 OBJS += \
 ./Sources/Tasks/TaskAccelerometer.o \
 ./Sources/Tasks/TaskBlueLed.o \
 ./Sources/Tasks/TaskGreenLed.o \
 ./Sources/Tasks/TaskRedLed.o \
+./Sources/Tasks/TaskRotateLed.o \
 
 C_DEPS += \
 ./Sources/Tasks/TaskAccelerometer.d \
 ./Sources/Tasks/TaskBlueLed.d \
 ./Sources/Tasks/TaskGreenLed.d \
 ./Sources/Tasks/TaskRedLed.d \
+./Sources/Tasks/TaskRotateLed.d \
 
 OBJS_QUOTED += \
 "./Sources/Tasks/TaskAccelerometer.o" \
 "./Sources/Tasks/TaskBlueLed.o" \
 "./Sources/Tasks/TaskGreenLed.o" \
 "./Sources/Tasks/TaskRedLed.o" \
+"./Sources/Tasks/TaskRotateLed.o" \
 
 C_DEPS_QUOTED += \
 "./Sources/Tasks/TaskAccelerometer.d" \
 "./Sources/Tasks/TaskBlueLed.d" \
 "./Sources/Tasks/TaskGreenLed.d" \
 "./Sources/Tasks/TaskRedLed.d" \
+"./Sources/Tasks/TaskRotateLed.d" \
 
 OBJS_OS_FORMAT += \
 ./Sources/Tasks/TaskAccelerometer.o \
 ./Sources/Tasks/TaskBlueLed.o \
 ./Sources/Tasks/TaskGreenLed.o \
 ./Sources/Tasks/TaskRedLed.o \
+./Sources/Tasks/TaskRotateLed.o \
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -78,6 +85,14 @@ Sources/Tasks/TaskRedLed.o: ../Sources/Tasks/TaskRedLed.c
 	@echo 'Executing target #9 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskRedLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskRedLed.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/Tasks/TaskRotateLed.o: ../Sources/Tasks/TaskRotateLed.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #10 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskRotateLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskRotateLed.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 

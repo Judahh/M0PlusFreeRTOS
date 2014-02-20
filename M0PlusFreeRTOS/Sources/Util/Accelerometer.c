@@ -62,38 +62,32 @@ uint8_t MMA8451_WriteReg(uint8_t addr, uint8_t val) {
 }
 
 uint8_t accelerometerInit(void) {
-	uint8_t res;
-
-//	LedBlue_NegVal(0);
-//	LedRed_NegVal(0);
-//	LedGreen_NegVal(0);
 	deviceData.handle = I2C0_Init(&deviceData);
 
 	/* F_READ: Fast read mode, data format limited to single byte (auto increment counter will skip LSB)
 	 * ACTIVE: Full scale selection
 	 */
-	res = MMA8451_WriteReg(MMA8451_CTRL_REG_1, MMA8451_F_READ_BIT_MASK | MMA8451_ACTIVE_BIT_MASK);
 
-	return res;
+	return MMA8451_WriteReg(MMA8451_CTRL_REG_1, MMA8451_F_READ_BIT_MASK | MMA8451_ACTIVE_BIT_MASK);
 }
 
 void accelerometerDeinit(void) {
 	I2C0_Deinit(deviceData.handle);
-	LedBlue_SetVal(0);
-	LedRed_SetVal(0);
-	LedGreen_SetVal(0);
+	LedRed_PutVal(0, 1);
+	LedGreen_PutVal(0, 1);
+	LedBlue_PutVal(0, 1);
 }
 
 static int8_t xyz[3];
 
 void accelerometerTestRun(uint8_t res) {
 
-	if (res == ERR_OK) {
-		res = MMA8451_ReadReg(MMA8451_OUT_X_MSB, (uint8_t*) &xyz, 3);
+//	if (res == ERR_OK) {
+	res = MMA8451_ReadReg(MMA8451_OUT_X_MSB, (uint8_t*) &xyz, 3);
 
-		LedBlue_PutVal(0, xyz[0] > 50);
-		LedRed_PutVal(0, xyz[1] > 50);
-		LedGreen_PutVal(0, xyz[2] > 50);
-	}
+	LedBlue_PutVal(0, xyz[0] > 50);
+	LedRed_PutVal(0, xyz[1] > 50);
+	LedGreen_PutVal(0, xyz[2] > 50);
+//	}
 
 }
