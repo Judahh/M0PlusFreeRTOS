@@ -62,10 +62,15 @@ Generated_Code/AS1.o: ../Generated_Code/AS1.c \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h \
+ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AS1.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT1.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/UART0_PDD.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
@@ -206,6 +211,12 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h:
 
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h:
+
+C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
+
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AS1.h:
@@ -213,5 +224,9 @@ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AS1.h:
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT1.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/UART0_PDD.h:

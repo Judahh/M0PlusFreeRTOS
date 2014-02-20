@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 11:37, # CodeGen: 31
+**     Date/Time   : 2014-02-20, 16:43, # CodeGen: 36
 **     Abstract    :
 **
 **     Settings    :
@@ -39,6 +39,8 @@
   #include "WAIT1.h"
   #include "TU1.h"
   #include "I2C0.h"
+  #include "AD0.h"
+  #include "AdcLdd1.h"
   #include "Events.h"
 
 
@@ -89,7 +91,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1C  0x00000070   -   ivINT_UART0                   unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1D  0x00000074   -   ivINT_UART1                   unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1E  0x00000078   -   ivINT_UART2                   unused by PE */
-    (tIsrFunc)&Cpu_Interrupt,          /* 0x1F  0x0000007C   -   ivINT_ADC0                    unused by PE */
+    (tIsrFunc)&AdcLdd1_MeasurementCompleteInterrupt, /* 0x1F  0x0000007C   2   ivINT_ADC0                    used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x20  0x00000080   -   ivINT_CMP0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x21  0x00000084   -   ivINT_TPM0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x22  0x00000088   -   ivINT_TPM1                    unused by PE */

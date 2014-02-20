@@ -253,6 +253,43 @@ void I2C0_OnMasterBlockReceived(LDD_TUserData *UserDataPtr) {
 	ptr->dataReceivedFlg = TRUE;
 }
 
+/*
+ ** ===================================================================
+ **     Event       :  AD0_OnEnd (module Events)
+ **
+ **     Component   :  AD0 [ADC]
+ **     Description :
+ **         This event is called after the measurement (which consists
+ **         of <1 or more conversions>) is/are finished.
+ **         The event is available only when the <Interrupt
+ **         service/event> property is enabled.
+ **     Parameters  : None
+ **     Returns     : Nothing
+ ** ===================================================================
+ */
+void AD0_OnEnd(void) {
+	extern volatile bool AD_finished;
+	AD_finished = TRUE;
+}
+
+/*
+ ** ===================================================================
+ **     Event       :  AD0_OnCalibrationEnd (module Events)
+ **
+ **     Component   :  AD0 [ADC]
+ **     Description :
+ **         This event is called when the calibration has been finished.
+ **         User should check if the calibration pass or fail by
+ **         Calibration status method./nThis event is enabled only if
+ **         the <Interrupt service/event> property is enabled.
+ **     Parameters  : None
+ **     Returns     : Nothing
+ ** ===================================================================
+ */
+void AD0_OnCalibrationEnd(void) {
+	/* Write your code here ... */
+}
+
 /* END Events */
 
 #ifdef __cplusplus

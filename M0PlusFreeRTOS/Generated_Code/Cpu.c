@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 11:37, # CodeGen: 31
+**     Date/Time   : 2014-02-20, 16:43, # CodeGen: 36
 **     Abstract    :
 **
 **     Settings    :
@@ -45,6 +45,8 @@
 #include "WAIT1.h"
 #include "TU1.h"
 #include "I2C0.h"
+#include "AD0.h"
+#include "AdcLdd1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -234,6 +236,8 @@ void PE_low_level_init(void)
   (void)LedRed_Init(NULL);
   /* ### Serial_LDD "AS1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)AS1_Init(NULL);
+  /* ### ADC "AD0" init code ... */
+  AD0_Init();
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

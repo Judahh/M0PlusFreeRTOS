@@ -60,10 +60,15 @@ Generated_Code/TU1.o: ../Generated_Code/TU1.c \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h \
+ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AS1.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT1.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h \
  ../Generated_Code/TU1.h ../Generated_Code/FreeRTOS.h \
  ../Generated_Code/IO_Map.h
 
@@ -189,6 +194,12 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h:
 
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h:
+
+C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
+
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AS1.h:
@@ -196,6 +207,10 @@ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AS1.h:
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT1.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h:
 
 ../Generated_Code/TU1.h:
 

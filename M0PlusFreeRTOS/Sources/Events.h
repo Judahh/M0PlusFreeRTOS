@@ -45,6 +45,8 @@
 #include "WAIT1.h"
 #include "TU1.h"
 #include "I2C0.h"
+#include "AD0.h"
+#include "AdcLdd1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -225,6 +227,38 @@ void I2C0_OnMasterBlockSent(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 void I2C0_OnMasterBlockReceived(LDD_TUserData *UserDataPtr);
+
+void AD0_OnEnd(void);
+/*
+** ===================================================================
+**     Event       :  AD0_OnEnd (module Events)
+**
+**     Component   :  AD0 [ADC]
+**     Description :
+**         This event is called after the measurement (which consists
+**         of <1 or more conversions>) is/are finished.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void AD0_OnCalibrationEnd(void);
+/*
+** ===================================================================
+**     Event       :  AD0_OnCalibrationEnd (module Events)
+**
+**     Component   :  AD0 [ADC]
+**     Description :
+**         This event is called when the calibration has been finished.
+**         User should check if the calibration pass or fail by
+**         Calibration status method./nThis event is enabled only if
+**         the <Interrupt service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
 
 /* END Events */
 
