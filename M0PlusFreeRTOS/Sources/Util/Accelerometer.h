@@ -22,6 +22,9 @@ typedef struct {
 }AccelerometerTDataState;
 
 /* \brief Run the demo application */
-void accelerometerTestRun(void);
+uint8_t accelerometerInit(void);
+void accelerometerDeinit(void);
+void accelerometerTestRun(uint8_t res);
+
 
 #endif /* ACCELEROMETER_H_ */

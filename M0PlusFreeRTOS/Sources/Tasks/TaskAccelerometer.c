@@ -5,10 +5,13 @@
  *      Author: JH
  */
 #include "TaskAccelerometer.h"
+static uint8_t taskAccelerometerRes;
 
 void taskAccelerometerWork(void) {
-	accelerometerTestRun();
+	accelerometerTestRun(taskAccelerometerRes);
 }
+
+
 
 /**************************************************************************/
 /*! 
@@ -27,6 +30,7 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 
 	// The code within the for loop is your actual
 	// task that will continously execute
+	taskAccelerometerRes=accelerometerInit();
 	for (;;) {
 		taskAccelerometerWork();
 
@@ -57,6 +61,7 @@ signed portBASE_TYPE taskAccelerometerStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStop(void) {
+	accelerometerDeinit();
 //	if (!taskHandles[TASKHANDLE_TASK])
 //		return 0;
 //
