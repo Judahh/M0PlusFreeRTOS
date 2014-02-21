@@ -6,7 +6,7 @@
 **     Component   : FreeRTOS
 **     Version     : Component 01.335, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 11:31, # CodeGen: 30
+**     Date/Time   : 2014-02-20, 19:31, # CodeGen: 40
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -38,7 +38,7 @@
 **            Use Co-Routines                              : yes
 **            Idle should yield                            : yes
 **            Task Name Length                             : 25
-**            Minimal Stack Size                           : 40
+**            Minimal Stack Size                           : 100
 **            Maximum Priorities                           : 5
 **            Maximum Coroutine Priorities                 : 5
 **            Stackoverflow checking method                : Method 1

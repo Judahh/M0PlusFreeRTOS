@@ -315,8 +315,8 @@ PE_DEBUGHALT();
         <Add_startup_file v="no" />
       </group>
       <boolgroup name="Generate linker file" v="yes">
-        <Stack_size v="4096" />
-        <Heap_size v="4096" />
+        <Stack_size v="32" />
+        <Heap_size v="0" />
         <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
         <Default_memory_for_interrupts v="INTERNAL FLASH" />
         <Default_memory_for_code v="INTERNAL FLASH" />
@@ -388,7 +388,7 @@ PE_DEBUGHALT();
         <Use_Co_Routines v="yes" />
         <Idle_should_yield v="yes" />
         <Task_Name_Length v="25" />
-        <Minimal_Stack_Size v="40" />
+        <Minimal_Stack_Size v="100" />
         <Maximum_Priorities v="5" />
         <Maximum_Coroutine_Priorities v="5" />
         <Stackoverflow_checking_method v="Method 1" />

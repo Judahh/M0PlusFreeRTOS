@@ -54,6 +54,15 @@ EXECUTABLES_QUOTED += \
 EXECUTABLES_OS_FORMAT += \
 M0PlusFreeRTOS.elf \
 
+SECONDARY_SIZE += \
+M0PlusFreeRTOS.siz \
+
+SECONDARY_SIZE_QUOTED += \
+"M0PlusFreeRTOS.siz" \
+
+SECONDARY_SIZE_OS_FORMAT += \
+M0PlusFreeRTOS.siz \
+
 
 # All Target
 all: warning-messages explicit-dependencies M0PlusFreeRTOS.elf secondary-outputs
@@ -67,19 +76,26 @@ M0PlusFreeRTOS.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/Proces
 	@echo 'Finished building target: $@'
 	@echo ' '
 
+M0PlusFreeRTOS.siz: M0PlusFreeRTOS.elf
+	@echo 'Executing target #40 $@'
+	@echo 'Invoking: ARM Ltd Windows GNU Print Size'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-size"  --format=berkeley M0PlusFreeRTOS.elf
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) "./*/*.d"  "./*/*.o" "./*/*/*.o"  $(S_UPPER_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(SX_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/M0PlusFreeRTOS.elf
+	-$(RM) "./*/*.d"  "./*/*.o" "./*/*/*.o"  $(S_UPPER_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(SECONDARY_SIZE_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(SX_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/M0PlusFreeRTOS.elf
 	-@echo ' '
 
-secondary-outputs:
+secondary-outputs: $(SECONDARY_SIZE)
 
 .PHONY: all clean dependents explicit-dependencies warning-messages
 .SECONDARY:
 
 -include ../makefile.targets
 
-explicit-dependencies: ../Project_Settings/Linker_Files/ProcessorExpert.ld 
+explicit-dependencies: ../Project_Settings/Linker_Files/ProcessorExpert.ld M0PlusFreeRTOS.elf 
 
 warning-messages: 
 

@@ -26,13 +26,6 @@ OBJS += \
 ./Sources/Tasks/TaskRedLed.o \
 ./Sources/Tasks/TaskRotateLed.o \
 
-C_DEPS += \
-./Sources/Tasks/TaskAccelerometer.d \
-./Sources/Tasks/TaskBlueLed.d \
-./Sources/Tasks/TaskGreenLed.d \
-./Sources/Tasks/TaskRedLed.d \
-./Sources/Tasks/TaskRotateLed.d \
-
 OBJS_QUOTED += \
 "./Sources/Tasks/TaskAccelerometer.o" \
 "./Sources/Tasks/TaskBlueLed.o" \
@@ -40,12 +33,12 @@ OBJS_QUOTED += \
 "./Sources/Tasks/TaskRedLed.o" \
 "./Sources/Tasks/TaskRotateLed.o" \
 
-C_DEPS_QUOTED += \
-"./Sources/Tasks/TaskAccelerometer.d" \
-"./Sources/Tasks/TaskBlueLed.d" \
-"./Sources/Tasks/TaskGreenLed.d" \
-"./Sources/Tasks/TaskRedLed.d" \
-"./Sources/Tasks/TaskRotateLed.d" \
+C_DEPS += \
+./Sources/Tasks/TaskAccelerometer.d \
+./Sources/Tasks/TaskBlueLed.d \
+./Sources/Tasks/TaskGreenLed.d \
+./Sources/Tasks/TaskRedLed.d \
+./Sources/Tasks/TaskRotateLed.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/Tasks/TaskAccelerometer.o \
@@ -53,6 +46,13 @@ OBJS_OS_FORMAT += \
 ./Sources/Tasks/TaskGreenLed.o \
 ./Sources/Tasks/TaskRedLed.o \
 ./Sources/Tasks/TaskRotateLed.o \
+
+C_DEPS_QUOTED += \
+"./Sources/Tasks/TaskAccelerometer.d" \
+"./Sources/Tasks/TaskBlueLed.d" \
+"./Sources/Tasks/TaskGreenLed.d" \
+"./Sources/Tasks/TaskRedLed.d" \
+"./Sources/Tasks/TaskRotateLed.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

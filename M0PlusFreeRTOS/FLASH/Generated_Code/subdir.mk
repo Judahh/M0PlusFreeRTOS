@@ -96,33 +96,6 @@ OBJS += \
 ./Generated_Code/tasks.o \
 ./Generated_Code/timers.o \
 
-C_DEPS += \
-./Generated_Code/AD0.d \
-./Generated_Code/AS1.d \
-./Generated_Code/AdcLdd1.d \
-./Generated_Code/Cpu.d \
-./Generated_Code/FRTOS1.d \
-./Generated_Code/I2C0.d \
-./Generated_Code/LedBlue.d \
-./Generated_Code/LedGreen.d \
-./Generated_Code/LedRed.d \
-./Generated_Code/PE_LDD.d \
-./Generated_Code/TU1.d \
-./Generated_Code/UTIL1.d \
-./Generated_Code/UTIL2.d \
-./Generated_Code/Vectors.d \
-./Generated_Code/WAIT1.d \
-./Generated_Code/croutine.d \
-./Generated_Code/heap_1.d \
-./Generated_Code/heap_2.d \
-./Generated_Code/heap_3.d \
-./Generated_Code/heap_4.d \
-./Generated_Code/list.d \
-./Generated_Code/port.d \
-./Generated_Code/queue.d \
-./Generated_Code/tasks.d \
-./Generated_Code/timers.d \
-
 S_DEPS += \
 ./Generated_Code/portasm.d \
 
@@ -154,32 +127,32 @@ OBJS_QUOTED += \
 "./Generated_Code/tasks.o" \
 "./Generated_Code/timers.o" \
 
-C_DEPS_QUOTED += \
-"./Generated_Code/AD0.d" \
-"./Generated_Code/AS1.d" \
-"./Generated_Code/AdcLdd1.d" \
-"./Generated_Code/Cpu.d" \
-"./Generated_Code/FRTOS1.d" \
-"./Generated_Code/I2C0.d" \
-"./Generated_Code/LedBlue.d" \
-"./Generated_Code/LedGreen.d" \
-"./Generated_Code/LedRed.d" \
-"./Generated_Code/PE_LDD.d" \
-"./Generated_Code/TU1.d" \
-"./Generated_Code/UTIL1.d" \
-"./Generated_Code/UTIL2.d" \
-"./Generated_Code/Vectors.d" \
-"./Generated_Code/WAIT1.d" \
-"./Generated_Code/croutine.d" \
-"./Generated_Code/heap_1.d" \
-"./Generated_Code/heap_2.d" \
-"./Generated_Code/heap_3.d" \
-"./Generated_Code/heap_4.d" \
-"./Generated_Code/list.d" \
-"./Generated_Code/port.d" \
-"./Generated_Code/queue.d" \
-"./Generated_Code/tasks.d" \
-"./Generated_Code/timers.d" \
+C_DEPS += \
+./Generated_Code/AD0.d \
+./Generated_Code/AS1.d \
+./Generated_Code/AdcLdd1.d \
+./Generated_Code/Cpu.d \
+./Generated_Code/FRTOS1.d \
+./Generated_Code/I2C0.d \
+./Generated_Code/LedBlue.d \
+./Generated_Code/LedGreen.d \
+./Generated_Code/LedRed.d \
+./Generated_Code/PE_LDD.d \
+./Generated_Code/TU1.d \
+./Generated_Code/UTIL1.d \
+./Generated_Code/UTIL2.d \
+./Generated_Code/Vectors.d \
+./Generated_Code/WAIT1.d \
+./Generated_Code/croutine.d \
+./Generated_Code/heap_1.d \
+./Generated_Code/heap_2.d \
+./Generated_Code/heap_3.d \
+./Generated_Code/heap_4.d \
+./Generated_Code/list.d \
+./Generated_Code/port.d \
+./Generated_Code/queue.d \
+./Generated_Code/tasks.d \
+./Generated_Code/timers.d \
 
 OBJS_OS_FORMAT += \
 ./Generated_Code/AD0.o \
@@ -208,6 +181,33 @@ OBJS_OS_FORMAT += \
 ./Generated_Code/queue.o \
 ./Generated_Code/tasks.o \
 ./Generated_Code/timers.o \
+
+C_DEPS_QUOTED += \
+"./Generated_Code/AD0.d" \
+"./Generated_Code/AS1.d" \
+"./Generated_Code/AdcLdd1.d" \
+"./Generated_Code/Cpu.d" \
+"./Generated_Code/FRTOS1.d" \
+"./Generated_Code/I2C0.d" \
+"./Generated_Code/LedBlue.d" \
+"./Generated_Code/LedGreen.d" \
+"./Generated_Code/LedRed.d" \
+"./Generated_Code/PE_LDD.d" \
+"./Generated_Code/TU1.d" \
+"./Generated_Code/UTIL1.d" \
+"./Generated_Code/UTIL2.d" \
+"./Generated_Code/Vectors.d" \
+"./Generated_Code/WAIT1.d" \
+"./Generated_Code/croutine.d" \
+"./Generated_Code/heap_1.d" \
+"./Generated_Code/heap_2.d" \
+"./Generated_Code/heap_3.d" \
+"./Generated_Code/heap_4.d" \
+"./Generated_Code/list.d" \
+"./Generated_Code/port.d" \
+"./Generated_Code/queue.d" \
+"./Generated_Code/tasks.d" \
+"./Generated_Code/timers.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

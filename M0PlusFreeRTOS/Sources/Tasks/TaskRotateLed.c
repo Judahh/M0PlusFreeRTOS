@@ -9,7 +9,7 @@ static uint8_t color;
 void taskRotateLedWork(void) {
 	setLed(color);
 	color++;
-	if (color>8){
+	if (color>7){
 		color=0;
 	}
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);

@@ -269,7 +269,7 @@ void I2C0_OnMasterBlockReceived(LDD_TUserData *UserDataPtr) {
  */
 void AD0_OnEnd(void) {
 	extern volatile bool AD_finished;
-	AD_finished = TRUE;
+//	AD_finished = TRUE;
 }
 
 /*

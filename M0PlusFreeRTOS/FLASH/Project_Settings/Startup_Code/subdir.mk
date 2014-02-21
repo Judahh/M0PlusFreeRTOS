@@ -17,21 +17,21 @@ OBJS += \
 ./Project_Settings/Startup_Code/__arm_end.o \
 ./Project_Settings/Startup_Code/__arm_start.o \
 
-C_DEPS += \
-./Project_Settings/Startup_Code/__arm_end.d \
-./Project_Settings/Startup_Code/__arm_start.d \
-
 OBJS_QUOTED += \
 "./Project_Settings/Startup_Code/__arm_end.o" \
 "./Project_Settings/Startup_Code/__arm_start.o" \
 
-C_DEPS_QUOTED += \
-"./Project_Settings/Startup_Code/__arm_end.d" \
-"./Project_Settings/Startup_Code/__arm_start.d" \
+C_DEPS += \
+./Project_Settings/Startup_Code/__arm_end.d \
+./Project_Settings/Startup_Code/__arm_start.d \
 
 OBJS_OS_FORMAT += \
 ./Project_Settings/Startup_Code/__arm_end.o \
 ./Project_Settings/Startup_Code/__arm_start.o \
+
+C_DEPS_QUOTED += \
+"./Project_Settings/Startup_Code/__arm_end.d" \
+"./Project_Settings/Startup_Code/__arm_start.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

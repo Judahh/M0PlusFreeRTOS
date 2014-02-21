@@ -20,25 +20,25 @@ OBJS += \
 ./Sources/ProcessorExpert.o \
 ./Sources/sa_mtb.o \
 
-C_DEPS += \
-./Sources/Events.d \
-./Sources/ProcessorExpert.d \
-./Sources/sa_mtb.d \
-
 OBJS_QUOTED += \
 "./Sources/Events.o" \
 "./Sources/ProcessorExpert.o" \
 "./Sources/sa_mtb.o" \
 
-C_DEPS_QUOTED += \
-"./Sources/Events.d" \
-"./Sources/ProcessorExpert.d" \
-"./Sources/sa_mtb.d" \
+C_DEPS += \
+./Sources/Events.d \
+./Sources/ProcessorExpert.d \
+./Sources/sa_mtb.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/Events.o \
 ./Sources/ProcessorExpert.o \
 ./Sources/sa_mtb.o \
+
+C_DEPS_QUOTED += \
+"./Sources/Events.d" \
+"./Sources/ProcessorExpert.d" \
+"./Sources/sa_mtb.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

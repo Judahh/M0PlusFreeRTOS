@@ -17,21 +17,21 @@ OBJS += \
 ./Sources/Util/Accelerometer.o \
 ./Sources/Util/Led.o \
 
-C_DEPS += \
-./Sources/Util/Accelerometer.d \
-./Sources/Util/Led.d \
-
 OBJS_QUOTED += \
 "./Sources/Util/Accelerometer.o" \
 "./Sources/Util/Led.o" \
 
-C_DEPS_QUOTED += \
-"./Sources/Util/Accelerometer.d" \
-"./Sources/Util/Led.d" \
+C_DEPS += \
+./Sources/Util/Accelerometer.d \
+./Sources/Util/Led.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/Util/Accelerometer.o \
 ./Sources/Util/Led.o \
+
+C_DEPS_QUOTED += \
+"./Sources/Util/Accelerometer.d" \
+"./Sources/Util/Led.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes
