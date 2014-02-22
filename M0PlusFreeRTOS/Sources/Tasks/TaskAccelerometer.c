@@ -5,13 +5,18 @@
  *      Author: JH
  */
 #include "TaskAccelerometer.h"
-static uint8_t taskAccelerometerRes;
+//static uint8_t taskAccelerometerRes;
 
 void taskAccelerometerWork(void) {
-	accelerometerTestRun(taskAccelerometerRes);
+//	accelerometerTestRun(taskAccelerometerRes);
+	int16_t x = MMA1_GetX() / 163.84;
+	int16_t y = MMA1_GetY() / 163.84;
+	int16_t z = MMA1_GetZ() / 163.84;
+
+	LedRed_PutVal(0, x < 75);
+	LedGreen_PutVal(0, y < 75);
+	LedBlue_PutVal(0, z < 75);
 }
-
-
 
 /**************************************************************************/
 /*! 
@@ -30,7 +35,9 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 
 	// The code within the for loop is your actual
 	// task that will continously execute
-	taskAccelerometerRes=accelerometerInit();
+
+//	taskAccelerometerRes = accelerometerInit();
+	MMA1_Init();
 	for (;;) {
 		taskAccelerometerWork();
 
@@ -48,11 +55,11 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 signed portBASE_TYPE taskAccelerometerStart(void) {
 	xTaskHandle TaskAccelerometerHandle = NULL;
 	return FRTOS1_xTaskCreate(TaskAccelerometer, /* pointer to the task */
-	(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
-	configMINIMAL_STACK_SIZE, /* task stack size */
-	(void*) NULL, /* optional task startup argument */
-	tskIDLE_PRIORITY, /* initial priority */
-	TaskAccelerometerHandle);
+			(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
+			configMINIMAL_STACK_SIZE, /* task stack size */
+			(void*) NULL, /* optional task startup argument */
+			tskIDLE_PRIORITY, /* initial priority */
+			TaskAccelerometerHandle);
 }
 
 /**************************************************************************/
@@ -61,7 +68,8 @@ signed portBASE_TYPE taskAccelerometerStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStop(void) {
-	accelerometerDeinit();
+//	accelerometerDeinit();
+	MMA1_Deinit();
 //	if (!taskHandles[TASKHANDLE_TASK])
 //		return 0;
 //

@@ -36,9 +36,10 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/AS1.h ../Generated_Code/WAIT1.h \
  ../Generated_Code/TU1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.h \
- ../Generated_Code/I2C0.h ../Generated_Code/AD0.h \
- ../Generated_Code/AdcLdd1.h \
- C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h
+ ../Generated_Code/I2C1.h ../Generated_Code/I2C0.h \
+ ../Generated_Code/AD0.h ../Generated_Code/AdcLdd1.h \
+ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
+ ../Generated_Code/MMA1.h ../Generated_Code/GI2C1.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -136,6 +137,8 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.h:
 
+../Generated_Code/I2C1.h:
+
 ../Generated_Code/I2C0.h:
 
 ../Generated_Code/AD0.h:
@@ -143,3 +146,7 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/SysTick_PDD.
 ../Generated_Code/AdcLdd1.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
+
+../Generated_Code/MMA1.h:
+
+../Generated_Code/GI2C1.h:

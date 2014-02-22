@@ -6,7 +6,7 @@
 **     Component   : ADC_LDD
 **     Version     : Component 01.182, Driver 01.08, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 16:43, # CodeGen: 36
+**     Date/Time   : 2014-02-21, 10:26, # CodeGen: 45
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -18,11 +18,36 @@
 **            A/D interrupt                                : INT_ADC0
 **            A/D interrupt priority                       : medium priority
 **          DMA                                            : Disabled
-**          A/D channel list                               : 1
+**          A/D channel list                               : 6
 **            Channel 0                                    : 
 **              Channel mode                               : Single Ended
 **                Input                                    : 
 **                  A/D channel (pin)                      : ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0
+**                  A/D channel (pin) signal               : 
+**            Channel 1                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1
+**                  A/D channel (pin) signal               : 
+**            Channel 2                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : ADC0_SE12/TSI0_CH7/PTB2/I2C0_SCL/TPM2_CH0
+**                  A/D channel (pin) signal               : 
+**            Channel 3                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1
+**                  A/D channel (pin) signal               : 
+**            Channel 4                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : ADC0_SE11/TSI0_CH15/PTC2/I2C1_SDA/TPM0_CH1
+**                  A/D channel (pin) signal               : 
+**            Channel 5                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/RTC_CLKIN/I2C1_SCL/TPM0_CH0
 **                  A/D channel (pin) signal               : 
 **          Static sample groups                           : Disabled
 **          A/D resolution                                 : Autoselect
@@ -31,12 +56,12 @@
 **          Asynchro clock output                          : Disabled
 **          Sample time                                    : 4 clock periods
 **          Number of conversions                          : 1
-**          Conversion time                                : 9.615385 µs
-**          ADC clock                                      : 2.621 MHz (381.47 ns)
-**          Single conversion time - Single-ended          : 11.682 us
-**          Single conversion time - Differential          : 15.115 us
-**          Additional conversion time - Single-ended      : 9.536 us
-**          Additional conversion time - Differential      : 12.969 us
+**          Conversion time                                : 19.230769 µs
+**          ADC clock                                      : 1.31 MHz (762.939 ns)
+**          Single conversion time - Single-ended          : 23.126 us
+**          Single conversion time - Differential          : 29.993 us
+**          Additional conversion time - Single-ended      : 19.073 us
+**          Additional conversion time - Differential      : 25.939 us
 **          Result type                                    : unsigned 16 bits, right justified
 **          Trigger                                        : Disabled
 **          Voltage reference                              : 
@@ -144,7 +169,7 @@ extern "C" {
 
 /* This constant contains the number of channels in the "A/D channel list"
    group */
-#define AdcLdd1_CHANNEL_COUNT           1u
+#define AdcLdd1_CHANNEL_COUNT           6u
 
 /* This constant can be used in the sample array to create a gap in sample group.
    It is intended to disable a measurement of a sample */

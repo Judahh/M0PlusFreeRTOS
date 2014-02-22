@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 16:43, # CodeGen: 36
+**     Date/Time   : 2014-02-21, 22:12, # CodeGen: 53
 **     Abstract    :
 **
 **     Settings    :
@@ -44,9 +44,12 @@
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
+#include "I2C1.h"
 #include "I2C0.h"
 #include "AD0.h"
 #include "AdcLdd1.h"
+#include "MMA1.h"
+#include "GI2C1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -112,9 +115,10 @@ void __init_hardware(void)
   /* System clock initialization */
   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTB=1,PORTA=1 */
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
                SIM_SCGC5_PORTD_MASK |
+               SIM_SCGC5_PORTC_MASK |
                SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
@@ -238,6 +242,10 @@ void PE_low_level_init(void)
   (void)AS1_Init(NULL);
   /* ### ADC "AD0" init code ... */
   AD0_Init();
+  /* ### GenericI2C "GI2C1" init code ... */
+  GI2C1_Init();
+  /* ### MMA8451Q "MMA1" init code ... */
+  /* Write code here ... */
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

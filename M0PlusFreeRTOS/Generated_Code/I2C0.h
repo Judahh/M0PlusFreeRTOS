@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 16:17, # CodeGen: 33
+**     Date/Time   : 2014-02-21, 23:08, # CodeGen: 54
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -34,7 +34,7 @@
 **            Mode selection                               : MASTER
 **            MASTER mode                                  : Enabled
 **              Initialization                             : 
-**                Address mode                             : 7-bit addressing
+**                Address mode                             : 10-bit addressing
 **                Target slave address init                : 1D
 **            SLAVE mode                                   : Disabled
 **            Pins                                         : 
@@ -86,6 +86,7 @@
 **         Deinit             - void I2C0_Deinit(LDD_TDeviceData *DeviceDataPtr);
 **         MasterSendBlock    - LDD_TError I2C0_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
 **         MasterReceiveBlock - LDD_TError I2C0_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
+**         SelectSlaveDevice  - LDD_TError I2C0_SelectSlaveDevice(LDD_TDeviceData *DeviceDataPtr,...
 **
 **     Copyright : 1997 - 2013 Freescale Semiconductor, Inc. All Rights Reserved.
 **     SOURCE DISTRIBUTION PERMISSIBLE as directed in End User License Agreement.
@@ -146,6 +147,7 @@ extern "C" {
 #define I2C0_Deinit_METHOD_ENABLED     /*!< Deinit method of the component I2C0 is enabled (generated) */
 #define I2C0_MasterSendBlock_METHOD_ENABLED /*!< MasterSendBlock method of the component I2C0 is enabled (generated) */
 #define I2C0_MasterReceiveBlock_METHOD_ENABLED /*!< MasterReceiveBlock method of the component I2C0 is enabled (generated) */
+#define I2C0_SelectSlaveDevice_METHOD_ENABLED /*!< SelectSlaveDevice method of the component I2C0 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
 #define I2C0_OnMasterBlockSent_EVENT_ENABLED /*!< OnMasterBlockSent event of the component I2C0 is enabled (generated) */
@@ -290,6 +292,41 @@ LDD_TError I2C0_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buffe
 */
 /* ===================================================================*/
 LDD_TError I2C0_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *BufferPtr, LDD_I2C_TSize Size, LDD_I2C_TSendStop SendStop);
+
+/*
+** ===================================================================
+**     Method      :  I2C0_SelectSlaveDevice (component I2C_LDD)
+*/
+/*!
+**     @brief
+**         This method selects a new slave for communication by its
+**         7-bit slave, 10-bit address or general call value. Any send
+**         or receive method directs to or from selected device, until
+**         a new slave device is selected by this method. This method
+**         is available for the MASTER mode.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by <Init> method.
+**     @param
+**         AddrType        - Specify type of slave address
+**                           (7bit, 10bit or general call address), e.g.
+**                           LDD_I2C_ADDRTYPE_7BITS.
+**     @param
+**         Addr            - 7bit or 10bit slave address value.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_BUSY - The device is busy, wait until
+**                           the current operation is finished.
+**                           ERR_DISABLED -  The device is disabled.
+**                           ERR_SPEED - This device does not work in
+**                           the active clock configuration
+**                           ERR_PARAM_ADDRESS_TYPE -  Invalid address
+**                           type.
+**                           ERR_PARAM_ADDRESS -  Invalid address value.
+*/
+/* ===================================================================*/
+LDD_TError I2C0_SelectSlaveDevice(LDD_TDeviceData *DeviceDataPtr, LDD_I2C_TAddrType AddrType, LDD_I2C_TAddr Addr);
 
 /*
 ** ===================================================================

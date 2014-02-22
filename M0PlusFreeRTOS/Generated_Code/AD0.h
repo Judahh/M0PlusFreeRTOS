@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.688, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-20, 16:43, # CodeGen: 36
+**     Date/Time   : 2014-02-21, 10:26, # CodeGen: 45
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -18,13 +18,33 @@
 **          Interrupt service/event                        : Enabled
 **            A/D interrupt                                : INT_ADC0
 **            A/D interrupt priority                       : medium priority
-**          A/D channels                                   : 1
+**          A/D channels                                   : 6
 **            Channel0                                     : 
 **              A/D channel (pin)                          : ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0
 **              A/D channel (pin) signal                   : 
 **              Mode select                                : Single Ended
+**            Channel1                                     : 
+**              A/D channel (pin)                          : ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1
+**              A/D channel (pin) signal                   : 
+**              Mode select                                : Single Ended
+**            Channel2                                     : 
+**              A/D channel (pin)                          : ADC0_SE12/TSI0_CH7/PTB2/I2C0_SCL/TPM2_CH0
+**              A/D channel (pin) signal                   : 
+**              Mode select                                : Single Ended
+**            Channel3                                     : 
+**              A/D channel (pin)                          : ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1
+**              A/D channel (pin) signal                   : 
+**              Mode select                                : Single Ended
+**            Channel4                                     : 
+**              A/D channel (pin)                          : ADC0_SE11/TSI0_CH15/PTC2/I2C1_SDA/TPM0_CH1
+**              A/D channel (pin) signal                   : 
+**              Mode select                                : Single Ended
+**            Channel5                                     : 
+**              A/D channel (pin)                          : ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/RTC_CLKIN/I2C1_SCL/TPM0_CH0
+**              A/D channel (pin) signal                   : 
+**              Mode select                                : Single Ended
 **          A/D resolution                                 : Autoselect
-**          Conversion time                                : 9.615385 µs
+**          Conversion time                                : 19.230769 µs
 **          Low-power mode                                 : Disabled
 **          High-speed conversion mode                     : Disabled
 **          Asynchro clock output                          : Disabled
@@ -90,7 +110,7 @@ extern "C" {
 
 
 
-#define AD0_SAMPLE_GROUP_SIZE 1U
+#define AD0_SAMPLE_GROUP_SIZE 6U
 void AD0_HWEnDi(void);
 /*
 ** ===================================================================

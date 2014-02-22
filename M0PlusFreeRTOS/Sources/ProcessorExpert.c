@@ -38,13 +38,17 @@
 #include "AS1.h"
 #include "WAIT1.h"
 #include "TU1.h"
+#include "I2C1.h"
 #include "I2C0.h"
 #include "AD0.h"
 #include "AdcLdd1.h"
+#include "MMA1.h"
+#include "GI2C1.h"
 #include "Tasks/TaskBlueLed.h"
 #include "Tasks/TaskGreenLed.h"
 #include "Tasks/TaskRedLed.h"
 #include "Tasks/TaskAccelerometer.h"
+#include "Tasks/TaskGyroscope.h"
 #include "Tasks/TaskRotateLed.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
@@ -53,7 +57,7 @@
 #include "IO_Map.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-//static uint16_t value;
+static uint16_t value;
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	/* Write your local variable definition here */
@@ -87,6 +91,11 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 		for (;;) {
 		};
 	}
+//
+//	if (taskGyroscopeStart() != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
 //	
 //
 //	uint8_t taskAccelerometerRes;
@@ -96,7 +105,7 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	}
 //	
 //	for (;;) {
-//		(void) AD0_Measure(TRUE); /* do conversion and wait for the result */
+//		(void) AD0_Measure(FALSE); /* do conversion and wait for the result */
 //		(void) AD0_GetValue16(&value); /* get the result into value variable */
 //	}
 //	

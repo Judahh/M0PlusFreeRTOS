@@ -85,9 +85,9 @@ void accelerometerTestRun(uint8_t res) {
 //	if (res == ERR_OK) {
 	res = MMA8451_ReadReg(MMA8451_OUT_X_MSB, (uint8_t*) &xyz, 3);
 
-	LedBlue_PutVal(0, xyz[0] < 50);
-	LedRed_PutVal(0, xyz[1] < 50);
-	LedGreen_PutVal(0, xyz[2] < 50);
+	LedBlue_PutVal(0, xyz[0] < 25);
+	LedRed_PutVal(0, xyz[1] < 25);
+	LedGreen_PutVal(0, xyz[2] < 25);
 //	}
 
 }
