@@ -6,24 +6,24 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.158, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-13, 19:50, # CodeGen: 14
+**     Date/Time   : 2014-02-28, 00:02, # CodeGen: 61
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
 **     Settings    :
 **          Component name                                 : TU1
-**          Module name                                    : SysTick
-**          Counter                                        : SYST_CVR
-**          Counter direction                              : Down
-**          Counter width                                  : 24 bits
+**          Module name                                    : TPM0
+**          Counter                                        : TPM0_CNT
+**          Counter direction                              : Up
+**          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
 **          Input clock source                             : Internal
 **            Counter frequency                            : 20.97152 MHz
 **          Counter restart                                : On-match
-**            Period device                                : SYST_RVR
-**            Period                                       : 10 ms
+**            Period device                                : TPM0_MOD
+**            Period                                       : 0.095367 µs
 **            Interrupt                                    : Enabled
-**              Interrupt                                  : INT_SysTick
+**              Interrupt                                  : INT_TPM0
 **              Interrupt priority                         : medium priority
 **          Channel list                                   : 0
 **          Initialization                                 : 
@@ -82,6 +82,7 @@ extern "C" {
 
 
 typedef struct {
+  LDD_TEventMask EnEvents;             /* Enable/Disable events mask */
   LDD_TUserData *UserDataPtr;          /* RTOS device data structure */
 } TU1_TDeviceData;
 
@@ -90,7 +91,7 @@ typedef TU1_TDeviceData *TU1_TDeviceDataPtr; /* Pointer to the device data struc
 /* {FreeRTOS RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static TU1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 /* {FreeRTOS RTOS Adapter} Global variable used for passing a parameter into ISR */
-static TU1_TDeviceDataPtr INT_SysTick__BAREBOARD_RTOS_ISRPARAM;
+static TU1_TDeviceDataPtr INT_TPM0__BAREBOARD_RTOS_ISRPARAM;
 
 #define AVAILABLE_EVENTS_MASK (LDD_TEventMask)(LDD_TIMERUNIT_ON_COUNTER_RESTART)
 
@@ -128,23 +129,38 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   /* Interrupt vector(s) allocation */
   /* {FreeRTOS RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_SysTick__BAREBOARD_RTOS_ISRPARAM = DeviceDataPrv;
-  /* SYST_CSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COUNTFLAG=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CLKSOURCE=0,TICKINT=0,ENABLE=0 */
-  SYST_CSR = 0x00U;                    /* Clear control register */
-  /* SYST_RVR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,RELOAD=0x00033332 */
-  SYST_RVR = SysTick_RVR_RELOAD(0x00033332); /* Setup reload value */
-  /* SYST_CVR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CURRENT=0 */
-  SYST_CVR = SysTick_CVR_CURRENT(0x00); /* Clear current value */
-  /* SCB_SHPR3: PRI_15=0x80 */
-  SCB_SHPR3 = (uint32_t)((SCB_SHPR3 & (uint32_t)~(uint32_t)(
-               SCB_SHPR3_PRI_15(0x7F)
+  INT_TPM0__BAREBOARD_RTOS_ISRPARAM = DeviceDataPrv;
+  /* SIM_SCGC6: TPM0=1 */
+  SIM_SCGC6 |= SIM_SCGC6_TPM0_MASK;                                   
+  /* TPM0_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=0,CPWMS=0,CMOD=0,PS=0 */
+  TPM0_SC = (TPM_SC_CMOD(0x00) | TPM_SC_PS(0x00)); /* Clear status and control register */
+  /* TPM0_CNT: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COUNT=0 */
+  TPM0_CNT = TPM_CNT_COUNT(0x00);      /* Reset counter register */
+  /* TPM0_C0SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM0_C0SC = 0x00U;                   /* Clear channel status and control register */
+  /* TPM0_C1SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM0_C1SC = 0x00U;                   /* Clear channel status and control register */
+  /* TPM0_C2SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM0_C2SC = 0x00U;                   /* Clear channel status and control register */
+  /* TPM0_C3SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM0_C3SC = 0x00U;                   /* Clear channel status and control register */
+  /* TPM0_C4SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM0_C4SC = 0x00U;                   /* Clear channel status and control register */
+  /* TPM0_C5SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM0_C5SC = 0x00U;                   /* Clear channel status and control register */
+  /* TPM0_MOD: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,MOD=1 */
+  TPM0_MOD = TPM_MOD_MOD(0x01);        /* Set up modulo register */
+  DeviceDataPrv->EnEvents = 0x0100U;   /* Enable selected events */
+  /* NVIC_IPR4: PRI_17=0x80 */
+  NVIC_IPR4 = (uint32_t)((NVIC_IPR4 & (uint32_t)~(uint32_t)(
+               NVIC_IP_PRI_17(0x7F)
               )) | (uint32_t)(
-               SCB_SHPR3_PRI_15(0x80)
+               NVIC_IP_PRI_17(0x80)
               ));                                  
-  /* SYST_CSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COUNTFLAG=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CLKSOURCE=1,TICKINT=1,ENABLE=1 */
-  SYST_CSR = SysTick_CSR_CLKSOURCE_MASK |
-             SysTick_CSR_TICKINT_MASK |
-             SysTick_CSR_ENABLE_MASK;  /* Set up control register */
+  /* NVIC_ISER: SETENA|=0x00020000 */
+  NVIC_ISER |= NVIC_ISER_SETENA(0x00020000);                                   
+  /* TPM0_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=1,CPWMS=0,CMOD=1,PS=0 */
+  TPM0_SC = (TPM_SC_TOIE_MASK | TPM_SC_CMOD(0x01) | TPM_SC_PS(0x00)); /* Set up status and control register */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TU1_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
@@ -163,10 +179,18 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
 PE_ISR(TU1_Interrupt)
 {
   /* {FreeRTOS RTOS Adapter} ISR parameter is passed through the global variable */
-  TU1_TDeviceDataPtr DeviceDataPrv = INT_SysTick__BAREBOARD_RTOS_ISRPARAM;
+  TU1_TDeviceDataPtr DeviceDataPrv = INT_TPM0__BAREBOARD_RTOS_ISRPARAM;
 
-  SysTick_PDD_ClearInterruptFlag(SysTick_BASE_PTR); /* Clear interrupt flag */
-  TU1_OnCounterRestart(DeviceDataPrv->UserDataPtr); /* Invoke OnCounterRestart event */
+  LDD_TEventMask State = 0U;
+
+  if ((TPM_PDD_GetOverflowInterruptFlag(TPM0_BASE_PTR)) != 0U) { /* Is the overflow interrupt flag pending? */
+    State |= LDD_TIMERUNIT_ON_COUNTER_RESTART; /* and set mask */
+  }
+  State &= DeviceDataPrv->EnEvents;    /* Handle only enabled interrupts */
+  if (State & LDD_TIMERUNIT_ON_COUNTER_RESTART) { /* Is the overflow interrupt flag pending? */
+    TPM_PDD_ClearOverflowInterruptFlag(TPM0_BASE_PTR); /* Clear flag */
+    TU1_OnCounterRestart(DeviceDataPrv->UserDataPtr); /* Invoke OnCounterRestart event */
+  }
 }
 
 /* END TU1. */

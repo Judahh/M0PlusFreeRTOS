@@ -386,29 +386,6 @@ Module "LedRed"    (component FRBD_KL25Z_LEDRGB_RED)
    - LedRed_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
                 only if the direction = _[output]_ or _[input/output]_.
 
-Module "AS1"       (component FRDM_KL25Z_UART)
-   - AS1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc. If the "Enable in init. code" is set to "yes" value 
-                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
-                is not necessary and needn't to be generated.
-   - AS1_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors, 
-                etc.
-   - AS1_SendBlock -Sends a block of characters. The method returns ERR_BUSY when the previous block transmission is not 
-                completed. Method <CancelBlockTransmission> can be used to cancel a transmit operation. This method is 
-                available only if the transmitter property is enabled.
-   - AS1_ReceiveBlock -Specifies the number of data to receive. The method returns ERR_BUSY until the specified number of 
-                characters is received. Method <CancelBlockReception> can be used to cancel a running receive operation.
-   - AS1_GetSentDataNum -Returns the number of sent characters.
-   - AS1_GetReceivedDataNum -Returns the number of received characters in the receive buffer.
-   - AS1_GetTxCompleteStatus -Returns whether the transmitter has transmitted all characters and there are no other characters 
-                in the transmitter's HW FIFO or the shift register. The status flag is accumulated, after calling this method 
-                the status is returned and cleared (set to "false" state). This method is available only if a peripheral 
-                supports this feature.
-   - AS1_Main -This method is available only in the polling mode (Interrupt service/event = 'no'). If interrupt service is 
-                disabled this method replaces the interrupt handler. This method should be called if Receive/SendBlock was 
-                invoked before in order to run the reception/transmission. The end of the receiving/transmitting is indicated 
-                by OnBlockSent or OnBlockReceived event.
-
 Module "WAIT1"     (component Wait)
    - WAIT1_Wait10Cycles -Wait for 10 CPU cycles.
    - WAIT1_Wait100Cycles -Wait for 100 CPU cycles.
@@ -539,6 +516,8 @@ Module "GI2C1"     (component GenericI2C)
    - GI2C1_Deinit -Deinitializes the driver.
    - GI2C1_ScanDevice -Checks if a device responds on the bus with an ACK.
    - GI2C1_Init -Initializes the driver.
+
+Module "CsIO1"     (component ConsoleIO)
 
 Module "Cpu"       (component MKL25Z128LK4)
 

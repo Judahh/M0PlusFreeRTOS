@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 43
+#Progress monitor hint: 49
 first : all
 -include ../makefile.init
 
@@ -70,14 +70,14 @@ all: warning-messages explicit-dependencies M0PlusFreeRTOS.elf secondary-outputs
 # Tool invocations
 M0PlusFreeRTOS.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/ProcessorExpert.ld
 	@echo 'Building target: $@'
-	@echo 'Executing target #44 $@'
+	@echo 'Executing target #50 $@'
 	@echo 'Invoking: ARM Ltd Windows GCC C Linker'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED) @"M0PlusFreeRTOS.args" -o"M0PlusFreeRTOS.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 M0PlusFreeRTOS.siz: M0PlusFreeRTOS.elf
-	@echo 'Executing target #45 $@'
+	@echo 'Executing target #51 $@'
 	@echo 'Invoking: ARM Ltd Windows GNU Print Size'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-size"  --format=berkeley M0PlusFreeRTOS.elf
 	@echo 'Finished building: $@'

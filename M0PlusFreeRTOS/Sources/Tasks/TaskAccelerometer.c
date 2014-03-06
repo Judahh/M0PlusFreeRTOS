@@ -9,13 +9,13 @@
 
 void taskAccelerometerWork(void) {
 //	accelerometerTestRun(taskAccelerometerRes);
-	int16_t x = MMA1_GetX() / 163.84;
-	int16_t y = MMA1_GetY() / 163.84;
-	int16_t z = MMA1_GetZ() / 163.84;
+	int16_t x = MMA1_GetX() / 327.67;
+	int16_t y = MMA1_GetY() / 327.67;
+	int16_t z = MMA1_GetZ() / 327.67;
 
-	LedRed_PutVal(0, x < 75);
-	LedGreen_PutVal(0, y < 75);
-	LedBlue_PutVal(0, z < 75);
+	LedRed_PutVal(0, x < 25);
+	LedGreen_PutVal(0, y < 25);
+	LedBlue_PutVal(0, z < 25);
 }
 
 /**************************************************************************/

@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-22, 00:06, # CodeGen: 57
+**     Date/Time   : 2014-02-22, 11:56, # CodeGen: 60
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -34,16 +34,16 @@
 **            Mode selection                               : MASTER
 **            MASTER mode                                  : Enabled
 **              Initialization                             : 
-**                Address mode                             : 7-bit addressing
+**                Address mode                             : 10-bit addressing
 **                Target slave address init                : 6A
 **            SLAVE mode                                   : Disabled
 **            Pins                                         : 
 **              SDA pin                                    : 
 **                SDA pin                                  : PTE0/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA
-**                SDA pin signal                           : 
+**                SDA pin signal                           : I2C1_SDA
 **              SCL pin                                    : 
 **                SCL pin                                  : PTE1/SPI1_MOSI/UART1_RX/SPI1_MISO/I2C1_SCL
-**                SCL pin signal                           : 
+**                SCL pin signal                           : I2C1_SCL
 **              High drive select                          : Disabled
 **              Input Glitch filter                        : 0
 **            Internal frequency (multiplier factor)       : 20.97152 MHz

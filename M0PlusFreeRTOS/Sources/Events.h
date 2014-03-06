@@ -42,7 +42,7 @@
 #include "LedRed.h"
 #include "Util/Accelerometer.h"
 #include "Util/Gyroscope.h"
-#include "AS1.h"
+#include "Util/UART.h"
 #include "WAIT1.h"
 #include "TU1.h"
 #include "I2C1.h"
@@ -51,6 +51,8 @@
 #include "AdcLdd1.h"
 #include "MMA1.h"
 #include "GI2C1.h"
+#include "CsIO1.h"
+#include "IO1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -89,28 +91,6 @@ void Cpu_OnNMIINT(void);
 */
 /* ===================================================================*/
 void AS1_OnBlockSent(LDD_TUserData *UserDataPtr);
-
-/*
-** ===================================================================
-**     Event       :  AS1_OnTxComplete (module Events)
-**
-**     Component   :  AS1 [Serial_LDD]
-*/
-/*!
-**     @brief
-**         This event indicates that the transmitter is finished
-**         transmitting all data, preamble, and break characters and is
-**         idle. It can be used to determine when it is safe to switch
-**         a line driver (e.g. in RS-485 applications).
-**         The event is available only when both <Interrupt
-**         service/event> and <Transmitter> properties are enabled.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-*/
-/* ===================================================================*/
-void AS1_OnTxComplete(LDD_TUserData *UserDataPtr);
 
 void FRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *pcTaskName);
 /*
@@ -263,6 +243,24 @@ void I2C1_OnMasterBlockSent(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Event       :  AS1_OnBlockReceived (module Events)
+**
+**     Component   :  AS1 [Serial_LDD]
+*/
+/*!
+**     @brief
+**         This event is called when the requested number of data is
+**         moved to the input buffer.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. This pointer is passed
+**                           as the parameter of Init method.
+*/
+/* ===================================================================*/
+void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr);
 
 /* END Events */
 

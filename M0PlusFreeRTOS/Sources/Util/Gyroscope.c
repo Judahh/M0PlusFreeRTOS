@@ -8,7 +8,7 @@
 #include "Gyroscope.h"
 
 /* External 3-axis gyroscope control register addresses */
-#define L3GD20_CTRL_REG_1 0x2A
+#define L3GD20_CTRL_REG_1 0x2F
 /* L3GD20 3-axis gyroscope control register bit masks */
 #define L3GD20_ACTIVE_BIT_MASK 0x01
 #define L3GD20_F_READ_BIT_MASK 0x02

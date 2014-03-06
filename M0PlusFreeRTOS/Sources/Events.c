@@ -70,31 +70,8 @@ void Cpu_OnNMIINT(void) {
  */
 /* ===================================================================*/
 void AS1_OnBlockSent(LDD_TUserData *UserDataPtr) {
-	/* Write your code here ... */
-}
-
-/*
- ** ===================================================================
- **     Event       :  AS1_OnTxComplete (module Events)
- **
- **     Component   :  AS1 [Serial_LDD]
- */
-/*!
- **     @brief
- **         This event indicates that the transmitter is finished
- **         transmitting all data, preamble, and break characters and is
- **         idle. It can be used to determine when it is safe to switch
- **         a line driver (e.g. in RS-485 applications).
- **         The event is available only when both <Interrupt
- **         service/event> and <Transmitter> properties are enabled.
- **     @param
- **         UserDataPtr     - Pointer to the user or
- **                           RTOS specific data. This pointer is passed
- **                           as the parameter of Init method.
- */
-/* ===================================================================*/
-void AS1_OnTxComplete(LDD_TUserData *UserDataPtr) {
-	/* Write your code here ... */
+	UART_Description *ptr = (UART_Description*) UserDataPtr;
+	ptr->isSent = TRUE; /* set flag so sender knows we have finished */
 }
 
 /*
@@ -229,7 +206,6 @@ void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr) {
 //	AccelerometerTDataState *ptr = (AccelerometerTDataState*) UserDataPtr;
 //	ptr->dataTransmittedFlg = TRUE;
 //}
-
 /*
  ** ===================================================================
  **     Event       :  I2C0_OnMasterBlockReceived (module Events)
@@ -252,7 +228,6 @@ void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr) {
 //	AccelerometerTDataState *ptr = (AccelerometerTDataState*) UserDataPtr;
 //	ptr->dataReceivedFlg = TRUE;
 //}
-
 /*
  ** ===================================================================
  **     Event       :  AD0_OnEnd (module Events)
@@ -334,6 +309,29 @@ void I2C1_OnMasterBlockSent(LDD_TUserData *UserDataPtr) {
 void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr) {
 	GyroscopeTDataState *ptr = (GyroscopeTDataState*) UserDataPtr;
 	ptr->dataReceivedFlg = TRUE;
+}
+
+/*
+ ** ===================================================================
+ **     Event       :  AS1_OnBlockReceived (module Events)
+ **
+ **     Component   :  AS1 [Serial_LDD]
+ */
+/*!
+ **     @brief
+ **         This event is called when the requested number of data is
+ **         moved to the input buffer.
+ **     @param
+ **         UserDataPtr     - Pointer to the user or
+ **                           RTOS specific data. This pointer is passed
+ **                           as the parameter of Init method.
+ */
+/* ===================================================================*/
+void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr) {
+	UART_Description *ptr = (UART_Description*) UserDataPtr;
+
+	(void) ptr->rxPutFct(ptr->rxChar); /* but received character into buffer */
+	(void) AS1_ReceiveBlock(ptr->handle, (LDD_TData *) &ptr->rxChar, sizeof(ptr->rxChar));
 }
 
 /* END Events */

@@ -1,5 +1,5 @@
 /*!
-\page AS1 AS1 (Serial_LDD)
+\page IO1 IO1 (Serial_LDD)
 **         This component "Serial_LDD" implements an asynchronous serial
 **         communication. The component supports different settings of
 **         parity, word width, stop-bit and communication speed,
@@ -7,41 +7,41 @@
 **         Communication speed can be changed also in runtime.
 **         The component requires one on-chip asynchronous serial communication channel.
 
-- \subpage AS1_settings
-- \subpage AS1_regs_overview  
-- \subpage AS1_regs_details
-- \ref AS1_module "Component documentation" 
+- \subpage IO1_settings
+- \subpage IO1_regs_overview  
+- \subpage IO1_regs_details
+- \ref IO1_module "Component documentation" 
 
-\page AS1_regs_overview Registers Initialization Overview
+\page IO1_regs_overview Registers Initialization Overview
 This page initialization values for the registers of the peripheral(s) configured
 by the component. 
 <table>
-<tr><td colspan="4" class="ttitle1">AS1 Initialization</td></tr>
+<tr><td colspan="4" class="ttitle1">IO1 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x40048034</td><td>SIM_SCGC4</td><td>
-    0x00000400
- </td><td>SIM_SCGC4 register, peripheral AS1.</td></tr>
+    0x000004C0
+ </td><td>SIM_SCGC4 register, peripheral IO1.</td></tr>
 <tr><td>0x40049004</td><td>PORTA_PCR1</td><td>
     0x00000200
- </td><td>PORTA_PCR1 register, peripheral AS1.</td></tr>
+ </td><td>PORTA_PCR1 register, peripheral IO1.</td></tr>
 <tr><td>0x40049008</td><td>PORTA_PCR2</td><td>
     0x00000200
- </td><td>PORTA_PCR2 register, peripheral AS1.</td></tr>
+ </td><td>PORTA_PCR2 register, peripheral IO1.</td></tr>
 <tr><td>0x4006A002</td><td>UART0_C1</td><td>
     0x00000000
- </td><td>UART0_C1 register, peripheral AS1.</td></tr>
+ </td><td>UART0_C1 register, peripheral IO1.</td></tr>
 <tr><td>0x4006A006</td><td>UART0_C3</td><td>
     0x00000000
- </td><td>UART0_C3 register, peripheral AS1.</td></tr>
+ </td><td>UART0_C3 register, peripheral IO1.</td></tr>
 <tr><td>0x4006A00A</td><td>UART0_C4</td><td>
     0x0000000F
- </td><td>UART0_C4 register, peripheral AS1.</td></tr>
+ </td><td>UART0_C4 register, peripheral IO1.</td></tr>
 <tr><td>0x4006A005</td><td>UART0_S2</td><td>
     0x00000000
- </td><td>UART0_S2 register, peripheral AS1.</td></tr>
+ </td><td>UART0_S2 register, peripheral IO1.</td></tr>
 </table>
 <br/>
-\page AS1_regs_details Register Initialization Details
+\page IO1_regs_details Register Initialization Details
 This page contains detailed description of initialization values for the 
 registers of the peripheral(s) configured by the component. 
 
@@ -92,7 +92,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40048034</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000400</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x000004C0</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0xF0000030</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>23</td><td>SPI1</td><td>0x00</td><td>SPI1 Clock Gate Control</td>
@@ -102,8 +102,8 @@ registers of the peripheral(s) configured by the component.
 <tr><td>12</td><td>UART2</td><td>0x00</td><td>UART2 Clock Gate Control</td>
 <tr><td>11</td><td>UART1</td><td>0x00</td><td>UART1 Clock Gate Control</td>
 <tr><td>10</td><td>UART0</td><td>0x01</td><td>UART0 Clock Gate Control</td>
-<tr><td>7</td><td>I2C1</td><td>0x00</td><td>I2C1 Clock Gate Control</td>
-<tr><td>6</td><td>I2C0</td><td>0x00</td><td>I2C0 Clock Gate Control</td>
+<tr><td>7</td><td>I2C1</td><td>0x01</td><td>I2C1 Clock Gate Control</td>
+<tr><td>6</td><td>I2C0</td><td>0x01</td><td>I2C0 Clock Gate Control</td>
 </tr></table>
 <div class="reghdr1">PORTA_PCR1</div>
 <div class="regdiag">
@@ -349,9 +349,9 @@ registers of the peripheral(s) configured by the component.
 </tr></table>
 */
 /*!
-\page AS1_settings Component Settings
+\page IO1_settings Component Settings
 \code
-**          Component name                                 : AS1
+**          Component name                                 : IO1
 **          Device                                         : UART0
 **          Interrupt service/event                        : Disabled
 **          Settings                                       : 
@@ -377,19 +377,19 @@ registers of the peripheral(s) configured by the component.
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : yes
 **            Event mask                                   : 
-**              OnBlockSent                                : Enabled
+**              OnBlockSent                                : Disabled
 **              OnBlockReceived                            : Disabled
-**              OnTxComplete                               : Enabled
+**              OnTxComplete                               : Disabled
 **              OnError                                    : Disabled
 **              OnBreak                                    : Disabled
 **          CPU clock/configuration selection              : 
 **            Clock configuration 0                        : This component enabled
-**            Clock configuration 1                        : This component disabled
-**            Clock configuration 2                        : This component disabled
-**            Clock configuration 3                        : This component disabled
-**            Clock configuration 4                        : This component disabled
-**            Clock configuration 5                        : This component disabled
-**            Clock configuration 6                        : This component disabled
-**            Clock configuration 7                        : This component disabled
+**            Clock configuration 1                        : This component enabled
+**            Clock configuration 2                        : This component enabled
+**            Clock configuration 3                        : This component enabled
+**            Clock configuration 4                        : This component enabled
+**            Clock configuration 5                        : This component enabled
+**            Clock configuration 6                        : This component enabled
+**            Clock configuration 7                        : This component enabled
 \endcode
 */

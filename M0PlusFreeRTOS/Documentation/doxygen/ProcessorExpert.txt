@@ -31,11 +31,11 @@
 - \subpage LedBlue
 - \subpage LedGreen
 - \subpage LedRed
-- \subpage AS1
 - \subpage TU1
 - \subpage I2C1
 - \subpage I2C0
 - \subpage AdcLdd1
+- \subpage IO1
 
 
 */
