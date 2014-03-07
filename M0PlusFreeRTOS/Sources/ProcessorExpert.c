@@ -113,10 +113,10 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	}
 //	
 //	
-	if (taskAccelerometerStart() != pdPASS ) {
-		for (;;) {
-		};
-	}
+//	if (taskAccelerometerStart() != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
 //
 //	if (taskGyroscopeStart() != pdPASS ) {
 //		for (;;) {
