@@ -11,9 +11,6 @@
 #include "PE_Types.h"
 #include "PE_LDD.h"
 #include "I2C1.h"
-#include "LedBlue.h"
-#include "LedGreen.h"
-#include "LedRed.h"
 
 typedef struct {
 	volatile bool dataReceivedFlg; /* set to TRUE by the interrupt if we have received data */

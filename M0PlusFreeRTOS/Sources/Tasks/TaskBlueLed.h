@@ -11,7 +11,7 @@
 #include "FreeRTOS.h"
 #include "FRTOS1.h"
 #include "task.h"
-#include "LedBlue.h"
+#include "PWMLEDBlue.h"
 
 void taskBlueLedWork(void);
 signed portBASE_TYPE taskBlueLedStart(void);

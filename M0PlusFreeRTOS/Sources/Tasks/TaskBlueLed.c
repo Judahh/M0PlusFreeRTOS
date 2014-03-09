@@ -7,9 +7,9 @@
 #include "TaskBlueLed.h"
 
 void taskBlueLedWork(void) {
-	LedBlue_NegVal(0);
+	PWMLEDBlue_SetRatio8(0xFF/10);
 	FRTOS1_vTaskDelay(1500 / portTICK_RATE_MS);
-	LedBlue_SetVal(0);
+	PWMLEDBlue_SetRatio8(0xFF/10);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 

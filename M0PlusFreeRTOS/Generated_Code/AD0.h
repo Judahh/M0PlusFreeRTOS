@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.688, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-21, 10:26, # CodeGen: 45
+**     Date/Time   : 2014-03-09, 19:01, # CodeGen: 98
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -15,9 +15,7 @@
 **          A/D converter                                  : ADC0
 **          Sharing                                        : Disabled
 **          ADC_LDD                                        : ADC_LDD
-**          Interrupt service/event                        : Enabled
-**            A/D interrupt                                : INT_ADC0
-**            A/D interrupt priority                       : medium priority
+**          Interrupt service/event                        : Disabled
 **          A/D channels                                   : 6
 **            Channel0                                     : 
 **              A/D channel (pin)                          : ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0
@@ -44,7 +42,7 @@
 **              A/D channel (pin) signal                   : 
 **              Mode select                                : Single Ended
 **          A/D resolution                                 : Autoselect
-**          Conversion time                                : 19.230769 µs
+**          Conversion time                                : 9.536743 µs
 **          Low-power mode                                 : Disabled
 **          High-speed conversion mode                     : Disabled
 **          Asynchro clock output                          : Disabled
@@ -64,6 +62,7 @@
 **          Wait for result                                : yes
 **     Contents    :
 **         Measure    - byte AD0_Measure(bool WaitForResult);
+**         GetValue8  - byte AD0_GetValue8(byte *Values);
 **         GetValue16 - byte AD0_GetValue16(word *Values);
 **         Calibrate  - byte AD0_Calibrate(bool WaitForResult);
 **
@@ -111,6 +110,17 @@ extern "C" {
 
 
 #define AD0_SAMPLE_GROUP_SIZE 6U
+static void AD0_MainMeasure(void);
+/*
+** ===================================================================
+**     Method      :  MainMeasure (component ADC)
+**
+**     Description :
+**         The method performs the conversion of the input channels in 
+**         the polling mode.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
 void AD0_HWEnDi(void);
 /*
 ** ===================================================================
@@ -124,7 +134,8 @@ void AD0_HWEnDi(void);
 ** ===================================================================
 */
 
-byte AD0_Measure(bool WaitForResult);
+#define AD0_Measure(W) PE_AD0_Measure()
+byte PE_AD0_Measure(void);
 /*
 ** ===================================================================
 **     Method      :  AD0_Measure (component ADC)
@@ -158,6 +169,36 @@ byte AD0_Measure(bool WaitForResult);
 ** ===================================================================
 */
 
+byte AD0_GetValue8(byte *Values);
+/*
+** ===================================================================
+**     Method      :  AD0_GetValue8 (component ADC)
+**     Description :
+**         This method returns the last measured values of all channels
+**         justified to the left. Compared with <GetValue> method this
+**         method returns more accurate result if the <number of
+**         conversions> is greater than 1 and <AD resolution> is less
+**         than 8 bits. In addition, the user code dependency on <AD
+**         resolution> is eliminated.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Values          - Pointer to the array that contains
+**                           the measured data.
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_NOTAVAIL - Requested value not
+**                           available
+**                           ERR_OVERRUN - External trigger overrun flag
+**                           was detected after the last value(s) was
+**                           obtained (for example by GetValue). This
+**                           error may not be supported on some CPUs
+**                           (see generated code).
+** ===================================================================
+*/
+
 byte AD0_GetValue16(word *Values);
 /*
 ** ===================================================================
@@ -188,7 +229,8 @@ byte AD0_GetValue16(word *Values);
 ** ===================================================================
 */
 
-byte AD0_Calibrate(bool WaitForResult);
+#define AD0_Calibrate(W) PE_AD0_Calibrate()
+byte PE_AD0_Calibrate(void);
 /*
 ** ===================================================================
 **     Method      :  AD0_Calibrate (component ADC)
@@ -214,8 +256,6 @@ byte AD0_Calibrate(bool WaitForResult);
 **                           finished correctly
 ** ===================================================================
 */
-
-void AdcLdd1_OnMeasurementComplete(LDD_TUserData *UserDataPtr);
 
 void AD0_Init(void);
 /*

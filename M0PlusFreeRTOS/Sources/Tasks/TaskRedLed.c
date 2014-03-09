@@ -7,9 +7,11 @@
 #include "TaskRedLed.h"
 
 void taskRedLedWork(void) {
-	LedRed_NegVal(0);
+	PWMLEDRed_SetRatio8(0xFF);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
-	LedRed_SetVal(0);
+	PWMLEDRed_SetRatio8(0x7F);
+	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	PWMLEDRed_SetRatio8(0x00);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 

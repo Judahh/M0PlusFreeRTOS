@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-28, 23:56, # CodeGen: 66
+**     Date/Time   : 2014-03-09, 17:22, # CodeGen: 94
 **     Abstract    :
 **
 **     Settings    :
@@ -32,19 +32,24 @@
   #include "FRTOS1.h"
   #include "UTIL1.h"
   #include "UTIL2.h"
-  #include "LedBlue.h"
-  #include "LedGreen.h"
-  #include "LedRed.h"
   #include "WAIT1.h"
-  #include "TU1.h"
-  #include "I2C1.h"
   #include "I2C0.h"
+  #include "I2C1.h"
+  #include "TU0.h"
+  #include "TU1.h"
   #include "AD0.h"
   #include "AdcLdd1.h"
   #include "MMA1.h"
   #include "GI2C1.h"
   #include "CsIO1.h"
   #include "IO1.h"
+  #include "TSSTouch.h"
+  #include "PWMLEDBlue.h"
+  #include "PwmLdd1.h"
+  #include "PWMLEDGreen.h"
+  #include "PwmLdd2.h"
+  #include "PWMLEDRed.h"
+  #include "PwmLdd3.h"
   #include "Events.h"
 
 
@@ -95,9 +100,9 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1C  0x00000070   -   ivINT_UART0                   unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1D  0x00000074   -   ivINT_UART1                   unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1E  0x00000078   -   ivINT_UART2                   unused by PE */
-    (tIsrFunc)&AdcLdd1_MeasurementCompleteInterrupt, /* 0x1F  0x0000007C   2   ivINT_ADC0                    used by PE */
+    (tIsrFunc)&Cpu_Interrupt,          /* 0x1F  0x0000007C   -   ivINT_ADC0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x20  0x00000080   -   ivINT_CMP0                    unused by PE */
-    (tIsrFunc)&TU1_Interrupt,          /* 0x21  0x00000084   2   ivINT_TPM0                    used by PE */
+    (tIsrFunc)&Cpu_Interrupt,          /* 0x21  0x00000084   -   ivINT_TPM0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x22  0x00000088   -   ivINT_TPM1                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x23  0x0000008C   -   ivINT_TPM2                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x24  0x00000090   -   ivINT_RTC                     unused by PE */
@@ -106,7 +111,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x27  0x0000009C   -   ivINT_Reserved39              unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x28  0x000000A0   -   ivINT_USB0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x29  0x000000A4   -   ivINT_DAC0                    unused by PE */
-    (tIsrFunc)&Cpu_Interrupt,          /* 0x2A  0x000000A8   -   ivINT_TSI0                    unused by PE */
+    (tIsrFunc)&TSS_TSI0Isr,            /* 0x2A  0x000000A8   -   ivINT_TSI0                    used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2B  0x000000AC   -   ivINT_MCG                     unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2C  0x000000B0   -   ivINT_LPTimer                 unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2D  0x000000B4   -   ivINT_Reserved45              unused by PE */

@@ -7,9 +7,9 @@
 #include "TaskGreenLed.h"
 
 void taskGreenLedWork(void) {
-	LedGreen_NegVal(0);
+	PWMLEDGreen_SetRatio8(0xFF/10);
 	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	LedGreen_SetVal(0);
+	PWMLEDGreen_SetRatio8(0xFF/10);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 

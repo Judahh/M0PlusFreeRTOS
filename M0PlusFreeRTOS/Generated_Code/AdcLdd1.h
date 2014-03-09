@@ -6,7 +6,7 @@
 **     Component   : ADC_LDD
 **     Version     : Component 01.182, Driver 01.08, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-21, 10:26, # CodeGen: 45
+**     Date/Time   : 2014-03-09, 19:00, # CodeGen: 97
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -14,9 +14,7 @@
 **          Component name                                 : AdcLdd1
 **          A/D converter                                  : ADC0
 **          Discontinuous mode                             : no
-**          Interrupt service/event                        : Enabled
-**            A/D interrupt                                : INT_ADC0
-**            A/D interrupt priority                       : medium priority
+**          Interrupt service/event                        : Disabled
 **          DMA                                            : Disabled
 **          A/D channel list                               : 6
 **            Channel 0                                    : 
@@ -56,12 +54,12 @@
 **          Asynchro clock output                          : Disabled
 **          Sample time                                    : 4 clock periods
 **          Number of conversions                          : 1
-**          Conversion time                                : 19.230769 µs
-**          ADC clock                                      : 1.31 MHz (762.939 ns)
-**          Single conversion time - Single-ended          : 23.126 us
-**          Single conversion time - Differential          : 29.993 us
-**          Additional conversion time - Single-ended      : 19.073 us
-**          Additional conversion time - Differential      : 25.939 us
+**          Conversion time                                : 9.536743 µs
+**          ADC clock                                      : 2.621 MHz (381.47 ns)
+**          Single conversion time - Single-ended          : 11.682 us
+**          Single conversion time - Differential          : 15.115 us
+**          Additional conversion time - Single-ended      : 9.536 us
+**          Additional conversion time - Differential      : 12.969 us
 **          Result type                                    : unsigned 16 bits, right justified
 **          Trigger                                        : Disabled
 **          Voltage reference                              : 
@@ -75,7 +73,7 @@
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : no
 **            Event mask                                   : 
-**              OnMeasurementComplete                      : Enabled
+**              OnMeasurementComplete                      : Disabled
 **              OnError                                    : Disabled
 **          CPU clock/configuration selection              : 
 **            Clock configuration 0                        : This component enabled
@@ -89,7 +87,6 @@
 **     Contents    :
 **         Init                         - LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr);
 **         StartSingleMeasurement       - LDD_TError AdcLdd1_StartSingleMeasurement(LDD_TDeviceData *DeviceDataPtr);
-**         CancelMeasurement            - LDD_TError AdcLdd1_CancelMeasurement(LDD_TDeviceData *DeviceDataPtr);
 **         GetMeasuredValues            - LDD_TError AdcLdd1_GetMeasuredValues(LDD_TDeviceData *DeviceDataPtr,...
 **         CreateSampleGroup            - LDD_TError AdcLdd1_CreateSampleGroup(LDD_TDeviceData *DeviceDataPtr,...
 **         GetMeasurementCompleteStatus - bool AdcLdd1_GetMeasurementCompleteStatus(LDD_TDeviceData *DeviceDataPtr);
@@ -142,7 +139,6 @@ extern "C" {
 /* Methods configuration constants - generated for all enabled component's methods */
 #define AdcLdd1_Init_METHOD_ENABLED    /*!< Init method of the component AdcLdd1 is enabled (generated) */
 #define AdcLdd1_StartSingleMeasurement_METHOD_ENABLED /*!< StartSingleMeasurement method of the component AdcLdd1 is enabled (generated) */
-#define AdcLdd1_CancelMeasurement_METHOD_ENABLED /*!< CancelMeasurement method of the component AdcLdd1 is enabled (generated) */
 #define AdcLdd1_GetMeasuredValues_METHOD_ENABLED /*!< GetMeasuredValues method of the component AdcLdd1 is enabled (generated) */
 #define AdcLdd1_CreateSampleGroup_METHOD_ENABLED /*!< CreateSampleGroup method of the component AdcLdd1 is enabled (generated) */
 #define AdcLdd1_GetMeasurementCompleteStatus_METHOD_ENABLED /*!< GetMeasurementCompleteStatus method of the component AdcLdd1 is enabled (generated) */
@@ -150,7 +146,6 @@ extern "C" {
 #define AdcLdd1_GetCalibrationResultStatus_METHOD_ENABLED /*!< GetCalibrationResultStatus method of the component AdcLdd1 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
-#define AdcLdd1_OnMeasurementComplete_EVENT_ENABLED /*!< OnMeasurementComplete event of the component AdcLdd1 is enabled (generated) */
 
 
 /* Component specific public constants */
@@ -262,29 +257,6 @@ LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 LDD_TError AdcLdd1_StartSingleMeasurement(LDD_TDeviceData *DeviceDataPtr);
-
-/*
-** ===================================================================
-**     Method      :  AdcLdd1_CancelMeasurement (component ADC_LDD)
-*/
-/*!
-**     @brief
-**         This method cancels the measurement in progress. Typically
-**         the OnMeasurementComplete() event is not invoked for
-**         cancelled measurement. If DMA mode is enabled, DMA request
-**         from ADC is disabled and DMA transfer is cancelled. 
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The device doesn't work in the
-**                           active clock configuration
-**                           ERR_DISABLED - Component is disabled
-*/
-/* ===================================================================*/
-LDD_TError AdcLdd1_CancelMeasurement(LDD_TDeviceData *DeviceDataPtr);
 
 /*
 ** ===================================================================
@@ -428,18 +400,6 @@ LDD_TError AdcLdd1_StartCalibration(LDD_TDeviceData *DeviceDataPtr);
 */
 /* ===================================================================*/
 LDD_TError AdcLdd1_GetCalibrationResultStatus(LDD_TDeviceData *DeviceDataPtr);
-
-/*
-** ===================================================================
-**     Method      :  AdcLdd1_MeasurementCompleteInterrupt (component ADC_LDD)
-**
-**     Description :
-**         Measurement complete interrupt handler
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-/* {FreeRTOS RTOS Adapter} ISR function prototype */
-PE_ISR(AdcLdd1_MeasurementCompleteInterrupt);
 
 /* END AdcLdd1. */
 

@@ -93,8 +93,8 @@
 #define configCPU_CLOCK_HZ                        CPU_CORE_CLK_HZ /* CPU core clock defined in Cpu.h */
 #define configBUS_CLOCK_HZ                        CPU_BUS_CLK_HZ /* CPU bus clock defined in Cpu.h */
 #define configTICK_RATE_HZ                        ((portTickType)100) /* frequency of tick interrupt */
-#define configSYSTICK_USE_CORE_CLOCK              1 /* System Tick is using core clock  */
-#define configSYSTICK_CLOCK_DIVIDER               1 /* no divider */
+#define configSYSTICK_USE_CORE_CLOCK              0 /* System Tick is using external reference clock clock  */
+#define configSYSTICK_CLOCK_DIVIDER               16 /* Kinetis L is using fixed divider by 16 */
 #define configSYSTICK_CLOCK_HZ                    ((configCPU_CLOCK_HZ)/configSYSTICK_CLOCK_DIVIDER) /* frequency of system tick counter */
 #define configMINIMAL_STACK_SIZE                  ((unsigned portSHORT)100)
 /*----------------------------------------------------------*/
@@ -119,7 +119,8 @@
 #define configUSE_QUEUE_SETS                      0
 #define configUSE_COUNTING_SEMAPHORES             1
 #define configUSE_APPLICATION_TASK_TAG            0
-#define configUSE_TICKLESS_IDLE                   0
+#define configUSE_TICKLESS_IDLE                   1
+#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP     2
 
 #define configMAX_PRIORITIES                      ((unsigned portBASE_TYPE)5)
 #define configMAX_CO_ROUTINE_PRIORITIES           5

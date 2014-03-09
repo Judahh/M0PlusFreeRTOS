@@ -73,9 +73,9 @@ uint8_t gyroscopeInit(void) {
 
 void gyroscopeDeinit(void) {
 	I2C1_Deinit(deviceData.handle);
-	LedRed_PutVal(0, 1);
-	LedGreen_PutVal(0, 1);
-	LedBlue_PutVal(0, 1);
+	PWMLEDRed_SetRatio8(0xFF/10);
+	PWMLEDGreen_SetRatio8(0xFF/10);
+	PWMLEDBlue_SetRatio8(0xFF/10);
 }
 
 static int8_t xyz[3];
@@ -85,12 +85,9 @@ void gyroscopeTestRun(uint8_t res) {
 //	if (res == ERR_OK) {
 	res = L3GD20_ReadReg(L3GD20_OUT_X_MSB, (uint8_t*) &xyz, 3);
 
-	LedBlue_PutVal(0, xyz[0] < 25);
-	LedRed_PutVal(0, xyz[1] < 25);
-	LedGreen_PutVal(0, xyz[2] < 25);
-	if(xyz[0] < 25||xyz[1] < 25||xyz[2] < 25){
-		
-	}
+	PWMLEDRed_SetRatio8(xyz[0]);
+	PWMLEDGreen_SetRatio8(xyz[1]);
+	PWMLEDBlue_SetRatio8(xyz[2]);
 //	}
 
 }

@@ -28,14 +28,15 @@
 
 \page page_components Components 
 
-- \subpage LedBlue
-- \subpage LedGreen
-- \subpage LedRed
-- \subpage TU1
-- \subpage I2C1
 - \subpage I2C0
+- \subpage I2C1
+- \subpage TU0
+- \subpage TU1
 - \subpage AdcLdd1
 - \subpage IO1
+- \subpage PwmLdd1
+- \subpage PwmLdd2
+- \subpage PwmLdd3
 
 
 */

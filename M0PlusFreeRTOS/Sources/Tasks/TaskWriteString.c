@@ -7,10 +7,6 @@
 #include "TaskWriteString.h"
 
 void taskWriteStringWork(void) {
-	LedRed_NegVal(0);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
-	LedRed_SetVal(0);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/

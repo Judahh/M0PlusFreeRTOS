@@ -6,7 +6,7 @@
 **     Component   : PE_Types
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-28, 23:56, # CodeGen: 66
+**     Date/Time   : 2014-03-08, 19:48, # CodeGen: 89
 **     Abstract    :
 **         PE_Types.h - contains definitions of basic types,
 **         register access macros and hardware specific macros
@@ -174,14 +174,16 @@ typedef unsigned long int       uint32;
 ** is used internally as an index to the array of LDD device structures.
 ** ===========================================================================
 */
-#define PE_LDD_COMPONENT_LedBlue_ID              0x00U
-#define PE_LDD_COMPONENT_LedGreen_ID             0x01U
-#define PE_LDD_COMPONENT_LedRed_ID               0x02U
+#define PE_LDD_COMPONENT_I2C0_ID                 0x00U
+#define PE_LDD_COMPONENT_I2C1_ID                 0x01U
+#define PE_LDD_COMPONENT_TU0_ID                  0x02U
 #define PE_LDD_COMPONENT_TU1_ID                  0x03U
-#define PE_LDD_COMPONENT_I2C1_ID                 0x04U
-#define PE_LDD_COMPONENT_I2C0_ID                 0x05U
-#define PE_LDD_COMPONENT_AdcLdd1_ID              0x06U
-#define PE_LDD_COMPONENT_IO1_ID                  0x07U
+#define PE_LDD_COMPONENT_AdcLdd1_ID              0x04U
+#define PE_LDD_COMPONENT_IO1_ID                  0x05U
+#define PE_LDD_COMPONENT_TSSTouch_ID             0x06U
+#define PE_LDD_COMPONENT_PwmLdd1_ID              0x07U
+#define PE_LDD_COMPONENT_PwmLdd2_ID              0x08U
+#define PE_LDD_COMPONENT_PwmLdd3_ID              0x09U
 
 /*
 ** ===================================================================

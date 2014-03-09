@@ -6,7 +6,7 @@
 **     Component   : ADC_LDD
 **     Version     : Component 01.182, Driver 01.08, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-21, 10:26, # CodeGen: 45
+**     Date/Time   : 2014-03-09, 19:00, # CodeGen: 97
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -14,9 +14,7 @@
 **          Component name                                 : AdcLdd1
 **          A/D converter                                  : ADC0
 **          Discontinuous mode                             : no
-**          Interrupt service/event                        : Enabled
-**            A/D interrupt                                : INT_ADC0
-**            A/D interrupt priority                       : medium priority
+**          Interrupt service/event                        : Disabled
 **          DMA                                            : Disabled
 **          A/D channel list                               : 6
 **            Channel 0                                    : 
@@ -56,12 +54,12 @@
 **          Asynchro clock output                          : Disabled
 **          Sample time                                    : 4 clock periods
 **          Number of conversions                          : 1
-**          Conversion time                                : 19.230769 µs
-**          ADC clock                                      : 1.31 MHz (762.939 ns)
-**          Single conversion time - Single-ended          : 23.126 us
-**          Single conversion time - Differential          : 29.993 us
-**          Additional conversion time - Single-ended      : 19.073 us
-**          Additional conversion time - Differential      : 25.939 us
+**          Conversion time                                : 9.536743 µs
+**          ADC clock                                      : 2.621 MHz (381.47 ns)
+**          Single conversion time - Single-ended          : 11.682 us
+**          Single conversion time - Differential          : 15.115 us
+**          Additional conversion time - Single-ended      : 9.536 us
+**          Additional conversion time - Differential      : 12.969 us
 **          Result type                                    : unsigned 16 bits, right justified
 **          Trigger                                        : Disabled
 **          Voltage reference                              : 
@@ -75,7 +73,7 @@
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : no
 **            Event mask                                   : 
-**              OnMeasurementComplete                      : Enabled
+**              OnMeasurementComplete                      : Disabled
 **              OnError                                    : Disabled
 **          CPU clock/configuration selection              : 
 **            Clock configuration 0                        : This component enabled
@@ -89,7 +87,6 @@
 **     Contents    :
 **         Init                         - LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr);
 **         StartSingleMeasurement       - LDD_TError AdcLdd1_StartSingleMeasurement(LDD_TDeviceData *DeviceDataPtr);
-**         CancelMeasurement            - LDD_TError AdcLdd1_CancelMeasurement(LDD_TDeviceData *DeviceDataPtr);
 **         GetMeasuredValues            - LDD_TError AdcLdd1_GetMeasuredValues(LDD_TDeviceData *DeviceDataPtr,...
 **         CreateSampleGroup            - LDD_TError AdcLdd1_CreateSampleGroup(LDD_TDeviceData *DeviceDataPtr,...
 **         GetMeasurementCompleteStatus - bool AdcLdd1_GetMeasurementCompleteStatus(LDD_TDeviceData *DeviceDataPtr);
@@ -116,7 +113,6 @@
 
 /* MODULE AdcLdd1. */
 
-#include "AD0.h"
 #include "AdcLdd1.h"
 #include "FreeRTOS.h" /* FreeRTOS interface */
 
@@ -130,24 +126,23 @@ extern "C" {
 #define AdcLdd1_AVAILABLE_VOLT_REF_PIN_MASK (LDD_ADC_LOW_VOLT_REF_PIN | LDD_ADC_HIGH_VOLT_REF_PIN) /*!< Mask of all allocated voltage reference pins */
 
 static const uint8_t ChannelToPin[] = { /* Channel to pin conversion table */
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=8 */
-  0x48U,                               /* Status and control register value */
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=9 */
-  0x49U,                               /* Status and control register value */
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=0x0C */
-  0x4CU,                               /* Status and control register value */
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=0x0D */
-  0x4DU,                               /* Status and control register value */
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=0x0B */
-  0x4BU,                               /* Status and control register value */
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=0x0F */
-  0x4FU                                /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,DIFF=0,ADCH=8 */
+  0x08U,                               /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,DIFF=0,ADCH=9 */
+  0x09U,                               /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,DIFF=0,ADCH=0x0C */
+  0x0CU,                               /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,DIFF=0,ADCH=0x0D */
+  0x0DU,                               /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,DIFF=0,ADCH=0x0B */
+  0x0BU,                               /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,DIFF=0,ADCH=0x0F */
+  0x0FU                                /* Status and control register value */
 };
 
 typedef struct {
   uint8_t SampleCount;                 /* Number of samples in the last selected/created sample group */
   uint8_t FirstSample;                 /* First sample of group store */
-  uint8_t CompleteStatus;              /* Measurement complete status flag */
   LDD_TUserData *UserData;             /* RTOS device data structure */
 } AdcLdd1_TDeviceData;                 /* Device data structure type */
 
@@ -155,8 +150,6 @@ typedef AdcLdd1_TDeviceData* AdcLdd1_TDeviceDataPtr ; /* Pointer to the device d
 
 /* {FreeRTOS RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static AdcLdd1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
-/* {FreeRTOS RTOS Adapter} Global variable used for passing a parameter into ISR */
-static AdcLdd1_TDeviceDataPtr INT_ADC0__BAREBOARD_RTOS_ISRPARAM;
 /*
 ** ===================================================================
 **     Method      :  AdcLdd1_Init (component ADC_LDD)
@@ -188,22 +181,9 @@ LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr)
   /* {FreeRTOS RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
   DeviceDataPrv->UserData = UserDataPtr; /* Store the RTOS device structure */
-  /* Interrupt vector(s) allocation */
-  /* {FreeRTOS RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_ADC0__BAREBOARD_RTOS_ISRPARAM = DeviceDataPrv;
   DeviceDataPrv->SampleCount = 0U;     /* Initializing SampleCount for right access of some methods to SC1n registers before first conversion is done */
-  DeviceDataPrv->CompleteStatus = FALSE; /* Clear measurement complete status flag */
   /* SIM_SCGC6: ADC0=1 */
   SIM_SCGC6 |= SIM_SCGC6_ADC0_MASK;                                   
-  /* Interrupt vector(s) priority setting */
-  /* NVIC_IPR3: PRI_15=0x80 */
-  NVIC_IPR3 = (uint32_t)((NVIC_IPR3 & (uint32_t)~(uint32_t)(
-               NVIC_IP_PRI_15(0x7F)
-              )) | (uint32_t)(
-               NVIC_IP_PRI_15(0x80)
-              ));                                  
-  /* NVIC_ISER: SETENA|=0x8000 */
-  NVIC_ISER |= NVIC_ISER_SETENA(0x8000);                                   
   /* PORTB_PCR0: ISF=0,MUX=0 */
   PORTB_PCR0 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
   /* PORTB_PCR1: ISF=0,MUX=0 */
@@ -216,10 +196,10 @@ LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr)
   PORTC_PCR2 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
   /* PORTC_PCR1: ISF=0,MUX=0 */
   PORTC_PCR1 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
-  /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=3,ADICLK=1 */
+  /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=3,ADICLK=0 */
   ADC0_CFG1 = ADC_CFG1_ADIV(0x03) |
               ADC_CFG1_MODE(0x03) |
-              ADC_CFG1_ADICLK(0x01);       
+              ADC_CFG1_ADICLK(0x00);       
   /* ADC0_CFG2: ADACKEN=0,ADHSC=0,ADLSTS=0 */
   ADC0_CFG2 &= (uint32_t)~(uint32_t)(
                 ADC_CFG2_ADACKEN_MASK |
@@ -287,36 +267,6 @@ LDD_TError AdcLdd1_StartSingleMeasurement(LDD_TDeviceData *DeviceDataPtr)
 
 /*
 ** ===================================================================
-**     Method      :  AdcLdd1_CancelMeasurement (component ADC_LDD)
-*/
-/*!
-**     @brief
-**         This method cancels the measurement in progress. Typically
-**         the OnMeasurementComplete() event is not invoked for
-**         cancelled measurement. If DMA mode is enabled, DMA request
-**         from ADC is disabled and DMA transfer is cancelled. 
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The device doesn't work in the
-**                           active clock configuration
-**                           ERR_DISABLED - Component is disabled
-*/
-/* ===================================================================*/
-LDD_TError AdcLdd1_CancelMeasurement(LDD_TDeviceData *DeviceDataPtr)
-{
-  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
-  ADC_PDD_SetConversionTriggerType(ADC0_BASE_PTR, ADC_PDD_SW_TRIGGER); /* Select SW triggering */
-  ADC_PDD_WriteStatusControl1Reg(ADC0_BASE_PTR, 0U, 0x1FU); /* Disable device - A */
-  
-  return ERR_OK;                       /* If yes then set the flag "device enabled" */  
-}
-
-/*
-** ===================================================================
 **     Method      :  AdcLdd1_CreateSampleGroup (component ADC_LDD)
 */
 /*!
@@ -374,7 +324,7 @@ LDD_TError AdcLdd1_CreateSampleGroup(LDD_TDeviceData *DeviceDataPtr, LDD_ADC_TSa
   if (SampleGroupPtr[0].ChannelIdx >= AdcLdd1_CHANNEL_COUNT) { /* Is channel index out of range? */
     return ERR_PARAM_INDEX;            /* Yes, return ERR_PARAM_INDEX */
   }
-  DeviceDataPrv->FirstSample = (ChannelToPin[SampleGroupPtr[0].ChannelIdx]) | (uint8_t)(LDD_ADC_ON_MEASUREMENT_COMPLETE); /* Remember first sample */
+  DeviceDataPrv->FirstSample = ChannelToPin[SampleGroupPtr[0].ChannelIdx]; /* Remember first sample */
   return ERR_OK;                       /* OK */
 }
 
@@ -445,15 +395,14 @@ LDD_TError AdcLdd1_GetMeasuredValues(LDD_TDeviceData *DeviceDataPtr, LDD_TData *
 /* ===================================================================*/
 bool AdcLdd1_GetMeasurementCompleteStatus(LDD_TDeviceData *DeviceDataPtr)
 {
-  uint8_t Status;
-  AdcLdd1_TDeviceDataPtr DeviceDataPrv = (AdcLdd1_TDeviceDataPtr)DeviceDataPtr;
-  /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
-  Status = DeviceDataPrv->CompleteStatus; /* Save flag for return */
-  DeviceDataPrv->CompleteStatus = FALSE; /* Clear measurement complete status flag */
-  /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
-  return (bool)((Status)? TRUE : FALSE); /* Return saved status */
+  uint32_t Status;
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  Status = ADC_PDD_GetConversionCompleteFlag(ADC0_BASE_PTR, 0U); /* Get conversion complete flag from HW */
+  if (Status) {
+    (void)ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, 0U); /* Clear conversion complete flag */
+    return (bool)(TRUE);               /* Return TRUE if measurement has been done */
+  }
+  return (bool)(FALSE);                /* Return FALSE if measurement has not been done */
 }
 
 /*
@@ -484,7 +433,7 @@ LDD_TError AdcLdd1_StartCalibration(LDD_TDeviceData *DeviceDataPtr)
     return ERR_BUSY;                   /* Yes, return ERR_BUSY */
   }
   ADC_PDD_SetConversionTriggerType(ADC0_BASE_PTR, ADC_PDD_SW_TRIGGER); /* Select SW triggering */
-  ADC_PDD_WriteStatusControl1Reg(ADC0_BASE_PTR, 0U, ADC_PDD_MODULE_DISABLED | ((uint32_t)LDD_ADC_ON_MEASUREMENT_COMPLETE)); /* Set Control 1 register */
+  ADC_PDD_WriteStatusControl1Reg(ADC0_BASE_PTR, 0U, ADC_PDD_MODULE_DISABLED); /* Set Control 1 register */
   ADC_PDD_StartCalibration(ADC0_BASE_PTR); /* Start calibration */
   return ERR_OK;
 }
@@ -535,24 +484,6 @@ LDD_TError AdcLdd1_GetCalibrationResultStatus(LDD_TDeviceData *DeviceDataPtr)
   GainValue =  (GainValue >> 1U) | 0x8000U;
   ADC_PDD_SetMinusGainValue(ADC0_BASE_PTR,GainValue); /* Set minus gain value */
   return ERR_OK;
-}
-
-/*
-** ===================================================================
-**     Method      :  AdcLdd1_MeasurementCompleteInterrupt (component ADC_LDD)
-**
-**     Description :
-**         Measurement complete interrupt handler
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-PE_ISR(AdcLdd1_MeasurementCompleteInterrupt)
-{
-  /* {FreeRTOS RTOS Adapter} ISR parameter is passed through the global variable */
-  AdcLdd1_TDeviceDataPtr DeviceDataPrv = INT_ADC0__BAREBOARD_RTOS_ISRPARAM;
-  DeviceDataPrv->CompleteStatus = TRUE; /* Set measurement complete status flag */
-  AdcLdd1_OnMeasurementComplete(DeviceDataPrv->UserData);
-  (void)ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, 0U); /* Clear conversion complete flag */
 }
 
 /* END AdcLdd1. */

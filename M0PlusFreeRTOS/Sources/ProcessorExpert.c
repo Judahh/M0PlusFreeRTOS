@@ -32,10 +32,8 @@
 #include "FRTOS1.h"
 #include "UTIL1.h"
 #include "UTIL2.h"
-#include "LedBlue.h"
-#include "LedGreen.h"
-#include "LedRed.h"
 #include "WAIT1.h"
+#include "TU0.h"
 #include "TU1.h"
 #include "I2C1.h"
 #include "I2C0.h"
@@ -45,6 +43,13 @@
 #include "GI2C1.h"
 #include "CsIO1.h"
 #include "IO1.h"
+#include "TSSTouch.h"
+#include "PWMLEDBlue.h"
+#include "PwmLdd1.h"
+#include "PWMLEDGreen.h"
+#include "PwmLdd2.h"
+#include "PWMLEDRed.h"
+#include "PwmLdd3.h"
 #include "Tasks/TaskBlueLed.h"
 #include "Tasks/TaskGreenLed.h"
 #include "Tasks/TaskRedLed.h"
@@ -55,6 +60,7 @@
 #include "Tasks/TaskGyroscope.h"
 #include "Tasks/TaskRotateLed.h"
 #include "Util/UART.h"
+#include "Util/Led.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -79,13 +85,30 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	int index = 1;
 	int *pIndex= &index;
 	
+	
+
+//	static uint8_t value;
+//	for(;;) {
+//	  (void)AD0_Measure(TRUE); /* do conversion and wait for the result */
+//	  (void)AD0_GetValue8(&value); /* get the result into value variable */
+//	  PWMLEDBlue_SetRatio8(value);
+//	}
+	
+	Configure();
+	for(;;) {
+	    TSS_Task(); /* call TSS library to process touches */
+	}
+	
 //	printf("ponteiro = %d!\r\n",pIndex);
 //	printf("valor = %d!\r\n",*pIndex);
+//	
 	
-	if (taskSendStringStart(pIndex) != pdPASS ) {
-		for (;;) {
-		};
-	}
+//	setLed(1);
+	
+//	if (taskSendStringStart(pIndex) != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
 //
 //	if (taskSendString1Start() != pdPASS ) {
 //		for (;;) {

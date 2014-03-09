@@ -73,9 +73,9 @@ uint8_t accelerometerInit(void) {
 
 void accelerometerDeinit(void) {
 	I2C0_Deinit(deviceData.handle);
-	LedRed_PutVal(0, 1);
-	LedGreen_PutVal(0, 1);
-	LedBlue_PutVal(0, 1);
+	PWMLEDRed_SetRatio8(0xFF/90);
+	PWMLEDGreen_SetRatio8(0xFF/90);
+	PWMLEDBlue_SetRatio8(0xFF/90);
 }
 
 static int8_t xyz[3];
@@ -85,9 +85,9 @@ void accelerometerTestRun(uint8_t res) {
 //	if (res == ERR_OK) {
 	res = MMA8451_ReadReg(MMA8451_OUT_X_MSB, (uint8_t*) &xyz, 3);
 
-	LedBlue_PutVal(0, xyz[0] < 25);
-	LedRed_PutVal(0, xyz[1] < 25);
-	LedGreen_PutVal(0, xyz[2] < 25);
+	PWMLEDBlue_SetRatio8(0xFF/xyz[0]);
+	PWMLEDGreen_SetRatio8(0xFF/xyz[1]);
+	PWMLEDRed_SetRatio8(0xFF/xyz[2]);
 //	}
 
 }

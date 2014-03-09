@@ -14,11 +14,16 @@
 "./Generated_Code/UTIL2.o"
 "./Generated_Code/UTIL1.o"
 "./Generated_Code/TU1.o"
+"./Generated_Code/TU0.o"
+"./Generated_Code/TSSTouch.o"
+"./Generated_Code/PwmLdd3.o"
+"./Generated_Code/PwmLdd2.o"
+"./Generated_Code/PwmLdd1.o"
+"./Generated_Code/PWMLEDRed.o"
+"./Generated_Code/PWMLEDGreen.o"
+"./Generated_Code/PWMLEDBlue.o"
 "./Generated_Code/PE_LDD.o"
 "./Generated_Code/MMA1.o"
-"./Generated_Code/LedRed.o"
-"./Generated_Code/LedGreen.o"
-"./Generated_Code/LedBlue.o"
 "./Generated_Code/IO1.o"
 "./Generated_Code/I2C1.o"
 "./Generated_Code/I2C0.o"
@@ -30,6 +35,12 @@
 "./Generated_Code/AD0.o"
 "./Project_Settings/Startup_Code/__arm_start.o"
 "./Project_Settings/Startup_Code/__arm_end.o"
+"./Sources/TSS/TSS_SystemSetupData.o"
+"./Sources/TSS/TSS_SensorTSIL.o"
+"./Sources/TSS/TSS_SensorTSI.o"
+"./Sources/TSS/TSS_SensorGPIO.o"
+"./Sources/TSS/TSS_Sensor.o"
+"./Sources/TSS/TSS_Freemaster.o"
 "./Sources/Tasks/TaskWriteString.o"
 "./Sources/Tasks/TaskSendString2.o"
 "./Sources/Tasks/TaskSendString1.o"
@@ -57,6 +68,7 @@
 -Xlinker
 --gc-sections
 -L"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m"
+-L"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS"
 -Wl,-Map,M0PlusFreeRTOS.map
 -n
 -specs=ewl_c.specs
@@ -67,4 +79,5 @@
 -Xlinker
 --undefined=__sformatter
 -Xlinker
---defsym=__sformatter=__sformatter
+--defsym=__sformatter=__sformatter 
+-l"TSS_KXX_M0"

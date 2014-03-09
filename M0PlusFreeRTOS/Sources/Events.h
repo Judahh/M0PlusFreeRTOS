@@ -37,13 +37,11 @@
 #include "FRTOS1.h"
 #include "UTIL1.h"
 #include "UTIL2.h"
-#include "LedBlue.h"
-#include "LedGreen.h"
-#include "LedRed.h"
 #include "Util/Accelerometer.h"
 #include "Util/Gyroscope.h"
 #include "Util/UART.h"
 #include "WAIT1.h"
+#include "TU0.h"
 #include "TU1.h"
 #include "I2C1.h"
 #include "I2C0.h"
@@ -53,6 +51,13 @@
 #include "GI2C1.h"
 #include "CsIO1.h"
 #include "IO1.h"
+#include "TSSTouch.h"
+#include "PWMLEDBlue.h"
+#include "PwmLdd1.h"
+#include "PWMLEDGreen.h"
+#include "PwmLdd2.h"
+#include "PWMLEDRed.h"
+#include "PwmLdd3.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -153,59 +158,6 @@ void FRTOS1_vApplicationMallocFailedHook(void);
 
 /*
 ** ===================================================================
-**     Event       :  TU1_OnCounterRestart (module Events)
-**
-**     Component   :  TU1 [TimerUnit_LDD]
-*/
-/*!
-**     @brief
-**         Called if counter overflow/underflow or counter is
-**         reinitialized by modulo or compare register matching.
-**         OnCounterRestart event and Timer unit must be enabled. See
-**         [SetEventMask] and [GetEventMask] methods. This event is
-**         available only if a [Interrupt] is enabled.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. The pointer passed as
-**                           the parameter of Init method.
-*/
-/* ===================================================================*/
-void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr);
-
-void AD0_OnEnd(void);
-/*
-** ===================================================================
-**     Event       :  AD0_OnEnd (module Events)
-**
-**     Component   :  AD0 [ADC]
-**     Description :
-**         This event is called after the measurement (which consists
-**         of <1 or more conversions>) is/are finished.
-**         The event is available only when the <Interrupt
-**         service/event> property is enabled.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void AD0_OnCalibrationEnd(void);
-/*
-** ===================================================================
-**     Event       :  AD0_OnCalibrationEnd (module Events)
-**
-**     Component   :  AD0 [ADC]
-**     Description :
-**         This event is called when the calibration has been finished.
-**         User should check if the calibration pass or fail by
-**         Calibration status method./nThis event is enabled only if
-**         the <Interrupt service/event> property is enabled.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-/*
-** ===================================================================
 **     Event       :  I2C1_OnMasterBlockSent (module Events)
 **
 **     Component   :  I2C1 [I2C_LDD]
@@ -261,6 +213,94 @@ void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr);
+
+void TSSTouch_fOnFault(byte u8FaultElecNum);
+/*
+** ===================================================================
+**     Event       :  TSSTouch_fOnFault (module Events)
+**
+**     Component   :  TSSTouch [TSS_Library]
+**     Description :
+**         This callback function is called by TSS after Fault
+**         occurence. This event is enabled always and depends on
+**         selection 'generate code' if the callback is used.
+**         The default CallBack Name is automatically generated with
+**         automatic prefix update by current Component Name. User can
+**         define own name, but then the automatic name update is not
+**         functional.
+**         Option is available from TSS3.0 version.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         u8FaultElecNum  - The value defines
+**                           electrode number on which measurement fault
+**                           occured.
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void TSSTouch_fOnInit(void);
+/*
+** ===================================================================
+**     Event       :  TSSTouch_fOnInit (module Events)
+**
+**     Component   :  TSSTouch [TSS_Library]
+**     Description :
+**         This callback function is automatically called during the
+**         TSS Init function execution. The function is intended for
+**         implementation of peripherals initialization. TSS Component
+**         automatically enables clock for all used TSS peripherals in
+**         the internal function TSS_InitDevices which is called by
+**         this callback.
+**         This event is enabled always and depends on selection
+**         'generate code' if the callback is used.
+**         The default CallBack Name is automatically generated with
+**         automatic prefix update by current Component Name. User can
+**         define own name, but then the automatic name update is not
+**         functional.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void TSSTouch_fCallBack0(TSS_CONTROL_ID u8ControlId);
+/*
+** ===================================================================
+**     Event       :  TSSTouch_fCallBack0 (module Events)
+**
+**     Component   :  TSSTouch [TSS_Library]
+**     Description :
+**         Callback definition for Control 0. This event is enabled
+**         only if Control 0 is enabled.
+**         The default CallBack Name is automatically generated with
+**         automatic prefix update by current Component Name. User can
+**         define own name, but then the automatic name update is not
+**         functional.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         u8ControlId     - Valid unique Identifier of
+**                           the Control which generated the CallBack
+**                           function. This Id can be used for finding
+**                           of Callback's source Control.
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks);
+/*
+** ===================================================================
+**     Event       :  FRTOS1_vOnPreSleepProcessing (module Events)
+**
+**     Component   :  FRTOS1 [FreeRTOS]
+**     Description :
+**         Used in tickless idle mode only, but required in this mode.
+**         Hook for the application to enter low power mode.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         expectedIdleTicks - expected idle
+**                           time, in ticks
+**     Returns     : Nothing
+** ===================================================================
+*/
 
 /* END Events */
 

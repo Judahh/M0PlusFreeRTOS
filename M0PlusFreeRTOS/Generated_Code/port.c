@@ -143,7 +143,7 @@ typedef unsigned long TickCounter_t; /* for 24 bits */
  */
 #if configUSE_TICKLESS_IDLE == 1
   static TickCounter_t ulStoppedTimerCompensation = 0;
-  #define configSTOPPED_TIMER_COMPENSATION    45UL  /* number of ticks to compensate */
+  #define configSTOPPED_TIMER_COMPENSATION    45UL  /* number of ticks to compensate, as defined in properties */
 #endif /* configUSE_TICKLESS_IDLE */
 
 #if (configCPU_FAMILY==configCPU_FAMILY_CF1) || (configCPU_FAMILY==configCPU_FAMILY_CF2)
@@ -261,6 +261,8 @@ static portBASE_TYPE xBankedStartScheduler(void) {
 #endif
 /*-----------------------------------------------------------*/
 #if configUSE_TICKLESS_IDLE == 1
+void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks); /* prototype */
+
 __attribute__((weak)) void vPortSuppressTicksAndSleep(portTickType xExpectedIdleTime) {
   unsigned long ulReloadValue, ulCompleteTickPeriods, ulCompletedSysTickIncrements;
   TickCounter_t tmp; /* because of how we get the current tick counter */
@@ -312,10 +314,7 @@ __attribute__((weak)) void vPortSuppressTicksAndSleep(portTickType xExpectedIdle
      */
     
      /* CPU *HAS TO WAIT* in the sequence below for an interrupt. If vOnPreSleepProcessing() is not used, a default implementation is provided */
-    /* default wait/sleep code */
-    __asm volatile("dsb");
-    __asm volatile("wfi");
-    __asm volatile("isb");
+    FRTOS1_vOnPreSleepProcessing(xExpectedIdleTime); /* go into low power mode. Re-enable interrupts as needed! */
     /* Here the CPU *HAS TO BE* low power mode, waiting to wake up by an interrupt */
 
     /* Stop tick counter. Again, the time the tick counter is stopped for is

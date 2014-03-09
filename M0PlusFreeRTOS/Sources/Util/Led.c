@@ -6,21 +6,31 @@
  */
 #include "Led.h"
 
-void setLed(uint8_t color) {
-	setLedByColor((enum Color) color);
+//void setLed(uint8_t color) {
+//	setLedByColor((enum Color) color);
+//}
+
+void setLed(uint32_t color) {
+	uint8_t red = color/0x10000;//  12
+	uint8_t green = (color%0x10000)/0x100;//  34
+	uint8_t blue = color%0x100;// 56
+	
+	PWMLEDRed_SetRatio8(red);
+	PWMLEDGreen_SetRatio8(green);
+	PWMLEDBlue_SetRatio8(blue);
 }
 
 void setLedByColor(enum Color color) {
 	switch (color) {
 		case white:
-			LedBlue_PutVal(0, 0);
-			LedRed_PutVal(0, 0);
-			LedGreen_PutVal(0, 0);
+			PWMLEDRed_SetRatio8(0xFF);
+			PWMLEDGreen_SetRatio8(0xFF);
+			PWMLEDBlue_SetRatio8(0xFF);
 		break;
 		case red:
-			LedRed_PutVal(0, 0);
-			LedGreen_PutVal(0, 1);
-			LedBlue_PutVal(0, 1);
+			PWMLEDRed_SetRatio8(0xFF);
+			PWMLEDGreen_SetRatio8(0);
+			PWMLEDBlue_SetRatio8(0);
 
 		break;
 //		case orange:
@@ -29,48 +39,47 @@ void setLedByColor(enum Color color) {
 //			LedRed_NegVal(0);
 //		break;
 		case yellow:
-			LedRed_PutVal(0, 0);
-			LedGreen_PutVal(0, 0);
-			LedBlue_PutVal(0, 1);
+			PWMLEDRed_SetRatio8(0xFF);
+			PWMLEDGreen_SetRatio8(0xFF);
+			PWMLEDBlue_SetRatio8(0);
 
 		break;
 		case green:
-			LedRed_PutVal(0, 1);
-			LedGreen_PutVal(0, 0);
-			LedBlue_PutVal(0, 1);
+			PWMLEDRed_SetRatio8(0);
+			PWMLEDGreen_SetRatio8(0xFF);
+			PWMLEDBlue_SetRatio8(0);
 
 		break;
 		case indigo:
-			LedRed_PutVal(0, 1);
-			LedGreen_PutVal(0, 0);
-			LedBlue_PutVal(0, 0);
+			PWMLEDRed_SetRatio8(0);
+			PWMLEDGreen_SetRatio8(0xFF);
+			PWMLEDBlue_SetRatio8(0xFF);
 
 		break;
 		case blue:
-			LedRed_PutVal(0, 1);
-			LedGreen_PutVal(0, 1);
-			LedBlue_PutVal(0, 0);
+			PWMLEDRed_SetRatio8(0);
+			PWMLEDGreen_SetRatio8(0);
+			PWMLEDBlue_SetRatio8(0xFF);
 
 		break;
 
 		case violet:
-			LedRed_PutVal(0, 0);
-			LedGreen_PutVal(0, 1);
-			LedBlue_PutVal(0, 0);
+			PWMLEDRed_SetRatio8(0xFF);
+			PWMLEDGreen_SetRatio8(0);
+			PWMLEDBlue_SetRatio8(0xFF);
 
 		break;
 		case black:
-			LedRed_PutVal(0, 1);
-			LedGreen_PutVal(0, 1);
-			LedBlue_PutVal(0, 1);
+			PWMLEDRed_SetRatio8(0);
+			PWMLEDGreen_SetRatio8(0);
+			PWMLEDBlue_SetRatio8(0);
 
 		break;
 
 		default:
-			LedRed_PutVal(0, 0);
-			LedGreen_PutVal(0, 0);
-			LedBlue_PutVal(0, 0);
-
+			PWMLEDRed_SetRatio8(0xFF/100);
+			PWMLEDGreen_SetRatio8(0xFF/100);
+			PWMLEDBlue_SetRatio8(0xFF/100);
 		break;
 	}
 }
