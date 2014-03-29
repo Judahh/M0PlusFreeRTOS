@@ -446,6 +446,8 @@ Module "TU1"       (component TimerUnit_LDD)
    - TU1_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
                 available when at least one channel is configured.
 
+Module "CsIO1"     (component ConsoleIO)
+
 Module "AD0"       (component ADC)
    - AD0_Measure -This method performs one measurement on all channels that are set in the component inspector. (Note: If the 
                 <number of conversions> is more than one the conversion of A/D channels is performed specified number of times.)
@@ -509,8 +511,6 @@ Module "GI2C0"     (component GenericI2C)
    - GI2C0_ScanDevice -Checks if a device responds on the bus with an ACK.
    - GI2C0_Init -Initializes the driver.
 
-Module "CsIO1"     (component ConsoleIO)
-
 Module "TSSTouch"  (component TSS_Library)
    - TSSTouch_Configure -Whole TSS initialization and configuration of registers. Contains main TSS_Init() function, TSS System 
                 Config registers and all Control Config registers initialization according to setting of Component properties. 
@@ -569,6 +569,137 @@ Module "PWMLEDRed" (component PWM)
    - PWMLEDRed_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as a 
                 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
                 <Starting pulse width> property.
+
+Module "AS1"       (component TWR_SER_KL25Z48M_UART)
+   - AS1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the "Enable in init. code" is set to "yes" value 
+                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
+                is not necessary and needn't to be generated.
+   - AS1_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors, 
+                etc.
+   - AS1_SendBlock -Sends a block of characters. The method returns ERR_BUSY when the previous block transmission is not 
+                completed. Method <CancelBlockTransmission> can be used to cancel a transmit operation. This method is 
+                available only if the transmitter property is enabled.
+   - AS1_ReceiveBlock -Specifies the number of data to receive. The method returns ERR_BUSY until the specified number of 
+                characters is received. Method <CancelBlockReception> can be used to cancel a running receive operation.
+   - AS1_GetSentDataNum -Returns the number of sent characters.
+   - AS1_GetReceivedDataNum -Returns the number of received characters in the receive buffer.
+   - AS1_GetTxCompleteStatus -Returns whether the transmitter has transmitted all characters and there are no other characters 
+                in the transmitter's HW FIFO or the shift register. The status flag is accumulated, after calling this method 
+                the status is returned and cleared (set to "false" state). This method is available only if a peripheral 
+                supports this feature.
+   - AS1_Main -This method is available only in the polling mode (Interrupt service/event = 'no'). If interrupt service is 
+                disabled this method replaces the interrupt handler. This method should be called if Receive/SendBlock was 
+                invoked before in order to run the reception/transmission. The end of the receiving/transmitting is indicated 
+                by OnBlockSent or OnBlockReceived event.
+
+Module "Break"     (component BitsIO_LDD)
+   - Break_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+   - Break_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value of 
+                the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
+                property for limitations).
+   - Break_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value to a 
+                memory or a register, this value will be written to the pins after switching to the output mode - using 
+                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
+                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - Break_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] then 
+                it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
+                written value (see <Safe mode> property for limitations).
+   - Break_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
+                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
+                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
+                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - Break_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
+                (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - Break_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, FALSE)
+                ]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+
+Module "MotorA"    (component BitsIO_LDD)
+   - MotorA_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+   - MotorA_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value of 
+                the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
+                property for limitations).
+   - MotorA_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value to a 
+                memory or a register, this value will be written to the pins after switching to the output mode - using 
+                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
+                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - MotorA_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] then 
+                it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
+                written value (see <Safe mode> property for limitations).
+   - MotorA_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
+                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
+                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
+                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - MotorA_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
+                (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - MotorA_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, FALSE)
+                ]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+
+Module "MotorB"    (component BitsIO_LDD)
+   - MotorB_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+   - MotorB_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value of 
+                the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
+                property for limitations).
+   - MotorB_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value to a 
+                memory or a register, this value will be written to the pins after switching to the output mode - using 
+                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
+                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - MotorB_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] then 
+                it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
+                written value (see <Safe mode> property for limitations).
+   - MotorB_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
+                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
+                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
+                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - MotorB_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
+                (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - MotorB_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, FALSE)
+                ]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+
+Module "SonarTrigger" (component BitsIO_LDD)
+   - SonarTrigger_Init -This method initializes the associated peripheral(s) and the component internal variables. The method 
+                is called automatically as a part of the application initialization code.
+   - SonarTrigger_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input 
+                value of the pins and returns it. If the direction is [output] then returns the last written value (see <Safe 
+                mode> property for limitations).
+   - SonarTrigger_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value 
+                to a memory or a register, this value will be written to the pins after switching to the output mode - using 
+                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
+                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - SonarTrigger_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] 
+                then it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
+                written value (see <Safe mode> property for limitations).
+   - SonarTrigger_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
+                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
+                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
+                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - SonarTrigger_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
+                (Method is available only if the Direction = _[output]_ or _[input/output]_).
+   - SonarTrigger_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, 
+                FALSE)]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
+
+Module "SonarEcho0" (component BitsIO_LDD)
+   - SonarEcho0_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+   - SonarEcho0_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value 
+                of the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
+                property for limitations).
+   - SonarEcho0_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] 
+                then it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
+                written value (see <Safe mode> property for limitations).
+
+Module "SonarEcho1" (component BitsIO_LDD)
+   - SonarEcho1_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+   - SonarEcho1_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value 
+                of the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
+                property for limitations).
+   - SonarEcho1_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] 
+                then it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
+                written value (see <Safe mode> property for limitations).
 
 Module "Cpu"       (component MKL25Z128LK4)
 

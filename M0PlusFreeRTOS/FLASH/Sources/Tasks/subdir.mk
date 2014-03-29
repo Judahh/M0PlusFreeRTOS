@@ -10,6 +10,7 @@ C_SRCS_QUOTED += \
 "../Sources/Tasks/TaskBlueLed.c" \
 "../Sources/Tasks/TaskGreenLed.c" \
 "../Sources/Tasks/TaskGyroscope.c" \
+"../Sources/Tasks/TaskMotorDC.c" \
 "../Sources/Tasks/TaskRedLed.c" \
 "../Sources/Tasks/TaskRotateLed.c" \
 "../Sources/Tasks/TaskSendString.c" \
@@ -22,6 +23,7 @@ C_SRCS += \
 ../Sources/Tasks/TaskBlueLed.c \
 ../Sources/Tasks/TaskGreenLed.c \
 ../Sources/Tasks/TaskGyroscope.c \
+../Sources/Tasks/TaskMotorDC.c \
 ../Sources/Tasks/TaskRedLed.c \
 ../Sources/Tasks/TaskRotateLed.c \
 ../Sources/Tasks/TaskSendString.c \
@@ -34,6 +36,7 @@ OBJS += \
 ./Sources/Tasks/TaskBlueLed.o \
 ./Sources/Tasks/TaskGreenLed.o \
 ./Sources/Tasks/TaskGyroscope.o \
+./Sources/Tasks/TaskMotorDC.o \
 ./Sources/Tasks/TaskRedLed.o \
 ./Sources/Tasks/TaskRotateLed.o \
 ./Sources/Tasks/TaskSendString.o \
@@ -46,6 +49,7 @@ OBJS_QUOTED += \
 "./Sources/Tasks/TaskBlueLed.o" \
 "./Sources/Tasks/TaskGreenLed.o" \
 "./Sources/Tasks/TaskGyroscope.o" \
+"./Sources/Tasks/TaskMotorDC.o" \
 "./Sources/Tasks/TaskRedLed.o" \
 "./Sources/Tasks/TaskRotateLed.o" \
 "./Sources/Tasks/TaskSendString.o" \
@@ -58,6 +62,7 @@ C_DEPS += \
 ./Sources/Tasks/TaskBlueLed.d \
 ./Sources/Tasks/TaskGreenLed.d \
 ./Sources/Tasks/TaskGyroscope.d \
+./Sources/Tasks/TaskMotorDC.d \
 ./Sources/Tasks/TaskRedLed.d \
 ./Sources/Tasks/TaskRotateLed.d \
 ./Sources/Tasks/TaskSendString.d \
@@ -70,6 +75,7 @@ OBJS_OS_FORMAT += \
 ./Sources/Tasks/TaskBlueLed.o \
 ./Sources/Tasks/TaskGreenLed.o \
 ./Sources/Tasks/TaskGyroscope.o \
+./Sources/Tasks/TaskMotorDC.o \
 ./Sources/Tasks/TaskRedLed.o \
 ./Sources/Tasks/TaskRotateLed.o \
 ./Sources/Tasks/TaskSendString.o \
@@ -82,6 +88,7 @@ C_DEPS_QUOTED += \
 "./Sources/Tasks/TaskBlueLed.d" \
 "./Sources/Tasks/TaskGreenLed.d" \
 "./Sources/Tasks/TaskGyroscope.d" \
+"./Sources/Tasks/TaskMotorDC.d" \
 "./Sources/Tasks/TaskRedLed.d" \
 "./Sources/Tasks/TaskRotateLed.d" \
 "./Sources/Tasks/TaskSendString.d" \
@@ -123,9 +130,17 @@ Sources/Tasks/TaskGyroscope.o: ../Sources/Tasks/TaskGyroscope.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/Tasks/TaskRedLed.o: ../Sources/Tasks/TaskRedLed.c
+Sources/Tasks/TaskMotorDC.o: ../Sources/Tasks/TaskMotorDC.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #12 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskMotorDC.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskMotorDC.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/Tasks/TaskRedLed.o: ../Sources/Tasks/TaskRedLed.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #13 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskRedLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskRedLed.o"
 	@echo 'Finished building: $<'
@@ -133,7 +148,7 @@ Sources/Tasks/TaskRedLed.o: ../Sources/Tasks/TaskRedLed.c
 
 Sources/Tasks/TaskRotateLed.o: ../Sources/Tasks/TaskRotateLed.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #13 $<'
+	@echo 'Executing target #14 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskRotateLed.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskRotateLed.o"
 	@echo 'Finished building: $<'
@@ -141,7 +156,7 @@ Sources/Tasks/TaskRotateLed.o: ../Sources/Tasks/TaskRotateLed.c
 
 Sources/Tasks/TaskSendString.o: ../Sources/Tasks/TaskSendString.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #14 $<'
+	@echo 'Executing target #15 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskSendString.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskSendString.o"
 	@echo 'Finished building: $<'
@@ -149,7 +164,7 @@ Sources/Tasks/TaskSendString.o: ../Sources/Tasks/TaskSendString.c
 
 Sources/Tasks/TaskSendString1.o: ../Sources/Tasks/TaskSendString1.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #15 $<'
+	@echo 'Executing target #16 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskSendString1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskSendString1.o"
 	@echo 'Finished building: $<'
@@ -157,7 +172,7 @@ Sources/Tasks/TaskSendString1.o: ../Sources/Tasks/TaskSendString1.c
 
 Sources/Tasks/TaskSendString2.o: ../Sources/Tasks/TaskSendString2.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #16 $<'
+	@echo 'Executing target #17 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskSendString2.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskSendString2.o"
 	@echo 'Finished building: $<'
@@ -165,7 +180,7 @@ Sources/Tasks/TaskSendString2.o: ../Sources/Tasks/TaskSendString2.c
 
 Sources/Tasks/TaskWriteString.o: ../Sources/Tasks/TaskWriteString.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #17 $<'
+	@echo 'Executing target #18 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskWriteString.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskWriteString.o"
 	@echo 'Finished building: $<'

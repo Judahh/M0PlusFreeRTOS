@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-20, 20:36, # CodeGen: 110
+**     Date/Time   : 2014-03-28, 22:15, # CodeGen: 115
 **     Abstract    :
 **
 **     Settings    :
@@ -43,12 +43,12 @@
 #include "I2C1.h"
 #include "TU0.h"
 #include "TU1.h"
+#include "CsIO1.h"
+#include "IO1.h"
 #include "AD0.h"
 #include "AdcLdd1.h"
 #include "MMA0.h"
 #include "GI2C0.h"
-#include "CsIO1.h"
-#include "IO1.h"
 #include "TSSTouch.h"
 #include "PWMLEDBlue.h"
 #include "PwmLdd1.h"
@@ -56,6 +56,13 @@
 #include "PwmLdd2.h"
 #include "PWMLEDRed.h"
 #include "PwmLdd3.h"
+#include "AS1.h"
+#include "Break.h"
+#include "MotorA.h"
+#include "MotorB.h"
+#include "SonarTrigger.h"
+#include "SonarEcho0.h"
+#include "SonarEcho1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -238,14 +245,14 @@ void PE_low_level_init(void)
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));                                   
   /* ### FreeRTOS "FRTOS1" init code ... */
   vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
+  /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)IO1_Init(NULL);
   /* ### ADC "AD0" init code ... */
   AD0_Init();
   /* ### GenericI2C "GI2C0" init code ... */
   GI2C0_Init();
   /* ### MMA8451Q "MMA0" init code ... */
   /* Write code here ... */
-  /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)IO1_Init(NULL);
   /* ### TSS_Library "TSSTouch" init code ... */
 
   /* Write code here ... */
@@ -256,6 +263,20 @@ void PE_low_level_init(void)
   (void)PwmLdd2_Init(NULL);
   /* ### PWM_LDD "PwmLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)PwmLdd3_Init(NULL);
+  /* ### Serial_LDD "AS1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)AS1_Init(NULL);
+  /* ### GPIO_LDD "Break" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)Break_Init(NULL);
+  /* ### GPIO_LDD "MotorA" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)MotorA_Init(NULL);
+  /* ### GPIO_LDD "MotorB" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)MotorB_Init(NULL);
+  /* ### GPIO_LDD "SonarTrigger" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SonarTrigger_Init(NULL);
+  /* ### GPIO_LDD "SonarEcho0" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SonarEcho0_Init(NULL);
+  /* ### GPIO_LDD "SonarEcho1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SonarEcho1_Init(NULL);
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

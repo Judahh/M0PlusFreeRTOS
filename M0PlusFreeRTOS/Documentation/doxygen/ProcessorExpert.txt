@@ -32,11 +32,18 @@
 - \subpage I2C1
 - \subpage TU0
 - \subpage TU1
-- \subpage AdcLdd1
 - \subpage IO1
+- \subpage AdcLdd1
 - \subpage PwmLdd1
 - \subpage PwmLdd2
 - \subpage PwmLdd3
+- \subpage AS1
+- \subpage Break
+- \subpage MotorA
+- \subpage MotorB
+- \subpage SonarTrigger
+- \subpage SonarEcho0
+- \subpage SonarEcho1
 
 
 */

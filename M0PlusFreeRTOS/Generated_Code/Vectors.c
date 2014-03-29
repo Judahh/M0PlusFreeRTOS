@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-20, 20:36, # CodeGen: 110
+**     Date/Time   : 2014-03-28, 22:15, # CodeGen: 115
 **     Abstract    :
 **
 **     Settings    :
@@ -37,12 +37,12 @@
   #include "I2C1.h"
   #include "TU0.h"
   #include "TU1.h"
+  #include "CsIO1.h"
+  #include "IO1.h"
   #include "AD0.h"
   #include "AdcLdd1.h"
   #include "MMA0.h"
   #include "GI2C0.h"
-  #include "CsIO1.h"
-  #include "IO1.h"
   #include "TSSTouch.h"
   #include "PWMLEDBlue.h"
   #include "PwmLdd1.h"
@@ -50,6 +50,13 @@
   #include "PwmLdd2.h"
   #include "PWMLEDRed.h"
   #include "PwmLdd3.h"
+  #include "AS1.h"
+  #include "Break.h"
+  #include "MotorA.h"
+  #include "MotorB.h"
+  #include "SonarTrigger.h"
+  #include "SonarEcho0.h"
+  #include "SonarEcho1.h"
   #include "Events.h"
 
 

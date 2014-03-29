@@ -58,6 +58,13 @@
 #include "PwmLdd2.h"
 #include "PWMLEDRed.h"
 #include "PwmLdd3.h"
+#include "AS1.h"
+#include "Break.h"
+#include "MotorA.h"
+#include "MotorB.h"
+#include "SonarTrigger.h"
+#include "SonarEcho0.h"
+#include "SonarEcho1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -301,6 +308,28 @@ void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+/*
+** ===================================================================
+**     Event       :  AS1_OnTxComplete (module Events)
+**
+**     Component   :  AS1 [Serial_LDD]
+*/
+/*!
+**     @brief
+**         This event indicates that the transmitter is finished
+**         transmitting all data, preamble, and break characters and is
+**         idle. It can be used to determine when it is safe to switch
+**         a line driver (e.g. in RS-485 applications).
+**         The event is available only when both <Interrupt
+**         service/event> and <Transmitter> properties are enabled.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. This pointer is passed
+**                           as the parameter of Init method.
+*/
+/* ===================================================================*/
+void AS1_OnTxComplete(LDD_TUserData *UserDataPtr);
 
 /* END Events */
 
