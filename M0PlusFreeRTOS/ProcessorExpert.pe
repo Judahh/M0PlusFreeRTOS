@@ -3,8 +3,8 @@
   <Header>
     <Name>ProcessorExpert</Name>
     <SavedBy>JH</SavedBy>
-    <ModificationStamp>89</ModificationStamp>
-    <Date>2014-03-28</Date>
+    <ModificationStamp>90</ModificationStamp>
+    <Date>2014-03-29</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.8.1.RT5_b1349-1839</PEversion>
   </Header>
@@ -7560,7 +7560,7 @@
   </Bean>
   <Bean>
     <BeanType>Wait</BeanType>
-    <Name>WAIT1</Name>
+    <Name>WAIT0</Name>
     <CompNumb>18</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
@@ -7575,7 +7575,7 @@
         <ItemSymbol>DeviceName</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>WAIT1</Value>
+        <Value>WAIT0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ManualClockValues</ItemSymbol>
@@ -19483,7 +19483,7 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>false</Value>
-        <Expanded>false</Expanded>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Timeout</ItemSymbol>

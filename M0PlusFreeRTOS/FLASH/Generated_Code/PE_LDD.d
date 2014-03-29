@@ -29,7 +29,7 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h \
  ../Generated_Code/semphr.h ../Generated_Code/queue.h \
- ../Generated_Code/UTIL2.h ../Generated_Code/WAIT1.h \
+ ../Generated_Code/UTIL2.h ../Generated_Code/WAIT0.h \
  ../Generated_Code/I2C0.h ../Generated_Code/I2C1.h \
  ../Generated_Code/TU0.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
@@ -144,7 +144,7 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h:
 
 ../Generated_Code/UTIL2.h:
 
-../Generated_Code/WAIT1.h:
+../Generated_Code/WAIT0.h:
 
 ../Generated_Code/I2C0.h:
 

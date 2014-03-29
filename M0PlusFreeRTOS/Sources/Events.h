@@ -40,7 +40,7 @@
 #include "Util/Accelerometer.h"
 #include "Util/Gyroscope.h"
 #include "Util/UART.h"
-#include "WAIT1.h"
+#include "WAIT0.h"
 #include "TU0.h"
 #include "TU1.h"
 #include "I2C1.h"

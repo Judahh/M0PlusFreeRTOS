@@ -172,8 +172,8 @@
       <XtraAge51>1147697015</XtraAge51>
       <XtraAge52>1147697015</XtraAge52>
       <XtraAge69>1149022727</XtraAge69>
-      <XtraAge70>1149022727</XtraAge70>
-      <XtraAge72>1149022727</XtraAge72>
+      <XtraAge70>1149044344</XtraAge70>
+      <XtraAge72>1149044344</XtraAge72>
       <GenExtraFileType72>4</GenExtraFileType72>
       <GenExtraFileType71>4</GenExtraFileType71>
       <GenExtraFileType70>4</GenExtraFileType70>
@@ -298,14 +298,14 @@
         <Line>TU1</Line>
         <Line>UTIL1</Line>
         <Line>UTIL2</Line>
-        <Line>WAIT1</Line>
+        <Line>WAIT0</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
       <GenBeanModules lines_count="28">
         <Line>FRTOS1</Line>
         <Line>UTIL1</Line>
         <Line>UTIL2</Line>
-        <Line>WAIT1</Line>
+        <Line>WAIT0</Line>
         <Line>I2C0</Line>
         <Line>I2C1</Line>
         <Line>TU0</Line>
@@ -334,7 +334,7 @@
     </GenFiles>
     <SignalListFile>Documentation\ProcessorExpert_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>89</ProjectModificationStamp>
+    <ProjectModificationStamp>90</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -343,7 +343,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1147703682</HeaderAge>
-    <CodeAge>1149022727</CodeAge>
+    <CodeAge>1149044344</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>10</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -2955,12 +2955,12 @@
   </ComponentID_10>
   <ComponentID_18>
     <Generated>true</Generated>
-    <GenCompName>WAIT1</GenCompName>
+    <GenCompName>WAIT0</GenCompName>
     <GenComponentVersion>01.064</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1146379065</HeaderAge>
-    <CodeAge>1146379065</CodeAge>
+    <HeaderAge>1149044344</HeaderAge>
+    <CodeAge>1149044344</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>8</GenNumMethods>
     <Wait10Cycles>true</Wait10Cycles>

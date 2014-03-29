@@ -635,10 +635,10 @@ PE_DEBUGHALT();
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="WAIT1" type="Wait">
+  <Bean name="WAIT0" type="Wait">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="WAIT1" />
+      <Component_name v="WAIT0" />
       <boolgroup name="Manual Clock Values" v="Disabled" />
       <Delay100usFunction v="Delay100US" />
       <boolgroup name="RTOS" v="Disabled" />

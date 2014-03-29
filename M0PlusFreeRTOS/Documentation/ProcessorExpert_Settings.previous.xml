@@ -2219,7 +2219,7 @@ Autoselect
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
-        <Init__value v="1" />
+        <Init__value v="3" />
         <Auto_initialization v="yes" />
       </group>
       <Safe_mode v="no" />

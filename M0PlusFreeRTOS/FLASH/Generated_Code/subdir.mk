@@ -36,7 +36,7 @@ C_SRCS_QUOTED += \
 "../Generated_Code/UTIL1.c" \
 "../Generated_Code/UTIL2.c" \
 "../Generated_Code/Vectors.c" \
-"../Generated_Code/WAIT1.c" \
+"../Generated_Code/WAIT0.c" \
 "../Generated_Code/croutine.c" \
 "../Generated_Code/heap_1.c" \
 "../Generated_Code/heap_2.c" \
@@ -79,7 +79,7 @@ C_SRCS += \
 ../Generated_Code/UTIL1.c \
 ../Generated_Code/UTIL2.c \
 ../Generated_Code/Vectors.c \
-../Generated_Code/WAIT1.c \
+../Generated_Code/WAIT0.c \
 ../Generated_Code/croutine.c \
 ../Generated_Code/heap_1.c \
 ../Generated_Code/heap_2.c \
@@ -131,7 +131,7 @@ OBJS += \
 ./Generated_Code/UTIL1.o \
 ./Generated_Code/UTIL2.o \
 ./Generated_Code/Vectors.o \
-./Generated_Code/WAIT1.o \
+./Generated_Code/WAIT0.o \
 ./Generated_Code/croutine.o \
 ./Generated_Code/heap_1.o \
 ./Generated_Code/heap_2.o \
@@ -178,7 +178,7 @@ OBJS_QUOTED += \
 "./Generated_Code/UTIL1.o" \
 "./Generated_Code/UTIL2.o" \
 "./Generated_Code/Vectors.o" \
-"./Generated_Code/WAIT1.o" \
+"./Generated_Code/WAIT0.o" \
 "./Generated_Code/croutine.o" \
 "./Generated_Code/heap_1.o" \
 "./Generated_Code/heap_2.o" \
@@ -222,7 +222,7 @@ C_DEPS += \
 ./Generated_Code/UTIL1.d \
 ./Generated_Code/UTIL2.d \
 ./Generated_Code/Vectors.d \
-./Generated_Code/WAIT1.d \
+./Generated_Code/WAIT0.d \
 ./Generated_Code/croutine.d \
 ./Generated_Code/heap_1.d \
 ./Generated_Code/heap_2.d \
@@ -265,7 +265,7 @@ OBJS_OS_FORMAT += \
 ./Generated_Code/UTIL1.o \
 ./Generated_Code/UTIL2.o \
 ./Generated_Code/Vectors.o \
-./Generated_Code/WAIT1.o \
+./Generated_Code/WAIT0.o \
 ./Generated_Code/croutine.o \
 ./Generated_Code/heap_1.o \
 ./Generated_Code/heap_2.o \
@@ -309,7 +309,7 @@ C_DEPS_QUOTED += \
 "./Generated_Code/UTIL1.d" \
 "./Generated_Code/UTIL2.d" \
 "./Generated_Code/Vectors.d" \
-"./Generated_Code/WAIT1.d" \
+"./Generated_Code/WAIT0.d" \
 "./Generated_Code/croutine.d" \
 "./Generated_Code/heap_1.d" \
 "./Generated_Code/heap_2.d" \
@@ -563,11 +563,11 @@ Generated_Code/Vectors.o: ../Generated_Code/Vectors.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/WAIT1.o: ../Generated_Code/WAIT1.c
+Generated_Code/WAIT0.o: ../Generated_Code/WAIT0.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #58 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/WAIT1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/WAIT1.o"
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/WAIT0.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/WAIT0.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 

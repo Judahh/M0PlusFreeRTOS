@@ -376,32 +376,32 @@ Discarded input sections
  .ARM.attributes
                 0x00000000       0x31 ./Generated_Code/croutine.o
  .debug_frame   0x00000000       0xf0 ./Generated_Code/croutine.o
- .text          0x00000000        0x0 ./Generated_Code/WAIT1.o
- .data          0x00000000        0x0 ./Generated_Code/WAIT1.o
- .bss           0x00000000        0x0 ./Generated_Code/WAIT1.o
- .text.WAIT1_Wait10Cycles
-                0x00000000        0x8 ./Generated_Code/WAIT1.o
- .text.WAIT1_Wait100Cycles
-                0x00000000       0x18 ./Generated_Code/WAIT1.o
- .text.WAIT1_WaitCycles
-                0x00000000       0x44 ./Generated_Code/WAIT1.o
- .text.WAIT1_WaitLongCycles
-                0x00000000       0x3c ./Generated_Code/WAIT1.o
- .text.WAIT1_Waitms
-                0x00000000       0x38 ./Generated_Code/WAIT1.o
- .debug_info    0x00000000      0x13c ./Generated_Code/WAIT1.o
- .debug_abbrev  0x00000000       0xa3 ./Generated_Code/WAIT1.o
- .debug_loc     0x00000000       0xa8 ./Generated_Code/WAIT1.o
+ .text          0x00000000        0x0 ./Generated_Code/WAIT0.o
+ .data          0x00000000        0x0 ./Generated_Code/WAIT0.o
+ .bss           0x00000000        0x0 ./Generated_Code/WAIT0.o
+ .text.WAIT0_Wait10Cycles
+                0x00000000        0x8 ./Generated_Code/WAIT0.o
+ .text.WAIT0_Wait100Cycles
+                0x00000000       0x18 ./Generated_Code/WAIT0.o
+ .text.WAIT0_WaitCycles
+                0x00000000       0x44 ./Generated_Code/WAIT0.o
+ .text.WAIT0_WaitLongCycles
+                0x00000000       0x3c ./Generated_Code/WAIT0.o
+ .text.WAIT0_Waitms
+                0x00000000       0x38 ./Generated_Code/WAIT0.o
+ .debug_info    0x00000000      0x13c ./Generated_Code/WAIT0.o
+ .debug_abbrev  0x00000000       0xa3 ./Generated_Code/WAIT0.o
+ .debug_loc     0x00000000       0xa8 ./Generated_Code/WAIT0.o
  .debug_aranges
-                0x00000000       0x40 ./Generated_Code/WAIT1.o
+                0x00000000       0x40 ./Generated_Code/WAIT0.o
  .debug_macinfo
-                0x00000000    0x30a9a ./Generated_Code/WAIT1.o
- .debug_line    0x00000000      0x2e3 ./Generated_Code/WAIT1.o
- .debug_str     0x00000000      0x1ba ./Generated_Code/WAIT1.o
- .comment       0x00000000       0x7a ./Generated_Code/WAIT1.o
+                0x00000000    0x30a9a ./Generated_Code/WAIT0.o
+ .debug_line    0x00000000      0x2e3 ./Generated_Code/WAIT0.o
+ .debug_str     0x00000000      0x1ba ./Generated_Code/WAIT0.o
+ .comment       0x00000000       0x7a ./Generated_Code/WAIT0.o
  .ARM.attributes
-                0x00000000       0x31 ./Generated_Code/WAIT1.o
- .debug_frame   0x00000000       0x90 ./Generated_Code/WAIT1.o
+                0x00000000       0x31 ./Generated_Code/WAIT0.o
+ .debug_frame   0x00000000       0x90 ./Generated_Code/WAIT0.o
  .text          0x00000000        0x0 ./Generated_Code/Vectors.o
  .data          0x00000000        0x0 ./Generated_Code/Vectors.o
  .bss           0x00000000        0x0 ./Generated_Code/Vectors.o
@@ -1826,7 +1826,7 @@ LOAD ./Generated_Code/heap_3.o
 LOAD ./Generated_Code/heap_2.o
 LOAD ./Generated_Code/heap_1.o
 LOAD ./Generated_Code/croutine.o
-LOAD ./Generated_Code/WAIT1.o
+LOAD ./Generated_Code/WAIT0.o
 LOAD ./Generated_Code/Vectors.o
 LOAD ./Generated_Code/UTIL2.o
 LOAD ./Generated_Code/UTIL1.o
