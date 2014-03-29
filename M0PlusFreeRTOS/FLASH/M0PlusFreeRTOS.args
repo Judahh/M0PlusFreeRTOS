@@ -49,6 +49,7 @@
 "./Sources/TSS/TSS_Sensor.o"
 "./Sources/TSS/TSS_Freemaster.o"
 "./Sources/Tasks/TaskWriteString.o"
+"./Sources/Tasks/TaskSonar.o"
 "./Sources/Tasks/TaskSendString2.o"
 "./Sources/Tasks/TaskSendString1.o"
 "./Sources/Tasks/TaskSendString.o"

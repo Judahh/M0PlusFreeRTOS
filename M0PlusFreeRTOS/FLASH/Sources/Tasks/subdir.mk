@@ -16,6 +16,7 @@ C_SRCS_QUOTED += \
 "../Sources/Tasks/TaskSendString.c" \
 "../Sources/Tasks/TaskSendString1.c" \
 "../Sources/Tasks/TaskSendString2.c" \
+"../Sources/Tasks/TaskSonar.c" \
 "../Sources/Tasks/TaskWriteString.c" \
 
 C_SRCS += \
@@ -29,6 +30,7 @@ C_SRCS += \
 ../Sources/Tasks/TaskSendString.c \
 ../Sources/Tasks/TaskSendString1.c \
 ../Sources/Tasks/TaskSendString2.c \
+../Sources/Tasks/TaskSonar.c \
 ../Sources/Tasks/TaskWriteString.c \
 
 OBJS += \
@@ -42,6 +44,7 @@ OBJS += \
 ./Sources/Tasks/TaskSendString.o \
 ./Sources/Tasks/TaskSendString1.o \
 ./Sources/Tasks/TaskSendString2.o \
+./Sources/Tasks/TaskSonar.o \
 ./Sources/Tasks/TaskWriteString.o \
 
 OBJS_QUOTED += \
@@ -55,6 +58,7 @@ OBJS_QUOTED += \
 "./Sources/Tasks/TaskSendString.o" \
 "./Sources/Tasks/TaskSendString1.o" \
 "./Sources/Tasks/TaskSendString2.o" \
+"./Sources/Tasks/TaskSonar.o" \
 "./Sources/Tasks/TaskWriteString.o" \
 
 C_DEPS += \
@@ -68,6 +72,7 @@ C_DEPS += \
 ./Sources/Tasks/TaskSendString.d \
 ./Sources/Tasks/TaskSendString1.d \
 ./Sources/Tasks/TaskSendString2.d \
+./Sources/Tasks/TaskSonar.d \
 ./Sources/Tasks/TaskWriteString.d \
 
 OBJS_OS_FORMAT += \
@@ -81,6 +86,7 @@ OBJS_OS_FORMAT += \
 ./Sources/Tasks/TaskSendString.o \
 ./Sources/Tasks/TaskSendString1.o \
 ./Sources/Tasks/TaskSendString2.o \
+./Sources/Tasks/TaskSonar.o \
 ./Sources/Tasks/TaskWriteString.o \
 
 C_DEPS_QUOTED += \
@@ -94,6 +100,7 @@ C_DEPS_QUOTED += \
 "./Sources/Tasks/TaskSendString.d" \
 "./Sources/Tasks/TaskSendString1.d" \
 "./Sources/Tasks/TaskSendString2.d" \
+"./Sources/Tasks/TaskSonar.d" \
 "./Sources/Tasks/TaskWriteString.d" \
 
 
@@ -178,9 +185,17 @@ Sources/Tasks/TaskSendString2.o: ../Sources/Tasks/TaskSendString2.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/Tasks/TaskWriteString.o: ../Sources/Tasks/TaskWriteString.c
+Sources/Tasks/TaskSonar.o: ../Sources/Tasks/TaskSonar.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #18 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskSonar.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskSonar.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/Tasks/TaskWriteString.o: ../Sources/Tasks/TaskWriteString.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #19 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Tasks/TaskWriteString.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Tasks/TaskWriteString.o"
 	@echo 'Finished building: $<'

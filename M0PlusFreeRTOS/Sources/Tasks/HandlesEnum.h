@@ -20,6 +20,7 @@ typedef enum {
 	taskRedLedHandle,
 	taskRotateLedHandle,
 	taskMotorDCHandle,
+	taskSonarHandle,
 #if configGENERATE_RUN_TIME_STATS == 1
 	TASKHANDLE_RUNTIMESTATS,
 #endif

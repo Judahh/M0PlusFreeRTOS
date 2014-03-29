@@ -164,7 +164,7 @@ TSS_C0_POSFILTER_CONTEXT
 tss_au8ElectrodeDCTrackerEnablers
                     0x1               ./Sources/TSS/TSS_SystemSetupData.o
 stdin_buff          0x40              C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
-taskHandles         0x2c              ./Sources/Tasks/TaskWriteString.o
+taskHandles         0x30              ./Sources/Tasks/TaskWriteString.o
 tss_au16ElecBaseline
                     0x4               ./Sources/TSS/TSS_SystemSetupData.o
 tss_au8ReleaseCount
@@ -1116,6 +1116,31 @@ Discarded input sections
                 0x00000000       0x40 ./Sources/Tasks/TaskWriteString.o
  .text.taskWriteStringStop
                 0x00000000       0x2c ./Sources/Tasks/TaskWriteString.o
+ .text          0x00000000        0x0 ./Sources/Tasks/TaskSonar.o
+ .data          0x00000000        0x0 ./Sources/Tasks/TaskSonar.o
+ .bss           0x00000000        0x0 ./Sources/Tasks/TaskSonar.o
+ .text.taskSonarWork
+                0x00000000       0x34 ./Sources/Tasks/TaskSonar.o
+ .text.TaskSonar
+                0x00000000       0x10 ./Sources/Tasks/TaskSonar.o
+ .rodata        0x00000000        0xc ./Sources/Tasks/TaskSonar.o
+ .text.taskSonarStart
+                0x00000000       0x3c ./Sources/Tasks/TaskSonar.o
+ .text.taskSonarStop
+                0x00000000       0x2c ./Sources/Tasks/TaskSonar.o
+ .debug_info    0x00000000      0x185 ./Sources/Tasks/TaskSonar.o
+ .debug_abbrev  0x00000000       0xdd ./Sources/Tasks/TaskSonar.o
+ .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskSonar.o
+ .debug_aranges
+                0x00000000       0x38 ./Sources/Tasks/TaskSonar.o
+ .debug_macinfo
+                0x00000000    0x34200 ./Sources/Tasks/TaskSonar.o
+ .debug_line    0x00000000      0x456 ./Sources/Tasks/TaskSonar.o
+ .debug_str     0x00000000      0x2b6 ./Sources/Tasks/TaskSonar.o
+ .comment       0x00000000       0x7a ./Sources/Tasks/TaskSonar.o
+ .ARM.attributes
+                0x00000000       0x31 ./Sources/Tasks/TaskSonar.o
+ .debug_frame   0x00000000       0x88 ./Sources/Tasks/TaskSonar.o
  .text          0x00000000        0x0 ./Sources/Tasks/TaskSendString2.o
  .data          0x00000000        0x0 ./Sources/Tasks/TaskSendString2.o
  .bss           0x00000000        0x0 ./Sources/Tasks/TaskSendString2.o
@@ -1128,7 +1153,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskSendString2.o
  .text.taskSendString2Stop
                 0x00000000       0x2c ./Sources/Tasks/TaskSendString2.o
- .debug_info    0x00000000      0x16b ./Sources/Tasks/TaskSendString2.o
+ .debug_info    0x00000000      0x171 ./Sources/Tasks/TaskSendString2.o
  .debug_abbrev  0x00000000       0xc5 ./Sources/Tasks/TaskSendString2.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskSendString2.o
  .debug_aranges
@@ -1136,7 +1161,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x3326d ./Sources/Tasks/TaskSendString2.o
  .debug_line    0x00000000      0x43e ./Sources/Tasks/TaskSendString2.o
- .debug_str     0x00000000      0x2af ./Sources/Tasks/TaskSendString2.o
+ .debug_str     0x00000000      0x2bf ./Sources/Tasks/TaskSendString2.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskSendString2.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskSendString2.o
@@ -1153,7 +1178,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskSendString1.o
  .text.taskSendString1Stop
                 0x00000000       0x2c ./Sources/Tasks/TaskSendString1.o
- .debug_info    0x00000000      0x16b ./Sources/Tasks/TaskSendString1.o
+ .debug_info    0x00000000      0x171 ./Sources/Tasks/TaskSendString1.o
  .debug_abbrev  0x00000000       0xc5 ./Sources/Tasks/TaskSendString1.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskSendString1.o
  .debug_aranges
@@ -1161,7 +1186,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x3326d ./Sources/Tasks/TaskSendString1.o
  .debug_line    0x00000000      0x43e ./Sources/Tasks/TaskSendString1.o
- .debug_str     0x00000000      0x2af ./Sources/Tasks/TaskSendString1.o
+ .debug_str     0x00000000      0x2bf ./Sources/Tasks/TaskSendString1.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskSendString1.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskSendString1.o
@@ -1178,7 +1203,7 @@ Discarded input sections
                 0x00000000       0x48 ./Sources/Tasks/TaskSendString.o
  .text.taskSendStringStop
                 0x00000000       0x2c ./Sources/Tasks/TaskSendString.o
- .debug_info    0x00000000      0x19e ./Sources/Tasks/TaskSendString.o
+ .debug_info    0x00000000      0x1a4 ./Sources/Tasks/TaskSendString.o
  .debug_abbrev  0x00000000       0xed ./Sources/Tasks/TaskSendString.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskSendString.o
  .debug_aranges
@@ -1186,7 +1211,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x3326c ./Sources/Tasks/TaskSendString.o
  .debug_line    0x00000000      0x441 ./Sources/Tasks/TaskSendString.o
- .debug_str     0x00000000      0x2c0 ./Sources/Tasks/TaskSendString.o
+ .debug_str     0x00000000      0x2d0 ./Sources/Tasks/TaskSendString.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskSendString.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskSendString.o
@@ -1205,7 +1230,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskRotateLed.o
  .text.taskRotateLedStop
                 0x00000000       0x2c ./Sources/Tasks/TaskRotateLed.o
- .debug_info    0x00000000      0x187 ./Sources/Tasks/TaskRotateLed.o
+ .debug_info    0x00000000      0x18d ./Sources/Tasks/TaskRotateLed.o
  .debug_abbrev  0x00000000       0xd4 ./Sources/Tasks/TaskRotateLed.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskRotateLed.o
  .debug_aranges
@@ -1213,7 +1238,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x49547 ./Sources/Tasks/TaskRotateLed.o
  .debug_line    0x00000000      0x746 ./Sources/Tasks/TaskRotateLed.o
- .debug_str     0x00000000      0x2b3 ./Sources/Tasks/TaskRotateLed.o
+ .debug_str     0x00000000      0x2c3 ./Sources/Tasks/TaskRotateLed.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskRotateLed.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskRotateLed.o
@@ -1230,7 +1255,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskRedLed.o
  .text.taskRedLedStop
                 0x00000000       0x2c ./Sources/Tasks/TaskRedLed.o
- .debug_info    0x00000000      0x190 ./Sources/Tasks/TaskRedLed.o
+ .debug_info    0x00000000      0x196 ./Sources/Tasks/TaskRedLed.o
  .debug_abbrev  0x00000000       0xef ./Sources/Tasks/TaskRedLed.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskRedLed.o
  .debug_aranges
@@ -1238,7 +1263,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x34f40 ./Sources/Tasks/TaskRedLed.o
  .debug_line    0x00000000      0x44a ./Sources/Tasks/TaskRedLed.o
- .debug_str     0x00000000      0x2bc ./Sources/Tasks/TaskRedLed.o
+ .debug_str     0x00000000      0x2cc ./Sources/Tasks/TaskRedLed.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskRedLed.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskRedLed.o
@@ -1262,7 +1287,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskGyroscope.o
  .text.taskGyroscopeStop
                 0x00000000       0x30 ./Sources/Tasks/TaskGyroscope.o
- .debug_info    0x00000000      0x17c ./Sources/Tasks/TaskGyroscope.o
+ .debug_info    0x00000000      0x182 ./Sources/Tasks/TaskGyroscope.o
  .debug_abbrev  0x00000000       0xd4 ./Sources/Tasks/TaskGyroscope.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskGyroscope.o
  .debug_aranges
@@ -1270,7 +1295,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x49551 ./Sources/Tasks/TaskGyroscope.o
  .debug_line    0x00000000      0x74b ./Sources/Tasks/TaskGyroscope.o
- .debug_str     0x00000000      0x2b1 ./Sources/Tasks/TaskGyroscope.o
+ .debug_str     0x00000000      0x2c1 ./Sources/Tasks/TaskGyroscope.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskGyroscope.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskGyroscope.o
@@ -1287,7 +1312,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskGreenLed.o
  .text.taskGreenLedStop
                 0x00000000       0x2c ./Sources/Tasks/TaskGreenLed.o
- .debug_info    0x00000000      0x190 ./Sources/Tasks/TaskGreenLed.o
+ .debug_info    0x00000000      0x196 ./Sources/Tasks/TaskGreenLed.o
  .debug_abbrev  0x00000000       0xef ./Sources/Tasks/TaskGreenLed.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskGreenLed.o
  .debug_aranges
@@ -1295,7 +1320,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x34f52 ./Sources/Tasks/TaskGreenLed.o
  .debug_line    0x00000000      0x450 ./Sources/Tasks/TaskGreenLed.o
- .debug_str     0x00000000      0x2c6 ./Sources/Tasks/TaskGreenLed.o
+ .debug_str     0x00000000      0x2d6 ./Sources/Tasks/TaskGreenLed.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskGreenLed.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskGreenLed.o
@@ -1312,7 +1337,7 @@ Discarded input sections
                 0x00000000       0x3c ./Sources/Tasks/TaskBlueLed.o
  .text.taskBlueLedStop
                 0x00000000       0x2c ./Sources/Tasks/TaskBlueLed.o
- .debug_info    0x00000000      0x190 ./Sources/Tasks/TaskBlueLed.o
+ .debug_info    0x00000000      0x196 ./Sources/Tasks/TaskBlueLed.o
  .debug_abbrev  0x00000000       0xef ./Sources/Tasks/TaskBlueLed.o
  .debug_loc     0x00000000       0xc8 ./Sources/Tasks/TaskBlueLed.o
  .debug_aranges
@@ -1320,7 +1345,7 @@ Discarded input sections
  .debug_macinfo
                 0x00000000    0x34f25 ./Sources/Tasks/TaskBlueLed.o
  .debug_line    0x00000000      0x44d ./Sources/Tasks/TaskBlueLed.o
- .debug_str     0x00000000      0x2c1 ./Sources/Tasks/TaskBlueLed.o
+ .debug_str     0x00000000      0x2d1 ./Sources/Tasks/TaskBlueLed.o
  .comment       0x00000000       0x7a ./Sources/Tasks/TaskBlueLed.o
  .ARM.attributes
                 0x00000000       0x31 ./Sources/Tasks/TaskBlueLed.o
@@ -1841,6 +1866,7 @@ LOAD ./Sources/TSS/TSS_SensorGPIO.o
 LOAD ./Sources/TSS/TSS_Sensor.o
 LOAD ./Sources/TSS/TSS_Freemaster.o
 LOAD ./Sources/Tasks/TaskWriteString.o
+LOAD ./Sources/Tasks/TaskSonar.o
 LOAD ./Sources/Tasks/TaskSendString2.o
 LOAD ./Sources/Tasks/TaskSendString1.o
 LOAD ./Sources/Tasks/TaskSendString.o
@@ -2783,7 +2809,7 @@ END GROUP
  .igot.plt      0x00000000        0x0 ./Generated_Code/timers.o
                 0x1ffff018                . = ALIGN (0x4)
 
-.bss            0x1ffff018     0x1708 load address 0x000098b0
+.bss            0x1ffff018     0x170c load address 0x000098b0
                 0x1ffff018                __START_BSS = .
                 0x1ffff018                PROVIDE (__bss_start__, __START_BSS)
  *(.bss)
@@ -2947,35 +2973,35 @@ END GROUP
                 0x200006e4                tss_psElectrodeTimertAdr
                 0x200006e8                tss_u8ElectrodeBitNum
                 0x200006ec                tss_psElectrodeRGPIOAdr
- COMMON         0x200006f0       0x2c ./Sources/Tasks/TaskWriteString.o
+ COMMON         0x200006f0       0x30 ./Sources/Tasks/TaskWriteString.o
                 0x200006f0                taskHandles
- COMMON         0x2000071c        0x2 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_KeyDetector.o)
-                0x2000071c                tss_u16CapSample
-                0x20000720                . = ALIGN (0x4)
- *fill*         0x2000071e        0x2 00
-                0x20000720                __END_BSS = .
-                0x20000720                PROVIDE (__bss_end__, __END_BSS)
+ COMMON         0x20000720        0x2 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_KeyDetector.o)
+                0x20000720                tss_u16CapSample
+                0x20000724                . = ALIGN (0x4)
+ *fill*         0x20000722        0x2 00
+                0x20000724                __END_BSS = .
+                0x20000724                PROVIDE (__bss_end__, __END_BSS)
                 0x000098b0                _romp_at = (___ROM_AT + SIZEOF (.data))
 
-.romp           0x20000720       0x18 load address 0x000098b0
+.romp           0x20000724       0x18 load address 0x000098b0
                 0x000098b0                __S_romp = _romp_at
-                0x20000720        0x4 LONG 0x9898 ___ROM_AT
-                0x20000724        0x4 LONG 0x1ffff000 _sdata
-                0x20000728        0x4 LONG 0x18 ___data_size
-                0x2000072c        0x4 LONG 0x0
+                0x20000724        0x4 LONG 0x9898 ___ROM_AT
+                0x20000728        0x4 LONG 0x1ffff000 _sdata
+                0x2000072c        0x4 LONG 0x18 ___data_size
                 0x20000730        0x4 LONG 0x0
                 0x20000734        0x4 LONG 0x0
+                0x20000738        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x20000738       0x20 load address 0x000098c8
-                0x20000738                . = ALIGN (0x4)
-                0x20000738                PROVIDE (end, .)
-                0x20000738                PROVIDE (_end, .)
-                0x20000738                __heap_addr = .
-                0x20000738                . = (. + __heap_size)
-                0x20000758                . = (. + __stack_size)
- *fill*         0x20000738       0x20 00
-                0x20000758                . = ALIGN (0x4)
+                0x2000073c       0x20 load address 0x000098c8
+                0x2000073c                . = ALIGN (0x4)
+                0x2000073c                PROVIDE (end, .)
+                0x2000073c                PROVIDE (_end, .)
+                0x2000073c                __heap_addr = .
+                0x2000073c                . = (. + __heap_size)
+                0x2000075c                . = (. + __stack_size)
+ *fill*         0x2000073c       0x20 00
+                0x2000075c                . = ALIGN (0x4)
 
 .ARM.attributes
                 0x00000000       0x2f
@@ -3114,7 +3140,7 @@ END GROUP
                 0x00000bf0       0x31 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 OUTPUT(M0PlusFreeRTOS.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xee35
+.debug_info     0x00000000     0xee4d
  .debug_info    0x00000000      0xea6 ./Generated_Code/tasks.o
  .debug_info    0x00000ea6      0xb70 ./Generated_Code/queue.o
  .debug_info    0x00001a16      0x26a ./Generated_Code/port.o
@@ -3148,25 +3174,25 @@ OUTPUT(M0PlusFreeRTOS.elf elf32-littlearm)
  .debug_info    0x00009d39     0x1229 ./Sources/TSS/TSS_SystemSetupData.o
  .debug_info    0x0000af62      0xf99 ./Sources/TSS/TSS_SensorTSIL.o
  .debug_info    0x0000befb      0x4e3 ./Sources/TSS/TSS_Sensor.o
- .debug_info    0x0000c3de      0x17e ./Sources/Tasks/TaskWriteString.o
- .debug_info    0x0000c55c      0x16b ./Sources/Tasks/TaskMotorDC.o
- .debug_info    0x0000c6c7      0x1b9 ./Sources/Tasks/TaskAccelerometer.o
- .debug_info    0x0000c880      0x10b ./Sources/ProcessorExpert.o
- .debug_info    0x0000c98b      0x892 ./Sources/Events.o
- .debug_info    0x0000d21d       0xe8 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_info    0x0000d305      0x10f C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_info    0x0000d414       0xec C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_info    0x0000d500      0x10b C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_info    0x0000d60b       0xea C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_info    0x0000d6f5      0x50d C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_info    0x0000dc02      0x568 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
- .debug_info    0x0000e16a      0x313 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
- .debug_info    0x0000e47d      0x1d6 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
- .debug_info    0x0000e653      0x137 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_info    0x0000e78a      0x121 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_info    0x0000e8ab      0x136 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_info    0x0000e9e1      0x19b C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_info    0x0000eb7c      0x2b9 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_info    0x0000c3de      0x184 ./Sources/Tasks/TaskWriteString.o
+ .debug_info    0x0000c562      0x171 ./Sources/Tasks/TaskMotorDC.o
+ .debug_info    0x0000c6d3      0x1bf ./Sources/Tasks/TaskAccelerometer.o
+ .debug_info    0x0000c892      0x111 ./Sources/ProcessorExpert.o
+ .debug_info    0x0000c9a3      0x892 ./Sources/Events.o
+ .debug_info    0x0000d235       0xe8 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_info    0x0000d31d      0x10f C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_info    0x0000d42c       0xec C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_info    0x0000d518      0x10b C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_info    0x0000d623       0xea C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_info    0x0000d70d      0x50d C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_info    0x0000dc1a      0x568 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+ .debug_info    0x0000e182      0x313 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+ .debug_info    0x0000e495      0x1d6 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+ .debug_info    0x0000e66b      0x137 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_info    0x0000e7a2      0x121 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_info    0x0000e8c3      0x136 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_info    0x0000e9f9      0x19b C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_info    0x0000eb94      0x2b9 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
 .debug_abbrev   0x00000000     0x39c7
  .debug_abbrev  0x00000000      0x18d ./Generated_Code/tasks.o
@@ -3513,7 +3539,7 @@ OUTPUT(M0PlusFreeRTOS.elf elf32-littlearm)
  .debug_line    0x0000c8fc       0xbd C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
  .debug_line    0x0000c9b9      0x117 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_str      0x00000000     0x5459
+.debug_str      0x00000000     0x5469
  .debug_str     0x00000000      0x8f8 ./Generated_Code/tasks.o
                                 0x96d (size before relaxing)
  .debug_str     0x000008f8      0x41f ./Generated_Code/queue.o
@@ -3580,43 +3606,43 @@ OUTPUT(M0PlusFreeRTOS.elf elf32-littlearm)
                                 0xf96 (size before relaxing)
  .debug_str     0x00004689      0x12b ./Sources/TSS/TSS_Sensor.o
                                 0x5e4 (size before relaxing)
- .debug_str     0x000047b4      0x180 ./Sources/Tasks/TaskWriteString.o
-                                0x2c4 (size before relaxing)
- .debug_str     0x00004934       0x5c ./Sources/Tasks/TaskMotorDC.o
-                                0x29b (size before relaxing)
- .debug_str     0x00004990       0x7a ./Sources/Tasks/TaskAccelerometer.o
-                                0x2da (size before relaxing)
- .debug_str     0x00004a0a       0x22 ./Sources/ProcessorExpert.o
-                                0x247 (size before relaxing)
- .debug_str     0x00004a2c      0x1cd ./Sources/Events.o
+ .debug_str     0x000047b4      0x190 ./Sources/Tasks/TaskWriteString.o
+                                0x2d4 (size before relaxing)
+ .debug_str     0x00004944       0x5c ./Sources/Tasks/TaskMotorDC.o
+                                0x2ab (size before relaxing)
+ .debug_str     0x000049a0       0x7a ./Sources/Tasks/TaskAccelerometer.o
+                                0x2ea (size before relaxing)
+ .debug_str     0x00004a1a       0x22 ./Sources/ProcessorExpert.o
+                                0x257 (size before relaxing)
+ .debug_str     0x00004a3c      0x1cd ./Sources/Events.o
                                 0x92b (size before relaxing)
- .debug_str     0x00004bf9       0x54 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_str     0x00004c09       0x54 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
                                 0x157 (size before relaxing)
- .debug_str     0x00004c4d       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_str     0x00004c5d       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
                                 0x138 (size before relaxing)
- .debug_str     0x00004c69       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_str     0x00004c79       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
                                 0x140 (size before relaxing)
- .debug_str     0x00004c85       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_str     0x00004c95       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
                                 0x137 (size before relaxing)
- .debug_str     0x00004ca1       0x24 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_str     0x00004cb1       0x24 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
                                 0x140 (size before relaxing)
- .debug_str     0x00004cc5      0x233 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_str     0x00004cd5      0x233 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
                                 0x3b3 (size before relaxing)
- .debug_str     0x00004ef8      0x184 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+ .debug_str     0x00004f08      0x184 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
                                 0x3f9 (size before relaxing)
- .debug_str     0x0000507c       0x9d C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+ .debug_str     0x0000508c       0x9d C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
                                 0x1bc (size before relaxing)
- .debug_str     0x00005119       0x5b C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+ .debug_str     0x00005129       0x5b C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
                                 0x1fb (size before relaxing)
- .debug_str     0x00005174       0x25 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_str     0x00005184       0x25 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
                                 0x152 (size before relaxing)
- .debug_str     0x00005199       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_str     0x000051a9       0x1c C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
                                 0x148 (size before relaxing)
- .debug_str     0x000051b5      0x126 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_str     0x000051c5      0x126 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
                                 0x181 (size before relaxing)
- .debug_str     0x000052db       0x95 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_str     0x000052eb       0x95 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
                                 0x13c (size before relaxing)
- .debug_str     0x00005370       0xe9 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_str     0x00005380       0xe9 C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
                                 0x1b5 (size before relaxing)
 
 .comment        0x00000000       0x79

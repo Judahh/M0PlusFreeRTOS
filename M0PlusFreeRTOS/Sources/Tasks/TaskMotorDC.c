@@ -64,7 +64,7 @@ static portTASK_FUNCTION(taskMotorDC, pvParameters) {
 /**************************************************************************/
 signed portBASE_TYPE taskMotorDCStart(void) {
 	return FRTOS1_xTaskCreate(taskMotorDC, /* pointer to the task */
-			(signed portCHAR *) "taskMotorDC", /* task name for kernel awareness debugging */
+			(signed portCHAR *) "TaskMotorDC", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
