@@ -9,14 +9,14 @@
 
 void taskAccelerometerWork(void) {
 //	accelerometerTestRun(taskAccelerometerRes);
-	int16_t x = MMA1_GetX() / (327.67/2.55);
-	int16_t y = MMA1_GetY() / (327.67/2.55);
-	int16_t z = MMA1_GetZ() / (327.67/2.55);
+	int16_t x = MMA0_GetX() / (327.67 / 2.55);
+	int16_t y = MMA0_GetY() / (327.67 / 2.55);
+	int16_t z = MMA0_GetZ() / (327.67 / 2.55);
 
 	if (x < 0) {
 		x = 0;
 	}
-	
+
 	if (y < 0) {
 		y = 0;
 	}
@@ -24,7 +24,7 @@ void taskAccelerometerWork(void) {
 	if (z < 0) {
 		z = 0;
 	}
-	
+
 	PWMLEDRed_SetRatio8(x);
 	PWMLEDGreen_SetRatio8(y);
 	PWMLEDBlue_SetRatio8(z);
@@ -48,8 +48,7 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 	// The code within the for loop is your actual
 	// task that will continously execute
 
-//	taskAccelerometerRes = accelerometerInit();
-	MMA1_Init();
+	MMA0_Init();
 	for (;;) {
 		taskAccelerometerWork();
 
@@ -65,13 +64,12 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStart(void) {
-	xTaskHandle TaskAccelerometerHandle = NULL;
 	return FRTOS1_xTaskCreate(TaskAccelerometer, /* pointer to the task */
 			(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
-			TaskAccelerometerHandle);
+			&taskHandles [taskAccelerometerHandle]);
 }
 
 /**************************************************************************/
@@ -80,13 +78,12 @@ signed portBASE_TYPE taskAccelerometerStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStop(void) {
-//	accelerometerDeinit();
-	MMA1_Deinit();
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	MMA0_Deinit();
+	if (!taskHandles[taskAccelerometerHandle])
+		return 0;
+
+	vTaskDelete(taskHandles[taskAccelerometerHandle]);
+	taskHandles[taskAccelerometerHandle] = NULL;
 
 	return 1;
 }

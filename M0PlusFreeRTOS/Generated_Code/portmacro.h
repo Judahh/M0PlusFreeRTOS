@@ -161,7 +161,7 @@ extern void vPortClearInterruptMaskFromISR(unsigned portBASE_TYPE);
 #if configCOMPILER==configCOMPILER_DSC_FSL
   /* for DSC, there is a possible skew after enable/disable Interrupts. */
   #define portPOST_ENABLE_DISABLE_INTERRUPTS() \
-  	asm(nop); asm(nop); asm(nop); asm(nop); asm(nop); asm(nop);
+        asm(nop); asm(nop); asm(nop); asm(nop); asm(nop); asm(nop);
 #else
   #define portPOST_ENABLE_DISABLE_INTERRUPTS() /* nothing special needed */
 #endif
@@ -228,27 +228,27 @@ extern void vPortYieldFromISR(void);
 /* Architecture specific optimizations. */
 #if configUSE_PORT_OPTIMISED_TASK_SELECTION == 1
 
-	/* Generic helper function. */
-	__attribute__( ( always_inline ) ) static inline unsigned char ucPortCountLeadingZeros( unsigned long ulBitmap )
-	{
-	unsigned char ucReturn;
+        /* Generic helper function. */
+        __attribute__( ( always_inline ) ) static inline unsigned char ucPortCountLeadingZeros( unsigned long ulBitmap )
+        {
+        unsigned char ucReturn;
 
-		__asm volatile ( "clz %0, %1" : "=r" ( ucReturn ) : "r" ( ulBitmap ) );
-		return ucReturn;
-	}
+                __asm volatile ( "clz %0, %1" : "=r" ( ucReturn ) : "r" ( ulBitmap ) );
+                return ucReturn;
+        }
 
-	/* Check the configuration. */
-	#if( configMAX_PRIORITIES > 32 )
-		#error configUSE_PORT_OPTIMISED_TASK_SELECTION can only be set to 1 when configMAX_PRIORITIES is less than or equal to 32.  It is very rare that a system requires more than 10 to 15 difference priorities as tasks that share a priority will time slice.
-	#endif
+        /* Check the configuration. */
+        #if( configMAX_PRIORITIES > 32 )
+                #error configUSE_PORT_OPTIMISED_TASK_SELECTION can only be set to 1 when configMAX_PRIORITIES is less than or equal to 32.  It is very rare that a system requires more than 10 to 15 difference priorities as tasks that share a priority will time slice.
+        #endif
 
-	/* Store/clear the ready priorities in a bit map. */
-	#define portRECORD_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) |= ( 1UL << ( uxPriority ) )
-	#define portRESET_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) &= ~( 1UL << ( uxPriority ) )
+        /* Store/clear the ready priorities in a bit map. */
+        #define portRECORD_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) |= ( 1UL << ( uxPriority ) )
+        #define portRESET_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) &= ~( 1UL << ( uxPriority ) )
 
-	/*-----------------------------------------------------------*/
+        /*-----------------------------------------------------------*/
 
-	#define portGET_HIGHEST_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31 - ucPortCountLeadingZeros( ( uxReadyPriorities ) ) )
+        #define portGET_HIGHEST_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31 - ucPortCountLeadingZeros( ( uxReadyPriorities ) ) )
 
 #endif /* configUSE_PORT_OPTIMISED_TASK_SELECTION */
 

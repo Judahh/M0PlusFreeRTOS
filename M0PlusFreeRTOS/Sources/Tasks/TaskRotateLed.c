@@ -9,8 +9,8 @@ static uint8_t color;
 void taskRotateLedWork(void) {
 	setLed(color);
 	color++;
-	if (color>7){
-		color=0;
+	if (color > 7) {
+		color = 0;
 	}
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
@@ -32,7 +32,7 @@ static portTASK_FUNCTION(TaskRotateLed, pvParameters) {
 
 	// The code within the for loop is your actual
 	// task that will continously execute
-	color=0;
+	color = 0;
 	for (;;) {
 		taskRotateLedWork();
 
@@ -48,13 +48,12 @@ static portTASK_FUNCTION(TaskRotateLed, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskRotateLedStart(void) {
-	xTaskHandle TaskRotateLedHandle = NULL;
 	return FRTOS1_xTaskCreate(TaskRotateLed, /* pointer to the task */
-	(signed portCHAR *) "TaskRotateLed", /* task name for kernel awareness debugging */
-	configMINIMAL_STACK_SIZE, /* task stack size */
-	(void*) NULL, /* optional task startup argument */
-	tskIDLE_PRIORITY, /* initial priority */
-	TaskRotateLedHandle);
+			(signed portCHAR *) "TaskRotateLed", /* task name for kernel awareness debugging */
+			configMINIMAL_STACK_SIZE, /* task stack size */
+			(void*) NULL, /* optional task startup argument */
+			tskIDLE_PRIORITY, /* initial priority */
+			&taskHandles [taskRotateLedHandle]);
 }
 
 /**************************************************************************/
@@ -63,11 +62,11 @@ signed portBASE_TYPE taskRotateLedStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskRotateLedStop(void) {
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	if (!taskHandles[taskRotateLedHandle])
+		return 0;
+
+	vTaskDelete(taskHandles[taskRotateLedHandle]);
+	taskHandles[taskRotateLedHandle] = NULL;
 
 	return 1;
 }

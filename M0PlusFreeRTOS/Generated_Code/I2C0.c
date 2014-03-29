@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-21, 23:08, # CodeGen: 54
+**     Date/Time   : 2014-03-20, 20:33, # CodeGen: 109
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -122,7 +122,7 @@
 
 /* MODULE I2C0. */
 
-#include "GI2C1.h"
+#include "GI2C0.h"
 #include "I2C0.h"
 #include "PORT_PDD.h"
 #include "I2C_PDD.h"

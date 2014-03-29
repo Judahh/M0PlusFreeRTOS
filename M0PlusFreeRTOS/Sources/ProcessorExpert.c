@@ -39,8 +39,8 @@
 #include "I2C0.h"
 #include "AD0.h"
 #include "AdcLdd1.h"
-#include "MMA1.h"
-#include "GI2C1.h"
+#include "MMA0.h"
+#include "GI2C0.h"
 #include "CsIO1.h"
 #include "IO1.h"
 #include "TSSTouch.h"
@@ -68,7 +68,7 @@
 #include "IO_Map.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-static uint16_t valueAD[6];
+//static uint16_t valueAD[6];
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	/* Write your local variable definition here */
@@ -82,9 +82,6 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	/* Write your code here */
 	/* For example: for(;;) { } */
 
-	int index = 1;
-	int *pIndex= &index;
-	
 	
 
 //	static uint8_t value;
@@ -93,19 +90,27 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	  (void)AD0_GetValue8(&value); /* get the result into value variable */
 //	  PWMLEDBlue_SetRatio8(value);
 //	}
-	
-	Configure();
-	for(;;) {
-	    TSS_Task(); /* call TSS library to process touches */
-	}
-	
+
+//	Configure();
+//	for(;;) {
+//	    TSS_Task(); /* call TSS library to process touches */
+//	}
+
 //	printf("ponteiro = %d!\r\n",pIndex);
 //	printf("valor = %d!\r\n",*pIndex);
 //	
-	
+
 //	setLed(1);
-	
-//	if (taskSendStringStart(pIndex) != pdPASS ) {
+
+//	int index = 1;
+//	int index2 = 2;
+//	
+//	if (taskSendStringStart(index) != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
+//
+//	if (taskSendStringStart(index2) != pdPASS ) {
 //		for (;;) {
 //		};
 //	}
@@ -134,12 +139,13 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //		for (;;) {
 //		};
 //	}
+//	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
+//	FRTOS1_vTaskSuspend(taskHandles[taskGreenLedHandle]);
 //	
-//	
-//	if (taskAccelerometerStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
+	if (taskAccelerometerStart() != pdPASS ) {
+		for (;;) {
+		};
+	}
 //
 //	if (taskGyroscopeStart() != pdPASS ) {
 //		for (;;) {

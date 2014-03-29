@@ -12,6 +12,7 @@
 #include "FRTOS1.h"
 #include "task.h"
 #include "stdio.h"
+#include "Tasks/HandlesEnum.h"
 
 void taskSendString1Work(void);
 signed portBASE_TYPE taskSendString1Start(void);

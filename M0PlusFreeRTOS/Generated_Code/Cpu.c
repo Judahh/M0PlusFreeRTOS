@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-09, 19:00, # CodeGen: 97
+**     Date/Time   : 2014-03-20, 20:36, # CodeGen: 110
 **     Abstract    :
 **
 **     Settings    :
@@ -45,8 +45,8 @@
 #include "TU1.h"
 #include "AD0.h"
 #include "AdcLdd1.h"
-#include "MMA1.h"
-#include "GI2C1.h"
+#include "MMA0.h"
+#include "GI2C0.h"
 #include "CsIO1.h"
 #include "IO1.h"
 #include "TSSTouch.h"
@@ -240,9 +240,9 @@ void PE_low_level_init(void)
   vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
   /* ### ADC "AD0" init code ... */
   AD0_Init();
-  /* ### GenericI2C "GI2C1" init code ... */
-  GI2C1_Init();
-  /* ### MMA8451Q "MMA1" init code ... */
+  /* ### GenericI2C "GI2C0" init code ... */
+  GI2C0_Init();
+  /* ### MMA8451Q "MMA0" init code ... */
   /* Write code here ... */
   /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)IO1_Init(NULL);

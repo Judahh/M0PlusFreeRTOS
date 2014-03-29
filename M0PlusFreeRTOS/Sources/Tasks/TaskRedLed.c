@@ -7,12 +7,17 @@
 #include "TaskRedLed.h"
 
 void taskRedLedWork(void) {
+	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
 	PWMLEDRed_SetRatio8(0xFF);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
-	PWMLEDRed_SetRatio8(0x7F);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 	PWMLEDRed_SetRatio8(0x00);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	FRTOS1_vTaskResume(taskHandles[taskGreenLedHandle]);
+//	PWMLEDRed_SetRatio8(0x00);
+//	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+//	PWMLEDRed_SetRatio8(0xFF);
+//	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+//	PWMLEDRed_SetRatio8(0x00);
+//	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/
@@ -48,13 +53,12 @@ static portTASK_FUNCTION( TaskRedLed, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskRedLedStart(void) {
-	xTaskHandle TaskRedLedHandle = NULL;
 	return FRTOS1_xTaskCreate(TaskRedLed, /* pointer to the task */
-	(signed portCHAR *) "TaskRedLed", /* task name for kernel awareness debugging */
-	configMINIMAL_STACK_SIZE, /* task stack size */
-	(void*) NULL, /* optional task startup argument */
-	tskIDLE_PRIORITY, /* initial priority */
-	TaskRedLedHandle);
+			(signed portCHAR *) "TaskRedLed", /* task name for kernel awareness debugging */
+			configMINIMAL_STACK_SIZE, /* task stack size */
+			(void*) NULL, /* optional task startup argument */
+			tskIDLE_PRIORITY, /* initial priority */
+			&taskHandles [taskRedLedHandle]);
 }
 
 /**************************************************************************/
@@ -63,11 +67,11 @@ signed portBASE_TYPE taskRedLedStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskRedLedStop(void) {
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	if (!taskHandles[taskRedLedHandle])
+		return 0;
+
+	vTaskDelete(taskHandles[taskRedLedHandle]);
+	taskHandles[taskRedLedHandle] = NULL;
 
 	return 1;
 }

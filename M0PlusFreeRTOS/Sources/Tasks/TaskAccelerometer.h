@@ -12,7 +12,8 @@
 #include "FRTOS1.h"
 #include "task.h"
 #include "Util/Accelerometer.h"
-#include "MMA1.h"
+#include "Tasks/HandlesEnum.h"
+#include "MMA0.h"
 
 void taskAccelerometerWork(void);
 signed portBASE_TYPE taskAccelerometerStart(void);

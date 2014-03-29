@@ -12,6 +12,7 @@
 #include "FRTOS1.h"
 #include "task.h"
 #include "PWMLEDRed.h"
+#include "Tasks/HandlesEnum.h"
 
 void taskRedLedWork(void);
 signed portBASE_TYPE taskRedLedStart(void);

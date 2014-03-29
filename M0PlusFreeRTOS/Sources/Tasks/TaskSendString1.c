@@ -44,13 +44,12 @@ static portTASK_FUNCTION( TaskSendString1, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskSendString1Start(void) {
-	xTaskHandle TaskSendString1Handle = NULL;
 	return FRTOS1_xTaskCreate(TaskSendString1, /* pointer to the task */
-	(signed portCHAR *) "TaskSendString1", /* task name for kernel awareness debugging */
-	configMINIMAL_STACK_SIZE, /* task stack size */
-	(void*) NULL, /* optional task startup argument */
-	tskIDLE_PRIORITY, /* initial priority */
-	TaskSendString1Handle);
+			(signed portCHAR *) "TaskSendString1", /* task name for kernel awareness debugging */
+			configMINIMAL_STACK_SIZE, /* task stack size */
+			(void*) NULL, /* optional task startup argument */
+			tskIDLE_PRIORITY, /* initial priority */
+			&taskHandles [taskSendString1Handle]);
 }
 
 /**************************************************************************/
@@ -59,11 +58,11 @@ signed portBASE_TYPE taskSendString1Start(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskSendString1Stop(void) {
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	if (!taskHandles[taskSendString1Handle])
+		return 0;
+
+	vTaskDelete(taskHandles[taskSendString1Handle]);
+	taskHandles[taskSendString1Handle] = NULL;
 
 	return 1;
 }

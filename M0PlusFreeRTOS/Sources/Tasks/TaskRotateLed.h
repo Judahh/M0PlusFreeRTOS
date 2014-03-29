@@ -12,6 +12,7 @@
 #include "FRTOS1.h"
 #include "task.h"
 #include "Util/Led.h"
+#include "Tasks/HandlesEnum.h"
 
 void taskRotateLedWork(void);
 signed portBASE_TYPE taskRotateLedStart(void);

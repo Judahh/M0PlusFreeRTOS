@@ -12,6 +12,7 @@
 #include "FRTOS1.h"
 #include "task.h"
 #include "Util/Gyroscope.h"
+#include "Tasks/HandlesEnum.h"
 
 void taskGyroscopeWork(void);
 signed portBASE_TYPE taskGyroscopeStart(void);

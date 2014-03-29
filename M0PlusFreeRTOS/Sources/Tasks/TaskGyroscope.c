@@ -11,8 +11,6 @@ void taskGyroscopeWork(void) {
 	gyroscopeTestRun(taskGyroscopeRes);
 }
 
-
-
 /**************************************************************************/
 /*! 
  The main code that will execute as long as the task is active.
@@ -30,7 +28,7 @@ static portTASK_FUNCTION(TaskGyroscope, pvParameters) {
 
 	// The code within the for loop is your actual
 	// task that will continously execute
-	taskGyroscopeRes=gyroscopeInit();
+	taskGyroscopeRes = gyroscopeInit();
 	for (;;) {
 		taskGyroscopeWork();
 
@@ -46,13 +44,12 @@ static portTASK_FUNCTION(TaskGyroscope, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskGyroscopeStart(void) {
-	xTaskHandle TaskGyroscopeHandle = NULL;
 	return FRTOS1_xTaskCreate(TaskGyroscope, /* pointer to the task */
-	(signed portCHAR *) "TaskGyroscope", /* task name for kernel awareness debugging */
-	configMINIMAL_STACK_SIZE, /* task stack size */
-	(void*) NULL, /* optional task startup argument */
-	tskIDLE_PRIORITY, /* initial priority */
-	TaskGyroscopeHandle);
+			(signed portCHAR *) "TaskGyroscope", /* task name for kernel awareness debugging */
+			configMINIMAL_STACK_SIZE, /* task stack size */
+			(void*) NULL, /* optional task startup argument */
+			tskIDLE_PRIORITY, /* initial priority */
+			&taskHandles [taskGyroscopeHandle]);
 }
 
 /**************************************************************************/
@@ -62,11 +59,11 @@ signed portBASE_TYPE taskGyroscopeStart(void) {
 /**************************************************************************/
 signed portBASE_TYPE taskGyroscopeStop(void) {
 	gyroscopeDeinit();
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	if (!taskHandles[taskGyroscopeHandle])
+		return 0;
+
+	vTaskDelete(taskHandles[taskGyroscopeHandle]);
+	taskHandles[taskGyroscopeHandle] = NULL;
 
 	return 1;
 }

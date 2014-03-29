@@ -7,10 +7,15 @@
 #include "TaskGreenLed.h"
 
 void taskGreenLedWork(void) {
-	PWMLEDGreen_SetRatio8(0xFF/10);
-	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
-	PWMLEDGreen_SetRatio8(0xFF/10);
+	FRTOS1_vTaskSuspend(taskHandles[taskRedLedHandle]);
+	PWMLEDGreen_SetRatio8(0xFF);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	PWMLEDGreen_SetRatio8(0x00);
+	FRTOS1_vTaskResume(taskHandles[taskBlueLedHandle]);
+//	PWMLEDGreen_SetRatio8(0xFF);
+//	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+//	PWMLEDGreen_SetRatio8(0x00);
+//	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/
@@ -27,7 +32,7 @@ static portTASK_FUNCTION(TaskGreenLed, pvParameters) {
 	// begins executing for the first time
 
 	// ToDo: ...
-
+	
 	// The code within the for loop is your actual
 	// task that will continously execute
 	for (;;) {
@@ -46,13 +51,12 @@ static portTASK_FUNCTION(TaskGreenLed, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskGreenLedStart(void) {
-	xTaskHandle TaskGreenLedHandle = NULL;
 	return FRTOS1_xTaskCreate(TaskGreenLed, /* pointer to the task */
-	(signed portCHAR *) "TaskGreenLed", /* task name for kernel awareness debugging */
-	configMINIMAL_STACK_SIZE, /* task stack size */
-	(void*) NULL, /* optional task startup argument */
-	tskIDLE_PRIORITY, /* initial priority */
-	TaskGreenLedHandle);
+			(signed portCHAR *) "TaskGreenLed", /* task name for kernel awareness debugging */
+			configMINIMAL_STACK_SIZE, /* task stack size */
+			(void*) NULL, /* optional task startup argument */
+			tskIDLE_PRIORITY, /* initial priority */
+			&taskHandles [taskGreenLedHandle]);
 }
 
 /**************************************************************************/
@@ -61,11 +65,11 @@ signed portBASE_TYPE taskGreenLedStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskGreenLedStop(void) {
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	if (!taskHandles[taskGreenLedHandle])
+		return 0;
+
+	vTaskDelete(taskHandles[taskGreenLedHandle]);
+	taskHandles[taskGreenLedHandle] = NULL;
 
 	return 1;
 }

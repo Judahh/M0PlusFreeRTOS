@@ -380,7 +380,7 @@ PE_DEBUGHALT();
           <Lowest_Interrupt_Priority v="3" />
           <Compiler_Optimization_Level v="0" />
           <boolgroup name="SysTick" v="Enabled">
-            <Core_Clock v="no" />
+            <Core_Clock v="yes" />
           </boolgroup>
         </boolgroup>
         <boolgroup name="non-LDD SWI" v="Disabled" />
@@ -395,10 +395,7 @@ PE_DEBUGHALT();
         <Cleanup_Resources v="yes" />
       </group>
       <group name="Ticks">
-        <boolgroup name="Tickless Idle Mode" v="Enabled">
-          <Stopped_Timer_Compensation v="45" />
-          <Expected_Idle_Time__Ticks__before_Sleep v="2" />
-        </boolgroup>
+        <boolgroup name="Tickless Idle Mode" v="Disabled" />
         <Tick_Rate__Hz_ v="100" />
         <Use_16bit_ticks v="no" />
         <boolgroup name="non-LDD Tick" v="Disabled" />
@@ -409,12 +406,12 @@ PE_DEBUGHALT();
         <Queue_Sets v="no" />
       </group>
       <group name="Semaphores and Mutexes">
-        <Use_Mutexes v="no" />
-        <Use_Recursive_Mutexes v="no" />
+        <Use_Mutexes v="yes" />
+        <Use_Recursive_Mutexes v="yes" />
       </group>
       <boolgroup name="Timers" v="Disabled" />
       <group name="Memory">
-        <Memory_Allocation_Scheme v="Scheme 1" />
+        <Memory_Allocation_Scheme v="Scheme 2" />
         <boolgroup name="User Heap Section" v="Disabled" />
         <Total_Heap_Size v="5000" />
       </group>
@@ -444,9 +441,9 @@ PE_DEBUGHALT();
       <vTaskPrioritySet v="generate code" />
       <xTaskGetTickCount v="generate code" />
       <xTaskGetTickCountFromISR v="generate code" />
-      <xSemaphoreCreateRecursiveMutex v="don&amp;apos;t generate code" />
-      <xSemaphoreTakeRecursive v="don&amp;apos;t generate code" />
-      <xSemaphoreGiveRecursive v="don&amp;apos;t generate code" />
+      <xSemaphoreCreateRecursiveMutex v="generate code" />
+      <xSemaphoreTakeRecursive v="generate code" />
+      <xSemaphoreGiveRecursive v="generate code" />
       <xSemaphoreCreateMutex v="generate code" />
       <xSemaphoreTake v="generate code" />
       <xSemaphoreGive v="generate code" />
@@ -512,9 +509,7 @@ PE_DEBUGHALT();
       <event name="vApplicationMallocFailedHook" v="generate code">
         <Event_procedure_name v="FRTOS1_vApplicationMallocFailedHook" />
       </event>
-      <event name="vOnPreSleepProcessing" v="generate code">
-        <Event_procedure_name v="FRTOS1_vOnPreSleepProcessing" />
-      </event>
+      <event name="vOnPreSleepProcessing" v="don&amp;apos;t generate code" />
       <event name="vOnPostSleepProcessing" v="don&amp;apos;t generate code" />
     </Events>
   </Bean>
@@ -1373,12 +1368,12 @@ Autoselect
       <event name="OnCalibrationEnd" v="don&amp;apos;t generate code" />
     </Events>
   </Bean>
-  <Bean name="MMA1" type="MMA8451Q">
+  <Bean name="MMA0" type="MMA8451Q">
     <Enabled v="Y" />
     <Properties>
-      <Component_Name v="MMA1" />
+      <Component_Name v="MMA0" />
       <Slave_Address v="1D" />
-      <I2C_Bus v="GI2C1" />
+      <I2C_Bus v="GI2C0" />
       <boolgroup name="Constant Offsets" v="Enabled">
         <X_offset v="0" />
         <Y_offset v="0" />
@@ -1418,17 +1413,20 @@ Autoselect
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="GI2C1" type="GenericI2C">
+  <Bean name="GI2C0" type="GenericI2C">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="GI2C1" />
+      <Component_name v="GI2C0" />
       <Write_Buffer_Size v="16" />
       <boolgroup name="non-LDD I2C" v="Disabled" />
       <boolgroup name="LDD I2C" v="Enabled">
         <I2C v="I2C0" />
         <boolgroup name="Timeout" v="Disabled" />
       </boolgroup>
-      <boolgroup name="RTOS" v="Disabled" />
+      <boolgroup name="RTOS" v="Enabled">
+        <RTOS v="FRTOS1" />
+        <Semaphore v="yes" />
+      </boolgroup>
       <Init___on_startup v="yes" />
     </Properties>
     <Methods>

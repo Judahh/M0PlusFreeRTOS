@@ -88,6 +88,30 @@ Module "FRTOS1"    (component FreeRTOS)
    - FRTOS1_vTaskPrioritySet -Set the priority of any task.
    - FRTOS1_xTaskGetTickCount -Return the count of ticks since vTaskStartScheduler was called.
    - FRTOS1_xTaskGetTickCountFromISR -A version of xTaskGetTickCount() that can be called from an ISR.
+   - FRTOS1_xSemaphoreCreateRecursiveMutex -Macro that implements a recursive mutex by using the existing queue mechanism.   
+                Mutexes created using this macro can be accessed using the xSemaphoreTakeRecursive() and 
+                xSemaphoreGiveRecursive() macros.  The  xSemaphoreTake() and xSemaphoreGive() macros should not be used.   A 
+                mutex used recursively can be 'taken' repeatedly by the owner. The mutex doesn't become available again until 
+                the owner has called xSemaphoreGiveRecursive() for each successful 'take' request.  For example, if a task 
+                successfully 'takes' the same mutex 5 times then the mutex will not be available to any other task until it has 
+                also  'given' the mutex back exactly five times.   This type of semaphore uses a priority inheritance mechanism 
+                so a task 'taking' a semaphore MUST ALWAYS 'give' the semaphore back once the semaphore it is no longer 
+                required. Mutex type semaphores cannot be used from within interrupt service routines.   See 
+                vSemaphoreCreateBinary() for an alternative implementation that can be used for pure synchronisation (where one 
+                task or interrupt always 'gives' the semaphore and another always 'takes' the semaphore) and from within 
+                interrupt service routines.
+   - FRTOS1_xSemaphoreTakeRecursive -Macro to recursively obtain, or 'take', a mutex type semaphore. The mutex must have 
+                previously been created using a call to xSemaphoreCreateRecursiveMutex();   This macro must not be used on 
+                mutexes created using xSemaphoreCreateMutex(). A mutex used recursively can be 'taken' repeatedly by the owner. 
+                The mutex doesn't become available again until the owner has called xSemaphoreGiveRecursive() for each 
+                successful 'take' request.  For example, if a task successfully 'takes' the same mutex 5 times then the mutex 
+                will not be available to any other task until it has also  'given' the mutex back exactly five times.
+   - FRTOS1_xSemaphoreGiveRecursive -Macro to recursively release, or 'give', a mutex type semaphore. The mutex must have 
+                previously been created using a call to xSemaphoreCreateRecursiveMutex();   This macro must not be used on 
+                mutexes created using xSemaphoreCreateMutex(). A mutex used recursively can be 'taken' repeatedly by the owner. 
+                The mutex doesn't become available again until the owner has called xSemaphoreGiveRecursive() for each 
+                successful 'take' request.  For example, if a task successfully 'takes' the same mutex 5 times then the mutex 
+                will not be available to any other task until it has also  'given' the mutex back exactly five times.
    - FRTOS1_xSemaphoreCreateMutex -Macro that creates a mutex semaphore by using the existing queue mechanism.      Mutexes 
                 created using this macro can be accessed using the xSemaphoreTake() and xSemaphoreGive() macros. The 
                 xSemaphoreTakeRecursive() and xSemaphoreGiveRecursive() macros should not be used.      Mutexes and binary 
@@ -434,56 +458,56 @@ Module "AD0"       (component ADC)
    - AD0_Calibrate -This method starts self calibration process. Calibration is typically used to remove the effects of the 
                 gain and offset from a specific reading.
 
-Module "MMA1"      (component MMA8451Q)
-   - MMA1_Enable -Enables the device with setting the ACTIVE bit in the CTRL register 1
-   - MMA1_Disable -Disables the device with clearing the ACTIVE bit in the CTRL register 1
-   - MMA1_isEnabled -Returns the status of the the ACTIVE bit in the CTRL register 1
-   - MMA1_GetX -Retrieves the value for the X axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
+Module "MMA0"      (component MMA8451Q)
+   - MMA0_Enable -Enables the device with setting the ACTIVE bit in the CTRL register 1
+   - MMA0_Disable -Disables the device with clearing the ACTIVE bit in the CTRL register 1
+   - MMA0_isEnabled -Returns the status of the the ACTIVE bit in the CTRL register 1
+   - MMA0_GetX -Retrieves the value for the X axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
                 for negative acceleration and positive for positive acceleration).
-   - MMA1_GetY -Retrieves the value for the Y axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
+   - MMA0_GetY -Retrieves the value for the Y axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
                 for negative acceleration and positive for positive acceleration).
-   - MMA1_GetZ -Retrieves the value for the Z axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
+   - MMA0_GetZ -Retrieves the value for the Z axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
                 for negative acceleration and positive for positive acceleration).
-   - MMA1_GetRaw8XYZ -Returns in an array the x, y and z accelerometer as 8bit values.
-   - MMA1_CalibrateX1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
+   - MMA0_GetRaw8XYZ -Returns in an array the x, y and z accelerometer as 8bit values.
+   - MMA0_CalibrateX1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
                 has 1 g.
-   - MMA1_CalibrateY1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
+   - MMA0_CalibrateY1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
                 has 1 g.
-   - MMA1_CalibrateZ1g -Performs a calibration of the sensor. It is assumed that the X and Y sensors have 0 g, and the X sensor 
+   - MMA0_CalibrateZ1g -Performs a calibration of the sensor. It is assumed that the X and Y sensors have 0 g, and the X sensor 
                 has 1 g.
-   - MMA1_GetXmg -Returns the X value in mg
-   - MMA1_GetYmg -Returns the Y value in mg
-   - MMA1_GetZmg -Returns the Z value in mg
-   - MMA1_MeasureGetRawX -Performs a measurement on X channel and returns the raw value.
-   - MMA1_MeasureGetRawY -Performs a measurement on Y channel and returns the raw value.
-   - MMA1_MeasureGetRawZ -Performs a measurement on Z channel and returns the raw value.
-   - MMA1_GetXOffset -Returns the offset applied to the X value.
-   - MMA1_GetYOffset -Returns the offset applied to the Y value.
-   - MMA1_GetZOffset -Returns the offset applied to the Z value.
-   - MMA1_GetX1gValue -Returns the value for 1g for channel  X.
-   - MMA1_GetY1gValue -Returns the value for 1g for channel  Y.
-   - MMA1_GetZ1gValue -Returns the value for 1g for channel  Z.
-   - MMA1_SetFastMode -Turns the F_READ (Fast Read Mode) on or off
-   - MMA1_Init -Initializes the device driver
-   - MMA1_Deinit -Counterpart to Init() method.
+   - MMA0_GetXmg -Returns the X value in mg
+   - MMA0_GetYmg -Returns the Y value in mg
+   - MMA0_GetZmg -Returns the Z value in mg
+   - MMA0_MeasureGetRawX -Performs a measurement on X channel and returns the raw value.
+   - MMA0_MeasureGetRawY -Performs a measurement on Y channel and returns the raw value.
+   - MMA0_MeasureGetRawZ -Performs a measurement on Z channel and returns the raw value.
+   - MMA0_GetXOffset -Returns the offset applied to the X value.
+   - MMA0_GetYOffset -Returns the offset applied to the Y value.
+   - MMA0_GetZOffset -Returns the offset applied to the Z value.
+   - MMA0_GetX1gValue -Returns the value for 1g for channel  X.
+   - MMA0_GetY1gValue -Returns the value for 1g for channel  Y.
+   - MMA0_GetZ1gValue -Returns the value for 1g for channel  Z.
+   - MMA0_SetFastMode -Turns the F_READ (Fast Read Mode) on or off
+   - MMA0_Init -Initializes the device driver
+   - MMA0_Deinit -Counterpart to Init() method.
 
-Module "GI2C1"     (component GenericI2C)
-   - GI2C1_SelectSlave -Selects the slave device on the bus. Method might use a semaphore to protect bus access.
-   - GI2C1_UnselectSlave -Unselects the device. Method will release a used a semaphore.
-   - GI2C1_RequestBus -Starts a critical section for accessing the bus.
-   - GI2C1_ReleaseBus -Finishes a critical section for accessing the bus.
-   - GI2C1_ReadBlock -Read from the device a block.
-   - GI2C1_WriteBlock -Write a block to the device.
-   - GI2C1_ReadAddress -Read from the device. This writes (S+i2cAddr+0), (memAddr), (Sr+i2cAddr+1), (data)...(data+P)
-   - GI2C1_WriteAddress -Write to the device: (S+i2cAddr+0), (memAddr), (data)...(data+P)
-   - GI2C1_ReadByteAddress8 -Read a byte from the device using an 8bit memory address. This writes (S+i2cAddr+0), (memAddr), 
+Module "GI2C0"     (component GenericI2C)
+   - GI2C0_SelectSlave -Selects the slave device on the bus. Method might use a semaphore to protect bus access.
+   - GI2C0_UnselectSlave -Unselects the device. Method will release a used a semaphore.
+   - GI2C0_RequestBus -Starts a critical section for accessing the bus.
+   - GI2C0_ReleaseBus -Finishes a critical section for accessing the bus.
+   - GI2C0_ReadBlock -Read from the device a block.
+   - GI2C0_WriteBlock -Write a block to the device.
+   - GI2C0_ReadAddress -Read from the device. This writes (S+i2cAddr+0), (memAddr), (Sr+i2cAddr+1), (data)...(data+P)
+   - GI2C0_WriteAddress -Write to the device: (S+i2cAddr+0), (memAddr), (data)...(data+P)
+   - GI2C0_ReadByteAddress8 -Read a byte from the device using an 8bit memory address. This writes (S+i2cAddr+0), (memAddr), 
                 (Sr+i2cAddr+1), (data)...(data+P)
-   - GI2C1_WriteByteAddress8 -Write a byte to the device using an 8bit memory address: (S+i2cAddr+0), (memAddr), (data)...
+   - GI2C0_WriteByteAddress8 -Write a byte to the device using an 8bit memory address: (S+i2cAddr+0), (memAddr), (data)...
                 (data+P)
-   - GI2C1_GetSemaphore -Returns the currently allocated semaphore.
-   - GI2C1_Deinit -Deinitializes the driver.
-   - GI2C1_ScanDevice -Checks if a device responds on the bus with an ACK.
-   - GI2C1_Init -Initializes the driver.
+   - GI2C0_GetSemaphore -Returns the currently allocated semaphore.
+   - GI2C0_Deinit -Deinitializes the driver.
+   - GI2C0_ScanDevice -Checks if a device responds on the bus with an ACK.
+   - GI2C0_Init -Initializes the driver.
 
 Module "CsIO1"     (component ConsoleIO)
 

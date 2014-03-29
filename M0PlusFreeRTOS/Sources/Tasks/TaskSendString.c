@@ -46,16 +46,18 @@ static portTASK_FUNCTION( TaskSendString, pvParameters) {
  scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskSendStringStart(int *index) {
-	xTaskHandle TaskSendStringHandle = NULL;
+signed portBASE_TYPE taskSendStringStart(int index) {
 	signed portBASE_TYPE portBase = FRTOS1_xTaskCreate(TaskSendString, /* pointer to the task */
-			(signed portCHAR *) "TaskSendString", /* task name for kernel awareness debugging */
+			(signed portCHAR *) ("taskSendString%d", index), /* task name for kernel awareness debugging */
 			500, /* task stack size */
-			index, /* optional task startup argument */
+			&index, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
-			TaskSendStringHandle);
+			&taskHandles [taskSendStringHandle]);
 
-	sIndex = *index;
+	
+	sIndex = index;
+	
+//	printf("Inicio da Task%d!\r\n", sIndex);
 	
 	return portBase;
 }
@@ -66,11 +68,11 @@ signed portBASE_TYPE taskSendStringStart(int *index) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskSendStringStop(void) {
-//	if (!taskHandles[TASKHANDLE_TASK])
-//		return 0;
-//
-//	vTaskDelete(taskHandles[TASKHANDLE_TASK]);
-//	taskHandles[TASKHANDLE_TASK] = NULL;
+	if (!taskHandles [taskSendStringHandle])
+		return 0;
+
+	vTaskDelete(taskHandles [taskSendStringHandle]);
+	taskHandles [taskSendStringHandle] = NULL;
 
 	return 1;
 }

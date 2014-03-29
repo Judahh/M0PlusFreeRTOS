@@ -11,6 +11,7 @@
 #include "FreeRTOS.h"
 #include "FRTOS1.h"
 #include "task.h"
+#include "Tasks/HandlesEnum.h"
 
 void taskWriteStringWork(void);
 signed portBASE_TYPE taskWriteStringStart(void);

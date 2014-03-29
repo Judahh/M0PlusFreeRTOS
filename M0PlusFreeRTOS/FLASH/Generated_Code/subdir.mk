@@ -11,11 +11,11 @@ C_SRCS_QUOTED += \
 "../Generated_Code/Cpu.c" \
 "../Generated_Code/CsIO1.c" \
 "../Generated_Code/FRTOS1.c" \
-"../Generated_Code/GI2C1.c" \
+"../Generated_Code/GI2C0.c" \
 "../Generated_Code/I2C0.c" \
 "../Generated_Code/I2C1.c" \
 "../Generated_Code/IO1.c" \
-"../Generated_Code/MMA1.c" \
+"../Generated_Code/MMA0.c" \
 "../Generated_Code/PE_LDD.c" \
 "../Generated_Code/PWMLEDBlue.c" \
 "../Generated_Code/PWMLEDGreen.c" \
@@ -47,11 +47,11 @@ C_SRCS += \
 ../Generated_Code/Cpu.c \
 ../Generated_Code/CsIO1.c \
 ../Generated_Code/FRTOS1.c \
-../Generated_Code/GI2C1.c \
+../Generated_Code/GI2C0.c \
 ../Generated_Code/I2C0.c \
 ../Generated_Code/I2C1.c \
 ../Generated_Code/IO1.c \
-../Generated_Code/MMA1.c \
+../Generated_Code/MMA0.c \
 ../Generated_Code/PE_LDD.c \
 ../Generated_Code/PWMLEDBlue.c \
 ../Generated_Code/PWMLEDGreen.c \
@@ -92,11 +92,11 @@ OBJS += \
 ./Generated_Code/Cpu.o \
 ./Generated_Code/CsIO1.o \
 ./Generated_Code/FRTOS1.o \
-./Generated_Code/GI2C1.o \
+./Generated_Code/GI2C0.o \
 ./Generated_Code/I2C0.o \
 ./Generated_Code/I2C1.o \
 ./Generated_Code/IO1.o \
-./Generated_Code/MMA1.o \
+./Generated_Code/MMA0.o \
 ./Generated_Code/PE_LDD.o \
 ./Generated_Code/PWMLEDBlue.o \
 ./Generated_Code/PWMLEDGreen.o \
@@ -132,11 +132,11 @@ OBJS_QUOTED += \
 "./Generated_Code/Cpu.o" \
 "./Generated_Code/CsIO1.o" \
 "./Generated_Code/FRTOS1.o" \
-"./Generated_Code/GI2C1.o" \
+"./Generated_Code/GI2C0.o" \
 "./Generated_Code/I2C0.o" \
 "./Generated_Code/I2C1.o" \
 "./Generated_Code/IO1.o" \
-"./Generated_Code/MMA1.o" \
+"./Generated_Code/MMA0.o" \
 "./Generated_Code/PE_LDD.o" \
 "./Generated_Code/PWMLEDBlue.o" \
 "./Generated_Code/PWMLEDGreen.o" \
@@ -169,11 +169,11 @@ C_DEPS += \
 ./Generated_Code/Cpu.d \
 ./Generated_Code/CsIO1.d \
 ./Generated_Code/FRTOS1.d \
-./Generated_Code/GI2C1.d \
+./Generated_Code/GI2C0.d \
 ./Generated_Code/I2C0.d \
 ./Generated_Code/I2C1.d \
 ./Generated_Code/IO1.d \
-./Generated_Code/MMA1.d \
+./Generated_Code/MMA0.d \
 ./Generated_Code/PE_LDD.d \
 ./Generated_Code/PWMLEDBlue.d \
 ./Generated_Code/PWMLEDGreen.d \
@@ -205,11 +205,11 @@ OBJS_OS_FORMAT += \
 ./Generated_Code/Cpu.o \
 ./Generated_Code/CsIO1.o \
 ./Generated_Code/FRTOS1.o \
-./Generated_Code/GI2C1.o \
+./Generated_Code/GI2C0.o \
 ./Generated_Code/I2C0.o \
 ./Generated_Code/I2C1.o \
 ./Generated_Code/IO1.o \
-./Generated_Code/MMA1.o \
+./Generated_Code/MMA0.o \
 ./Generated_Code/PE_LDD.o \
 ./Generated_Code/PWMLEDBlue.o \
 ./Generated_Code/PWMLEDGreen.o \
@@ -242,11 +242,11 @@ C_DEPS_QUOTED += \
 "./Generated_Code/Cpu.d" \
 "./Generated_Code/CsIO1.d" \
 "./Generated_Code/FRTOS1.d" \
-"./Generated_Code/GI2C1.d" \
+"./Generated_Code/GI2C0.d" \
 "./Generated_Code/I2C0.d" \
 "./Generated_Code/I2C1.d" \
 "./Generated_Code/IO1.d" \
-"./Generated_Code/MMA1.d" \
+"./Generated_Code/MMA0.d" \
 "./Generated_Code/PE_LDD.d" \
 "./Generated_Code/PWMLEDBlue.d" \
 "./Generated_Code/PWMLEDGreen.d" \
@@ -314,11 +314,11 @@ Generated_Code/FRTOS1.o: ../Generated_Code/FRTOS1.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/GI2C1.o: ../Generated_Code/GI2C1.c
+Generated_Code/GI2C0.o: ../Generated_Code/GI2C0.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #31 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/GI2C1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/GI2C1.o"
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/GI2C0.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/GI2C0.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -346,11 +346,11 @@ Generated_Code/IO1.o: ../Generated_Code/IO1.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/MMA1.o: ../Generated_Code/MMA1.c
+Generated_Code/MMA0.o: ../Generated_Code/MMA0.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #35 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/MMA1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/MMA1.o"
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/MMA0.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/MMA0.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 
