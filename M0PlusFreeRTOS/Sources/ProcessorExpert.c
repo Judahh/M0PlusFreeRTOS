@@ -35,6 +35,7 @@
 #include "WAIT0.h"
 #include "TU0.h"
 #include "TU1.h"
+#include "TU2.h"
 #include "I2C1.h"
 #include "I2C0.h"
 #include "AD0.h"
@@ -55,8 +56,6 @@
 #include "MotorA.h"
 #include "MotorB.h"
 #include "SonarTrigger.h"
-#include "SonarEcho0.h"
-#include "SonarEcho1.h"
 #include "Tasks/TaskBlueLed.h"
 #include "Tasks/TaskGreenLed.h"
 #include "Tasks/TaskRedLed.h"
@@ -144,20 +143,20 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
 //	FRTOS1_vTaskSuspend(taskHandles[taskGreenLedHandle]);
 //	
-	if (taskAccelerometerStart() != pdPASS ) {
-		for (;;) {
-		};
-	}
-
-	if (taskMotorDCStart() != pdPASS ) {
-		for (;;) {
-		};
-	}
-//
-//	if (taskGyroscopeStart() != pdPASS ) {
+//	if (taskAccelerometerStart() != pdPASS ) {
 //		for (;;) {
 //		};
 //	}
+//
+//	if (taskMotorDCStart() != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
+//
+	if (taskGyroscopeStart() != pdPASS ) {
+		for (;;) {
+		};
+	}
 //	
 //
 //	uint8_t taskAccelerometerRes;

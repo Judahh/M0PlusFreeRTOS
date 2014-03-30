@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-29, 00:51, # CodeGen: 122
+**     Date/Time   : 2014-03-29, 22:10, # CodeGen: 124
 **     Abstract    :
 **
 **     Settings    :
@@ -43,6 +43,7 @@
 #include "I2C1.h"
 #include "TU0.h"
 #include "TU1.h"
+#include "TU2.h"
 #include "CsIO1.h"
 #include "IO1.h"
 #include "AD0.h"
@@ -61,8 +62,6 @@
 #include "MotorA.h"
 #include "MotorB.h"
 #include "SonarTrigger.h"
-#include "SonarEcho0.h"
-#include "SonarEcho1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -273,10 +272,6 @@ void PE_low_level_init(void)
   (void)MotorB_Init(NULL);
   /* ### GPIO_LDD "SonarTrigger" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)SonarTrigger_Init(NULL);
-  /* ### GPIO_LDD "SonarEcho0" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)SonarEcho0_Init(NULL);
-  /* ### GPIO_LDD "SonarEcho1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)SonarEcho1_Init(NULL);
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

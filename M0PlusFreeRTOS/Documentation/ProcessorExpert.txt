@@ -446,6 +446,18 @@ Module "TU1"       (component TimerUnit_LDD)
    - TU1_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
                 available when at least one channel is configured.
 
+Module "TU2"       (component TimerUnit_LDD)
+   - TU2_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU2_ResetCounter -Resets counter. If counter is counting up then it is set to zero. If counter is counting down then 
+                counter is updated to the reload value.   The method is not available if HW doesn't allow resetting of the 
+                counter.
+   - TU2_GetCaptureValue -Returns the content of capture register specified by the parameter ChannelIdx. This method is 
+                available when at least one channel is configured.
+
 Module "CsIO1"     (component ConsoleIO)
 
 Module "AD0"       (component ADC)
@@ -680,26 +692,6 @@ Module "SonarTrigger" (component BitsIO_LDD)
                 (Method is available only if the Direction = _[output]_ or _[input/output]_).
    - SonarTrigger_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, 
                 FALSE)]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-
-Module "SonarEcho0" (component BitsIO_LDD)
-   - SonarEcho0_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
-                called automatically as a part of the application initialization code.
-   - SonarEcho0_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value 
-                of the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
-                property for limitations).
-   - SonarEcho0_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] 
-                then it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
-                written value (see <Safe mode> property for limitations).
-
-Module "SonarEcho1" (component BitsIO_LDD)
-   - SonarEcho1_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
-                called automatically as a part of the application initialization code.
-   - SonarEcho1_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value 
-                of the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
-                property for limitations).
-   - SonarEcho1_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] 
-                then it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
-                written value (see <Safe mode> property for limitations).
 
 Module "Cpu"       (component MKL25Z128LK4)
 

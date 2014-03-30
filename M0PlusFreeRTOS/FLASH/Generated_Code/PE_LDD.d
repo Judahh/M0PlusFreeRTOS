@@ -34,7 +34,8 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/TU0.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
- ../Generated_Code/TU1.h ../Generated_Code/CsIO1.h \
+ ../Generated_Code/TU1.h ../Generated_Code/TU2.h \
+ ../Generated_Code/CsIO1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/eof.h \
@@ -63,8 +64,7 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/AS1.h ../Generated_Code/Break.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
  ../Generated_Code/MotorA.h ../Generated_Code/MotorB.h \
- ../Generated_Code/SonarTrigger.h ../Generated_Code/SonarEcho0.h \
- ../Generated_Code/SonarEcho1.h
+ ../Generated_Code/SonarTrigger.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -158,6 +158,8 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
 ../Generated_Code/TU1.h:
 
+../Generated_Code/TU2.h:
+
 ../Generated_Code/CsIO1.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
@@ -231,7 +233,3 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
 ../Generated_Code/MotorB.h:
 
 ../Generated_Code/SonarTrigger.h:
-
-../Generated_Code/SonarEcho0.h:
-
-../Generated_Code/SonarEcho1.h:

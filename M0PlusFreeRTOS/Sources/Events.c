@@ -76,34 +76,6 @@ void AS1_OnBlockSent(LDD_TUserData *UserDataPtr) {
 
 /*
  ** ===================================================================
- **     Event       :  FRTOS1_vApplicationStackOverflowHook (module Events)
- **
- **     Component   :  FRTOS1 [FreeRTOS]
- **     Description :
- **         if enabled, this hook will be called in case of a stack
- **         overflow.
- **     Parameters  :
- **         NAME            - DESCRIPTION
- **         pxTask          - Task handle
- **       * pcTaskName      - Pointer to task name
- **     Returns     : Nothing
- ** ===================================================================
- */
-void FRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *pcTaskName) {
-	/* This will get called if a stack overflow is detected during the context
-	 switch.  Set configCHECK_FOR_STACK_OVERFLOWS to 2 to also check for stack
-	 problems within nested interrupts, but only do this for debug purposes as
-	 it will increase the context switch time. */
-	(void) pxTask;
-	(void) pcTaskName;
-	taskDISABLE_INTERRUPTS();
-	/* Write your code here ... */
-	for (;;) {
-	}
-}
-
-/*
- ** ===================================================================
  **     Event       :  FRTOS1_vApplicationTickHook (module Events)
  **
  **     Component   :  FRTOS1 [FreeRTOS]
@@ -271,7 +243,8 @@ void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr) {
 	UART_Description *ptr = (UART_Description*) UserDataPtr;
 
 	(void) ptr->rxPutFct(ptr->rxChar); /* but received character into buffer */
-	(void) AS1_ReceiveBlock(ptr->handle, (LDD_TData *) &ptr->rxChar, sizeof(ptr->rxChar));
+	(void) AS1_ReceiveBlock(ptr->handle, (LDD_TData *) &ptr->rxChar,
+			sizeof(ptr->rxChar));
 }
 
 /*
@@ -422,28 +395,101 @@ void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks) {
 }
 
 /*
-** ===================================================================
-**     Event       :  AS1_OnTxComplete (module Events)
-**
-**     Component   :  AS1 [Serial_LDD]
-*/
+ ** ===================================================================
+ **     Event       :  AS1_OnTxComplete (module Events)
+ **
+ **     Component   :  AS1 [Serial_LDD]
+ */
 /*!
-**     @brief
-**         This event indicates that the transmitter is finished
-**         transmitting all data, preamble, and break characters and is
-**         idle. It can be used to determine when it is safe to switch
-**         a line driver (e.g. in RS-485 applications).
-**         The event is available only when both <Interrupt
-**         service/event> and <Transmitter> properties are enabled.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-*/
+ **     @brief
+ **         This event indicates that the transmitter is finished
+ **         transmitting all data, preamble, and break characters and is
+ **         idle. It can be used to determine when it is safe to switch
+ **         a line driver (e.g. in RS-485 applications).
+ **         The event is available only when both <Interrupt
+ **         service/event> and <Transmitter> properties are enabled.
+ **     @param
+ **         UserDataPtr     - Pointer to the user or
+ **                           RTOS specific data. This pointer is passed
+ **                           as the parameter of Init method.
+ */
 /* ===================================================================*/
-void AS1_OnTxComplete(LDD_TUserData *UserDataPtr)
+void AS1_OnTxComplete(LDD_TUserData *UserDataPtr) {
+	/* Write your code here ... */
+}
+
+/*
+ ** ===================================================================
+ **     Event       :  TU2_OnCounterRestart (module Events)
+ **
+ **     Component   :  TU2 [TimerUnit_LDD]
+ */
+/*!
+ **     @brief
+ **         Called if counter overflow/underflow or counter is
+ **         reinitialized by modulo or compare register matching.
+ **         OnCounterRestart event and Timer unit must be enabled. See
+ **         [SetEventMask] and [GetEventMask] methods. This event is
+ **         available only if a [Interrupt] is enabled.
+ **     @param
+ **         UserDataPtr     - Pointer to the user or
+ **                           RTOS specific data. The pointer passed as
+ **                           the parameter of Init method.
+ */
+/* ===================================================================*/
+void TU2_OnCounterRestart(LDD_TUserData *UserDataPtr) {
+	sonarEventEchoCapture(UserDataPtr);
+}
+
+/*
+ ** ===================================================================
+ **     Event       :  TU2_OnChannel0 (module Events)
+ **
+ **     Component   :  TU2 [TimerUnit_LDD]
+ */
+/*!
+ **     @brief
+ **         Called if compare register match the counter registers or
+ **         capture register has a new content. OnChannel0 event and
+ **         Timer unit must be enabled. See [SetEventMask] and
+ **         [GetEventMask] methods. This event is available only if a
+ **         [Interrupt] is enabled.
+ **     @param
+ **         UserDataPtr     - Pointer to the user or
+ **                           RTOS specific data. The pointer passed as
+ **                           the parameter of Init method.
+ */
+/* ===================================================================*/
+void TU2_OnChannel0(LDD_TUserData *UserDataPtr) {
+	sonarEventEchoOverflow(UserDataPtr);
+}
+
+/*
+** ===================================================================
+**     Event       :  FRTOS1_vApplicationStackOverflowHook (module Events)
+**
+**     Component   :  FRTOS1 [FreeRTOS]
+**     Description :
+**         if enabled, this hook will be called in case of a stack
+**         overflow.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         pxTask          - Task handle
+**       * pcTaskName      - Pointer to task name
+**     Returns     : Nothing
+** ===================================================================
+*/
+void FRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *pcTaskName)
 {
+  /* This will get called if a stack overflow is detected during the context
+     switch.  Set configCHECK_FOR_STACK_OVERFLOWS to 2 to also check for stack
+     problems within nested interrupts, but only do this for debug purposes as
+     it will increase the context switch time. */
+  (void)pxTask;
+  (void)pcTaskName;
+  taskDISABLE_INTERRUPTS();
   /* Write your code here ... */
+  for(;;) {}
 }
 
 /* END Events */

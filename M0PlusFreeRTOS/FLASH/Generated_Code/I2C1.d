@@ -54,6 +54,7 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU2.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/CsIO1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio \
@@ -91,8 +92,6 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorA.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorB.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarTrigger.h \
- C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho0.h \
- C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho1.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/PWMLEDBlue.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/PWMLEDGreen.h \
@@ -103,6 +102,7 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU2.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AdcLdd1.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MMA0.h \
@@ -118,8 +118,10 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorA.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorB.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarTrigger.h \
- C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho0.h \
- C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho1.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/Tasks/TaskSonar.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/FreeRTOS.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/task.h \
+ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/Tasks/HandlesEnum.h \
  ../Generated_Code/I2C1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/I2C_PDD.h \
@@ -235,6 +237,8 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h:
 
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU2.h:
+
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/CsIO1.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
@@ -309,10 +313,6 @@ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorB
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarTrigger.h:
 
-C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho0.h:
-
-C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho1.h:
-
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C0.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/PWMLEDBlue.h:
@@ -332,6 +332,8 @@ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT0.
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU0.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU2.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/AD0.h:
 
@@ -363,9 +365,13 @@ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorB
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarTrigger.h:
 
-C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho0.h:
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/Tasks/TaskSonar.h:
 
-C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/SonarEcho1.h:
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/FreeRTOS.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/task.h:
+
+C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/Tasks/HandlesEnum.h:
 
 ../Generated_Code/I2C1.h:
 

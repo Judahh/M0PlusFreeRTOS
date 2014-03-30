@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-22, 11:56, # CodeGen: 60
+**     Date/Time   : 2014-03-29, 23:38, # CodeGen: 128
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -35,7 +35,7 @@
 **            MASTER mode                                  : Enabled
 **              Initialization                             : 
 **                Address mode                             : 10-bit addressing
-**                Target slave address init                : 6A
+**                Target slave address init                : 6B
 **            SLAVE mode                                   : Disabled
 **            Pins                                         : 
 **              SDA pin                                    : 
@@ -224,7 +224,7 @@ PE_ISR(I2C1_Interrupt)
             }
           }
         } else {
-          I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0x6A); /* Send second part of the 10-bit addres */
+          I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0x6B); /* Send second part of the 10-bit addres */
           DeviceDataPrv->SerFlag |= (ADDR_COMPLETE); /* Address complete */
         }
       }
