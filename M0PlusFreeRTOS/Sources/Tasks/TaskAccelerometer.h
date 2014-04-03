@@ -11,6 +11,7 @@
 #include "FreeRTOS.h"
 #include "FRTOS1.h"
 #include "task.h"
+#include "stdio.h"
 #include "Util/Accelerometer.h"
 #include "Tasks/HandlesEnum.h"
 #include "MMA0.h"

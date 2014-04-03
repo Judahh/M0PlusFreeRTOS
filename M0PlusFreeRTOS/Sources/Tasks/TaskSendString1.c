@@ -7,7 +7,7 @@
 #include "TaskSendString1.h"
 
 void taskSendString1Work(void) {
-	printf("Iniciando envio da Task1 pela Serial 1!\r\n");
+	printf("Envio da 1 pela Serial 1!\r\n");
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
@@ -44,9 +44,11 @@ static portTASK_FUNCTION( TaskSendString1, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskSendString1Start(void) {
+	printf("start da Task1!\r\n");
+	
 	return FRTOS1_xTaskCreate(TaskSendString1, /* pointer to the task */
 			(signed portCHAR *) "TaskSendString1", /* task name for kernel awareness debugging */
-			configMINIMAL_STACK_SIZE, /* task stack size */
+			500, /* task stack size */
 			(void*) NULL, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
 			&taskHandles [taskSendString1Handle]);

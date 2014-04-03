@@ -103,15 +103,15 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	printf("valor = %d!\r\n",*pIndex);
 //	
 //	setLed(1);
-//	int index = 1;
-//	int index2 = 2;
+//	int8_t index = 0;
+//	int8_t index1 = 1;
 //	
 //	if (taskSendStringStart(index) != pdPASS ) {
 //		for (;;) {
 //		};
 //	}
 //
-//	if (taskSendStringStart(index2) != pdPASS ) {
+//	if (taskSendStringStart(index1) != pdPASS ) {
 //		for (;;) {
 //		};
 //	}
@@ -153,10 +153,10 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //		};
 //	}
 //
-	if (taskGyroscopeStart() != pdPASS ) {
-		for (;;) {
-		};
-	}
+//	if (taskGyroscopeStart() != pdPASS ) {
+//		for (;;) {
+//		};
+//	}
 //	
 //
 //	uint8_t taskAccelerometerRes;

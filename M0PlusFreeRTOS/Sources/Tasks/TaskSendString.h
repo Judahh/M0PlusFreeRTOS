@@ -14,8 +14,8 @@
 #include "stdio.h"
 #include "Tasks/HandlesEnum.h"
 
-void taskSendStringWork(void);
-signed portBASE_TYPE taskSendStringStart(int index);
-signed portBASE_TYPE taskSendStringStop(void);
+void taskSendStringWork(int8_t index);
+signed portBASE_TYPE taskSendStringStart(int8_t index);
+signed portBASE_TYPE taskSendStringStop(int8_t index);
 
 #endif /* TASKSENDSTRING_H_ */

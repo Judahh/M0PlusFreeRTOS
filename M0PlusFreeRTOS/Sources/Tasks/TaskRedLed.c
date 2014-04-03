@@ -7,17 +7,20 @@
 #include "TaskRedLed.h"
 
 void taskRedLedWork(void) {
-	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
-	PWMLEDRed_SetRatio8(0xFF);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
-	PWMLEDRed_SetRatio8(0x00);
-	FRTOS1_vTaskResume(taskHandles[taskGreenLedHandle]);
+//	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
+//	PWMLEDRed_SetRatio8(0xFF);
+//	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+//	PWMLEDRed_SetRatio8(0x00);
+//	FRTOS1_vTaskResume(taskHandles[taskGreenLedHandle]);
+	
 //	PWMLEDRed_SetRatio8(0x00);
 //	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 //	PWMLEDRed_SetRatio8(0xFF);
 //	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 //	PWMLEDRed_SetRatio8(0x00);
 //	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	
+	
 }
 
 /**************************************************************************/

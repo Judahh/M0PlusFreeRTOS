@@ -9,7 +9,8 @@
 #define HANDLESENUM_H_
 
 typedef enum {
-	taskSendStringHandle,
+	taskSendStringHandle0,
+	taskSendStringHandle1,
 	taskSendString1Handle,
 	taskSendString2Handle,
 	taskWriteStringHandle,

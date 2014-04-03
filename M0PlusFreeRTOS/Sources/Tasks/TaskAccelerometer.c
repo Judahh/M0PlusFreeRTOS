@@ -5,29 +5,59 @@
  *      Author: JH
  */
 #include "TaskAccelerometer.h"
-//static uint8_t taskAccelerometerRes;
+static int32_t speedX;
+static int32_t speedY;
+static int32_t speedZ;
+static int32_t spaceX;
+static int32_t spaceY;
+static int32_t spaceZ;
 
 void taskAccelerometerWork(void) {
-//	accelerometerTestRun(taskAccelerometerRes);
-	int16_t x = MMA0_GetX() / (327.67 / 2.55);
-	int16_t y = MMA0_GetY() / (327.67 / 2.55);
-	int16_t z = MMA0_GetZ() / (327.67 / 2.55);
+	int32_t accerX = MMA0_GetXmg()*980665/1000;//(MMA0_GetX()/16384)*980665
+	int32_t accerY = MMA0_GetYmg()*980665/1000;//100000
+	int32_t accerZ = MMA0_GetZmg()*980665/1000;
 
-	if (x < 0) {
-		x = 0;
-	}
+//	int16_t x = accerX / (327.67 / 2.55);
+//	int16_t y = accerY / (327.67 / 2.55);
+//	int16_t z = accerZ / (327.67 / 2.55);
 
-	if (y < 0) {
-		y = 0;
-	}
+	printf("accer X = %ld!\r\n", accerX);
+	printf("accer Y = %ld!\r\n", accerY);
+	printf("accer Z = %ld!\r\n", accerZ);
 
-	if (z < 0) {
-		z = 0;
-	}
+	speedX += accerX;
+	speedY += accerY;
+	speedZ += accerZ;
 
-	PWMLEDRed_SetRatio8(x);
-	PWMLEDGreen_SetRatio8(y);
-	PWMLEDBlue_SetRatio8(z);
+	printf("speed X = %ld!\r\n", speedX);
+	printf("speed Y = %ld!\r\n", speedY);
+	printf("speed Z = %ld!\r\n", speedZ);
+
+	spaceX += speedX;
+	spaceY += speedY;
+	spaceZ += speedZ;
+
+	printf("space X = %ld!\r\n", spaceX);
+	printf("space Y = %ld!\r\n", spaceY);
+	printf("space Z = %ld!\r\n", spaceZ);
+	
+	FRTOS1_vTaskDelay(10 / portTICK_RATE_MS);
+
+//	if (x < 0) {
+//		x = 0;
+//	}
+//
+//	if (y < 0) {
+//		y = 0;
+//	}
+//
+//	if (z < 0) {
+//		z = 0;
+//	}
+//
+//	PWMLEDRed_SetRatio8(x);
+//	PWMLEDGreen_SetRatio8(y);
+//	PWMLEDBlue_SetRatio8(z);
 }
 
 /**************************************************************************/
@@ -48,6 +78,14 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 	// The code within the for loop is your actual
 	// task that will continously execute
 
+	speedX = 0;
+	speedY = 0;
+	speedZ = 0;
+
+	spaceX = 0;
+	spaceY = 0;
+	spaceZ = 0;
+
 	MMA0_Init();
 	for (;;) {
 		taskAccelerometerWork();
@@ -66,7 +104,7 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 signed portBASE_TYPE taskAccelerometerStart(void) {
 	return FRTOS1_xTaskCreate(TaskAccelerometer, /* pointer to the task */
 			(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
-			configMINIMAL_STACK_SIZE, /* task stack size */
+			1000, /* task stack size */
 			(void*) NULL, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
 			&taskHandles [taskAccelerometerHandle]);

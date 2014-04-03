@@ -6,10 +6,8 @@
  */
 #include "TaskSendString.h"
 
-int sIndex;
-
-void taskSendStringWork(void) {
-	printf("Envio da Task%d pela Serial 1!\r\n", sIndex);
+void taskSendStringWork(int8_t index) {
+	printf("Envio da %d pela Serial 1!\r\n", index);
 	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
@@ -21,7 +19,7 @@ void taskSendStringWork(void) {
  */
 /**************************************************************************/
 static portTASK_FUNCTION( TaskSendString, pvParameters) {
-	(void) pvParameters; /* parameter not used */
+	int8_t index = (int8_t) pvParameters; /* parameter not used */
 	// Do any required initialisation or 
 	// set up any hardware before the task
 	// begins executing for the first time
@@ -32,7 +30,7 @@ static portTASK_FUNCTION( TaskSendString, pvParameters) {
 	// task that will continously execute
 	
 	for (;;) {
-		taskSendStringWork();
+		taskSendStringWork(index);
 
 		// vTaskDelay will cause the task to be delayed for 
 		// a specified number of ticks
@@ -46,19 +44,16 @@ static portTASK_FUNCTION( TaskSendString, pvParameters) {
  scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskSendStringStart(int index) {
+signed portBASE_TYPE taskSendStringStart(int8_t index) {
+	char name[15];
+	sprintf(name, "taskSendStringI%d", index);
 	signed portBASE_TYPE portBase = FRTOS1_xTaskCreate(TaskSendString, /* pointer to the task */
-			(signed portCHAR *) ("taskSendString%d", index), /* task name for kernel awareness debugging */
+			(signed portCHAR *) name, /* task name for kernel awareness debugging */
 			500, /* task stack size */
-			&index, /* optional task startup argument */
+			(void*)index, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
-			&taskHandles [taskSendStringHandle]);
-
-	
-	sIndex = index;
-	
-//	printf("Inicio da Task%d!\r\n", sIndex);
-	
+			&taskHandles [index]);
+	printf("start da %s!\r\n", name);
 	return portBase;
 }
 
@@ -67,12 +62,12 @@ signed portBASE_TYPE taskSendStringStart(int index) {
  Stops the task and deletes it from the task scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskSendStringStop(void) {
-	if (!taskHandles [taskSendStringHandle])
+signed portBASE_TYPE taskSendStringStop(int8_t index) {
+	if (!taskHandles [index])
 		return 0;
 
-	vTaskDelete(taskHandles [taskSendStringHandle]);
-	taskHandles [taskSendStringHandle] = NULL;
+	vTaskDelete(taskHandles [index]);
+	taskHandles [index] = NULL;
 
 	return 1;
 }
