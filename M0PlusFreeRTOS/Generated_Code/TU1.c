@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.158, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-08, 19:32, # CodeGen: 86
+**     Date/Time   : 2014-04-03, 20:13, # CodeGen: 134
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -18,7 +18,7 @@
 **          Counter width                                  : 16 bits
 **          Value type                                     : uint16_t
 **          Input clock source                             : Internal
-**            Counter frequency                            : 10.48576 MHz
+**            Counter frequency                            : 6 MHz
 **          Counter restart                                : On-match
 **            Period device                                : TPM2_MOD
 **            Period                                       : 6.25 ms
@@ -26,22 +26,22 @@
 **          Channel list                                   : 2
 **            Channel 0                                    : 
 **              Mode                                       : Compare
-**                Compare                                  : TPM2_C0V
-**                Offset                                   : 0 ms
-**                Output on compare                        : Set
-**                  Output on overrun                      : Clear
-**                  Initial state                          : Low
-**                  Output pin                             : TSI0_CH11/PTB18/TPM2_CH0
-**                  Output pin signal                      : 
-**                Interrupt                                : Disabled
-**            Channel 1                                    : 
-**              Mode                                       : Compare
 **                Compare                                  : TPM2_C1V
 **                Offset                                   : 0 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
 **                  Output pin                             : TSI0_CH12/PTB19/TPM2_CH1
+**                  Output pin signal                      : 
+**                Interrupt                                : Disabled
+**            Channel 1                                    : 
+**              Mode                                       : Compare
+**                Compare                                  : TPM2_C0V
+**                Offset                                   : 0 ms
+**                Output on compare                        : Set
+**                  Output on overrun                      : Clear
+**                  Initial state                          : Low
+**                  Output pin                             : TSI0_CH11/PTB18/TPM2_CH0
 **                  Output pin signal                      : 
 **                Interrupt                                : Disabled
 **          Initialization                                 : 
@@ -104,7 +104,7 @@ extern "C" {
 #endif 
 
 /* List of channels used by component */
-static const uint8_t ChannelDevice[TU1_NUMBER_OF_CHANNELS] = {0x00U,0x01U};
+static const uint8_t ChannelDevice[TU1_NUMBER_OF_CHANNELS] = {0x01U,0x00U};
 
 /* Table of channels mode / 0 - compare mode, 1 - capture mode */
 static const uint8_t ChannelMode[TU1_NUMBER_OF_CHANNELS] = {0x00U,0x00U};
@@ -177,23 +177,16 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
   TPM2_C0SC = 0x00U;                   /* Clear channel status and control register */
   /* TPM2_C1SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
   TPM2_C1SC = 0x00U;                   /* Clear channel status and control register */
-  /* TPM2_MOD: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,MOD=0xFFFF */
-  TPM2_MOD = TPM_MOD_MOD(0xFFFF);      /* Set up modulo register */
-  /* TPM2_C0SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
-  TPM2_C0SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
-  /* TPM2_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
-  TPM2_C0V = TPM_CnV_VAL(0x00);        /* Set up channel value register */
+  /* TPM2_MOD: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,MOD=0x927B */
+  TPM2_MOD = TPM_MOD_MOD(0x927B);      /* Set up modulo register */
   /* TPM2_C1SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
   TPM2_C1SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
   /* TPM2_C1V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
   TPM2_C1V = TPM_CnV_VAL(0x00);        /* Set up channel value register */
-  /* PORTB_PCR18: ISF=0,MUX=3 */
-  PORTB_PCR18 = (uint32_t)((PORTB_PCR18 & (uint32_t)~(uint32_t)(
-                 PORT_PCR_ISF_MASK |
-                 PORT_PCR_MUX(0x04)
-                )) | (uint32_t)(
-                 PORT_PCR_MUX(0x03)
-                ));                                  
+  /* TPM2_C0SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
+  TPM2_C0SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
+  /* TPM2_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
+  TPM2_C0V = TPM_CnV_VAL(0x00);        /* Set up channel value register */
   /* PORTB_PCR19: ISF=0,MUX=3 */
   PORTB_PCR19 = (uint32_t)((PORTB_PCR19 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
@@ -201,9 +194,16 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
                 )) | (uint32_t)(
                  PORT_PCR_MUX(0x03)
                 ));                                  
+  /* PORTB_PCR18: ISF=0,MUX=3 */
+  PORTB_PCR18 = (uint32_t)((PORTB_PCR18 & (uint32_t)~(uint32_t)(
+                 PORT_PCR_ISF_MASK |
+                 PORT_PCR_MUX(0x04)
+                )) | (uint32_t)(
+                 PORT_PCR_MUX(0x03)
+                ));                                  
   DeviceDataPrv->Source = TPM_PDD_SYSTEM; /* Store clock source */
-  /* TPM2_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=0,CPWMS=0,CMOD=1,PS=1 */
-  TPM2_SC = (TPM_SC_CMOD(0x01) | TPM_SC_PS(0x01)); /* Set up status and control register */
+  /* TPM2_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=0,CPWMS=0,CMOD=1,PS=3 */
+  TPM2_SC = (TPM_SC_CMOD(0x01) | TPM_SC_PS(0x03)); /* Set up status and control register */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TU1_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */

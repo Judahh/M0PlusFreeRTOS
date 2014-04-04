@@ -18,7 +18,7 @@ by the component.
     0x01000000
  </td><td>SIM_SCGC6 register, peripheral TU0.</td></tr>
 <tr><td>0x40038000</td><td>TPM0_SC</td><td>
-    0x00000009
+    0x0000000B
  </td><td>TPM0_SC register, peripheral TU0.</td></tr>
 <tr><td>0x40038004</td><td>TPM0_CNT</td><td>
     0x00000000
@@ -162,7 +162,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000009</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000000B</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>8</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
@@ -729,7 +729,7 @@ registers of the peripheral(s) configured by the component.
 **          Counter width                                  : 16 bits
 **          Value type                                     : uint16_t
 **          Input clock source                             : Internal
-**            Counter frequency                            : 10.48576 MHz
+**            Counter frequency                            : 6 MHz
 **          Counter restart                                : On-match
 **            Period device                                : TPM0_MOD
 **            Period                                       : 6.25 ms

@@ -6,7 +6,7 @@
 **     Component   : ADC_LDD
 **     Version     : Component 01.182, Driver 01.08, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-09, 19:00, # CodeGen: 97
+**     Date/Time   : 2014-04-03, 20:13, # CodeGen: 134
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -55,11 +55,11 @@
 **          Sample time                                    : 4 clock periods
 **          Number of conversions                          : 1
 **          Conversion time                                : 9.536743 µs
-**          ADC clock                                      : 2.621 MHz (381.47 ns)
-**          Single conversion time - Single-ended          : 11.682 us
-**          Single conversion time - Differential          : 15.115 us
-**          Additional conversion time - Single-ended      : 9.536 us
-**          Additional conversion time - Differential      : 12.969 us
+**          ADC clock                                      : 2.6 MHz (384.615 ns)
+**          Single conversion time - Single-ended          : 16.746 us
+**          Single conversion time - Differential          : 20.208 us
+**          Additional conversion time - Single-ended      : 9.615 us
+**          Additional conversion time - Differential      : 13.076 us
 **          Result type                                    : unsigned 16 bits, right justified
 **          Trigger                                        : Disabled
 **          Voltage reference                              : 
@@ -196,10 +196,10 @@ LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr)
   PORTC_PCR2 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
   /* PORTC_PCR1: ISF=0,MUX=0 */
   PORTC_PCR1 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
-  /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=3,ADICLK=0 */
-  ADC0_CFG1 = ADC_CFG1_ADIV(0x03) |
+  /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=1,ADLSMP=0,MODE=3,ADICLK=3 */
+  ADC0_CFG1 = ADC_CFG1_ADIV(0x01) |
               ADC_CFG1_MODE(0x03) |
-              ADC_CFG1_ADICLK(0x00);       
+              ADC_CFG1_ADICLK(0x03);       
   /* ADC0_CFG2: ADACKEN=0,ADHSC=0,ADLSTS=0 */
   ADC0_CFG2 &= (uint32_t)~(uint32_t)(
                 ADC_CFG2_ADACKEN_MASK |

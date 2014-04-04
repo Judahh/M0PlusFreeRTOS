@@ -9,13 +9,13 @@
 #define TASKSENDSTRING_H_
 
 #include "FreeRTOS.h"
-#include "FRTOS1.h"
+#include "FreeRTOS0.h"
 #include "task.h"
 #include "stdio.h"
 #include "Tasks/HandlesEnum.h"
 
-void taskSendStringWork(int8_t index);
-signed portBASE_TYPE taskSendStringStart(int8_t index);
-signed portBASE_TYPE taskSendStringStop(int8_t index);
+void taskSendStringWork(int index);
+signed portBASE_TYPE taskSendStringStart(int index);
+signed portBASE_TYPE taskSendStringStop(int index);
 
 #endif /* TASKSENDSTRING_H_ */

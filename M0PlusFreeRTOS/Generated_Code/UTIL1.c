@@ -6,7 +6,7 @@
 **     Component   : Utility
 **     Version     : Component 01.093, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-02-06, 15:50, # CodeGen: 1
+**     Date/Time   : 2014-04-03, 21:14, # CodeGen: 146
 **     Abstract    :
 **          Contains various utility functions.
 **     Settings    :
@@ -318,9 +318,13 @@ void UTIL1_Num16sToStr(byte *dst, size_t dstSize, int16_t val)
   unsigned char tmp;
   unsigned char sign = (unsigned char)(val < 0);
 
+  if (val==(int16_t)(0x8000)) { /* special case 0x8000/-32768: prevent overflow below. */
+    UTIL1_strcpy(dst, dstSize, (unsigned char*)"-32768");
+    return;
+  }
   dstSize--; /* for zero byte */
-  if (sign){
-    val *= -1;
+  if (sign) {
+    val = -val;
   }
   if (val == 0 && dstSize > 0){
     ptr[i++] = '0';
@@ -1004,14 +1008,18 @@ void UTIL1_strcatNum32u(byte *dst, size_t dstSize, dword val)
  */
 void UTIL1_Num32sToStr(byte *dst, size_t dstSize, long val)
 {
-  unsigned char *ptr =  ((unsigned char *)dst);
+  unsigned char *ptr = ((unsigned char *)dst);
   unsigned char i=0, j;
   unsigned char tmp;
   unsigned char sign = (unsigned char)(val < 0);
 
+  if (val==(int32_t)(0x80000000)) { /* special case 0x80000000/-2147483648: prevent overflow below. */
+    UTIL1_strcpy(dst, dstSize, (unsigned char*)"-2147483648");
+    return;
+  }
   dstSize--; /* for zero byte */
-  if (sign){
-    val *= -1;
+  if (sign) {
+    val = -val;
   }
   if (val == 0 && dstSize > 0){
     ptr[i++] = '0';
@@ -1614,7 +1622,7 @@ byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val)
   } else {
     isNeg = FALSE;
   }
-  res = UTIL1_ScanDecimal16uNumber(&p, &val16u);
+  res = UTIL1_ScanDecimal16uNumber(&p, (word*)&val16u);
   if (res != ERR_OK) {
     return res;
   }
@@ -1704,9 +1712,9 @@ byte UTIL1_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val)
     return res;
   }
   if (isNeg) {
-    *val = - (int32_t)val32u;
+    *val = (uint32_t)(-(int32_t)val32u);
   } else {
-    *val = (int32_t)val32u;
+    *val = val32u;
   }
   *str = p;
   return ERR_OK;
@@ -2067,9 +2075,9 @@ void UTIL1_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num)
 */
 int16_t UTIL1_strFind(byte *str, byte *subStr)
 {
-  int i, len;
+  int16_t i, len;
 
-  len = UTIL1_strlen((char*)subStr);
+  len = (int16_t)UTIL1_strlen((char*)subStr);
   for (i=0; *str!='\0'; i++, str++) {
     if (UTIL1_strncmp((char*)str, (char*)subStr, len)==0) {
       return i; /* found */

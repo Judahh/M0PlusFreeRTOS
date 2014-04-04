@@ -4,20 +4,22 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : GenericI2C
-**     Version     : Component 01.014, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.020, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-28, 18:09, # CodeGen: 113
+**     Date/Time   : 2014-04-03, 21:14, # CodeGen: 146
 **     Abstract    :
 **         This component implements a generic I2C driver wrapper to work both with LDD and non-LDD I2C components.
 **     Settings    :
 **          Component name                                 : GI2C0
+**          Wait                                           : WAIT0
+**          Support STOP_NOSTART                           : yes
 **          Write Buffer Size                              : 16
 **          non-LDD I2C                                    : Disabled
 **          LDD I2C                                        : Enabled
 **            I2C                                          : I2C0
 **            Timeout                                      : Disabled
 **          RTOS                                           : Enabled
-**            RTOS                                         : FRTOS1
+**            RTOS                                         : FreeRTOS0
 **            Semaphore                                    : yes
 **          Init() on startup                              : yes
 **     Contents    :
@@ -31,13 +33,14 @@
 **         WriteAddress      - byte GI2C0_WriteAddress(byte i2cAddr, byte *memAddr, byte memAddrSize, byte...
 **         ReadByteAddress8  - byte GI2C0_ReadByteAddress8(byte i2cAddr, byte memAddr, byte *data);
 **         WriteByteAddress8 - byte GI2C0_WriteByteAddress8(byte i2cAddr, byte memAddr, byte data);
+**         ProbeACK          - byte GI2C0_ProbeACK(void* data, word dataSize, GI2C0_EnumSendFlags flags,...
 **         GetSemaphore      - void* GI2C0_GetSemaphore(void);
 **         Deinit            - void GI2C0_Deinit(void);
 **         ScanDevice        - byte GI2C0_ScanDevice(byte i2cAddr);
 **         Init              - void GI2C0_Init(void);
 **
 **     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2013, all rights reserved.
+**     Copyright : (c) Copyright Erich Styger, 2013-2014, all rights reserved.
 **     http          : www.mcuoneclipse.com
 **     This an open source software implementing software using Processor Expert.
 **     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
@@ -83,7 +86,7 @@ static xSemaphoreHandle GI2C0_busSem = NULL; /* Semaphore to protect I2C bus acc
 */
 void GI2C0_RequestBus(void)
 {
-  (void)FRTOS1_xSemaphoreTakeRecursive(GI2C0_busSem, portMAX_DELAY);
+  (void)FreeRTOS0_xSemaphoreTakeRecursive(GI2C0_busSem, portMAX_DELAY);
 }
 
 /*
@@ -97,7 +100,7 @@ void GI2C0_RequestBus(void)
 */
 void GI2C0_ReleaseBus(void)
 {
-  (void)FRTOS1_xSemaphoreGiveRecursive(GI2C0_busSem);
+  (void)FreeRTOS0_xSemaphoreGiveRecursive(GI2C0_busSem);
 }
 
 /*
@@ -355,7 +358,7 @@ void GI2C0_Init(void)
   if (GI2C0_deviceData.handle==NULL) {
     for(;;){} /* failure! */
   }
-  GI2C0_busSem = FRTOS1_xSemaphoreCreateRecursiveMutex();
+  GI2C0_busSem = FreeRTOS0_xSemaphoreCreateRecursiveMutex();
   if (GI2C0_busSem==NULL) { /* semaphore creation failed */
     for(;;) {} /* error, not enough memory? */
   }
@@ -373,7 +376,7 @@ void GI2C0_Init(void)
 void GI2C0_Deinit(void)
 {
   I2C0_Deinit(&GI2C0_deviceData);
-  FRTOS1_vSemaphoreDelete(GI2C0_busSem);
+  FreeRTOS0_vSemaphoreDelete(GI2C0_busSem);
 }
 
 /*
@@ -471,6 +474,39 @@ byte GI2C0_ScanDevice(byte i2cAddr)
   } /* for(;;) */
   if (GI2C0_UnselectSlave()!=ERR_OK) {
     return ERR_FAILED;
+  }
+  return res;
+}
+
+/*
+** ===================================================================
+**     Method      :  GI2C0_ProbeACK (component GenericI2C)
+**     Description :
+**         Accesses the bus to check if the device responds with an ACK
+**         (ACK polling).
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * data            - Data write buffer
+**         dataSize        - 
+**         flags           - flags for the transaction
+**         WaitTimeUS      - Waiting time in microseconds
+**                           to wait for the ACK on the bus.
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+byte GI2C0_ProbeACK(void* data, word dataSize, GI2C0_EnumSendFlags flags, word WaitTimeUS)
+{
+  byte res = ERR_OK;
+
+  GI2C0_deviceData.dataTransmittedFlg = FALSE;
+  res = I2C0_MasterSendBlock(GI2C0_deviceData.handle, data, dataSize, flags==GI2C0_SEND_STOP?LDD_I2C_SEND_STOP:LDD_I2C_NO_SEND_STOP);
+  if (res!=ERR_OK) {
+    return res;
+  }
+  WAIT0_Waitus(WaitTimeUS);
+  if (!GI2C0_deviceData.dataTransmittedFlg) {
+    return ERR_FAILED; /* no ACK received? */
   }
   return res;
 }

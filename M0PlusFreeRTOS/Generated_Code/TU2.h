@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.158, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-29, 22:45, # CodeGen: 127
+**     Date/Time   : 2014-04-03, 20:13, # CodeGen: 134
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -18,7 +18,7 @@
 **          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
 **          Input clock source                             : Internal
-**            Counter frequency                            : 2.62144 MHz
+**            Counter frequency                            : 3 MHz
 **          Counter restart                                : On-overrun
 **            Overrun period                               : Auto select
 **            Interrupt                                    : Enabled
@@ -31,7 +31,7 @@
 **                Capture input pin                        : PTA13/TPM1_CH1
 **                Capture input signal                     : Echo
 **                Edge                                     : both edges
-**                Maximum time of event                    : 25.00001792 ms
+**                Maximum time of event                    : 21.845311488 ms
 **                Interrupt                                : Enabled
 **                  Interrupt                              : INT_TPM1
 **                  Interrupt priority                     : medium priority
@@ -104,8 +104,8 @@ extern "C" {
 #define __BWUserType_TU2_TValueType
   typedef uint32_t TU2_TValueType ;    /* Type for data parameters of methods */
 #endif
-#define TU2_CNT_INP_FREQ_U_0 0x00280000UL /* Counter input frequency in Hz */
-#define TU2_CNT_INP_FREQ_R_0 2621438.120953155F /* Counter input frequency in Hz */
+#define TU2_CNT_INP_FREQ_U_0 0x002DC6C0UL /* Counter input frequency in Hz */
+#define TU2_CNT_INP_FREQ_R_0 3000003.000003F /* Counter input frequency in Hz */
 #define TU2_CNT_INP_FREQ_COUNT 0U      /* Count of predefined counter input frequencies */
 #define TU2_PERIOD_TICKS   0x00010000UL /* Initialization value of period in 'counter ticks' */
 #define TU2_NUMBER_OF_CHANNELS 0x01U   /* Count of predefined channels */

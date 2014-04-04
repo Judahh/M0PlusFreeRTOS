@@ -38,23 +38,6 @@ extern "C" {
 
 /*
  ** ===================================================================
- **     Event       :  Cpu_OnNMIINT (module Events)
- **
- **     Component   :  Cpu [MKL25Z128LK4]
- */
-/*!
- **     @brief
- **         This event is called when the Non maskable interrupt had
- **         occurred. This event is automatically enabled when the [NMI
- **         interrupt] property is set to 'Enabled'.
- */
-/* ===================================================================*/
-void Cpu_OnNMIINT(void) {
-	/* Write your code here ... */
-}
-
-/*
- ** ===================================================================
  **     Event       :  AS1_OnBlockSent (module Events)
  **
  **     Component   :  AS1 [Serial_LDD]
@@ -72,41 +55,6 @@ void Cpu_OnNMIINT(void) {
 void AS1_OnBlockSent(LDD_TUserData *UserDataPtr) {
 	UART_Description *ptr = (UART_Description*) UserDataPtr;
 	ptr->isSent = TRUE; /* set flag so sender knows we have finished */
-}
-
-/*
- ** ===================================================================
- **     Event       :  FRTOS1_vApplicationTickHook (module Events)
- **
- **     Component   :  FRTOS1 [FreeRTOS]
- **     Description :
- **         If enabled, this hook will be called by the RTOS for every
- **         tick increment.
- **     Parameters  : None
- **     Returns     : Nothing
- ** ===================================================================
- */
-void FRTOS1_vApplicationTickHook(void) {
-	/* Called for every RTOS tick. */
-	/* Write your code here ... */
-}
-
-/*
- ** ===================================================================
- **     Event       :  FRTOS1_vApplicationIdleHook (module Events)
- **
- **     Component   :  FRTOS1 [FreeRTOS]
- **     Description :
- **         If enabled, this hook will be called when the RTOS is idle.
- **         This might be a good place to go into low power mode.
- **     Parameters  : None
- **     Returns     : Nothing
- ** ===================================================================
- */
-void FRTOS1_vApplicationIdleHook(void) {
-	/* Called whenever the RTOS is idle (from the IDLE task).
-	 Here would be a good place to put the CPU into low power mode. */
-	/* Write your code here ... */
 }
 
 /*
@@ -396,30 +344,6 @@ void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks) {
 
 /*
  ** ===================================================================
- **     Event       :  AS1_OnTxComplete (module Events)
- **
- **     Component   :  AS1 [Serial_LDD]
- */
-/*!
- **     @brief
- **         This event indicates that the transmitter is finished
- **         transmitting all data, preamble, and break characters and is
- **         idle. It can be used to determine when it is safe to switch
- **         a line driver (e.g. in RS-485 applications).
- **         The event is available only when both <Interrupt
- **         service/event> and <Transmitter> properties are enabled.
- **     @param
- **         UserDataPtr     - Pointer to the user or
- **                           RTOS specific data. This pointer is passed
- **                           as the parameter of Init method.
- */
-/* ===================================================================*/
-void AS1_OnTxComplete(LDD_TUserData *UserDataPtr) {
-	/* Write your code here ... */
-}
-
-/*
- ** ===================================================================
  **     Event       :  TU2_OnCounterRestart (module Events)
  **
  **     Component   :  TU2 [TimerUnit_LDD]
@@ -487,6 +411,113 @@ void FRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *p
      it will increase the context switch time. */
   (void)pxTask;
   (void)pcTaskName;
+  taskDISABLE_INTERRUPTS();
+  /* Write your code here ... */
+  for(;;) {}
+}
+
+/*
+** ===================================================================
+**     Event       :  Cpu_OnNMIINT0 (module Events)
+**
+**     Component   :  Cpu [MKL25Z128LK4]
+*/
+/*!
+**     @brief
+**         This event is called when the Non maskable interrupt had
+**         occurred. This event is automatically enabled when the [NMI
+**         interrupt] property is set to 'Enabled'.
+*/
+/* ===================================================================*/
+void Cpu_OnNMIINT0(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationStackOverflowHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         if enabled, this hook will be called in case of a stack
+**         overflow.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         pxTask          - Task handle
+**       * pcTaskName      - Pointer to task name
+**     Returns     : Nothing
+** ===================================================================
+*/
+void FreeRTOS0_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskName)
+{
+  /* This will get called if a stack overflow is detected during the context
+     switch.  Set configCHECK_FOR_STACK_OVERFLOWS to 2 to also check for stack
+     problems within nested interrupts, but only do this for debug purposes as
+     it will increase the context switch time. */
+  (void)pxTask;
+  (void)pcTaskName;
+  taskDISABLE_INTERRUPTS();
+  /* Write your code here ... */
+  for(;;) {}
+}
+
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationTickHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         If enabled, this hook will be called by the RTOS for every
+**         tick increment.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void FreeRTOS0_vApplicationTickHook(void)
+{
+  /* Called for every RTOS tick. */
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationIdleHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         If enabled, this hook will be called when the RTOS is idle.
+**         This might be a good place to go into low power mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void FreeRTOS0_vApplicationIdleHook(void)
+{
+  /* Called whenever the RTOS is idle (from the IDLE task).
+     Here would be a good place to put the CPU into low power mode. */
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationMallocFailedHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         If enabled, the RTOS will call this hook in case memory
+**         allocation failed.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void FreeRTOS0_vApplicationMallocFailedHook(void)
+{
+  /* Called if a call to pvPortMalloc() fails because there is insufficient
+     free memory available in the FreeRTOS heap.  pvPortMalloc() is called
+     internally by FreeRTOS API functions that create tasks, queues, software
+     timers, and semaphores.  The size of the FreeRTOS heap is set by the
+     configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h. */
   taskDISABLE_INTERRUPTS();
   /* Write your code here ... */
   for(;;) {}

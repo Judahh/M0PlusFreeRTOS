@@ -41,7 +41,7 @@ void taskAccelerometerWork(void) {
 	printf("space Y = %ld!\r\n", spaceY);
 	printf("space Z = %ld!\r\n", spaceZ);
 	
-	FRTOS1_vTaskDelay(10 / portTICK_RATE_MS);
+	FreeRTOS0_vTaskDelay(10 / portTICK_RATE_MS);
 
 //	if (x < 0) {
 //		x = 0;
@@ -102,7 +102,7 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStart(void) {
-	return FRTOS1_xTaskCreate(TaskAccelerometer, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(TaskAccelerometer, /* pointer to the task */
 			(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
 			1000, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

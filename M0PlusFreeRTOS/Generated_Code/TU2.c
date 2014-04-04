@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.158, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-29, 22:45, # CodeGen: 127
+**     Date/Time   : 2014-04-03, 20:13, # CodeGen: 134
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -18,7 +18,7 @@
 **          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
 **          Input clock source                             : Internal
-**            Counter frequency                            : 2.62144 MHz
+**            Counter frequency                            : 3 MHz
 **          Counter restart                                : On-overrun
 **            Overrun period                               : Auto select
 **            Interrupt                                    : Enabled
@@ -31,7 +31,7 @@
 **                Capture input pin                        : PTA13/TPM1_CH1
 **                Capture input signal                     : Echo
 **                Edge                                     : both edges
-**                Maximum time of event                    : 25.00001792 ms
+**                Maximum time of event                    : 21.845311488 ms
 **                Interrupt                                : Enabled
 **                  Interrupt                              : INT_TPM1
 **                  Interrupt priority                     : medium priority
@@ -179,8 +179,8 @@ LDD_TDeviceData* TU2_Init(LDD_TUserData *UserDataPtr)
               ));                                  
   /* NVIC_ISER: SETENA|=0x00040000 */
   NVIC_ISER |= NVIC_ISER_SETENA(0x00040000);                                   
-  /* TPM1_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=1,CPWMS=0,CMOD=1,PS=3 */
-  TPM1_SC = (TPM_SC_TOIE_MASK | TPM_SC_CMOD(0x01) | TPM_SC_PS(0x03)); /* Set up status and control register */
+  /* TPM1_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=1,CPWMS=0,CMOD=1,PS=4 */
+  TPM1_SC = (TPM_SC_TOIE_MASK | TPM_SC_CMOD(0x01) | TPM_SC_PS(0x04)); /* Set up status and control register */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TU2_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */

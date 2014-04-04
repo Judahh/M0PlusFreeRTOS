@@ -38,7 +38,6 @@
 - \subpage PwmLdd1
 - \subpage PwmLdd2
 - \subpage PwmLdd3
-- \subpage AS1
 - \subpage Break
 - \subpage MotorA
 - \subpage MotorB

@@ -9,7 +9,7 @@
 #define TASKGYROSCOPE_H_
 
 #include "FreeRTOS.h"
-#include "FRTOS1.h"
+#include "FreeRTOS0.h"
 #include "task.h"
 #include "Util/Gyroscope.h"
 #include "Tasks/HandlesEnum.h"

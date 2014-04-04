@@ -14,16 +14,15 @@ Generated_Code/SonarTrigger.o: ../Generated_Code/SonarTrigger.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h \
- ../Generated_Code/projdefs.h ../Generated_Code/FreeRTOSConfig.h \
- ../Generated_Code/portable.h ../Generated_Code/portmacro.h \
- ../Generated_Code/mpu_wrappers.h ../Generated_Code/task.h \
- ../Generated_Code/list.h ../Generated_Code/SonarTrigger.h \
- ../Generated_Code/PE_Types.h \
+ ../Generated_Code/FreeRTOSConfig.h ../Generated_Code/PE_Types.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
- ../Generated_Code/PE_Error.h ../Generated_Code/PE_Const.h \
- ../Generated_Code/IO_Map.h \
+ ../Generated_Code/projdefs.h ../Generated_Code/portable.h \
+ ../Generated_Code/portmacro.h ../Generated_Code/mpu_wrappers.h \
+ ../Generated_Code/task.h ../Generated_Code/list.h \
+ ../Generated_Code/SonarTrigger.h ../Generated_Code/PE_Error.h \
+ ../Generated_Code/PE_Const.h ../Generated_Code/IO_Map.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  ../Generated_Code/Cpu.h
@@ -58,9 +57,17 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
 
-../Generated_Code/projdefs.h:
-
 ../Generated_Code/FreeRTOSConfig.h:
+
+../Generated_Code/PE_Types.h:
+
+C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
+
+C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint:
+
+C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
+
+../Generated_Code/projdefs.h:
 
 ../Generated_Code/portable.h:
 
@@ -73,14 +80,6 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
 ../Generated_Code/list.h:
 
 ../Generated_Code/SonarTrigger.h:
-
-../Generated_Code/PE_Types.h:
-
-C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
-
-C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint:
-
-C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
 
 ../Generated_Code/PE_Error.h:
 

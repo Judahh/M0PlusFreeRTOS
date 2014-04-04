@@ -34,9 +34,8 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
-#include "FRTOS1.h"
+#include "UTIL0.h"
 #include "UTIL1.h"
-#include "UTIL2.h"
 #include "Util/Accelerometer.h"
 #include "Util/Gyroscope.h"
 #include "Util/UART.h"
@@ -50,7 +49,7 @@
 #include "AdcLdd1.h"
 #include "MMA0.h"
 #include "GI2C0.h"
-#include "CsIO1.h"
+#include "CsIO0.h"
 #include "IO1.h"
 #include "TSSTouch.h"
 #include "PWMLEDBlue.h"
@@ -59,32 +58,16 @@
 #include "PwmLdd2.h"
 #include "PWMLEDRed.h"
 #include "PwmLdd3.h"
-#include "AS1.h"
 #include "Break.h"
 #include "MotorA.h"
 #include "MotorB.h"
 #include "SonarTrigger.h"
+#include "FreeRTOS0.h"
 #include "Tasks/TaskSonar.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif 
-
-/*
-** ===================================================================
-**     Event       :  Cpu_OnNMIINT (module Events)
-**
-**     Component   :  Cpu [MKL25Z128LK4]
-*/
-/*!
-**     @brief
-**         This event is called when the Non maskable interrupt had
-**         occurred. This event is automatically enabled when the [NMI
-**         interrupt] property is set to 'Enabled'.
-*/
-/* ===================================================================*/
-void Cpu_OnNMIINT(void);
-
 
 /*
 ** ===================================================================
@@ -117,34 +100,6 @@ void FRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *p
 **         NAME            - DESCRIPTION
 **         pxTask          - Task handle
 **       * pcTaskName      - Pointer to task name
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void FRTOS1_vApplicationTickHook(void);
-/*
-** ===================================================================
-**     Event       :  FRTOS1_vApplicationTickHook (module Events)
-**
-**     Component   :  FRTOS1 [FreeRTOS]
-**     Description :
-**         If enabled, this hook will be called by the RTOS for every
-**         tick increment.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void FRTOS1_vApplicationIdleHook(void);
-/*
-** ===================================================================
-**     Event       :  FRTOS1_vApplicationIdleHook (module Events)
-**
-**     Component   :  FRTOS1 [FreeRTOS]
-**     Description :
-**         If enabled, this hook will be called when the RTOS is idle.
-**         This might be a good place to go into low power mode.
-**     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================
 */
@@ -311,28 +266,6 @@ void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks);
 
 /*
 ** ===================================================================
-**     Event       :  AS1_OnTxComplete (module Events)
-**
-**     Component   :  AS1 [Serial_LDD]
-*/
-/*!
-**     @brief
-**         This event indicates that the transmitter is finished
-**         transmitting all data, preamble, and break characters and is
-**         idle. It can be used to determine when it is safe to switch
-**         a line driver (e.g. in RS-485 applications).
-**         The event is available only when both <Interrupt
-**         service/event> and <Transmitter> properties are enabled.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-*/
-/* ===================================================================*/
-void AS1_OnTxComplete(LDD_TUserData *UserDataPtr);
-
-/*
-** ===================================================================
 **     Event       :  TU2_OnCounterRestart (module Events)
 **
 **     Component   :  TU2 [TimerUnit_LDD]
@@ -372,6 +305,80 @@ void TU2_OnCounterRestart(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 void TU2_OnChannel0(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Event       :  Cpu_OnNMIINT0 (module Events)
+**
+**     Component   :  Cpu [MKL25Z128LK4]
+*/
+/*!
+**     @brief
+**         This event is called when the Non maskable interrupt had
+**         occurred. This event is automatically enabled when the [NMI
+**         interrupt] property is set to 'Enabled'.
+*/
+/* ===================================================================*/
+void Cpu_OnNMIINT0(void);
+
+void FreeRTOS0_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskName);
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationStackOverflowHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         if enabled, this hook will be called in case of a stack
+**         overflow.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         pxTask          - Task handle
+**       * pcTaskName      - Pointer to task name
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void FreeRTOS0_vApplicationTickHook(void);
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationTickHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         If enabled, this hook will be called by the RTOS for every
+**         tick increment.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void FreeRTOS0_vApplicationIdleHook(void);
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationIdleHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         If enabled, this hook will be called when the RTOS is idle.
+**         This might be a good place to go into low power mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void FreeRTOS0_vApplicationMallocFailedHook(void);
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vApplicationMallocFailedHook (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         If enabled, the RTOS will call this hook in case memory
+**         allocation failed.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
 
 /* END Events */
 

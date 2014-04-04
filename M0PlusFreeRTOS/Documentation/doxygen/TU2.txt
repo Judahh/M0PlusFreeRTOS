@@ -18,7 +18,7 @@ by the component.
     0x07000000
  </td><td>SIM_SCGC6 register, peripheral TU2.</td></tr>
 <tr><td>0x40039000</td><td>TPM1_SC</td><td>
-    0x0000004B
+    0x0000004C
  </td><td>TPM1_SC register, peripheral TU2.</td></tr>
 <tr><td>0x40039004</td><td>TPM1_CNT</td><td>
     0x00000000
@@ -153,7 +153,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40039000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000004B</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000004C</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>8</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
@@ -161,7 +161,7 @@ registers of the peripheral(s) configured by the component.
 <tr><td>6</td><td>TOIE</td><td>0x01</td><td>Timer Overflow Interrupt Enable</td>
 <tr><td>5</td><td>CPWMS</td><td>0x00</td><td>Center-aligned PWM Select</td>
 <tr><td>3 - 4</td><td>CMOD</td><td>0x00</td><td>Clock Mode Selection</td>
-<tr><td>0 - 2</td><td>PS</td><td>0x00</td><td>Prescale Factor Selection</td>
+<tr><td>0 - 2</td><td>PS</td><td>0x04</td><td>Prescale Factor Selection</td>
 </tr></table>
 <div class="reghdr1">TPM1_CNT</div>
 <div class="regdiag">
@@ -528,7 +528,7 @@ registers of the peripheral(s) configured by the component.
 **          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
 **          Input clock source                             : Internal
-**            Counter frequency                            : 2.62144 MHz
+**            Counter frequency                            : 3 MHz
 **          Counter restart                                : On-overrun
 **            Overrun period                               : Auto select
 **            Interrupt                                    : Enabled
@@ -541,7 +541,7 @@ registers of the peripheral(s) configured by the component.
 **                Capture input pin                        : PTA13/TPM1_CH1
 **                Capture input signal                     : Echo
 **                Edge                                     : both edges
-**                Maximum time of event                    : 25.00001792 ms
+**                Maximum time of event                    : 21.845311488 ms
 **                Interrupt                                : Enabled
 **                  Interrupt                              : INT_TPM1
 **                  Interrupt priority                     : medium priority

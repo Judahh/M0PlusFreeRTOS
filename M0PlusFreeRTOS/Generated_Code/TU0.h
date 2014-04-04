@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.158, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-08, 19:32, # CodeGen: 86
+**     Date/Time   : 2014-04-03, 20:13, # CodeGen: 134
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -18,7 +18,7 @@
 **          Counter width                                  : 16 bits
 **          Value type                                     : uint16_t
 **          Input clock source                             : Internal
-**            Counter frequency                            : 10.48576 MHz
+**            Counter frequency                            : 6 MHz
 **          Counter restart                                : On-match
 **            Period device                                : TPM0_MOD
 **            Period                                       : 6.25 ms
@@ -107,10 +107,10 @@ extern "C" {
 #define __BWUserType_TU0_TValueType
   typedef uint16_t TU0_TValueType ;    /* Type for data parameters of methods */
 #endif
-#define TU0_CNT_INP_FREQ_U_0 0x00A00000UL /* Counter input frequency in Hz */
-#define TU0_CNT_INP_FREQ_R_0 10485807.459603427F /* Counter input frequency in Hz */
+#define TU0_CNT_INP_FREQ_U_0 0x005B8D80UL /* Counter input frequency in Hz */
+#define TU0_CNT_INP_FREQ_R_0 5999988.000024F /* Counter input frequency in Hz */
 #define TU0_CNT_INP_FREQ_COUNT 0U      /* Count of predefined counter input frequencies */
-#define TU0_PERIOD_TICKS   0x00010000UL /* Initialization value of period in 'counter ticks' */
+#define TU0_PERIOD_TICKS   0x927CUL    /* Initialization value of period in 'counter ticks' */
 #define TU0_NUMBER_OF_CHANNELS 0x01U   /* Count of predefined channels */
 #define TU0_COUNTER_WIDTH  0x10U       /* Counter width in bits  */
 #define TU0_COUNTER_DIR    DIR_UP      /* Direction of counting */

@@ -22,7 +22,7 @@ Generated_Code/PwmLdd2.o: ../Generated_Code/PwmLdd2.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h \
- ../Generated_Code/projdefs.h ../Generated_Code/FreeRTOSConfig.h \
+ ../Generated_Code/FreeRTOSConfig.h ../Generated_Code/projdefs.h \
  ../Generated_Code/portable.h ../Generated_Code/portmacro.h \
  ../Generated_Code/mpu_wrappers.h ../Generated_Code/task.h \
  ../Generated_Code/list.h
@@ -81,9 +81,9 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
 
-../Generated_Code/projdefs.h:
-
 ../Generated_Code/FreeRTOSConfig.h:
+
+../Generated_Code/projdefs.h:
 
 ../Generated_Code/portable.h:
 

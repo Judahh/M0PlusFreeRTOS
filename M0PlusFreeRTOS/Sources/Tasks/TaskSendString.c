@@ -6,9 +6,9 @@
  */
 #include "TaskSendString.h"
 
-void taskSendStringWork(int8_t index) {
+void taskSendStringWork(int index) {
 	printf("Envio da %d pela Serial 1!\r\n", index);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/
@@ -19,7 +19,7 @@ void taskSendStringWork(int8_t index) {
  */
 /**************************************************************************/
 static portTASK_FUNCTION( TaskSendString, pvParameters) {
-	int8_t index = (int8_t) pvParameters; /* parameter not used */
+	int index = (int) pvParameters; /* parameter not used */
 	// Do any required initialisation or 
 	// set up any hardware before the task
 	// begins executing for the first time
@@ -44,10 +44,10 @@ static portTASK_FUNCTION( TaskSendString, pvParameters) {
  scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskSendStringStart(int8_t index) {
+signed portBASE_TYPE taskSendStringStart(int index) {
 	char name[15];
 	sprintf(name, "taskSendStringI%d", index);
-	signed portBASE_TYPE portBase = FRTOS1_xTaskCreate(TaskSendString, /* pointer to the task */
+	signed portBASE_TYPE portBase = FreeRTOS0_xTaskCreate(TaskSendString, /* pointer to the task */
 			(signed portCHAR *) name, /* task name for kernel awareness debugging */
 			500, /* task stack size */
 			(void*)index, /* optional task startup argument */
@@ -62,7 +62,7 @@ signed portBASE_TYPE taskSendStringStart(int8_t index) {
  Stops the task and deletes it from the task scheduler.
  */
 /**************************************************************************/
-signed portBASE_TYPE taskSendStringStop(int8_t index) {
+signed portBASE_TYPE taskSendStringStop(int index) {
 	if (!taskHandles [index])
 		return 0;
 

@@ -6,7 +6,7 @@
 **     Component   : PWM_LDD
 **     Version     : Component 01.013, Driver 01.03, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-08, 19:32, # CodeGen: 86
+**     Date/Time   : 2014-04-03, 20:13, # CodeGen: 134
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -90,7 +90,7 @@ typedef PwmLdd3_TDeviceData *PwmLdd3_TDeviceDataPtr; /* Pointer to the device da
 /* {FreeRTOS RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static PwmLdd3_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 
-#define CHANNEL 0x00U
+#define CHANNEL 0x01U
 /* Internal method prototypes */
 static void SetRatio(LDD_TDeviceData *DeviceDataPtr);
 /*
@@ -125,7 +125,7 @@ LDD_TDeviceData* PwmLdd3_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   DeviceDataPrv->EnUser = TRUE;        /* Set the flag "device enabled" */
-  DeviceDataPrv->RatioStore = 0x01U;   /* Ratio after initialization */
+  DeviceDataPrv->RatioStore = 0x00U;   /* Ratio after initialization */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_PwmLdd3_ID,DeviceDataPrv);
   DeviceDataPrv->LinkedDeviceDataPtr = TU1_Init((LDD_TUserData *)NULL);

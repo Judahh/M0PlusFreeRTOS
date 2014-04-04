@@ -20,10 +20,10 @@ Generated_Code/list.o: ../Generated_Code/list.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stddef.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
- ../Generated_Code/projdefs.h ../Generated_Code/FreeRTOSConfig.h \
- ../Generated_Code/portable.h ../Generated_Code/portmacro.h \
- ../Generated_Code/mpu_wrappers.h ../Generated_Code/task.h \
- ../Generated_Code/list.h
+ ../Generated_Code/FreeRTOSConfig.h ../Generated_Code/PE_Types.h \
+ ../Generated_Code/projdefs.h ../Generated_Code/portable.h \
+ ../Generated_Code/portmacro.h ../Generated_Code/mpu_wrappers.h \
+ ../Generated_Code/task.h ../Generated_Code/list.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -67,9 +67,11 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h:
 
-../Generated_Code/projdefs.h:
-
 ../Generated_Code/FreeRTOSConfig.h:
+
+../Generated_Code/PE_Types.h:
+
+../Generated_Code/projdefs.h:
 
 ../Generated_Code/portable.h:
 

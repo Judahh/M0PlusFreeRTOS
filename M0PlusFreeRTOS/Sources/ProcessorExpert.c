@@ -29,9 +29,8 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
-#include "FRTOS1.h"
+#include "UTIL0.h"
 #include "UTIL1.h"
-#include "UTIL2.h"
 #include "WAIT0.h"
 #include "TU0.h"
 #include "TU1.h"
@@ -42,7 +41,7 @@
 #include "AdcLdd1.h"
 #include "MMA0.h"
 #include "GI2C0.h"
-#include "CsIO1.h"
+#include "CsIO0.h"
 #include "IO1.h"
 #include "TSSTouch.h"
 #include "PWMLEDBlue.h"
@@ -51,11 +50,11 @@
 #include "PwmLdd2.h"
 #include "PWMLEDRed.h"
 #include "PwmLdd3.h"
-#include "AS1.h"
 #include "Break.h"
 #include "MotorA.h"
 #include "MotorB.h"
 #include "SonarTrigger.h"
+#include "FreeRTOS0.h"
 #include "Tasks/TaskBlueLed.h"
 #include "Tasks/TaskGreenLed.h"
 #include "Tasks/TaskRedLed.h"
@@ -103,8 +102,8 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	printf("valor = %d!\r\n",*pIndex);
 //	
 //	setLed(1);
-//	int8_t index = 0;
-//	int8_t index1 = 1;
+//	int index = 0;
+//	int index1 = 1;
 //	
 //	if (taskSendStringStart(index) != pdPASS ) {
 //		for (;;) {
@@ -143,10 +142,10 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
 //	FRTOS1_vTaskSuspend(taskHandles[taskGreenLedHandle]);
 //	
-//	if (taskAccelerometerStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
+	if (taskAccelerometerStart() != pdPASS ) {
+		for (;;) {
+		};
+	}
 //
 //	if (taskMotorDCStart() != pdPASS ) {
 //		for (;;) {

@@ -1,8 +1,8 @@
-Generated_Code/UTIL2.o: ../Generated_Code/UTIL2.c \
+Generated_Code/UTIL0.o: ../Generated_Code/UTIL0.c \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- ../Generated_Code/UTIL2.h ../Generated_Code/PE_Types.h \
+ ../Generated_Code/UTIL0.h ../Generated_Code/PE_Types.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h \
@@ -29,7 +29,7 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-../Generated_Code/UTIL2.h:
+../Generated_Code/UTIL0.h:
 
 ../Generated_Code/PE_Types.h:
 

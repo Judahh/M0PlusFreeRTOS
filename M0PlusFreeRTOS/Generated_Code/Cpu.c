@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-29, 22:10, # CodeGen: 124
+**     Date/Time   : 2014-04-03, 21:14, # CodeGen: 146
 **     Abstract    :
 **
 **     Settings    :
@@ -35,21 +35,18 @@
 /* MODULE Cpu. */
 
 #include "FreeRTOS.h" /* FreeRTOS interface */
-#include "FRTOS1.h"
+#include "UTIL0.h"
 #include "UTIL1.h"
-#include "UTIL2.h"
 #include "WAIT0.h"
 #include "I2C0.h"
 #include "I2C1.h"
 #include "TU0.h"
 #include "TU1.h"
 #include "TU2.h"
-#include "CsIO1.h"
+#include "CsIO0.h"
 #include "IO1.h"
 #include "AD0.h"
 #include "AdcLdd1.h"
-#include "MMA0.h"
-#include "GI2C0.h"
 #include "TSSTouch.h"
 #include "PWMLEDBlue.h"
 #include "PwmLdd1.h"
@@ -57,11 +54,13 @@
 #include "PwmLdd2.h"
 #include "PWMLEDRed.h"
 #include "PwmLdd3.h"
-#include "AS1.h"
 #include "Break.h"
 #include "MotorA.h"
 #include "MotorB.h"
 #include "SonarTrigger.h"
+#include "FreeRTOS0.h"
+#include "MMA0.h"
+#include "GI2C0.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -89,7 +88,7 @@ volatile uint8_t SR_lock = 0x00U;      /* Lock */
 */
 PE_ISR(Cpu_INT_NMIInterrupt)
 {
-  Cpu_OnNMIINT();
+  Cpu_OnNMIINT0();
 }
 
 /*
@@ -137,10 +136,10 @@ void __init_hardware(void)
     /* PMC_REGSC: ACKISO=1 */
     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
   }
-  /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
-  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x00)); /* Update system prescalers */
-  /* SIM_SOPT2: PLLFLLSEL=0 */
-  SIM_SOPT2 &= (uint32_t)~(uint32_t)(SIM_SOPT2_PLLFLLSEL_MASK); /* Select FLL as a clock source for various peripherals */
+  /* SIM_CLKDIV1: OUTDIV1=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x01) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescalers */
+  /* SIM_SOPT2: PLLFLLSEL=1 */
+  SIM_SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK; /* Select PLL as a clock source for various peripherals */
   /* SIM_SOPT1: OSC32KSEL=3 */
   SIM_SOPT1 |= SIM_SOPT1_OSC32KSEL(0x03); /* LPO 1kHz oscillator drives 32 kHz clock for various peripherals */
   /* SIM_SOPT2: TPMSRC=1 */
@@ -149,25 +148,38 @@ void __init_hardware(void)
               )) | (uint32_t)(
                SIM_SOPT2_TPMSRC(0x01)
               ));                      /* Set the TPM clock */
-  /* Switch to FEI Mode */
-  /* MCG_C1: CLKS=0,FRDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
-  MCG_C1 = MCG_C1_CLKS(0x00) |
-           MCG_C1_FRDIV(0x00) |
-           MCG_C1_IREFS_MASK |
-           MCG_C1_IRCLKEN_MASK;       
-  /* MCG_C2: LOCRE0=0,??=0,RANGE0=0,HGO0=0,EREFS0=0,LP=0,IRCS=0 */
-  MCG_C2 = MCG_C2_RANGE0(0x00);                                   
+  /* PORTA_PCR18: ISF=0,MUX=0 */
+  PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
+  /* PORTA_PCR19: ISF=0,MUX=0 */
+  PORTA_PCR19 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
+  /* Switch to FBE Mode */
+  /* MCG_C2: LOCRE0=0,??=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
+  MCG_C2 = (MCG_C2_RANGE0(0x02) | MCG_C2_EREFS0_MASK);                                   
+  /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=1,SC4P=0,SC8P=0,SC16P=1 */
+  OSC0_CR = (OSC_CR_ERCLKEN_MASK | OSC_CR_SC2P_MASK | OSC_CR_SC16P_MASK);                                   
+  /* MCG_C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);                                   
   /* MCG_C4: DMX32=0,DRST_DRS=0 */
   MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));                                   
-  /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
-  OSC0_CR = OSC_CR_ERCLKEN_MASK;                                   
-  /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=0 */
-  MCG_C5 = MCG_C5_PRDIV0(0x00);                                   
+  /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=1 */
+  MCG_C5 = MCG_C5_PRDIV0(0x01);                                   
   /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
   MCG_C6 = MCG_C6_VDIV0(0x00);                                   
-  while((MCG_S & MCG_S_IREFST_MASK) == 0x00U) { /* Check that the source of the FLL reference clock is the internal reference clock. */
+  while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock is the external reference clock. */
   }
-  while((MCG_S & 0x0CU) != 0x00U) {    /* Wait until output of the FLL is selected */
+  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
+  }
+  /* Switch to PBE Mode */
+  /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
+  MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));                                   
+  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
+  }
+  while((MCG_S & MCG_S_LOCK0_MASK) == 0x00U) { /* Wait until locked */
+  }
+  /* Switch to PEE Mode */
+  /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);                                   
+  while((MCG_S & 0x0CU) != 0x0CU) {    /* Wait until output of the PLL is selected */
   }
   /*** End of PE initialization code after reset ***/
 
@@ -208,7 +220,6 @@ void PE_low_level_init(void)
                RCM_RPFC_RSTFLTSS_MASK |
                RCM_RPFC_RSTFLTSRW(0x03)
               );                                   
-        /* Initialization of the FTFL_FlashConfig module */
       /* Initialization of the PMC module */
   /* PMC_LVDSC1: LVDACK=1,LVDIE=0,LVDRE=1,LVDV=0 */
   PMC_LVDSC1 = (uint8_t)((PMC_LVDSC1 & (uint8_t)~(uint8_t)(
@@ -242,16 +253,10 @@ void PE_low_level_init(void)
                 ));                                  
   /* NVIC_IPR1: PRI_6=0 */
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));                                   
-  /* ### FreeRTOS "FRTOS1" init code ... */
-  vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
   /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)IO1_Init(NULL);
   /* ### ADC "AD0" init code ... */
   AD0_Init();
-  /* ### GenericI2C "GI2C0" init code ... */
-  GI2C0_Init();
-  /* ### MMA8451Q "MMA0" init code ... */
-  /* Write code here ... */
   /* ### TSS_Library "TSSTouch" init code ... */
 
   /* Write code here ... */
@@ -262,8 +267,6 @@ void PE_low_level_init(void)
   (void)PwmLdd2_Init(NULL);
   /* ### PWM_LDD "PwmLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)PwmLdd3_Init(NULL);
-  /* ### Serial_LDD "AS1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)AS1_Init(NULL);
   /* ### GPIO_LDD "Break" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)Break_Init(NULL);
   /* ### GPIO_LDD "MotorA" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -272,40 +275,18 @@ void PE_low_level_init(void)
   (void)MotorB_Init(NULL);
   /* ### GPIO_LDD "SonarTrigger" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)SonarTrigger_Init(NULL);
+  /* ### FreeRTOS "FreeRTOS0" init code ... */
+
+#if configSYSTICK_USE_LOW_POWER_TIMER
+  /* enable clocking for low power timer, otherwise vPortStopTickTimer() will crash */
+  SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK; /* SIM_SCGC5: LPTMR=1 */
+#endif
+  vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
+  /* ### GenericI2C "GI2C0" init code ... */
+  GI2C0_Init();
+  /* ### MMA8451Q "MMA0" init code ... */
+  /* Write code here ... */
 }
-  /* Flash configuration field */
-  __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {
-   /* NV_BACKKEY3: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY2: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY1: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY0: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY7: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY6: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY5: KEY=0xFF */
-    0xFFU,
-   /* NV_BACKKEY4: KEY=0xFF */
-    0xFFU,
-   /* NV_FPROT3: PROT=0xFF */
-    0xFFU,
-   /* NV_FPROT2: PROT=0xFF */
-    0xFFU,
-   /* NV_FPROT1: PROT=0xFF */
-    0xFFU,
-   /* NV_FPROT0: PROT=0xFF */
-    0xFFU,
-   /* NV_FSEC: KEYEN=1,MEEN=3,FSLACC=3,SEC=2 */
-    0x7EU,
-   /* NV_FOPT: ??=1,??=1,FAST_INIT=1,LPBOOT1=1,RESET_PIN_CFG=1,NMI_DIS=1,??=1,LPBOOT0=1 */
-    0xFFU,
-    0xFFU,
-    0xFFU
-  };
 
 /* END Cpu. */
 
