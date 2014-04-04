@@ -36,9 +36,10 @@
 #include "IO_Map.h"
 #include "UTIL0.h"
 #include "UTIL1.h"
-#include "Util/Accelerometer.h"
+//#include "Util/Accelerometer.h"
 #include "Util/Gyroscope.h"
 #include "Util/UART.h"
+#include "Util/GlobalVariables.h"
 #include "WAIT0.h"
 #include "TU0.h"
 #include "TU1.h"
@@ -64,6 +65,7 @@
 #include "SonarTrigger.h"
 #include "FreeRTOS0.h"
 #include "Tasks/TaskSonar.h"
+#include "Cpu.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -376,6 +378,40 @@ void FreeRTOS0_vApplicationMallocFailedHook(void);
 **         If enabled, the RTOS will call this hook in case memory
 **         allocation failed.
 **     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void FreeRTOS0_vOnPreSleepProcessing(portTickType expectedIdleTicks);
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vOnPreSleepProcessing (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         Used in tickless idle mode only, but required in this mode.
+**         Hook for the application to enter low power mode.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         expectedIdleTicks - expected idle
+**                           time, in ticks
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void FreeRTOS0_vOnPostSleepProcessing(portTickType expectedIdleTicks);
+/*
+** ===================================================================
+**     Event       :  FreeRTOS0_vOnPostSleepProcessing (module Events)
+**
+**     Component   :  FreeRTOS0 [FreeRTOS]
+**     Description :
+**         Event called after the CPU woke up after low power mode.
+**         This event is optional.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         expectedIdleTicks - expected idle
+**                           time, in ticks
 **     Returns     : Nothing
 ** ===================================================================
 */

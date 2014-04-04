@@ -4,9 +4,9 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : Utility
-**     Version     : Component 01.093, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.095, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-04-03, 21:14, # CodeGen: 146
+**     Date/Time   : 2014-04-04, 15:02, # CodeGen: 150
 **     Abstract    :
 **          Contains various utility functions.
 **     Settings    :
@@ -64,7 +64,7 @@
 **         strCutTail              - byte UTIL0_strCutTail(byte *str, byte *tail);
 **
 **     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2013, all rights reserved.
+**     Copyright : (c) Copyright Erich Styger, 2014, all rights reserved.
 **     xatoi(): Copyright (C) 2010, ChaN, all right reserved. (see copyright notice and license at the function implementation).
 **     This an open source software implementing utility functions using Processor Expert.
 **     This is a free software and is opened for education,  research and commercial developments under license policy of following terms:

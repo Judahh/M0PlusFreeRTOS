@@ -12,7 +12,7 @@ void taskMotorDCWork(void) {
 	MotorA_PutBit(0, 1, FALSE);
 	MotorB_PutBit(0, 0, TRUE);
 	MotorB_PutBit(0, 1, FALSE);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 	MotorA_PutBit(0, 0, FALSE);
 	MotorA_PutBit(0, 1, FALSE);
 	MotorB_PutBit(0, 0, TRUE);
@@ -63,7 +63,7 @@ static portTASK_FUNCTION(taskMotorDC, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskMotorDCStart(void) {
-	return FRTOS1_xTaskCreate(taskMotorDC, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(taskMotorDC, /* pointer to the task */
 			(signed portCHAR *) "TaskMotorDC", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

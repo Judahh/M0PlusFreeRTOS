@@ -101,7 +101,7 @@ static portTASK_FUNCTION(TaskSonar, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskSonarStart(void) {
-	return FRTOS1_xTaskCreate(TaskSonar, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(TaskSonar, /* pointer to the task */
 			(signed portCHAR *) "TaskSonar", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

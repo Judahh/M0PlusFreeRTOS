@@ -12,7 +12,7 @@ void taskRotateLedWork(void) {
 	if (color > 7) {
 		color = 0;
 	}
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/
@@ -48,7 +48,7 @@ static portTASK_FUNCTION(TaskRotateLed, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskRotateLedStart(void) {
-	return FRTOS1_xTaskCreate(TaskRotateLed, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(TaskRotateLed, /* pointer to the task */
 			(signed portCHAR *) "TaskRotateLed", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

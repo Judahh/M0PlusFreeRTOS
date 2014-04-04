@@ -6,7 +6,7 @@
 **     Component   : TSS_Library
 **     Version     : Component 03.001, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-09, 19:13, # CodeGen: 100
+**     Date/Time   : 2014-04-04, 15:43, # CodeGen: 152
 **     Contents    :
 **         Configure - byte TSSTouch_Configure(void);
 **

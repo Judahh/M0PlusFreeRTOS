@@ -44,7 +44,7 @@ static portTASK_FUNCTION(TaskGyroscope, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskGyroscopeStart(void) {
-	return FRTOS1_xTaskCreate(TaskGyroscope, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(TaskGyroscope, /* pointer to the task */
 			(signed portCHAR *) "TaskGyroscope", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

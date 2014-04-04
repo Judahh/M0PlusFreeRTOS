@@ -61,12 +61,14 @@
 #include "Tasks/TaskSendString.h"
 #include "Tasks/TaskSendString1.h"
 #include "Tasks/TaskSendString2.h"
+#include "Tasks/TaskSendGlobalVariable.h"
 #include "Tasks/TaskAccelerometer.h"
 #include "Tasks/TaskGyroscope.h"
 #include "Tasks/TaskRotateLed.h"
 #include "Tasks/TaskMotorDC.h"
 #include "Util/UART.h"
 #include "Util/Led.h"
+#include "Util/GlobalVariables.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -88,6 +90,51 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	/* Write your code here */
 	/* For example: for(;;) { } */
 
+	initGlobalVariables();
+	
+	int homework = 1;
+
+	switch (homework - 1) {
+		case 0:
+			if (taskSendStringStart(0) != pdPASS ) {
+				for (;;) {
+				};
+			}
+
+			if (taskSendStringStart(1) != pdPASS ) {
+				for (;;) {
+				};
+			}
+		break;
+
+		case 1:
+			if (taskSendString1Start() != pdPASS ) {
+				for (;;) {
+				};
+			}
+
+			if (taskSendString2Start() != pdPASS ) {
+				for (;;) {
+				};
+			}
+		break;
+
+		case 5:
+			if (taskSendGlobalVariableStart() != pdPASS ) {
+				for (;;) {
+				};
+			}
+		break;
+
+		default:
+			if (taskAccelerometerStart() != pdPASS ) {
+				for (;;) {
+				};
+			}
+		break;
+
+	}
+
 //	static uint8_t value;
 //	for(;;) {
 //	  (void)AD0_Measure(TRUE); /* do conversion and wait for the result */
@@ -97,71 +144,6 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //	Configure();
 //	for(;;) {
 //	    TSS_Task(); /* call TSS library to process touches */
-//	}
-//	printf("ponteiro = %d!\r\n",pIndex);
-//	printf("valor = %d!\r\n",*pIndex);
-//	
-//	setLed(1);
-//	int index = 0;
-//	int index1 = 1;
-//	
-//	if (taskSendStringStart(index) != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskSendStringStart(index1) != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskSendString1Start() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskSendString2Start() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskRedLedStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskGreenLedStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskBlueLedStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//	FRTOS1_vTaskSuspend(taskHandles[taskBlueLedHandle]);
-//	FRTOS1_vTaskSuspend(taskHandles[taskGreenLedHandle]);
-//	
-	if (taskAccelerometerStart() != pdPASS ) {
-		for (;;) {
-		};
-	}
-//
-//	if (taskMotorDCStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//
-//	if (taskGyroscopeStart() != pdPASS ) {
-//		for (;;) {
-//		};
-//	}
-//	
-//
-//	uint8_t taskAccelerometerRes;
-//	taskAccelerometerRes = accelerometerInit();
-//	for (;;) {
-//		accelerometerTestRun(taskAccelerometerRes);
 //	}
 //	
 //	for (;;) {
@@ -177,11 +159,6 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 //		}
 //		/* AD_finished set to TRUE by the interrupt to indicate the result is ready */
 //		(void) AD0_GetValue16(&value); /* get the result into value variable */
-//	}
-//
-//	if (taskRotateLedStart() != pdPASS ) {
-//		for (;;) {
-//		};
 //	}
 
 //	FRTOS1_vTaskStartScheduler();

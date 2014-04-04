@@ -122,7 +122,8 @@
 #define configUSE_QUEUE_SETS                      0
 #define configUSE_COUNTING_SEMAPHORES             1
 #define configUSE_APPLICATION_TASK_TAG            0
-#define configUSE_TICKLESS_IDLE                   0
+#define configUSE_TICKLESS_IDLE                   1
+#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP     2
 
 #define configMAX_PRIORITIES                      ((unsigned portBASE_TYPE)6)
 #define configMAX_CO_ROUTINE_PRIORITIES           2

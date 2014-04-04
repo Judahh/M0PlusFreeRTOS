@@ -2146,7 +2146,10 @@ Autoselect
         <Cleanup_Resources v="yes" />
       </group>
       <group name="Ticks">
-        <boolgroup name="Tickless Idle Mode" v="Disabled" />
+        <boolgroup name="Tickless Idle Mode" v="Enabled">
+          <Stopped_Timer_Compensation v="45" />
+          <Expected_Idle_Time__Ticks__before_Sleep v="2" />
+        </boolgroup>
         <Tick_Rate__Hz_ v="100" />
         <Use_16bit_ticks v="no" />
         <boolgroup name="non-LDD Tick" v="Disabled" />
@@ -2164,7 +2167,7 @@ Autoselect
       <group name="Memory">
         <Memory_Allocation_Scheme v="Scheme 2" />
         <boolgroup name="User Heap Section" v="Disabled" />
-        <Total_Heap_Size v="50000" />
+        <Total_Heap_Size v="10000" />
       </group>
       <boolgroup name="Shell" v="Disabled" />
       <Utility v="UTIL0" />
@@ -2268,8 +2271,12 @@ Autoselect
       <event name="vApplicationMallocFailedHook" v="generate code">
         <Event_procedure_name v="FreeRTOS0_vApplicationMallocFailedHook" />
       </event>
-      <event name="vOnPreSleepProcessing" v="don&amp;apos;t generate code" />
-      <event name="vOnPostSleepProcessing" v="don&amp;apos;t generate code" />
+      <event name="vOnPreSleepProcessing" v="generate code">
+        <Event_procedure_name v="FreeRTOS0_vOnPreSleepProcessing" />
+      </event>
+      <event name="vOnPostSleepProcessing" v="generate code">
+        <Event_procedure_name v="FreeRTOS0_vOnPostSleepProcessing" />
+      </event>
     </Events>
   </Bean>
   <Bean name="MMA0" type="MMA8451Q">

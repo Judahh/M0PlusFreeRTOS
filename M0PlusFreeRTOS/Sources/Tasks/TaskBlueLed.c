@@ -7,11 +7,11 @@
 #include "TaskBlueLed.h"
 
 void taskBlueLedWork(void) {
-	FRTOS1_vTaskSuspend(taskHandles[taskGreenLedHandle]);
+	FreeRTOS0_vTaskSuspend(taskHandles[taskGreenLedHandle]);
 	PWMLEDBlue_SetRatio8(0xFF);
-	FRTOS1_vTaskDelay(500 / portTICK_RATE_MS);
+	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 	PWMLEDBlue_SetRatio8(0x00);
-	FRTOS1_vTaskResume(taskHandles[taskRedLedHandle]);
+	FreeRTOS0_vTaskResume(taskHandles[taskRedLedHandle]);
 //	PWMLEDBlue_SetRatio8(0x00);
 //	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 //	PWMLEDBlue_SetRatio8(0xFF);
@@ -50,7 +50,7 @@ static portTASK_FUNCTION(TaskBlueLed, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskBlueLedStart(void) {
-	return FRTOS1_xTaskCreate(TaskBlueLed, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(TaskBlueLed, /* pointer to the task */
 			(signed portCHAR *) "TaskBlueLed", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

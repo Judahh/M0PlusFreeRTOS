@@ -56,7 +56,7 @@ static portTASK_FUNCTION( TaskRedLed, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskRedLedStart(void) {
-	return FRTOS1_xTaskCreate(TaskRedLed, /* pointer to the task */
+	return FreeRTOS0_xTaskCreate(TaskRedLed, /* pointer to the task */
 			(signed portCHAR *) "TaskRedLed", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */
 			(void*) NULL, /* optional task startup argument */

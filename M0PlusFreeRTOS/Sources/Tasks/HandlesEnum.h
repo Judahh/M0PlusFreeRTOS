@@ -13,6 +13,7 @@ typedef enum {
 	taskSendStringHandle1,
 	taskSendString1Handle,
 	taskSendString2Handle,
+	taskSendGlobalVariableHandle,
 	taskWriteStringHandle,
 	taskAccelerometerHandle,
 	taskGyroscopeHandle,

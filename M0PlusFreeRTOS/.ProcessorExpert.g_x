@@ -26,11 +26,11 @@
   <GeneratedFilesList>
     <GeneratedByPE>
       <File Name="Generated_Code/PE_Types.h" FileDate="2014-04-03, 20:14:03" FileAge="1396566843425" FileType="45637" />
-      <File Name="Sources/Events.h" FileDate="2014-04-03, 21:14:51" FileAge="1396570491507" FileType="131328" />
+      <File Name="Sources/Events.h" FileDate="2014-04-04, 15:51:12" FileAge="1396637472827" FileType="131328" />
       <File Name="Generated_Code/CsIO0.c" FileDate="2014-04-03, 21:14:43" FileAge="1396570483355" FileType="45637" CompNumb="83" />
       <File Name="Documentation/doxygen/TU1.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843180" FileType="45637" CompNumb="94" />
       <File Name="Generated_Code/queue.h" FileDate="2014-04-03, 21:14:45" FileAge="1396570485860" FileType="45637" CompNumb="152" />
-      <File Name="Sources/Events.c" FileDate="2014-04-03, 21:14:51" FileAge="1396570491515" FileType="131328" />
+      <File Name="Sources/Events.c" FileDate="2014-04-04, 15:59:34" FileAge="1396637974743" FileType="131328" />
       <File Name="Project_Settings/Linker_Files/ProcessorExpert.ld" FileDate="2014-04-03, 20:14:03" FileAge="1396566843925" FileType="8" CompNumb="146" />
       <File Name="Generated_Code/FreeRTOS_license.txt" FileDate="2014-04-03, 21:14:49" FileAge="1396570489076" FileType="45637" CompNumb="152" />
       <File Name="Generated_Code/queue.c" FileDate="2014-04-03, 21:14:45" FileAge="1396570485876" FileType="45637" CompNumb="152" />
@@ -38,11 +38,11 @@
       <File Name="Generated_Code/tasks.c" FileDate="2014-04-03, 21:14:45" FileAge="1396570485219" FileType="45637" CompNumb="152" />
       <File Name="Generated_Code/StackMacros.h" FileDate="2014-04-03, 21:14:45" FileAge="1396570485739" FileType="45637" CompNumb="152" />
       <File Name="Sources/TSS/TSS_Sensor.h" FileDate="2014-03-08, 14:59:47" FileAge="1394301587848" FileType="16384" CompNumb="85" />
-      <File Name="Generated_Code/FreeRTOS0.h" FileDate="2014-04-03, 21:29:36" FileAge="1396571376609" FileType="45637" CompNumb="152" />
       <File Name="Generated_Code/projdefs.h" FileDate="2014-04-03, 21:14:46" FileAge="1396570486331" FileType="45637" CompNumb="152" />
+      <File Name="Generated_Code/FreeRTOS0.h" FileDate="2014-04-04, 15:48:44" FileAge="1396637324711" FileType="45637" CompNumb="152" />
       <File Name="Sources/TSS/TSS_Sensor.c" FileDate="2014-03-08, 14:59:47" FileAge="1394301587822" FileType="16384" CompNumb="85" />
-      <File Name="Documentation/ProcessorExpert_Settings.xml" FileDate="2014-04-03, 21:29:37" FileAge="1396571377312" FileType="3072" />
-      <File Name="Generated_Code/FreeRTOS0.c" FileDate="2014-04-03, 21:29:36" FileAge="1396571376597" FileType="45637" CompNumb="152" />
+      <File Name="Documentation/ProcessorExpert_Settings.xml" FileDate="2014-04-04, 15:48:44" FileAge="1396637324952" FileType="3072" />
+      <File Name="Generated_Code/FreeRTOS0.c" FileDate="2014-04-04, 15:48:44" FileAge="1396637324689" FileType="45637" CompNumb="152" />
       <File Name="Sources/TSS/libTSS_KXX_M0.a" FileDate="2014-03-08, 14:59:47" FileAge="1394301587558" FileType="16384" CompNumb="85" />
       <File Name="Generated_Code/PE_Const.h" FileDate="2014-02-20, 11:25:49" FileAge="1392906349979" FileType="45637" />
       <File Name="Documentation/doxygen/ProcessorExpert.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843894" FileType="45637" CompNumb="146" />
@@ -53,9 +53,9 @@
       <File Name="Documentation/doxygen/TU0.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843145" FileType="45637" CompNumb="110" />
       <File Name="Generated_Code/MotorB.c" FileDate="2014-03-28, 22:16:13" FileAge="1396055773316" FileType="45637" CompNumb="127" />
       <File Name="Generated_Code/MotorA.h" FileDate="2014-03-28, 22:16:13" FileAge="1396055773336" FileType="45637" CompNumb="126" />
-      <File Name="Generated_Code/event_groups.c" FileDate="2014-04-03, 21:14:43" FileAge="1396570483026" FileType="45637" CompNumb="152" />
       <File Name="Documentation/doxygen/PwmLdd3.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843416" FileType="45637" CompNumb="99" />
       <File Name="Generated_Code/PwmLdd3.h" FileDate="2014-04-03, 20:14:03" FileAge="1396566843401" FileType="45637" CompNumb="99" />
+      <File Name="Generated_Code/event_groups.c" FileDate="2014-04-03, 21:14:43" FileAge="1396570483026" FileType="45637" CompNumb="152" />
       <File Name="Documentation/doxygen/pex.css" FileDate="2014-02-20, 11:25:49" FileAge="1392906349548" FileType="16384" CompNumb="146" />
       <File Name="Sources/TSS/TSS_SensorTSIL.h" FileDate="2014-03-08, 14:59:48" FileAge="1394301588212" FileType="16384" CompNumb="85" />
       <File Name="Generated_Code/PE_LDD.h" FileDate="2014-04-03, 21:14:51" FileAge="1396570491493" FileType="45637" CompNumb="146" />
@@ -108,12 +108,12 @@
       <File Name="Documentation/doxygen/PwmLdd1.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843370" FileType="45637" CompNumb="112" />
       <File Name="Generated_Code/PWMLEDBlue.c" FileDate="2014-03-08, 19:33:08" FileAge="1394317988275" FileType="45637" CompNumb="111" />
       <File Name="Generated_Code/Break.h" FileDate="2014-03-28, 23:37:08" FileAge="1396060628887" FileType="45637" CompNumb="125" />
-      <File Name="Documentation/ProcessorExpert_SIGNALS.txt" FileDate="2014-04-03, 21:29:37" FileAge="1396571377254" FileType="3072" />
+      <File Name="Documentation/ProcessorExpert_SIGNALS.txt" FileDate="2014-04-04, 15:59:34" FileAge="1396637974835" FileType="3072" />
       <File Name="Generated_Code/SonarTrigger.c" FileDate="2014-03-28, 22:16:13" FileAge="1396055773299" FileType="45637" CompNumb="128" />
       <File Name="Generated_Code/TU1.c" FileDate="2014-04-03, 20:14:03" FileAge="1396566843159" FileType="45637" CompNumb="94" />
       <File Name="Generated_Code/TU0.h" FileDate="2014-04-03, 20:14:03" FileAge="1396566843114" FileType="45637" CompNumb="110" />
       <File Name="Generated_Code/Break.c" FileDate="2014-03-28, 23:37:08" FileAge="1396060628969" FileType="45637" CompNumb="125" />
-      <File Name="Sources/ProcessorExpert.c" FileDate="2014-04-03, 21:21:27" FileAge="1396570887567" FileType="128" />
+      <File Name="Sources/ProcessorExpert.c" FileDate="2014-04-04, 15:25:17" FileAge="1396635917299" FileType="128" />
       <File Name="Generated_Code/FreeRTOS.h" FileDate="2014-04-03, 21:14:50" FileAge="1396570490505" FileType="45637" CompNumb="152" />
       <File Name="Generated_Code/TU0.c" FileDate="2014-04-03, 20:14:03" FileAge="1396566843120" FileType="45637" CompNumb="110" />
       <File Name="Generated_Code/croutine.h" FileDate="2014-04-03, 21:14:50" FileAge="1396570490539" FileType="45637" CompNumb="152" />
@@ -131,31 +131,31 @@
       <File Name="Generated_Code/AD0.c" FileDate="2014-03-09, 19:01:50" FileAge="1394402510676" FileType="45637" CompNumb="33" />
       <File Name="Sources/derivative.h" FileDate="2014-03-08, 14:59:54" FileAge="1394301594455" FileType="45637" CompNumb="85" />
       <File Name="Documentation/doxygen/SonarTrigger.txt" FileDate="2014-03-28, 22:16:13" FileAge="1396055773285" FileType="45637" CompNumb="128" />
-      <File Name="Generated_Code/port.c" FileDate="2014-04-03, 21:14:47" FileAge="1396570487740" FileType="45637" CompNumb="152" />
+      <File Name="Generated_Code/port.c" FileDate="2014-04-04, 15:48:44" FileAge="1396637324787" FileType="45637" CompNumb="152" />
       <File Name="Generated_Code/TSSTouch.h" FileDate="2014-03-08, 14:59:54" FileAge="1394301594468" FileType="45637" CompNumb="85" />
       <File Name="Generated_Code/timers.h" FileDate="2014-04-03, 21:14:43" FileAge="1396570483939" FileType="45637" CompNumb="152" />
       <File Name="Sources/TSS/TSS_SensorGPIO.c" FileDate="2014-03-08, 14:59:47" FileAge="1394301587915" FileType="16384" CompNumb="85" />
       <File Name="Generated_Code/GI2C0.h" FileDate="2014-04-03, 21:14:50" FileAge="1396570490964" FileType="45637" CompNumb="155" />
-      <File Name="Generated_Code/TSSTouch.c" FileDate="2014-03-09, 19:13:31" FileAge="1394403211990" FileType="45637" CompNumb="85" />
+      <File Name="Generated_Code/TSSTouch.c" FileDate="2014-04-04, 15:44:17" FileAge="1396637057672" FileType="45637" CompNumb="85" />
       <File Name="Generated_Code/timers.c" FileDate="2014-04-03, 21:14:43" FileAge="1396570483928" FileType="45637" CompNumb="152" />
       <File Name="Documentation/doxygen/TU2.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843261" FileType="45637" CompNumb="139" />
       <File Name="Generated_Code/GI2C0.c" FileDate="2014-04-03, 21:14:51" FileAge="1396570491450" FileType="45637" CompNumb="155" />
       <File Name="Sources/TSS/TSS_GPIO.h" FileDate="2014-03-08, 14:59:47" FileAge="1394301587780" FileType="16384" CompNumb="85" />
-      <File Name="Generated_Code/UTIL1.h" FileDate="2014-04-03, 21:14:43" FileAge="1396570483299" FileType="45637" CompNumb="10" />
+      <File Name="Generated_Code/UTIL1.h" FileDate="2014-04-04, 15:03:03" FileAge="1396634583146" FileType="45637" CompNumb="10" />
       <File Name="Generated_Code/I2C1.h" FileDate="2014-04-03, 20:14:02" FileAge="1396566842341" FileType="45637" CompNumb="45" />
       <File Name="Project_Settings/Debugger/MKL25Z128.mem" FileDate="2014-02-20, 11:25:50" FileAge="1392906350385" FileType="45637" CompNumb="146" />
       <File Name="Generated_Code/portasm.s" FileDate="2014-02-20, 11:25:50" FileAge="1392906350334" FileType="45637" CompNumb="152" />
-      <File Name="Generated_Code/UTIL1.c" FileDate="2014-04-03, 21:14:43" FileAge="1396570483335" FileType="45637" CompNumb="10" />
+      <File Name="Generated_Code/UTIL1.c" FileDate="2014-04-04, 15:03:03" FileAge="1396634583123" FileType="45637" CompNumb="10" />
       <File Name="Generated_Code/Vectors.c" FileDate="2014-04-03, 21:14:51" FileAge="1396570491498" FileType="45637" CompNumb="146" />
-      <File Name="Generated_Code/UTIL0.h" FileDate="2014-04-03, 21:14:43" FileAge="1396570483250" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/UTIL0.h" FileDate="2014-04-04, 15:03:03" FileAge="1396634583248" FileType="45637" CompNumb="8" />
       <File Name="Generated_Code/I2C1.c" FileDate="2014-04-03, 20:14:03" FileAge="1396566843052" FileType="45637" CompNumb="45" />
       <File Name="Sources/TSS/TSS_SensorTSI.h" FileDate="2014-03-08, 14:59:48" FileAge="1394301588123" FileType="16384" CompNumb="85" />
       <File Name="Generated_Code/I2C0.h" FileDate="2014-04-03, 20:14:02" FileAge="1396566842419" FileType="45637" CompNumb="29" />
       <File Name="Documentation/doxygen/AdcLdd1.txt" FileDate="2014-04-03, 20:14:03" FileAge="1396566843345" FileType="45637" CompNumb="34" />
-      <File Name="Generated_Code/UTIL0.c" FileDate="2014-04-03, 21:14:43" FileAge="1396570483290" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/UTIL0.c" FileDate="2014-04-04, 15:03:03" FileAge="1396634583210" FileType="45637" CompNumb="8" />
       <File Name="Sources/TSS/TSS_SensorTSI.c" FileDate="2014-03-08, 14:59:48" FileAge="1394301588095" FileType="16384" CompNumb="85" />
       <File Name="Generated_Code/I2C0.c" FileDate="2014-04-03, 20:14:03" FileAge="1396566843009" FileType="45637" CompNumb="29" />
-      <File Name="Generated_Code/FreeRTOSConfig.h" FileDate="2014-04-03, 21:29:36" FileAge="1396571376684" FileType="45637" CompNumb="152" />
+      <File Name="Generated_Code/FreeRTOSConfig.h" FileDate="2014-04-04, 15:25:17" FileAge="1396635917294" FileType="45637" CompNumb="152" />
       <File Name="Documentation/doxygen/Break.txt" FileDate="2014-03-28, 23:37:08" FileAge="1396060628979" FileType="45637" CompNumb="125" />
       <File Name="Generated_Code/PWMLEDRed.h" FileDate="2014-03-08, 19:33:08" FileAge="1394317988205" FileType="45637" CompNumb="98" />
       <File Name="Sources/TSS/TSS_API.h" FileDate="2014-03-08, 14:59:47" FileAge="1394301587638" FileType="16384" CompNumb="85" />
@@ -164,5 +164,5 @@
       <File Name="Generated_Code/PWMLEDRed.c" FileDate="2014-03-08, 19:33:08" FileAge="1394317988174" FileType="45637" CompNumb="98" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>150</CodeGenReference>
+  <CodeGenReference>156</CodeGenReference>
 </CodeGenerationInfo>

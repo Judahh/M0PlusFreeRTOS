@@ -7,42 +7,49 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS_QUOTED += \
 "../Sources/Util/Accelerometer.c" \
+"../Sources/Util/GlobalVariables.c" \
 "../Sources/Util/Gyroscope.c" \
 "../Sources/Util/Led.c" \
 "../Sources/Util/UART.c" \
 
 C_SRCS += \
 ../Sources/Util/Accelerometer.c \
+../Sources/Util/GlobalVariables.c \
 ../Sources/Util/Gyroscope.c \
 ../Sources/Util/Led.c \
 ../Sources/Util/UART.c \
 
 OBJS += \
 ./Sources/Util/Accelerometer.o \
+./Sources/Util/GlobalVariables.o \
 ./Sources/Util/Gyroscope.o \
 ./Sources/Util/Led.o \
 ./Sources/Util/UART.o \
 
 OBJS_QUOTED += \
 "./Sources/Util/Accelerometer.o" \
+"./Sources/Util/GlobalVariables.o" \
 "./Sources/Util/Gyroscope.o" \
 "./Sources/Util/Led.o" \
 "./Sources/Util/UART.o" \
 
 C_DEPS += \
 ./Sources/Util/Accelerometer.d \
+./Sources/Util/GlobalVariables.d \
 ./Sources/Util/Gyroscope.d \
 ./Sources/Util/Led.d \
 ./Sources/Util/UART.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/Util/Accelerometer.o \
+./Sources/Util/GlobalVariables.o \
 ./Sources/Util/Gyroscope.o \
 ./Sources/Util/Led.o \
 ./Sources/Util/UART.o \
 
 C_DEPS_QUOTED += \
 "./Sources/Util/Accelerometer.d" \
+"./Sources/Util/GlobalVariables.d" \
 "./Sources/Util/Gyroscope.d" \
 "./Sources/Util/Led.d" \
 "./Sources/Util/UART.d" \
@@ -57,9 +64,17 @@ Sources/Util/Accelerometer.o: ../Sources/Util/Accelerometer.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/Util/Gyroscope.o: ../Sources/Util/Gyroscope.c
+Sources/Util/GlobalVariables.o: ../Sources/Util/GlobalVariables.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #5 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Util/GlobalVariables.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Util/GlobalVariables.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/Util/Gyroscope.o: ../Sources/Util/Gyroscope.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Util/Gyroscope.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Util/Gyroscope.o"
 	@echo 'Finished building: $<'
@@ -67,7 +82,7 @@ Sources/Util/Gyroscope.o: ../Sources/Util/Gyroscope.c
 
 Sources/Util/Led.o: ../Sources/Util/Led.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #6 $<'
+	@echo 'Executing target #7 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Util/Led.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Util/Led.o"
 	@echo 'Finished building: $<'
@@ -75,7 +90,7 @@ Sources/Util/Led.o: ../Sources/Util/Led.c
 
 Sources/Util/UART.o: ../Sources/Util/UART.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #7 $<'
+	@echo 'Executing target #8 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Util/UART.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Util/UART.o"
 	@echo 'Finished building: $<'
