@@ -66,7 +66,6 @@
 #include "Tasks/TaskGyroscope.h"
 #include "Tasks/TaskRotateLed.h"
 #include "Tasks/TaskMotorDC.h"
-#include "Util/UART.h"
 #include "Util/Led.h"
 #include "Util/GlobalVariables.h"
 /* Including shared modules, which are used for whole project */
@@ -91,29 +90,29 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	/* For example: for(;;) { } */
 
 	initGlobalVariables();
-	
+
 	int homework = 1;
 
 	switch (homework - 1) {
 		case 0:
-			if (taskSendStringStart(0) != pdPASS ) {
-				for (;;) {
-				};
-			}
-
-			if (taskSendStringStart(1) != pdPASS ) {
-				for (;;) {
-				};
-			}
-		break;
-
-		case 1:
 			if (taskSendString1Start() != pdPASS ) {
 				for (;;) {
 				};
 			}
 
 			if (taskSendString2Start() != pdPASS ) {
+				for (;;) {
+				};
+			}
+		break;
+
+		case 1:
+			if (taskSendStringStart(0) != pdPASS ) {
+				for (;;) {
+				};
+			}
+
+			if (taskSendStringStart(1) != pdPASS ) {
 				for (;;) {
 				};
 			}

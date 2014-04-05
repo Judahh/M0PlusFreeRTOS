@@ -60,7 +60,6 @@
 "./Sources/Tasks/TaskGreenLed.o"
 "./Sources/Tasks/TaskBlueLed.o"
 "./Sources/Tasks/TaskAccelerometer.o"
-"./Sources/Util/UART.o"
 "./Sources/Util/Led.o"
 "./Sources/Util/Gyroscope.o"
 "./Sources/Util/GlobalVariables.o"

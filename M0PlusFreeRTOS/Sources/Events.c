@@ -52,8 +52,7 @@ extern "C" {
  */
 /* ===================================================================*/
 void AS1_OnBlockSent(LDD_TUserData *UserDataPtr) {
-	UART_Description *ptr = (UART_Description*) UserDataPtr;
-	ptr->isSent = TRUE; /* set flag so sender knows we have finished */
+	
 }
 
 /*
@@ -187,11 +186,7 @@ void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr) {
  */
 /* ===================================================================*/
 void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr) {
-	UART_Description *ptr = (UART_Description*) UserDataPtr;
 
-	(void) ptr->rxPutFct(ptr->rxChar); /* but received character into buffer */
-	(void) AS1_ReceiveBlock(ptr->handle, (LDD_TData *) &ptr->rxChar,
-			sizeof(ptr->rxChar));
 }
 
 /*

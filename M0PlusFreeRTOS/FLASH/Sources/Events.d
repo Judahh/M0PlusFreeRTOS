@@ -93,7 +93,7 @@ Sources/Events.o: ../Sources/Events.c \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MMA0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/GI2C0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C1.h \
- ../Sources/Util/UART.h ../Sources/Util/GlobalVariables.h \
+ ../Sources/Util/GlobalVariables.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/WAIT0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU0.h \
  C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/TU1.h \
@@ -309,8 +309,6 @@ C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MMA0.h
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/GI2C0.h:
 
 C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/I2C1.h:
-
-../Sources/Util/UART.h:
 
 ../Sources/Util/GlobalVariables.h:
 

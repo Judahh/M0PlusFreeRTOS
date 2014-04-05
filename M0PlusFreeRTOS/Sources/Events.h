@@ -38,7 +38,6 @@
 #include "UTIL1.h"
 //#include "Util/Accelerometer.h"
 #include "Util/Gyroscope.h"
-#include "Util/UART.h"
 #include "Util/GlobalVariables.h"
 #include "WAIT0.h"
 #include "TU0.h"
