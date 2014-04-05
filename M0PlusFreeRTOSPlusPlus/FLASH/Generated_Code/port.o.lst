@@ -1,0 +1,1545 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"port.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.data._ZL17uxCriticalNesting,"aw",%progbits
+  18              		.align	2
+  21              	_ZL17uxCriticalNesting:
+  22 0000 AAAAAAAA 		.word	-1431655766
+  23              		.section	.text.pxPortInitialiseStack,"ax",%progbits
+  24              		.align	2
+  25              		.global	pxPortInitialiseStack
+  26              		.code	16
+  27              		.thumb_func
+  29              	pxPortInitialiseStack:
+  30              	.LFB0:
+  31              		.file 1 "../Generated_Code/port.c"
+   1:../Generated_Code/port.c **** /*
+   2:../Generated_Code/port.c ****     FreeRTOS V8.0.0 - Copyright (C) 2014 Real Time Engineers Ltd. 
+   3:../Generated_Code/port.c ****     All rights reserved
+   4:../Generated_Code/port.c **** 
+   5:../Generated_Code/port.c ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+   6:../Generated_Code/port.c **** 
+   7:../Generated_Code/port.c ****     ***************************************************************************
+   8:../Generated_Code/port.c ****      *                                                                       *
+   9:../Generated_Code/port.c ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  10:../Generated_Code/port.c ****      *    robust, strictly quality controlled, supported, and cross          *
+  11:../Generated_Code/port.c ****      *    platform software that has become a de facto standard.             *
+  12:../Generated_Code/port.c ****      *                                                                       *
+  13:../Generated_Code/port.c ****      *    Help yourself get started quickly and support the FreeRTOS         *
+  14:../Generated_Code/port.c ****      *    project by purchasing a FreeRTOS tutorial book, reference          *
+  15:../Generated_Code/port.c ****      *    manual, or both from: http://www.FreeRTOS.org/Documentation        *
+  16:../Generated_Code/port.c ****      *                                                                       *
+  17:../Generated_Code/port.c ****      *    Thank you!                                                         *
+  18:../Generated_Code/port.c ****      *                                                                       *
+  19:../Generated_Code/port.c ****     ***************************************************************************
+  20:../Generated_Code/port.c **** 
+  21:../Generated_Code/port.c ****     This file is part of the FreeRTOS distribution.
+  22:../Generated_Code/port.c **** 
+  23:../Generated_Code/port.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  24:../Generated_Code/port.c ****     the terms of the GNU General Public License (version 2) as published by the
+  25:../Generated_Code/port.c ****     Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
+  26:../Generated_Code/port.c **** 
+  27:../Generated_Code/port.c ****     >>! NOTE: The modification to the GPL is included to allow you to distribute
+  28:../Generated_Code/port.c ****     >>! a combined work that includes FreeRTOS without being obliged to provide
+  29:../Generated_Code/port.c ****     >>! the source code for proprietary components outside of the FreeRTOS
+  30:../Generated_Code/port.c ****     >>! kernel.
+  31:../Generated_Code/port.c **** 
+  32:../Generated_Code/port.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  33:../Generated_Code/port.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  34:../Generated_Code/port.c ****     FOR A PARTICULAR PURPOSE.  Full license text is available from the following
+  35:../Generated_Code/port.c ****     link: http://www.freertos.org/a00114.html
+  36:../Generated_Code/port.c **** 
+  37:../Generated_Code/port.c ****     1 tab == 4 spaces!
+  38:../Generated_Code/port.c **** 
+  39:../Generated_Code/port.c ****     ***************************************************************************
+  40:../Generated_Code/port.c ****      *                                                                       *
+  41:../Generated_Code/port.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
+  42:../Generated_Code/port.c ****      *    not run, what could be wrong?"                                     *
+  43:../Generated_Code/port.c ****      *                                                                       *
+  44:../Generated_Code/port.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
+  45:../Generated_Code/port.c ****      *                                                                       *
+  46:../Generated_Code/port.c ****     ***************************************************************************
+  47:../Generated_Code/port.c **** 
+  48:../Generated_Code/port.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+  49:../Generated_Code/port.c ****     license and Real Time Engineers Ltd. contact details.
+  50:../Generated_Code/port.c **** 
+  51:../Generated_Code/port.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  52:../Generated_Code/port.c ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  53:../Generated_Code/port.c ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  54:../Generated_Code/port.c **** 
+  55:../Generated_Code/port.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+  56:../Generated_Code/port.c ****     Integrity Systems to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  57:../Generated_Code/port.c ****     licenses offer ticketed support, indemnification and middleware.
+  58:../Generated_Code/port.c **** 
+  59:../Generated_Code/port.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  60:../Generated_Code/port.c ****     engineered and independently SIL3 certified version for use in safety and
+  61:../Generated_Code/port.c ****     mission critical applications that require provable dependability.
+  62:../Generated_Code/port.c **** 
+  63:../Generated_Code/port.c ****     1 tab == 4 spaces!
+  64:../Generated_Code/port.c **** */
+  65:../Generated_Code/port.c **** 
+  66:../Generated_Code/port.c **** /*-----------------------------------------------------------
+  67:../Generated_Code/port.c ****  * FreeRTOS for 56800EX port by Richy Ye in Jan. 2013.
+  68:../Generated_Code/port.c ****  *----------------------------------------------------------*/
+  69:../Generated_Code/port.c **** /* Kernel includes. */
+  70:../Generated_Code/port.c **** #include "portmacro.h" /* for configCPU_FAMILY */
+  71:../Generated_Code/port.c **** #include "FreeRTOS.h"
+  72:../Generated_Code/port.c **** #include "task.h"
+  73:../Generated_Code/port.c **** #include "portTicks.h" /* for CPU_CORE_CLK_HZ used in configSYSTICK_CLOCK_HZ */
+  74:../Generated_Code/port.c **** #if configSYSTICK_USE_LOW_POWER_TIMER
+  75:../Generated_Code/port.c ****   #include "LPTMR_PDD.h"
+  76:../Generated_Code/port.c **** #endif
+  77:../Generated_Code/port.c **** /* --------------------------------------------------- */
+  78:../Generated_Code/port.c **** /* macros dealing with tick counter */
+  79:../Generated_Code/port.c **** #if configSYSTICK_USE_LOW_POWER_TIMER
+  80:../Generated_Code/port.c ****   #define ENABLE_TICK_COUNTER()       LPTMR_PDD_EnableDevice(LPTMR0_BASE_PTR, PDD_ENABLE); LPTMR_PD
+  81:../Generated_Code/port.c ****   #define DISABLE_TICK_COUNTER()      LPTMR_PDD_EnableDevice(LPTMR0_BASE_PTR, PDD_DISABLE); LPTMR_P
+  82:../Generated_Code/port.c ****   #define RESET_TICK_COUNTER_VAL()    DISABLE_TICK_COUNTER()  /* CNR is reset when the LPTMR is dis
+  83:../Generated_Code/port.c ****   #define ACKNOWLEDGE_TICK_ISR()      LPTMR_PDD_ClearInterruptFlag(LPTMR0_BASE_PTR)
+  84:../Generated_Code/port.c **** #else
+  85:../Generated_Code/port.c ****   #define ENABLE_TICK_COUNTER()       portNVIC_SYSTICK_CTRL_REG = portNVIC_SYSTICK_CLK_BIT | portNV
+  86:../Generated_Code/port.c ****   #define DISABLE_TICK_COUNTER()      portNVIC_SYSTICK_CTRL_REG = portNVIC_SYSTICK_CLK_BIT | portNV
+  87:../Generated_Code/port.c ****   #define RESET_TICK_COUNTER_VAL()    portNVIC_SYSTICK_CURRENT_VALUE_REG = 0 /*portNVIC_SYSTICK_LOA
+  88:../Generated_Code/port.c ****   #define ACKNOWLEDGE_TICK_ISR()      /* not needed */
+  89:../Generated_Code/port.c **** #endif
+  90:../Generated_Code/port.c **** 
+  91:../Generated_Code/port.c **** typedef unsigned long TickCounter_t; /* enough for 24 bit Systick */
+  92:../Generated_Code/port.c **** #if configSYSTICK_USE_LOW_POWER_TIMER
+  93:../Generated_Code/port.c ****   #define TICK_NOF_BITS               16
+  94:../Generated_Code/port.c ****   #define COUNTS_UP                   1 /* LPTMR is counting up */
+  95:../Generated_Code/port.c ****   #define SET_TICK_DURATION(val)      LPTMR_PDD_WriteCompareReg(LPTMR0_BASE_PTR, val)
+  96:../Generated_Code/port.c ****   #define GET_TICK_DURATION()         LPTMR_PDD_ReadCompareReg(LPTMR0_BASE_PTR)
+  97:../Generated_Code/port.c ****   #define GET_TICK_CURRENT_VAL(addr)  *(addr)=LPTMR_PDD_ReadCounterReg(LPTMR0_BASE_PTR)
+  98:../Generated_Code/port.c **** #else
+  99:../Generated_Code/port.c ****   #define TICK_NOF_BITS               24
+ 100:../Generated_Code/port.c ****   #define COUNTS_UP                   0 /* SysTick is counting down to zero */
+ 101:../Generated_Code/port.c ****   #define SET_TICK_DURATION(val)      portNVIC_SYSTICK_LOAD_REG = val
+ 102:../Generated_Code/port.c ****   #define GET_TICK_DURATION()         portNVIC_SYSTICK_LOAD_REG
+ 103:../Generated_Code/port.c ****   #define GET_TICK_CURRENT_VAL(addr)  *(addr)=portNVIC_SYSTICK_CURRENT_VALUE_REG
+ 104:../Generated_Code/port.c **** #endif
+ 105:../Generated_Code/port.c **** 
+ 106:../Generated_Code/port.c **** #if configSYSTICK_USE_LOW_POWER_TIMER
+ 107:../Generated_Code/port.c ****   #define TIMER_COUNTS_FOR_ONE_TICK     (configSYSTICK_LOW_POWER_TIMER_CLOCK_HZ/configTICK_RATE_HZ)
+ 108:../Generated_Code/port.c **** #else
+ 109:../Generated_Code/port.c ****   #define TIMER_COUNTS_FOR_ONE_TICK     (configSYSTICK_CLOCK_HZ/configTICK_RATE_HZ)
+ 110:../Generated_Code/port.c **** #endif
+ 111:../Generated_Code/port.c **** 
+ 112:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 113:../Generated_Code/port.c **** #define UL_TIMER_COUNTS_FOR_ONE_TICK  ((TickCounter_t)(TIMER_COUNTS_FOR_ONE_TICK))
+ 114:../Generated_Code/port.c **** 
+ 115:../Generated_Code/port.c **** #if configCPU_FAMILY_IS_ARM(configCPU_FAMILY)
+ 116:../Generated_Code/port.c ****   #define TICKLESS_DISABLE_INTERRUPTS()  __asm volatile("cpsid i") /* disable interrupts. Note that
+ 117:../Generated_Code/port.c ****   #define TICKLESS_ENABLE_INTERRUPTS()   __asm volatile("cpsie i") /* re-enable interrupts. */
+ 118:../Generated_Code/port.c **** #elif (configCPU_FAMILY==configCPU_FAMILY_S08) || (configCPU_FAMILY==configCPU_FAMILY_S12)
+ 119:../Generated_Code/port.c ****   #define TICKLESS_DISABLE_INTERRUPTS()  __asm("sei"); /* disable interrupts */
+ 120:../Generated_Code/port.c ****   #define TICKLESS_ENABLE_INTERRUPTS()   __asm("cli"); /* re-enable interrupts */
+ 121:../Generated_Code/port.c **** #else
+ 122:../Generated_Code/port.c ****   #define TICKLESS_DISABLE_INTERRUPTS()  portDISABLE_INTERRUPTS() /* this disables interrupts! Make
+ 123:../Generated_Code/port.c ****   #define TICKLESS_ENABLE_INTERRUPTS()   portENABLE_INTERRUPTS()  /* re-enable interrupts */
+ 124:../Generated_Code/port.c **** #endif
+ 125:../Generated_Code/port.c **** 
+ 126:../Generated_Code/port.c ****   #if 1
+ 127:../Generated_Code/port.c ****     #if configSYSTICK_USE_LOW_POWER_TIMER
+ 128:../Generated_Code/port.c ****       /* using Low Power Timer */
+ 129:../Generated_Code/port.c ****       #define TICK_INTERRUPT_HAS_FIRED()   (LPTMR_PDD_GetInterruptFlag(LPTMR0_BASE_PTR)!=0)  /* ret
+ 130:../Generated_Code/port.c ****       #define TICK_INTERRUPT_FLAG_RESET()  /* not needed */
+ 131:../Generated_Code/port.c ****       #define TICK_INTERRUPT_FLAG_SET()    /* not needed */
+ 132:../Generated_Code/port.c ****     #else
+ 133:../Generated_Code/port.c ****       /* using directly SysTick Timer */
+ 134:../Generated_Code/port.c ****       #define TICK_INTERRUPT_HAS_FIRED()   ((portNVIC_SYSTICK_CTRL_REG&portNVIC_SYSTICK_COUNT_FLAG_
+ 135:../Generated_Code/port.c ****       #define TICK_INTERRUPT_FLAG_RESET()  /* not needed */
+ 136:../Generated_Code/port.c ****       #define TICK_INTERRUPT_FLAG_SET()    /* not needed */
+ 137:../Generated_Code/port.c ****     #endif
+ 138:../Generated_Code/port.c ****   #else 
+ 139:../Generated_Code/port.c ****     /* using global variable to find out if interrupt has fired */
+ 140:../Generated_Code/port.c ****     volatile uint8_t portTickCntr; /* used to find out if we woke up by the tick interrupt */
+ 141:../Generated_Code/port.c ****     #define TICK_INTERRUPT_HAS_FIRED()   (portTickCntr!=0)  /* returns TRUE if tick interrupt had f
+ 142:../Generated_Code/port.c ****     #define TICK_INTERRUPT_FLAG_RESET()  portTickCntr=0
+ 143:../Generated_Code/port.c ****     #define TICK_INTERRUPT_FLAG_SET()    portTickCntr=1
+ 144:../Generated_Code/port.c ****   #endif
+ 145:../Generated_Code/port.c **** #endif /* configUSE_TICKLESS_IDLE == 1 */
+ 146:../Generated_Code/port.c **** 
+ 147:../Generated_Code/port.c **** /*
+ 148:../Generated_Code/port.c ****  * The maximum number of tick periods that can be suppressed is limited by the
+ 149:../Generated_Code/port.c ****  * resolution of the tick timer.
+ 150:../Generated_Code/port.c ****  */
+ 151:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 152:../Generated_Code/port.c ****   static TickCounter_t xMaximumPossibleSuppressedTicks = 0;
+ 153:../Generated_Code/port.c **** #endif /* configUSE_TICKLESS_IDLE */
+ 154:../Generated_Code/port.c **** 
+ 155:../Generated_Code/port.c **** /*
+ 156:../Generated_Code/port.c ****  * Compensate for the CPU cycles that pass while the tick timer is stopped (low
+ 157:../Generated_Code/port.c ****  * power functionality only.
+ 158:../Generated_Code/port.c ****  */
+ 159:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 160:../Generated_Code/port.c ****   static TickCounter_t ulStoppedTimerCompensation = 0;
+ 161:../Generated_Code/port.c ****   #define configSTOPPED_TIMER_COMPENSATION    45UL  /* number of ticks to compensate */
+ 162:../Generated_Code/port.c **** #endif /* configUSE_TICKLESS_IDLE */
+ 163:../Generated_Code/port.c **** 
+ 164:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_CF1) || (configCPU_FAMILY==configCPU_FAMILY_CF2)
+ 165:../Generated_Code/port.c ****   #define portINITIAL_FORMAT_VECTOR           ((portSTACK_TYPE)0x4000)
+ 166:../Generated_Code/port.c ****   #define portINITIAL_STATUS_REGISTER         ((portSTACK_TYPE)0x2000)  /* Supervisor mode set. */
+ 167:../Generated_Code/port.c **** #endif
+ 168:../Generated_Code/port.c **** 
+ 169:../Generated_Code/port.c **** #if configCPU_FAMILY_IS_ARM(configCPU_FAMILY)
+ 170:../Generated_Code/port.c **** /* Constants required to manipulate the core.
+ 171:../Generated_Code/port.c ****  * SysTick register: http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0662b/CIAGECDD.
+ 172:../Generated_Code/port.c ****  * Registers first... 
+ 173:../Generated_Code/port.c ****  */
+ 174:../Generated_Code/port.c **** #define portNVIC_SYSTICK_CTRL_REG           (*((volatile unsigned long *)0xe000e010)) /* SYST_CSR, 
+ 175:../Generated_Code/port.c **** #define portNVIC_SYSTICK_LOAD_REG           (*((volatile unsigned long *)0xe000e014)) /* SYST_RVR, 
+ 176:../Generated_Code/port.c **** #define portNVIC_SYSTICK_CURRENT_VALUE_REG  (*((volatile unsigned long *)0xe000e018)) /* SYST_CVR, 
+ 177:../Generated_Code/port.c **** #define portNVIC_SYSTICK_CALIB_VALUE_REG    (*((volatile unsigned long *)0xe000e01C)) /* SYST_CALIB
+ 178:../Generated_Code/port.c **** /* ...then bits in the registers. */
+ 179:../Generated_Code/port.c **** #define portNVIC_SYSTICK_COUNT_FLAG_BIT     (1UL<<16UL) /* returns 1 if timer counted to 0 since th
+ 180:../Generated_Code/port.c **** #if configSYSTICK_USE_CORE_CLOCK
+ 181:../Generated_Code/port.c ****   #define portNVIC_SYSTICK_CLK_BIT          (1UL<<2UL) /* clock source. 1: core clock, 0: external 
+ 182:../Generated_Code/port.c **** #else
+ 183:../Generated_Code/port.c ****   #define portNVIC_SYSTICK_CLK_BIT          (0UL<<2UL) /* clock source. 1: core clock, 0: external 
+ 184:../Generated_Code/port.c **** #endif
+ 185:../Generated_Code/port.c **** #define portNVIC_SYSTICK_INT_BIT            (1UL<<1UL)  /* SysTick interrupt enable bit */
+ 186:../Generated_Code/port.c **** #define portNVIC_SYSTICK_ENABLE_BIT         (1UL<<0UL)  /* SysTick enable bit */
+ 187:../Generated_Code/port.c **** 
+ 188:../Generated_Code/port.c **** /* Constants required to manipulate the NVIC: */
+ 189:../Generated_Code/port.c **** #define portNVIC_INT_CTRL                   ((volatile unsigned long*)0xe000ed04) /* interrupt cont
+ 190:../Generated_Code/port.c **** #define portNVIC_PENDSVSET_BIT              (1UL<<28UL) /* bit 28 in portNVIC_INT_CTRL (PENDSVSET),
+ 191:../Generated_Code/port.c **** #define portNVIC_PENDSVCLEAR_BIT            (1UL<<27UL) /* bit 27 in portNVIC_INT_CTRL (PENDSVCLR) 
+ 192:../Generated_Code/port.c **** #define portNVIC_PEND_SYSTICK_SET_BIT       (1UL<<26UL) /* bit 26 in portNVIC_INT_CTRL (PENDSTSET) 
+ 193:../Generated_Code/port.c **** #define portNVIC_PEND_SYSTICK_CLEAR_BIT     (1UL<<25UL) /* bit 25 in portNVIC_INT_CTRL (PENDSTCLR) 
+ 194:../Generated_Code/port.c **** 
+ 195:../Generated_Code/port.c **** #define portNVIC_SYSPRI2                    ((volatile unsigned long*)0xe000ed1c) /* system handler
+ 196:../Generated_Code/port.c **** #define portNVIC_SVCALL_PRI                 (((unsigned long)configKERNEL_INTERRUPT_PRIORITY)<<24) 
+ 197:../Generated_Code/port.c **** 
+ 198:../Generated_Code/port.c **** #define portNVIC_SYSPRI3                    ((volatile unsigned long*)0xe000ed20) /* system handler
+ 199:../Generated_Code/port.c **** #define portNVIC_SYSTICK_PRI                (((unsigned long)configKERNEL_INTERRUPT_PRIORITY)<<24) 
+ 200:../Generated_Code/port.c **** #define portNVIC_PENDSV_PRI                 (((unsigned long)configKERNEL_INTERRUPT_PRIORITY)<<16) 
+ 201:../Generated_Code/port.c **** 
+ 202:../Generated_Code/port.c **** #define portNVIC_SYSPRI7                    ((volatile unsigned long*)0xe000e41c) /* system handler
+ 203:../Generated_Code/port.c **** #define portNVIC_LP_TIMER_PRI               (((unsigned long)configKERNEL_INTERRUPT_PRIORITY)<<0) /
+ 204:../Generated_Code/port.c **** 
+ 205:../Generated_Code/port.c **** /* Constants required to set up the initial stack. */
+ 206:../Generated_Code/port.c **** #define portINITIAL_XPSR         (0x01000000)
+ 207:../Generated_Code/port.c **** #define portINITIAL_EXEC_RETURN  (0xfffffffd)
+ 208:../Generated_Code/port.c **** 
+ 209:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 210:../Generated_Code/port.c ****   /* Constants required to manipulate the VFP. */
+ 211:../Generated_Code/port.c ****   #define portFPCCR                ((volatile unsigned long *)0xe000ef34) /* Floating point context
+ 212:../Generated_Code/port.c ****   #define portASPEN_AND_LSPEN_BITS (0x3UL<<30UL)
+ 213:../Generated_Code/port.c **** #endif
+ 214:../Generated_Code/port.c **** #endif
+ 215:../Generated_Code/port.c **** /* Used to keep track of the number of nested calls to taskENTER_CRITICAL().
+ 216:../Generated_Code/port.c ****    This will be set to 0 prior to the first task being started. */
+ 217:../Generated_Code/port.c **** /* Each task maintains its own interrupt status in the critical nesting variable. */
+ 218:../Generated_Code/port.c **** static unsigned portBASE_TYPE uxCriticalNesting = 0xaaaaaaaa;
+ 219:../Generated_Code/port.c **** 
+ 220:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 221:../Generated_Code/port.c **** portSTACK_TYPE *pxPortInitialiseStack( portSTACK_TYPE * pxTopOfStack, pdTASK_CODE pxCode, void *pvP
+  32              		.loc 1 221 0
+  33              		.cfi_startproc
+  34 0000 80B5     		push	{r7, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  39 0002 84B0     		sub	sp, sp, #16
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 24
+  42 0004 00AF     		add	r7, sp, #0
+  43              	.LCFI2:
+  44              		.cfi_def_cfa_register 7
+  45 0006 F860     		str	r0, [r7, #12]
+  46 0008 B960     		str	r1, [r7, #8]
+  47 000a 7A60     		str	r2, [r7, #4]
+ 222:../Generated_Code/port.c ****   /* Simulate the stack frame as it would be created by a context switch interrupt. */
+ 223:../Generated_Code/port.c **** #if configCPU_FAMILY==configCPU_FAMILY_ARM_M4F /* floating point unit */
+ 224:../Generated_Code/port.c ****   pxTopOfStack -= 2; /* Offset added to account for the way the MCU uses the stack on entry/exit of
+ 225:../Generated_Code/port.c ****                         and to ensure alignment. */
+ 226:../Generated_Code/port.c **** #else
+ 227:../Generated_Code/port.c ****   pxTopOfStack--;
+  48              		.loc 1 227 0
+  49 000c FB68     		ldr	r3, [r7, #12]
+  50 000e 043B     		sub	r3, r3, #4
+  51 0010 FB60     		str	r3, [r7, #12]
+ 228:../Generated_Code/port.c **** #endif
+ 229:../Generated_Code/port.c ****   *pxTopOfStack = portINITIAL_XPSR;   /* xPSR */
+  52              		.loc 1 229 0
+  53 0012 FB68     		ldr	r3, [r7, #12]
+  54 0014 8022     		mov	r2, #128
+  55 0016 5204     		lsl	r2, r2, #17
+  56 0018 1A60     		str	r2, [r3]
+ 230:../Generated_Code/port.c ****   pxTopOfStack--;
+  57              		.loc 1 230 0
+  58 001a FB68     		ldr	r3, [r7, #12]
+  59 001c 043B     		sub	r3, r3, #4
+  60 001e FB60     		str	r3, [r7, #12]
+ 231:../Generated_Code/port.c ****   *pxTopOfStack = (portSTACK_TYPE)pxCode;  /* PC */
+  61              		.loc 1 231 0
+  62 0020 BA68     		ldr	r2, [r7, #8]
+  63 0022 FB68     		ldr	r3, [r7, #12]
+  64 0024 1A60     		str	r2, [r3]
+ 232:../Generated_Code/port.c ****   pxTopOfStack--;
+  65              		.loc 1 232 0
+  66 0026 FB68     		ldr	r3, [r7, #12]
+  67 0028 043B     		sub	r3, r3, #4
+  68 002a FB60     		str	r3, [r7, #12]
+ 233:../Generated_Code/port.c ****   *pxTopOfStack = 0;  /* LR */
+  69              		.loc 1 233 0
+  70 002c FB68     		ldr	r3, [r7, #12]
+  71 002e 0022     		mov	r2, #0
+  72 0030 1A60     		str	r2, [r3]
+ 234:../Generated_Code/port.c **** 
+ 235:../Generated_Code/port.c ****   /* Save code space by skipping register initialization. */
+ 236:../Generated_Code/port.c ****   pxTopOfStack -= 5;  /* R12, R3, R2 and R1. */
+  73              		.loc 1 236 0
+  74 0032 FB68     		ldr	r3, [r7, #12]
+  75 0034 143B     		sub	r3, r3, #20
+  76 0036 FB60     		str	r3, [r7, #12]
+ 237:../Generated_Code/port.c ****   *pxTopOfStack = (portSTACK_TYPE)pvParameters; /* R0 */
+  77              		.loc 1 237 0
+  78 0038 7A68     		ldr	r2, [r7, #4]
+  79 003a FB68     		ldr	r3, [r7, #12]
+  80 003c 1A60     		str	r2, [r3]
+ 238:../Generated_Code/port.c **** 
+ 239:../Generated_Code/port.c **** #if configCPU_FAMILY==configCPU_FAMILY_ARM_M4F /* floating point unit */
+ 240:../Generated_Code/port.c ****   /* A save method is being used that requires each task to maintain its
+ 241:../Generated_Code/port.c ****      own exec return value. */
+ 242:../Generated_Code/port.c ****   pxTopOfStack--;
+ 243:../Generated_Code/port.c ****   *pxTopOfStack = portINITIAL_EXEC_RETURN;
+ 244:../Generated_Code/port.c **** #endif
+ 245:../Generated_Code/port.c ****   pxTopOfStack -= 8;  /* R11, R10, R9, R8, R7, R6, R5 and R4. */
+  81              		.loc 1 245 0
+  82 003e FB68     		ldr	r3, [r7, #12]
+  83 0040 203B     		sub	r3, r3, #32
+  84 0042 FB60     		str	r3, [r7, #12]
+ 246:../Generated_Code/port.c ****   return pxTopOfStack;
+  85              		.loc 1 246 0
+  86 0044 FB68     		ldr	r3, [r7, #12]
+ 247:../Generated_Code/port.c **** }
+  87              		.loc 1 247 0
+  88 0046 181C     		mov	r0, r3
+  89 0048 BD46     		mov	sp, r7
+  90 004a 04B0     		add	sp, sp, #16
+  91              		@ sp needed for prologue
+  92 004c 80BD     		pop	{r7, pc}
+  93              		.cfi_endproc
+  94              	.LFE0:
+  96 004e C046     		.section	.text.vPortInitTickTimer,"ax",%progbits
+  97              		.align	2
+  98              		.global	vPortInitTickTimer
+  99              		.code	16
+ 100              		.thumb_func
+ 102              	vPortInitTickTimer:
+ 103              	.LFB1:
+ 248:../Generated_Code/port.c **** 
+ 249:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 250:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_S08_FSL) || (configCOMPILER==configCOMPILER_S12_FSL)
+ 251:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_S08_FSL)
+ 252:../Generated_Code/port.c ****   #pragma MESSAGE DISABLE C1404 /* return expected */
+ 253:../Generated_Code/port.c ****   #pragma MESSAGE DISABLE C20000 /* dead code detected */
+ 254:../Generated_Code/port.c ****   #pragma NO_RETURN
+ 255:../Generated_Code/port.c ****   #pragma CODE_SEG __NEAR_SEG NON_BANKED
+ 256:../Generated_Code/port.c **** #elif (configCOMPILER==configCOMPILER_S12_FSL)
+ 257:../Generated_Code/port.c ****   #pragma MESSAGE DISABLE C1404 /* return expected */
+ 258:../Generated_Code/port.c ****   #pragma NO_RETURN
+ 259:../Generated_Code/port.c **** #endif
+ 260:../Generated_Code/port.c **** 
+ 261:../Generated_Code/port.c **** static portBASE_TYPE xBankedStartScheduler(void) {
+ 262:../Generated_Code/port.c ****   /* Restore the context of the first task. */
+ 263:../Generated_Code/port.c ****   portRESTORE_CONTEXT(); /* Simulate the end of an interrupt to start the scheduler off. */
+ 264:../Generated_Code/port.c ****   /* Should not get here! */
+ 265:../Generated_Code/port.c ****   return pdFALSE;
+ 266:../Generated_Code/port.c **** }
+ 267:../Generated_Code/port.c **** 
+ 268:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_S08_FSL)
+ 269:../Generated_Code/port.c ****   #pragma CODE_SEG DEFAULT
+ 270:../Generated_Code/port.c ****   #pragma MESSAGE DEFAULT C1404 /* return expected */
+ 271:../Generated_Code/port.c ****   #pragma MESSAGE DEFAULT C20000 /* dead code detected */
+ 272:../Generated_Code/port.c **** #elif (configCOMPILER==configCOMPILER_S12_FSL)
+ 273:../Generated_Code/port.c ****   #pragma MESSAGE DEFAULT C1404 /* return expected */
+ 274:../Generated_Code/port.c **** #endif
+ 275:../Generated_Code/port.c **** #endif
+ 276:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 277:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 278:../Generated_Code/port.c **** __attribute__((weak)) void vPortSuppressTicksAndSleep(TickType_t xExpectedIdleTime) {
+ 279:../Generated_Code/port.c ****   unsigned long ulReloadValue, ulCompleteTickPeriods, ulCompletedSysTickIncrements;
+ 280:../Generated_Code/port.c ****   TickCounter_t tmp; /* because of how we get the current tick counter */
+ 281:../Generated_Code/port.c ****   bool tickISRfired;
+ 282:../Generated_Code/port.c **** 
+ 283:../Generated_Code/port.c ****   /* Make sure the tick timer reload value does not overflow the counter. */
+ 284:../Generated_Code/port.c ****   if(xExpectedIdleTime>xMaximumPossibleSuppressedTicks) {
+ 285:../Generated_Code/port.c ****     xExpectedIdleTime = xMaximumPossibleSuppressedTicks;
+ 286:../Generated_Code/port.c ****   }
+ 287:../Generated_Code/port.c **** 
+ 288:../Generated_Code/port.c ****   /* Stop the tick timer momentarily. The time the counter is stopped for
+ 289:../Generated_Code/port.c ****    * is accounted for as best it can be, but using the tickless mode will
+ 290:../Generated_Code/port.c ****    * inevitably result in some tiny drift of the time maintained by the
+ 291:../Generated_Code/port.c ****    * kernel with respect to calendar time. 
+ 292:../Generated_Code/port.c ****    */
+ 293:../Generated_Code/port.c ****   DISABLE_TICK_COUNTER();
+ 294:../Generated_Code/port.c **** 
+ 295:../Generated_Code/port.c ****   /* Calculate the reload value required to wait xExpectedIdleTime
+ 296:../Generated_Code/port.c ****    * tick periods. -1 is used because this code will execute part way
+ 297:../Generated_Code/port.c ****    * through one of the tick periods. 
+ 298:../Generated_Code/port.c ****    */
+ 299:../Generated_Code/port.c ****   GET_TICK_CURRENT_VAL(&tmp);
+ 300:../Generated_Code/port.c ****   ulReloadValue = tmp+(UL_TIMER_COUNTS_FOR_ONE_TICK*(xExpectedIdleTime-1UL));
+ 301:../Generated_Code/port.c ****   if (ulReloadValue>ulStoppedTimerCompensation) {
+ 302:../Generated_Code/port.c ****     ulReloadValue -= ulStoppedTimerCompensation;
+ 303:../Generated_Code/port.c ****   }
+ 304:../Generated_Code/port.c **** 
+ 305:../Generated_Code/port.c ****   /* Enter a critical section but don't use the taskENTER_CRITICAL()
+ 306:../Generated_Code/port.c ****    * method as that will mask interrupts that should exit sleep mode. 
+ 307:../Generated_Code/port.c ****    */
+ 308:../Generated_Code/port.c ****   TICKLESS_DISABLE_INTERRUPTS();
+ 309:../Generated_Code/port.c ****   
+ 310:../Generated_Code/port.c ****   /* If a context switch is pending or a task is waiting for the scheduler
+ 311:../Generated_Code/port.c ****    * to be unsuspended then abandon the low power entry. 
+ 312:../Generated_Code/port.c ****    */
+ 313:../Generated_Code/port.c ****   if (eTaskConfirmSleepModeStatus()==eAbortSleep) {
+ 314:../Generated_Code/port.c ****     ENABLE_TICK_COUNTER(); /* Restart SysTick. */
+ 315:../Generated_Code/port.c ****     TICKLESS_ENABLE_INTERRUPTS();
+ 316:../Generated_Code/port.c ****   } else {
+ 317:../Generated_Code/port.c **** #if configUSE_LP_TIMER
+ 318:../Generated_Code/port.c ****     DisableDevice();
+ 319:../Generated_Code/port.c ****     ClearInterruptFlag();
+ 320:../Generated_Code/port.c ****     WriteCompareReg(xExpectedIdleTime-1);
+ 321:../Generated_Code/port.c ****     EnableDevice(); /* start timer */
+ 322:../Generated_Code/port.c **** #else
+ 323:../Generated_Code/port.c ****     SET_TICK_DURATION(ulReloadValue); /* Set the new reload value. */
+ 324:../Generated_Code/port.c ****     RESET_TICK_COUNTER_VAL(); /* Reset the counter. */
+ 325:../Generated_Code/port.c ****     ENABLE_TICK_COUNTER(); /* Restart tick timer. */
+ 326:../Generated_Code/port.c ****     TICK_INTERRUPT_FLAG_RESET(); /* reset flag so we know later if it has fired */
+ 327:../Generated_Code/port.c **** #endif
+ 328:../Generated_Code/port.c **** 
+ 329:../Generated_Code/port.c ****     /* Sleep until something happens. configPRE_SLEEP_PROCESSING() can
+ 330:../Generated_Code/port.c ****      * set its parameter to 0 to indicate that its implementation contains
+ 331:../Generated_Code/port.c ****      * its own wait for interrupt or wait for event instruction, and so wfi
+ 332:../Generated_Code/port.c ****      * should not be executed again.  However, the original expected idle
+ 333:../Generated_Code/port.c ****      * time variable must remain unmodified, so a copy is taken.
+ 334:../Generated_Code/port.c ****      */
+ 335:../Generated_Code/port.c ****     
+ 336:../Generated_Code/port.c ****      /* CPU *HAS TO WAIT* in the sequence below for an interrupt. If vOnPreSleepProcessing() is not
+ 337:../Generated_Code/port.c ****     /* default wait/sleep code */
+ 338:../Generated_Code/port.c ****     __asm volatile("dsb");
+ 339:../Generated_Code/port.c ****     __asm volatile("wfi");
+ 340:../Generated_Code/port.c ****     __asm volatile("isb");
+ 341:../Generated_Code/port.c ****     /* ----------------------------------------------------------------------------
+ 342:../Generated_Code/port.c ****      * Here the CPU *HAS TO BE* low power mode, waiting to wake up by an interrupt 
+ 343:../Generated_Code/port.c ****      * ----------------------------------------------------------------------------*/
+ 344:../Generated_Code/port.c ****     /* Stop tick counter. Again, the time the tick counter is stopped for is
+ 345:../Generated_Code/port.c ****      * accounted for as best it can be, but using the tickless mode will
+ 346:../Generated_Code/port.c ****      * inevitably result in some tiny drift of the time maintained by the
+ 347:../Generated_Code/port.c ****      * kernel with respect to calendar time. 
+ 348:../Generated_Code/port.c ****      */
+ 349:../Generated_Code/port.c ****     tickISRfired = TICK_INTERRUPT_HAS_FIRED(); /* need to check Interrupt flag here, as might be mo
+ 350:../Generated_Code/port.c ****     DISABLE_TICK_COUNTER();
+ 351:../Generated_Code/port.c ****     TICKLESS_ENABLE_INTERRUPTS();/* Re-enable interrupts */
+ 352:../Generated_Code/port.c ****     if (tickISRfired) {
+ 353:../Generated_Code/port.c ****       /* The tick interrupt has already executed, and the timer
+ 354:../Generated_Code/port.c ****        * count reloaded with the modulo/match value.
+ 355:../Generated_Code/port.c ****        * Reset the counter register with whatever remains of
+ 356:../Generated_Code/port.c ****        * this tick period. 
+ 357:../Generated_Code/port.c ****        */
+ 358:../Generated_Code/port.c ****       GET_TICK_CURRENT_VAL(&tmp);
+ 359:../Generated_Code/port.c **** #if COUNTS_UP
+ 360:../Generated_Code/port.c ****       SET_TICK_DURATION((UL_TIMER_COUNTS_FOR_ONE_TICK-1UL)-tmp);
+ 361:../Generated_Code/port.c **** #else
+ 362:../Generated_Code/port.c ****       SET_TICK_DURATION((UL_TIMER_COUNTS_FOR_ONE_TICK-1UL)-(ulReloadValue-tmp));
+ 363:../Generated_Code/port.c **** #endif
+ 364:../Generated_Code/port.c ****       /* The tick interrupt handler will already have pended the tick
+ 365:../Generated_Code/port.c ****        * processing in the kernel.  As the pending tick will be
+ 366:../Generated_Code/port.c ****        * processed as soon as this function exits, the tick value
+ 367:../Generated_Code/port.c ****        * maintained by the tick is stepped forward by one less than the
+ 368:../Generated_Code/port.c ****        * time spent waiting.
+ 369:../Generated_Code/port.c ****        */
+ 370:../Generated_Code/port.c ****       ulCompleteTickPeriods = xExpectedIdleTime-1UL;
+ 371:../Generated_Code/port.c ****     } else {
+ 372:../Generated_Code/port.c ****       /* Something other than the tick interrupt ended the sleep.
+ 373:../Generated_Code/port.c ****        * Work out how long the sleep lasted rounded to complete tick
+ 374:../Generated_Code/port.c ****        * periods (not the ulReload value which accounted for part ticks). 
+ 375:../Generated_Code/port.c ****        */
+ 376:../Generated_Code/port.c ****       GET_TICK_CURRENT_VAL(&tmp);
+ 377:../Generated_Code/port.c ****       ulCompletedSysTickIncrements = (xExpectedIdleTime*UL_TIMER_COUNTS_FOR_ONE_TICK)-tmp;
+ 378:../Generated_Code/port.c **** 
+ 379:../Generated_Code/port.c ****       /* How many complete tick periods passed while the processor was waiting? */
+ 380:../Generated_Code/port.c ****       ulCompleteTickPeriods = ulCompletedSysTickIncrements/UL_TIMER_COUNTS_FOR_ONE_TICK;
+ 381:../Generated_Code/port.c **** 
+ 382:../Generated_Code/port.c ****       /* The reload value is set to whatever fraction of a single tick period remains. */
+ 383:../Generated_Code/port.c ****       SET_TICK_DURATION(((ulCompleteTickPeriods+1)*UL_TIMER_COUNTS_FOR_ONE_TICK)-ulCompletedSysTick
+ 384:../Generated_Code/port.c ****     }
+ 385:../Generated_Code/port.c **** 
+ 386:../Generated_Code/port.c ****     /* Restart SysTick so it runs from portNVIC_SYSTICK_LOAD_REG
+ 387:../Generated_Code/port.c ****        again, then set portNVIC_SYSTICK_LOAD_REG back to its standard
+ 388:../Generated_Code/port.c ****        value.  The critical section is used to ensure the tick interrupt
+ 389:../Generated_Code/port.c ****        can only execute once in the case that the reload register is near
+ 390:../Generated_Code/port.c ****        zero. 
+ 391:../Generated_Code/port.c ****      */
+ 392:../Generated_Code/port.c ****     RESET_TICK_COUNTER_VAL();
+ 393:../Generated_Code/port.c ****     portENTER_CRITICAL();
+ 394:../Generated_Code/port.c ****     {
+ 395:../Generated_Code/port.c ****       ENABLE_TICK_COUNTER();
+ 396:../Generated_Code/port.c ****       vTaskStepTick(ulCompleteTickPeriods);
+ 397:../Generated_Code/port.c ****       SET_TICK_DURATION(UL_TIMER_COUNTS_FOR_ONE_TICK-1UL);
+ 398:../Generated_Code/port.c ****     }
+ 399:../Generated_Code/port.c ****     portEXIT_CRITICAL();
+ 400:../Generated_Code/port.c ****   }
+ 401:../Generated_Code/port.c **** }
+ 402:../Generated_Code/port.c **** #endif /* #if configUSE_TICKLESS_IDLE */
+ 403:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 404:../Generated_Code/port.c **** void vPortInitTickTimer(void) {
+ 104              		.loc 1 404 0
+ 105              		.cfi_startproc
+ 106 0000 80B5     		push	{r7, lr}
+ 107              	.LCFI3:
+ 108              		.cfi_def_cfa_offset 8
+ 109              		.cfi_offset 7, -8
+ 110              		.cfi_offset 14, -4
+ 111 0002 00AF     		add	r7, sp, #0
+ 112              	.LCFI4:
+ 113              		.cfi_def_cfa_register 7
+ 405:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 406:../Generated_Code/port.c **** {
+ 407:../Generated_Code/port.c **** #if TICK_NOF_BITS==32
+ 408:../Generated_Code/port.c ****   xMaximumPossibleSuppressedTicks = 0xffffffffUL/TIMER_COUNTS_FOR_ONE_TICK; /* 32bit timer register
+ 409:../Generated_Code/port.c **** #elif TICK_NOF_BITS==24
+ 410:../Generated_Code/port.c ****   xMaximumPossibleSuppressedTicks = 0xffffffUL/TIMER_COUNTS_FOR_ONE_TICK; /* 24bit timer register *
+ 411:../Generated_Code/port.c **** #elif TICK_NOF_BITS==16
+ 412:../Generated_Code/port.c ****   xMaximumPossibleSuppressedTicks = 0xffffUL/TIMER_COUNTS_FOR_ONE_TICK; /* 16bit timer register */
+ 413:../Generated_Code/port.c **** #elif TICK_NOF_BITS==8
+ 414:../Generated_Code/port.c ****   xMaximumPossibleSuppressedTicks = 0xffUL/TIMER_COUNTS_FOR_ONE_TICK; /* 8bit timer register */
+ 415:../Generated_Code/port.c **** #else
+ 416:../Generated_Code/port.c ****   error "unknown configuration!"
+ 417:../Generated_Code/port.c **** #endif
+ 418:../Generated_Code/port.c **** #if configSYSTICK_USE_LOW_POWER_TIMER
+ 419:../Generated_Code/port.c ****   ulStoppedTimerCompensation = configSTOPPED_TIMER_COMPENSATION/(configCPU_CLOCK_HZ/configSYSTICK_L
+ 420:../Generated_Code/port.c **** #else
+ 421:../Generated_Code/port.c ****   ulStoppedTimerCompensation = configSTOPPED_TIMER_COMPENSATION/(configCPU_CLOCK_HZ/configSYSTICK_C
+ 422:../Generated_Code/port.c **** #endif
+ 423:../Generated_Code/port.c **** }
+ 424:../Generated_Code/port.c **** #endif /* configUSE_TICKLESS_IDLE */
+ 425:../Generated_Code/port.c **** #if configSYSTICK_USE_LOW_POWER_TIMER
+ 426:../Generated_Code/port.c ****   SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK; /* enable clock: SIM_SCGC5: LPTMR=1 */
+ 427:../Generated_Code/port.c **** 
+ 428:../Generated_Code/port.c ****   /* LPTMR0_CSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??
+ 429:../Generated_Code/port.c ****   LPTMR0_CSR = (LPTMR_CSR_TCF_MASK | LPTMR_CSR_TPS(0x00)); /* Clear control register */
+ 430:../Generated_Code/port.c ****   /* LPTMR0_PSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??
+ 431:../Generated_Code/port.c ****   LPTMR0_PSR = LPTMR_PSR_PRESCALE(0x00) | /* prescaler value */
+ 432:../Generated_Code/port.c ****                LPTMR_PSR_PBYP_MASK | /* prescaler bypass */
+ 433:../Generated_Code/port.c ****                LPTMR_PSR_PCS(0x01);    /* Clock source */
+ 434:../Generated_Code/port.c ****   /*
+ 435:../Generated_Code/port.c ****    *           PBYP PCS
+ 436:../Generated_Code/port.c ****    * ERCLK32    1   10
+ 437:../Generated_Code/port.c ****    * LPO_1kHz   1   01
+ 438:../Generated_Code/port.c ****    * ERCLK      0   00
+ 439:../Generated_Code/port.c ****    * IRCLK      1   00
+ 440:../Generated_Code/port.c ****    */
+ 441:../Generated_Code/port.c ****   *(portNVIC_SYSPRI7) |= portNVIC_LP_TIMER_PRI; /* set priority of low power timer interrupt */
+ 442:../Generated_Code/port.c ****   /* NVIC_ISER: SETENA|=0x10000000 */
+ 443:../Generated_Code/port.c ****   NVIC_ISER |= NVIC_ISER_SETENA(0x10000000);     /* 0xE000E100 <= 0x10000000 */                    
+ 444:../Generated_Code/port.c **** 
+ 445:../Generated_Code/port.c ****   /* LPTMR0_CSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??
+ 446:../Generated_Code/port.c ****   LPTMR0_CSR = (LPTMR_CSR_TPS(0x00) | LPTMR_CSR_TEN_MASK); /* Set up control register */
+ 447:../Generated_Code/port.c **** #else /* use normal SysTick Counter */
+ 448:../Generated_Code/port.c ****   *(portNVIC_SYSPRI3) |= portNVIC_SYSTICK_PRI; /* set priority of SysTick interrupt */
+ 114              		.loc 1 448 0
+ 115 0004 084B     		ldr	r3, .L4
+ 116 0006 084A     		ldr	r2, .L4
+ 117 0008 1268     		ldr	r2, [r2]
+ 118 000a C021     		mov	r1, #192
+ 119 000c 0906     		lsl	r1, r1, #24
+ 120 000e 0A43     		orr	r2, r1
+ 121 0010 1A60     		str	r2, [r3]
+ 449:../Generated_Code/port.c **** #endif
+ 450:../Generated_Code/port.c ****   /* Configure timer to interrupt at the requested rate. */
+ 451:../Generated_Code/port.c ****   SET_TICK_DURATION(TIMER_COUNTS_FOR_ONE_TICK-1UL);
+ 122              		.loc 1 451 0
+ 123 0012 064B     		ldr	r3, .L4+4
+ 124 0014 064A     		ldr	r2, .L4+8
+ 125 0016 1A60     		str	r2, [r3]
+ 452:../Generated_Code/port.c ****   RESET_TICK_COUNTER_VAL();
+ 126              		.loc 1 452 0
+ 127 0018 064B     		ldr	r3, .L4+12
+ 128 001a 0022     		mov	r2, #0
+ 129 001c 1A60     		str	r2, [r3]
+ 453:../Generated_Code/port.c ****   ENABLE_TICK_COUNTER();
+ 130              		.loc 1 453 0
+ 131 001e 064B     		ldr	r3, .L4+16
+ 132 0020 0722     		mov	r2, #7
+ 133 0022 1A60     		str	r2, [r3]
+ 454:../Generated_Code/port.c **** }
+ 134              		.loc 1 454 0
+ 135 0024 BD46     		mov	sp, r7
+ 136              		@ sp needed for prologue
+ 137 0026 80BD     		pop	{r7, pc}
+ 138              	.L5:
+ 139              		.align	2
+ 140              	.L4:
+ 141 0028 20ED00E0 		.word	-536810208
+ 142 002c 14E000E0 		.word	-536813548
+ 143 0030 FF520700 		.word	479999
+ 144 0034 18E000E0 		.word	-536813544
+ 145 0038 10E000E0 		.word	-536813552
+ 146              		.cfi_endproc
+ 147              	.LFE1:
+ 149              		.section	.text.vPortStartTickTimer,"ax",%progbits
+ 150              		.align	2
+ 151              		.global	vPortStartTickTimer
+ 152              		.code	16
+ 153              		.thumb_func
+ 155              	vPortStartTickTimer:
+ 156              	.LFB2:
+ 455:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 456:../Generated_Code/port.c **** void vPortStartTickTimer(void) {
+ 157              		.loc 1 456 0
+ 158              		.cfi_startproc
+ 159 0000 80B5     		push	{r7, lr}
+ 160              	.LCFI5:
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 7, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 00AF     		add	r7, sp, #0
+ 165              	.LCFI6:
+ 166              		.cfi_def_cfa_register 7
+ 457:../Generated_Code/port.c ****   ENABLE_TICK_COUNTER();
+ 167              		.loc 1 457 0
+ 168 0004 024B     		ldr	r3, .L7
+ 169 0006 0722     		mov	r2, #7
+ 170 0008 1A60     		str	r2, [r3]
+ 458:../Generated_Code/port.c **** }
+ 171              		.loc 1 458 0
+ 172 000a BD46     		mov	sp, r7
+ 173              		@ sp needed for prologue
+ 174 000c 80BD     		pop	{r7, pc}
+ 175              	.L8:
+ 176 000e C046     		.align	2
+ 177              	.L7:
+ 178 0010 10E000E0 		.word	-536813552
+ 179              		.cfi_endproc
+ 180              	.LFE2:
+ 182              		.section	.text.vPortStopTickTimer,"ax",%progbits
+ 183              		.align	2
+ 184              		.global	vPortStopTickTimer
+ 185              		.code	16
+ 186              		.thumb_func
+ 188              	vPortStopTickTimer:
+ 189              	.LFB3:
+ 459:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 460:../Generated_Code/port.c **** void vPortStopTickTimer(void) {
+ 190              		.loc 1 460 0
+ 191              		.cfi_startproc
+ 192 0000 80B5     		push	{r7, lr}
+ 193              	.LCFI7:
+ 194              		.cfi_def_cfa_offset 8
+ 195              		.cfi_offset 7, -8
+ 196              		.cfi_offset 14, -4
+ 197 0002 00AF     		add	r7, sp, #0
+ 198              	.LCFI8:
+ 199              		.cfi_def_cfa_register 7
+ 461:../Generated_Code/port.c ****   DISABLE_TICK_COUNTER();
+ 200              		.loc 1 461 0
+ 201 0004 024B     		ldr	r3, .L10
+ 202 0006 0622     		mov	r2, #6
+ 203 0008 1A60     		str	r2, [r3]
+ 462:../Generated_Code/port.c **** }
+ 204              		.loc 1 462 0
+ 205 000a BD46     		mov	sp, r7
+ 206              		@ sp needed for prologue
+ 207 000c 80BD     		pop	{r7, pc}
+ 208              	.L11:
+ 209 000e C046     		.align	2
+ 210              	.L10:
+ 211 0010 10E000E0 		.word	-536813552
+ 212              		.cfi_endproc
+ 213              	.LFE3:
+ 215              		.section	.text.xPortStartScheduler,"ax",%progbits
+ 216              		.align	2
+ 217              		.global	xPortStartScheduler
+ 218              		.code	16
+ 219              		.thumb_func
+ 221              	xPortStartScheduler:
+ 222              	.LFB4:
+ 463:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 464:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_KEIL) || (configCOMPILER==configCOMPILER_ARM_GCC)
+ 465:../Generated_Code/port.c **** #if configCPU_FAMILY==configCPU_FAMILY_ARM_M4F /* floating point unit */
+ 466:../Generated_Code/port.c **** void vPortEnableVFP(void) {
+ 467:../Generated_Code/port.c ****   /* The FPU enable bits are in the CPACR. */
+ 468:../Generated_Code/port.c ****   __asm volatile (
+ 469:../Generated_Code/port.c ****     "  ldr.w r0, =0xE000ED88  \n" /* CAPCR, 0xE000ED88 */
+ 470:../Generated_Code/port.c ****     "  ldr r1, [r0]           \n" /* read CAPR */
+ 471:../Generated_Code/port.c ****     /* Enable CP10 and CP11 coprocessors, then save back. */
+ 472:../Generated_Code/port.c ****     "  orr r1, r1, #(0xf<<20) \n" /* wait for store to complete */
+ 473:../Generated_Code/port.c ****     : /* no output */
+ 474:../Generated_Code/port.c ****     : /* no input */
+ 475:../Generated_Code/port.c ****     : "r0","r1" /* clobber */
+ 476:../Generated_Code/port.c ****   );
+ 477:../Generated_Code/port.c **** }
+ 478:../Generated_Code/port.c **** #endif /* configCPU_FAMILY_ARM_M4F */
+ 479:../Generated_Code/port.c **** #endif /* GNU or Keil */
+ 480:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 481:../Generated_Code/port.c **** BaseType_t xPortStartScheduler(void) {
+ 223              		.loc 1 481 0
+ 224              		.cfi_startproc
+ 225 0000 80B5     		push	{r7, lr}
+ 226              	.LCFI9:
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 7, -8
+ 229              		.cfi_offset 14, -4
+ 230 0002 00AF     		add	r7, sp, #0
+ 231              	.LCFI10:
+ 232              		.cfi_def_cfa_register 7
+ 482:../Generated_Code/port.c ****   /* Make PendSV, SVCall and SysTick the lowest priority interrupts. SysTick priority will be set i
+ 483:../Generated_Code/port.c **** #if 0 /* do NOT set the SVCall priority */
+ 484:../Generated_Code/port.c ****   /* why: execution of an SVC instruction at a priority equal or higher than SVCall can cause a har
+ 485:../Generated_Code/port.c ****   see https://community.freescale.com/thread/302511 */
+ 486:../Generated_Code/port.c ****   *(portNVIC_SYSPRI2) |= portNVIC_SVCALL_PRI; /* set priority of SVCall interrupt */
+ 487:../Generated_Code/port.c **** #endif
+ 488:../Generated_Code/port.c ****   *(portNVIC_SYSPRI3) |= portNVIC_PENDSV_PRI; /* set priority of PendSV interrupt */
+ 233              		.loc 1 488 0
+ 234 0004 094B     		ldr	r3, .L14
+ 235 0006 094A     		ldr	r2, .L14
+ 236 0008 1268     		ldr	r2, [r2]
+ 237 000a C021     		mov	r1, #192
+ 238 000c 0904     		lsl	r1, r1, #16
+ 239 000e 0A43     		orr	r2, r1
+ 240 0010 1A60     		str	r2, [r3]
+ 489:../Generated_Code/port.c ****   uxCriticalNesting = 0; /* Initialize the critical nesting count ready for the first task. */
+ 241              		.loc 1 489 0
+ 242 0012 074B     		ldr	r3, .L14+4
+ 243 0014 0022     		mov	r2, #0
+ 244 0016 1A60     		str	r2, [r3]
+ 490:../Generated_Code/port.c ****   vPortInitTickTimer(); /* initialize tick timer */
+ 245              		.loc 1 490 0
+ 246 0018 FFF7FEFF 		bl	vPortInitTickTimer
+ 491:../Generated_Code/port.c ****   vPortStartTickTimer(); /* start tick timer */
+ 247              		.loc 1 491 0
+ 248 001c FFF7FEFF 		bl	vPortStartTickTimer
+ 492:../Generated_Code/port.c **** #if configCPU_FAMILY==configCPU_FAMILY_ARM_M4F /* floating point unit */
+ 493:../Generated_Code/port.c ****   vPortEnableVFP(); /* Ensure the VFP is enabled - it should be anyway */
+ 494:../Generated_Code/port.c ****   *(portFPCCR) |= portASPEN_AND_LSPEN_BITS; /* Lazy register save always */
+ 495:../Generated_Code/port.c **** #endif
+ 496:../Generated_Code/port.c ****   vPortStartFirstTask(); /* Start the first task. */
+ 249              		.loc 1 496 0
+ 250 0020 FFF7FEFF 		bl	vPortStartFirstTask
+ 497:../Generated_Code/port.c ****   /* Should not get here, unless you call vTaskEndScheduler()! */
+ 498:../Generated_Code/port.c ****   return pdFALSE;
+ 251              		.loc 1 498 0
+ 252 0024 0023     		mov	r3, #0
+ 499:../Generated_Code/port.c **** }
+ 253              		.loc 1 499 0
+ 254 0026 181C     		mov	r0, r3
+ 255 0028 BD46     		mov	sp, r7
+ 256              		@ sp needed for prologue
+ 257 002a 80BD     		pop	{r7, pc}
+ 258              	.L15:
+ 259              		.align	2
+ 260              	.L14:
+ 261 002c 20ED00E0 		.word	-536810208
+ 262 0030 00000000 		.word	_ZL17uxCriticalNesting
+ 263              		.cfi_endproc
+ 264              	.LFE4:
+ 266              		.section	.text.vPortEnterCritical,"ax",%progbits
+ 267              		.align	2
+ 268              		.global	vPortEnterCritical
+ 269              		.code	16
+ 270              		.thumb_func
+ 272              	vPortEnterCritical:
+ 273              	.LFB5:
+ 500:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 501:../Generated_Code/port.c **** void vPortEnterCritical(void) {
+ 274              		.loc 1 501 0
+ 275              		.cfi_startproc
+ 276 0000 80B5     		push	{r7, lr}
+ 277              	.LCFI11:
+ 278              		.cfi_def_cfa_offset 8
+ 279              		.cfi_offset 7, -8
+ 280              		.cfi_offset 14, -4
+ 281 0002 00AF     		add	r7, sp, #0
+ 282              	.LCFI12:
+ 283              		.cfi_def_cfa_register 7
+ 502:../Generated_Code/port.c **** /*
+ 503:../Generated_Code/port.c ****  * Disable interrupts before incrementing the count of critical section nesting.
+ 504:../Generated_Code/port.c ****  * The nesting count is maintained so we know when interrupts should be
+ 505:../Generated_Code/port.c ****  * re-enabled.  Once interrupts are disabled the nesting count can be accessed
+ 506:../Generated_Code/port.c ****  * directly.  Each task maintains its own nesting count.
+ 507:../Generated_Code/port.c ****  */
+ 508:../Generated_Code/port.c ****   portDISABLE_INTERRUPTS();
+ 284              		.loc 1 508 0
+ 285              	@ 508 "../Generated_Code/port.c" 1
+ 286 0004 72B6     		cpsid i
+ 287              	@ 0 "" 2
+ 509:../Generated_Code/port.c ****   portPOST_ENABLE_DISABLE_INTERRUPTS();
+ 510:../Generated_Code/port.c ****   uxCriticalNesting++;
+ 288              		.loc 1 510 0
+ 289              		.code	16
+ 290 0006 054B     		ldr	r3, .L17
+ 291 0008 1B68     		ldr	r3, [r3]
+ 292 000a 5A1C     		add	r2, r3, #1
+ 293 000c 034B     		ldr	r3, .L17
+ 294 000e 1A60     		str	r2, [r3]
+ 511:../Generated_Code/port.c ****   __asm volatile("dsb");
+ 295              		.loc 1 511 0
+ 296              	@ 511 "../Generated_Code/port.c" 1
+ 297 0010 BFF34F8F 		dsb
+ 298              	@ 0 "" 2
+ 512:../Generated_Code/port.c ****   __asm volatile("isb");
+ 299              		.loc 1 512 0
+ 300              	@ 512 "../Generated_Code/port.c" 1
+ 301 0014 BFF36F8F 		isb
+ 302              	@ 0 "" 2
+ 513:../Generated_Code/port.c **** }
+ 303              		.loc 1 513 0
+ 304              		.code	16
+ 305 0018 BD46     		mov	sp, r7
+ 306              		@ sp needed for prologue
+ 307 001a 80BD     		pop	{r7, pc}
+ 308              	.L18:
+ 309              		.align	2
+ 310              	.L17:
+ 311 001c 00000000 		.word	_ZL17uxCriticalNesting
+ 312              		.cfi_endproc
+ 313              	.LFE5:
+ 315              		.section	.text.vPortExitCritical,"ax",%progbits
+ 316              		.align	2
+ 317              		.global	vPortExitCritical
+ 318              		.code	16
+ 319              		.thumb_func
+ 321              	vPortExitCritical:
+ 322              	.LFB6:
+ 514:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 515:../Generated_Code/port.c **** void vPortExitCritical(void) {
+ 323              		.loc 1 515 0
+ 324              		.cfi_startproc
+ 325 0000 80B5     		push	{r7, lr}
+ 326              	.LCFI13:
+ 327              		.cfi_def_cfa_offset 8
+ 328              		.cfi_offset 7, -8
+ 329              		.cfi_offset 14, -4
+ 330 0002 00AF     		add	r7, sp, #0
+ 331              	.LCFI14:
+ 332              		.cfi_def_cfa_register 7
+ 516:../Generated_Code/port.c ****  /* Interrupts are disabled so we can access the nesting count directly.  If the
+ 517:../Generated_Code/port.c ****   * nesting is found to be 0 (no nesting) then we are leaving the critical
+ 518:../Generated_Code/port.c ****   * section and interrupts can be re-enabled.
+ 519:../Generated_Code/port.c ****   */
+ 520:../Generated_Code/port.c ****   uxCriticalNesting--;
+ 333              		.loc 1 520 0
+ 334 0004 054B     		ldr	r3, .L21
+ 335 0006 1B68     		ldr	r3, [r3]
+ 336 0008 5A1E     		sub	r2, r3, #1
+ 337 000a 044B     		ldr	r3, .L21
+ 338 000c 1A60     		str	r2, [r3]
+ 521:../Generated_Code/port.c ****   if (uxCriticalNesting == 0)  {
+ 339              		.loc 1 521 0
+ 340 000e 034B     		ldr	r3, .L21
+ 341 0010 1B68     		ldr	r3, [r3]
+ 342 0012 002B     		cmp	r3, #0
+ 343 0014 00D1     		bne	.L19
+ 522:../Generated_Code/port.c ****     portENABLE_INTERRUPTS();
+ 344              		.loc 1 522 0
+ 345              	@ 522 "../Generated_Code/port.c" 1
+ 346 0016 62B6     		cpsie i
+ 347              	@ 0 "" 2
+ 348              		.code	16
+ 349              	.L19:
+ 523:../Generated_Code/port.c ****     portPOST_ENABLE_DISABLE_INTERRUPTS();
+ 524:../Generated_Code/port.c ****   }
+ 525:../Generated_Code/port.c **** }
+ 350              		.loc 1 525 0
+ 351 0018 BD46     		mov	sp, r7
+ 352              		@ sp needed for prologue
+ 353 001a 80BD     		pop	{r7, pc}
+ 354              	.L22:
+ 355              		.align	2
+ 356              	.L21:
+ 357 001c 00000000 		.word	_ZL17uxCriticalNesting
+ 358              		.cfi_endproc
+ 359              	.LFE6:
+ 361              		.section	.text.vPortYieldFromISR,"ax",%progbits
+ 362              		.align	2
+ 363              		.global	vPortYieldFromISR
+ 364              		.code	16
+ 365              		.thumb_func
+ 367              	vPortYieldFromISR:
+ 368              	.LFB7:
+ 526:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 527:../Generated_Code/port.c **** void vPortYieldFromISR(void) {
+ 369              		.loc 1 527 0
+ 370              		.cfi_startproc
+ 371 0000 80B5     		push	{r7, lr}
+ 372              	.LCFI15:
+ 373              		.cfi_def_cfa_offset 8
+ 374              		.cfi_offset 7, -8
+ 375              		.cfi_offset 14, -4
+ 376 0002 00AF     		add	r7, sp, #0
+ 377              	.LCFI16:
+ 378              		.cfi_def_cfa_register 7
+ 528:../Generated_Code/port.c ****   /* Set a PendSV to request a context switch. */
+ 529:../Generated_Code/port.c ****   *(portNVIC_INT_CTRL) = portNVIC_PENDSVSET_BIT;
+ 379              		.loc 1 529 0
+ 380 0004 044B     		ldr	r3, .L24
+ 381 0006 8022     		mov	r2, #128
+ 382 0008 5205     		lsl	r2, r2, #21
+ 383 000a 1A60     		str	r2, [r3]
+ 530:../Generated_Code/port.c ****   /* Barriers are normally not required but do ensure the code is completely
+ 531:../Generated_Code/port.c ****   within the specified behavior for the architecture. */
+ 532:../Generated_Code/port.c ****   __asm volatile("dsb");
+ 384              		.loc 1 532 0
+ 385              	@ 532 "../Generated_Code/port.c" 1
+ 386 000c BFF34F8F 		dsb
+ 387              	@ 0 "" 2
+ 533:../Generated_Code/port.c ****   __asm volatile("isb");
+ 388              		.loc 1 533 0
+ 389              	@ 533 "../Generated_Code/port.c" 1
+ 390 0010 BFF36F8F 		isb
+ 391              	@ 0 "" 2
+ 534:../Generated_Code/port.c **** }
+ 392              		.loc 1 534 0
+ 393              		.code	16
+ 394 0014 BD46     		mov	sp, r7
+ 395              		@ sp needed for prologue
+ 396 0016 80BD     		pop	{r7, pc}
+ 397              	.L25:
+ 398              		.align	2
+ 399              	.L24:
+ 400 0018 04ED00E0 		.word	-536810236
+ 401              		.cfi_endproc
+ 402              	.LFE7:
+ 404              		.section	.text._Z21uxGetTickCounterValuev,"ax",%progbits
+ 405              		.align	2
+ 406              		.global	_Z21uxGetTickCounterValuev
+ 407              		.code	16
+ 408              		.thumb_func
+ 410              	_Z21uxGetTickCounterValuev:
+ 411              	.LFB8:
+ 535:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 536:../Generated_Code/port.c **** /* return the tick raw counter value. It is assumed that the counter register has been reset at the
+ 537:../Generated_Code/port.c **** portLONG uxGetTickCounterValue(void) {
+ 412              		.loc 1 537 0
+ 413              		.cfi_startproc
+ 414 0000 80B5     		push	{r7, lr}
+ 415              	.LCFI17:
+ 416              		.cfi_def_cfa_offset 8
+ 417              		.cfi_offset 7, -8
+ 418              		.cfi_offset 14, -4
+ 419 0002 82B0     		sub	sp, sp, #8
+ 420              	.LCFI18:
+ 421              		.cfi_def_cfa_offset 16
+ 422 0004 00AF     		add	r7, sp, #0
+ 423              	.LCFI19:
+ 424              		.cfi_def_cfa_register 7
+ 425              	.LBB2:
+ 538:../Generated_Code/port.c ****   portLONG val;
+ 539:../Generated_Code/port.c ****   
+ 540:../Generated_Code/port.c ****   GET_TICK_CURRENT_VAL(&val);
+ 426              		.loc 1 540 0
+ 427 0006 044B     		ldr	r3, .L28
+ 428 0008 1B68     		ldr	r3, [r3]
+ 429 000a 7B60     		str	r3, [r7, #4]
+ 541:../Generated_Code/port.c ****   return val;
+ 430              		.loc 1 541 0
+ 431 000c 7B68     		ldr	r3, [r7, #4]
+ 432              	.LBE2:
+ 542:../Generated_Code/port.c **** }
+ 433              		.loc 1 542 0
+ 434 000e 181C     		mov	r0, r3
+ 435 0010 BD46     		mov	sp, r7
+ 436 0012 02B0     		add	sp, sp, #8
+ 437              		@ sp needed for prologue
+ 438 0014 80BD     		pop	{r7, pc}
+ 439              	.L29:
+ 440 0016 C046     		.align	2
+ 441              	.L28:
+ 442 0018 18E000E0 		.word	-536813544
+ 443              		.cfi_endproc
+ 444              	.LFE8:
+ 446              		.section	.text.vPortTickHandler,"ax",%progbits
+ 447              		.align	2
+ 448              		.global	vPortTickHandler
+ 449              		.code	16
+ 450              		.thumb_func
+ 452              	vPortTickHandler:
+ 453              	.LFB9:
+ 543:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 544:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_KEIL)
+ 545:../Generated_Code/port.c **** void vPortTickHandler(void) {
+ 546:../Generated_Code/port.c ****   /* this is how we get here:
+ 547:../Generated_Code/port.c ****     RTOSTICKLDD1_Interrupt:
+ 548:../Generated_Code/port.c ****     push {r4, lr}
+ 549:../Generated_Code/port.c ****     ...                                       RTOSTICKLDD1_OnCounterRestart
+ 550:../Generated_Code/port.c ****     bl RTOSTICKLDD1_OnCounterRestart     ->   push {r4,lr}
+ 551:../Generated_Code/port.c ****     pop {r4, lr}                              mov r4,r0
+ 552:../Generated_Code/port.c ****                                               bl vPortTickHandler
+ 553:../Generated_Code/port.c ****                                               pop {r4,pc}
+ 554:../Generated_Code/port.c ****   */
+ 555:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 556:../Generated_Code/port.c ****   TICK_INTERRUPT_FLAG_SET();
+ 557:../Generated_Code/port.c **** #endif
+ 558:../Generated_Code/port.c ****   portSET_INTERRUPT_MASK();   /* disable interrupts */
+ 559:../Generated_Code/port.c ****   if (xTaskIncrementTick()!=pdFALSE) { /* increment tick count */
+ 560:../Generated_Code/port.c ****     taskYIELD();
+ 561:../Generated_Code/port.c ****   }
+ 562:../Generated_Code/port.c ****   portCLEAR_INTERRUPT_MASK(); /* enable interrupts again */
+ 563:../Generated_Code/port.c **** }
+ 564:../Generated_Code/port.c **** #endif
+ 565:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 566:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_GCC)
+ 567:../Generated_Code/port.c **** void vPortTickHandler(void) {
+ 454              		.loc 1 567 0
+ 455              		.cfi_startproc
+ 456 0000 80B5     		push	{r7, lr}
+ 457              	.LCFI20:
+ 458              		.cfi_def_cfa_offset 8
+ 459              		.cfi_offset 7, -8
+ 460              		.cfi_offset 14, -4
+ 461 0002 00AF     		add	r7, sp, #0
+ 462              	.LCFI21:
+ 463              		.cfi_def_cfa_register 7
+ 568:../Generated_Code/port.c ****   ACKNOWLEDGE_TICK_ISR();
+ 569:../Generated_Code/port.c **** #if configUSE_TICKLESS_IDLE == 1
+ 570:../Generated_Code/port.c ****   TICK_INTERRUPT_FLAG_SET();
+ 571:../Generated_Code/port.c **** #endif
+ 572:../Generated_Code/port.c ****   portSET_INTERRUPT_MASK();   /* disable interrupts */
+ 464              		.loc 1 572 0
+ 465              	@ 572 "../Generated_Code/port.c" 1
+ 466 0004 72B6     		cpsid i
+ 467              	@ 0 "" 2
+ 573:../Generated_Code/port.c ****   if (xTaskIncrementTick()!=pdFALSE) { /* increment tick count */
+ 468              		.loc 1 573 0
+ 469              		.code	16
+ 470 0006 FFF7FEFF 		bl	xTaskIncrementTick
+ 471 000a 031C     		mov	r3, r0
+ 472 000c 5A1E     		sub	r2, r3, #1
+ 473 000e 9341     		sbc	r3, r3, r2
+ 474 0010 DBB2     		uxtb	r3, r3
+ 475 0012 002B     		cmp	r3, #0
+ 476 0014 01D0     		beq	.L31
+ 574:../Generated_Code/port.c ****     taskYIELD();
+ 477              		.loc 1 574 0
+ 478 0016 FFF7FEFF 		bl	vPortYieldFromISR
+ 479              	.L31:
+ 575:../Generated_Code/port.c ****   }
+ 576:../Generated_Code/port.c ****   portCLEAR_INTERRUPT_MASK(); /* enable interrupts again */
+ 480              		.loc 1 576 0
+ 481              	@ 576 "../Generated_Code/port.c" 1
+ 482 001a 62B6     		cpsie i
+ 483              	@ 0 "" 2
+ 577:../Generated_Code/port.c **** }
+ 484              		.loc 1 577 0
+ 485              		.code	16
+ 486 001c BD46     		mov	sp, r7
+ 487              		@ sp needed for prologue
+ 488 001e 80BD     		pop	{r7, pc}
+ 489              		.cfi_endproc
+ 490              	.LFE9:
+ 492              		.section	.text.vPortStartFirstTask,"ax",%progbits
+ 493              		.align	2
+ 494              		.global	vPortStartFirstTask
+ 495              		.code	16
+ 496              		.thumb_func
+ 498              	vPortStartFirstTask:
+ 499              	.LFB10:
+ 578:../Generated_Code/port.c **** #endif
+ 579:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 580:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_DSC_FSL)
+ 581:../Generated_Code/port.c **** void vPortStartFirstTask(void) {
+ 582:../Generated_Code/port.c ****   /* Restore the context of the first task to run. */
+ 583:../Generated_Code/port.c ****   portRESTORE_CONTEXT();
+ 584:../Generated_Code/port.c ****   /* Simulate the end of the yield function. */
+ 585:../Generated_Code/port.c ****   __asm(rts);
+ 586:../Generated_Code/port.c **** }
+ 587:../Generated_Code/port.c **** #endif
+ 588:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 589:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_KEIL)
+ 590:../Generated_Code/port.c **** __asm void vPortStartFirstTask(void) {
+ 591:../Generated_Code/port.c ****   /* Use the NVIC offset register to locate the stack. */
+ 592:../Generated_Code/port.c ****   ldr r0, =0xE000ED08
+ 593:../Generated_Code/port.c ****   ldr r0, [r0]
+ 594:../Generated_Code/port.c ****   ldr r0, [r0]
+ 595:../Generated_Code/port.c ****   /* Set the msp back to the start of the stack. */
+ 596:../Generated_Code/port.c ****   msr msp, r0
+ 597:../Generated_Code/port.c ****   /* Globally enable interrupts. */
+ 598:../Generated_Code/port.c ****   cpsie i
+ 599:../Generated_Code/port.c ****   /* Call SVC to start the first task. */
+ 600:../Generated_Code/port.c ****   svc 0
+ 601:../Generated_Code/port.c ****   nop
+ 602:../Generated_Code/port.c ****   nop
+ 603:../Generated_Code/port.c ****   nop
+ 604:../Generated_Code/port.c **** }
+ 605:../Generated_Code/port.c **** #endif
+ 606:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 607:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_GCC)
+ 608:../Generated_Code/port.c **** void vPortStartFirstTask(void) {
+ 500              		.loc 1 608 0
+ 501              		.cfi_startproc
+ 502 0000 80B5     		push	{r7, lr}
+ 503              	.LCFI22:
+ 504              		.cfi_def_cfa_offset 8
+ 505              		.cfi_offset 7, -8
+ 506              		.cfi_offset 14, -4
+ 507 0002 00AF     		add	r7, sp, #0
+ 508              	.LCFI23:
+ 509              		.cfi_def_cfa_register 7
+ 609:../Generated_Code/port.c ****   __asm volatile (
+ 610:../Generated_Code/port.c ****     " ldr r0, =0xE000ED08 \n" /* Use the NVIC offset register to locate the stack. */
+ 611:../Generated_Code/port.c ****     " ldr r0, [r0]        \n" /* load address of vector table */
+ 612:../Generated_Code/port.c ****     " ldr r0, [r0]        \n" /* load first entry of vector table which is the reset stack pointer 
+ 613:../Generated_Code/port.c ****     " msr msp, r0         \n" /* Set the msp back to the start of the stack. */
+ 614:../Generated_Code/port.c ****     " cpsie i             \n" /* Globally enable interrupts. */
+ 615:../Generated_Code/port.c ****     " svc 0               \n" /* System call to start first task. */
+ 616:../Generated_Code/port.c ****     " nop                 \n"
+ 617:../Generated_Code/port.c ****   );
+ 510              		.loc 1 617 0
+ 511              	@ 617 "../Generated_Code/port.c" 1
+ 512 0004 0448     		 ldr r0, =0xE000ED08 
+ 513 0006 0068     	 ldr r0, [r0]        
+ 514 0008 0068     	 ldr r0, [r0]        
+ 515 000a 80F30888 	 msr msp, r0         
+ 516 000e 62B6     	 cpsie i             
+ 517 0010 00DF     	 svc 0               
+ 518 0012 C046     	 nop                 
+ 519              	
+ 520              	@ 0 "" 2
+ 618:../Generated_Code/port.c **** }
+ 521              		.loc 1 618 0
+ 522              		.code	16
+ 523 0014 BD46     		mov	sp, r7
+ 524              		@ sp needed for prologue
+ 525 0016 80BD     		pop	{r7, pc}
+ 526              		.cfi_endproc
+ 527              	.LFE10:
+ 529              		.section	.text.vPortSVCHandler,"ax",%progbits
+ 530              		.align	2
+ 531              		.global	vPortSVCHandler
+ 532              		.code	16
+ 533              		.thumb_func
+ 535              	vPortSVCHandler:
+ 536              	.LFB11:
+ 619:../Generated_Code/port.c **** #endif
+ 620:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 621:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_KEIL)
+ 622:../Generated_Code/port.c **** #if configCPU_FAMILY_IS_ARM_M4(configCPU_FAMILY) /* Cortex M4 */
+ 623:../Generated_Code/port.c **** __asm void vPortSVCHandler(void) {
+ 624:../Generated_Code/port.c ****   EXTERN pxCurrentTCB
+ 625:../Generated_Code/port.c **** 
+ 626:../Generated_Code/port.c ****   /* Get the location of the current TCB. */
+ 627:../Generated_Code/port.c ****   ldr r3, =pxCurrentTCB
+ 628:../Generated_Code/port.c ****   ldr r1, [r3]
+ 629:../Generated_Code/port.c ****   ldr r0, [r1]
+ 630:../Generated_Code/port.c ****   /* Pop the core registers. */
+ 631:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 632:../Generated_Code/port.c ****   ldmia r0!, {r4-r11, r14} /* \todo: r14, check http://sourceforge.net/p/freertos/discussion/382005
+ 633:../Generated_Code/port.c **** #else
+ 634:../Generated_Code/port.c ****   ldmia r0!, {r4-r11}
+ 635:../Generated_Code/port.c **** #endif
+ 636:../Generated_Code/port.c ****   msr psp, r0
+ 637:../Generated_Code/port.c ****   mov r0, #0
+ 638:../Generated_Code/port.c ****   msr basepri, r0
+ 639:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 640:../Generated_Code/port.c **** #else
+ 641:../Generated_Code/port.c ****   orr r14, r14, #13
+ 642:../Generated_Code/port.c **** #endif
+ 643:../Generated_Code/port.c ****   bx r14
+ 644:../Generated_Code/port.c ****   nop
+ 645:../Generated_Code/port.c **** }
+ 646:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 647:../Generated_Code/port.c **** #else /* Cortex M0+ */
+ 648:../Generated_Code/port.c **** __asm void vPortSVCHandler(void) {
+ 649:../Generated_Code/port.c ****   EXTERN pxCurrentTCB
+ 650:../Generated_Code/port.c **** 
+ 651:../Generated_Code/port.c ****   /* Get the location of the current TCB. */
+ 652:../Generated_Code/port.c ****   ldr r3, =pxCurrentTCB  /* Restore the context. */
+ 653:../Generated_Code/port.c ****   ldr r1, [r3]          /* Use pxCurrentTCBConst to get the pxCurrentTCB address. */
+ 654:../Generated_Code/port.c ****   ldr r0, [r1]          /* The first item in pxCurrentTCB is the task top of stack. */
+ 655:../Generated_Code/port.c ****   adds r0, #16          /* Move to the high registers. */
+ 656:../Generated_Code/port.c ****   ldmia r0!, {r4-r7}    /* Pop the high registers. */
+ 657:../Generated_Code/port.c ****   mov r8, r4 
+ 658:../Generated_Code/port.c ****   mov r9, r5 
+ 659:../Generated_Code/port.c ****   mov r10, r6
+ 660:../Generated_Code/port.c ****   mov r11, r7
+ 661:../Generated_Code/port.c **** 
+ 662:../Generated_Code/port.c ****   msr psp, r0           /* Remember the new top of stack for the task. */
+ 663:../Generated_Code/port.c **** 
+ 664:../Generated_Code/port.c ****   subs r0, #32          /* Go back for the low registers that are not automatically restored. */
+ 665:../Generated_Code/port.c ****   ldmia r0!, {r4-r7}    /* Pop low registers.  */
+ 666:../Generated_Code/port.c ****   mov r1, r14           /* OR R14 with 0x0d. */
+ 667:../Generated_Code/port.c ****   movs r0, #0x0d
+ 668:../Generated_Code/port.c ****   orrs r1, r0
+ 669:../Generated_Code/port.c ****   bx r1
+ 670:../Generated_Code/port.c ****   nop
+ 671:../Generated_Code/port.c **** }
+ 672:../Generated_Code/port.c **** #endif
+ 673:../Generated_Code/port.c **** #endif
+ 674:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 675:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_GCC)
+ 676:../Generated_Code/port.c **** __attribute__ ((naked)) void vPortSVCHandler(void) {
+ 537              		.loc 1 676 0
+ 538              		.cfi_startproc
+ 677:../Generated_Code/port.c **** #if configCPU_FAMILY_IS_ARM_M4(configCPU_FAMILY) /* Cortex M4 */
+ 678:../Generated_Code/port.c **** __asm volatile (
+ 679:../Generated_Code/port.c ****     " ldr r3, pxCurrentTCBConst2 \n" /* Restore the context. */
+ 680:../Generated_Code/port.c ****     " ldr r1, [r3]               \n" /* Use pxCurrentTCBConst to get the pxCurrentTCB address. */
+ 681:../Generated_Code/port.c ****     " ldr r0, [r1]               \n" /* The first item in pxCurrentTCB is the task top of stack. */
+ 682:../Generated_Code/port.c ****     /* pop the core registers */
+ 683:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 684:../Generated_Code/port.c ****     " ldmia r0!, {r4-r11, r14}   \n"
+ 685:../Generated_Code/port.c **** #else
+ 686:../Generated_Code/port.c ****     " ldmia r0!, {r4-r11}        \n"
+ 687:../Generated_Code/port.c **** #endif
+ 688:../Generated_Code/port.c ****     " msr psp, r0                \n"
+ 689:../Generated_Code/port.c ****     " mov r0, #0                 \n"
+ 690:../Generated_Code/port.c ****     " msr basepri, r0            \n"
+ 691:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 692:../Generated_Code/port.c **** #else
+ 693:../Generated_Code/port.c ****     " orr r14, r14, #13          \n"
+ 694:../Generated_Code/port.c **** #endif
+ 695:../Generated_Code/port.c ****     " bx r14                     \n"
+ 696:../Generated_Code/port.c ****     "                            \n"
+ 697:../Generated_Code/port.c ****     " .align 2                   \n"
+ 698:../Generated_Code/port.c ****     "pxCurrentTCBConst2: .word pxCurrentTCB \n"
+ 699:../Generated_Code/port.c ****   );
+ 700:../Generated_Code/port.c **** #else /* Cortex M0+ */
+ 701:../Generated_Code/port.c ****   __asm volatile (
+ 702:../Generated_Code/port.c ****     " ldr r3, pxCurrentTCBConst2 \n" /* Restore the context. */
+ 703:../Generated_Code/port.c ****     " ldr r1, [r3]               \n" /* Use pxCurrentTCBConst to get the pxCurrentTCB address. */
+ 704:../Generated_Code/port.c ****     " ldr r0, [r1]               \n" /* The first item in pxCurrentTCB is the task top of stack. */
+ 705:../Generated_Code/port.c ****     " add r0, r0, #16            \n" /* Move to the high registers. */
+ 706:../Generated_Code/port.c ****     " ldmia r0!, {r4-r7}         \n" /* Pop the high registers. */
+ 707:../Generated_Code/port.c ****     " mov r8, r4                 \n"
+ 708:../Generated_Code/port.c ****     " mov r9, r5                 \n"
+ 709:../Generated_Code/port.c ****     " mov r10, r6                \n"
+ 710:../Generated_Code/port.c ****     " mov r11, r7                \n"
+ 711:../Generated_Code/port.c ****     "                            \n"
+ 712:../Generated_Code/port.c ****     " msr psp, r0                \n" /* Remember the new top of stack for the task. */
+ 713:../Generated_Code/port.c ****     "                            \n"
+ 714:../Generated_Code/port.c ****     " sub r0, r0, #32            \n" /* Go back for the low registers that are not automatically re
+ 715:../Generated_Code/port.c ****     " ldmia r0!, {r4-r7}         \n" /* Pop low registers.  */
+ 716:../Generated_Code/port.c ****     " mov r1, r14                \n" /* OR R14 with 0x0d. */
+ 717:../Generated_Code/port.c ****     " movs r0, #0x0d             \n"
+ 718:../Generated_Code/port.c ****     " orr r1, r0                 \n"
+ 719:../Generated_Code/port.c ****     " bx r1                      \n"
+ 720:../Generated_Code/port.c ****     "                            \n"
+ 721:../Generated_Code/port.c ****     ".align 2                    \n"
+ 722:../Generated_Code/port.c ****     "pxCurrentTCBConst2: .word pxCurrentTCB \n"
+ 723:../Generated_Code/port.c ****   );
+ 539              		.loc 1 723 0
+ 540              	@ 723 "../Generated_Code/port.c" 1
+ 541 0000 084B     		 ldr r3, pxCurrentTCBConst2 
+ 542 0002 1968     	 ldr r1, [r3]               
+ 543 0004 0868     	 ldr r0, [r1]               
+ 544 0006 1030     	 add r0, r0, #16            
+ 545 0008 F0C8     	 ldmia r0!, {r4-r7}         
+ 546 000a A046     	 mov r8, r4                 
+ 547 000c A946     	 mov r9, r5                 
+ 548 000e B246     	 mov r10, r6                
+ 549 0010 BB46     	 mov r11, r7                
+ 550              	                            
+ 551 0012 80F30988 	 msr psp, r0                
+ 552              	                            
+ 553 0016 2038     	 sub r0, r0, #32            
+ 554 0018 F0C8     	 ldmia r0!, {r4-r7}         
+ 555 001a 7146     	 mov r1, r14                
+ 556 001c 0D20     	 movs r0, #0x0d             
+ 557 001e 0143     	 orr r1, r0                 
+ 558 0020 0847     	 bx r1                      
+ 559              	                            
+ 560 0022 C046     	.align 2                    
+ 561 0024 00000000 	pxCurrentTCBConst2: .word pxCurrentTCB 
+ 562              	
+ 563              	@ 0 "" 2
+ 724:../Generated_Code/port.c **** #endif
+ 725:../Generated_Code/port.c **** }
+ 564              		.loc 1 725 0
+ 565              		.code	16
+ 566              		.cfi_endproc
+ 567              	.LFE11:
+ 569              		.section	.text.vPortPendSVHandler,"ax",%progbits
+ 570              		.align	2
+ 571              		.global	vPortPendSVHandler
+ 572              		.code	16
+ 573              		.thumb_func
+ 575              	vPortPendSVHandler:
+ 576              	.LFB12:
+ 726:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 727:../Generated_Code/port.c **** #endif
+ 728:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_KEIL)
+ 729:../Generated_Code/port.c **** #if configCPU_FAMILY_IS_ARM_M4(configCPU_FAMILY) /* Cortex M4 */
+ 730:../Generated_Code/port.c **** __asm void vPortPendSVHandler(void) {
+ 731:../Generated_Code/port.c ****   EXTERN pxCurrentTCB
+ 732:../Generated_Code/port.c **** 
+ 733:../Generated_Code/port.c ****   mrs r0, psp
+ 734:../Generated_Code/port.c ****   ldr  r3, =pxCurrentTCB     /* Get the location of the current TCB. */
+ 735:../Generated_Code/port.c ****   ldr  r2, [r3]
+ 736:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 737:../Generated_Code/port.c ****   tst r14, #0x10             /* Is the task using the FPU context?  If so, push high vfp registers.
+ 738:../Generated_Code/port.c ****   it eq
+ 739:../Generated_Code/port.c ****   vstmdbeq r0!, {s16-s31}
+ 740:../Generated_Code/port.c **** 
+ 741:../Generated_Code/port.c ****   stmdb r0!, {r4-r11, r14}   /* save remaining core registers */
+ 742:../Generated_Code/port.c **** #else
+ 743:../Generated_Code/port.c ****   stmdb r0!, {r4-r11}        /* Save the core registers. */
+ 744:../Generated_Code/port.c **** #endif
+ 745:../Generated_Code/port.c ****   str r0, [r2]               /* Save the new top of stack into the first member of the TCB. */
+ 746:../Generated_Code/port.c ****   stmdb sp!, {r3, r14}
+ 747:../Generated_Code/port.c ****   mov r0, %0
+ 748:../Generated_Code/port.c ****   msr basepri, r0
+ 749:../Generated_Code/port.c ****   bl vTaskSwitchContext
+ 750:../Generated_Code/port.c ****   mov r0, #0
+ 751:../Generated_Code/port.c ****   msr basepri, r0
+ 752:../Generated_Code/port.c ****   ldmia sp!, {r3, r14}
+ 753:../Generated_Code/port.c ****   ldr r1, [r3]               /* The first item in pxCurrentTCB is the task top of stack. */
+ 754:../Generated_Code/port.c ****   ldr r0, [r1]
+ 755:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 756:../Generated_Code/port.c ****   ldmia r0!, {r4-r11, r14}   /* Pop the core registers */
+ 757:../Generated_Code/port.c ****   tst r14, #0x10             /* Is the task using the FPU context?  If so, pop the high vfp registe
+ 758:../Generated_Code/port.c ****   it eq
+ 759:../Generated_Code/port.c ****   vldmiaeq r0!, {s16-s31}
+ 760:../Generated_Code/port.c **** #else
+ 761:../Generated_Code/port.c ****   ldmia r0!, {r4-r11}        /* Pop the core registers. */
+ 762:../Generated_Code/port.c **** #endif
+ 763:../Generated_Code/port.c ****   msr psp, r0
+ 764:../Generated_Code/port.c ****   bx r14
+ 765:../Generated_Code/port.c ****   nop
+ 766:../Generated_Code/port.c **** }
+ 767:../Generated_Code/port.c **** #else /* Cortex M0+ */
+ 768:../Generated_Code/port.c **** __asm void vPortPendSVHandler(void) {
+ 769:../Generated_Code/port.c ****   EXTERN pxCurrentTCB
+ 770:../Generated_Code/port.c ****   EXTERN vTaskSwitchContext
+ 771:../Generated_Code/port.c **** 	
+ 772:../Generated_Code/port.c ****   mrs r0, psp
+ 773:../Generated_Code/port.c **** 	
+ 774:../Generated_Code/port.c ****   ldr r3, =pxCurrentTCB       /* Get the location of the current TCB. */
+ 775:../Generated_Code/port.c ****   ldr r2, [r3]
+ 776:../Generated_Code/port.c **** 
+ 777:../Generated_Code/port.c ****   subs r0, #32               /* Make space for the remaining low registers. */
+ 778:../Generated_Code/port.c ****   str r0, [r2]               /* Save the new top of stack. */
+ 779:../Generated_Code/port.c ****   stmia r0!, {r4-r7}         /* Store the low registers that are not saved automatically. */
+ 780:../Generated_Code/port.c ****   mov r4, r8                 /* Store the high registers. */
+ 781:../Generated_Code/port.c ****   mov r5, r9
+ 782:../Generated_Code/port.c ****   mov r6, r10
+ 783:../Generated_Code/port.c ****   mov r7, r11
+ 784:../Generated_Code/port.c ****   stmia r0!, {r4-r7}
+ 785:../Generated_Code/port.c **** 
+ 786:../Generated_Code/port.c ****   push {r3, r14}
+ 787:../Generated_Code/port.c ****   cpsid i
+ 788:../Generated_Code/port.c ****   bl vTaskSwitchContext
+ 789:../Generated_Code/port.c ****   cpsie i
+ 790:../Generated_Code/port.c ****   pop {r2, r3}               /* lr goes in r3. r2 now holds tcb pointer. */
+ 791:../Generated_Code/port.c **** 
+ 792:../Generated_Code/port.c ****   ldr r1, [r2]
+ 793:../Generated_Code/port.c ****   ldr r0, [r1]               /* The first item in pxCurrentTCB is the task top of stack. */
+ 794:../Generated_Code/port.c ****   adds r0, #16               /* Move to the high registers. */
+ 795:../Generated_Code/port.c ****   ldmia r0!, {r4-r7}         /* Pop the high registers. */
+ 796:../Generated_Code/port.c ****   mov r8, r4
+ 797:../Generated_Code/port.c ****   mov r9, r5
+ 798:../Generated_Code/port.c ****   mov r10, r6
+ 799:../Generated_Code/port.c ****   mov r11, r7
+ 800:../Generated_Code/port.c **** 
+ 801:../Generated_Code/port.c ****   msr psp, r0                /* Remember the new top of stack for the task. */
+ 802:../Generated_Code/port.c **** 
+ 803:../Generated_Code/port.c ****   subs r0, #32               /* Go back for the low registers that are not automatically restored. 
+ 804:../Generated_Code/port.c ****   ldmia r0!, {r4-r7}         /* Pop low registers.  */
+ 805:../Generated_Code/port.c **** 
+ 806:../Generated_Code/port.c ****   bx r3
+ 807:../Generated_Code/port.c ****   nop
+ 808:../Generated_Code/port.c **** }
+ 809:../Generated_Code/port.c **** #endif
+ 810:../Generated_Code/port.c **** #endif
+ 811:../Generated_Code/port.c **** /*-----------------------------------------------------------*/
+ 812:../Generated_Code/port.c **** #if (configCOMPILER==configCOMPILER_ARM_GCC)
+ 813:../Generated_Code/port.c **** __attribute__ ((naked)) void vPortPendSVHandler(void) {
+ 577              		.loc 1 813 0
+ 578              		.cfi_startproc
+ 814:../Generated_Code/port.c **** #if configCPU_FAMILY_IS_ARM_M4(configCPU_FAMILY) /* Cortex M4 */
+ 815:../Generated_Code/port.c ****   __asm volatile (
+ 816:../Generated_Code/port.c ****     " mrs r0, psp                \n"
+ 817:../Generated_Code/port.c ****     " ldr  r3, pxCurrentTCBConst \n" /* Get the location of the current TCB. */
+ 818:../Generated_Code/port.c ****     " ldr  r2, [r3]              \n"
+ 819:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 820:../Generated_Code/port.c ****     " tst r14, #0x10             \n" /* Is the task using the FPU context?  If so, push high vfp re
+ 821:../Generated_Code/port.c ****     " it eq                      \n"
+ 822:../Generated_Code/port.c ****     " vstmdbeq r0!, {s16-s31}    \n"
+ 823:../Generated_Code/port.c **** 
+ 824:../Generated_Code/port.c ****     " stmdb r0!, {r4-r11, r14}   \n" /* save remaining core registers */
+ 825:../Generated_Code/port.c **** #else
+ 826:../Generated_Code/port.c ****     " stmdb r0!, {r4-r11}        \n" /* Save the core registers. */
+ 827:../Generated_Code/port.c **** #endif
+ 828:../Generated_Code/port.c ****     " str r0, [r2]               \n" /* Save the new top of stack into the first member of the TCB.
+ 829:../Generated_Code/port.c ****     " stmdb sp!, {r3, r14}       \n"
+ 830:../Generated_Code/port.c ****     " mov r0, %0                 \n"
+ 831:../Generated_Code/port.c ****     " msr basepri, r0            \n"
+ 832:../Generated_Code/port.c ****     " bl vTaskSwitchContext      \n"
+ 833:../Generated_Code/port.c ****     " mov r0, #0                 \n"
+ 834:../Generated_Code/port.c ****     " msr basepri, r0            \n"
+ 835:../Generated_Code/port.c ****     " ldmia sp!, {r3, r14}       \n"
+ 836:../Generated_Code/port.c ****     " ldr r1, [r3]               \n" /* The first item in pxCurrentTCB is the task top of stack. */
+ 837:../Generated_Code/port.c ****     " ldr r0, [r1]               \n"
+ 838:../Generated_Code/port.c **** #if (configCPU_FAMILY==configCPU_FAMILY_ARM_M4F)
+ 839:../Generated_Code/port.c ****     " ldmia r0!, {r4-r11, r14}   \n" /* Pop the core registers */
+ 840:../Generated_Code/port.c ****     " tst r14, #0x10             \n" /* Is the task using the FPU context?  If so, pop the high vfp
+ 841:../Generated_Code/port.c ****     " it eq                      \n"
+ 842:../Generated_Code/port.c ****     " vldmiaeq r0!, {s16-s31}    \n"
+ 843:../Generated_Code/port.c **** #else
+ 844:../Generated_Code/port.c ****     " ldmia r0!, {r4-r11}        \n" /* Pop the core registers. */
+ 845:../Generated_Code/port.c **** #endif
+ 846:../Generated_Code/port.c ****     " msr psp, r0                \n"
+ 847:../Generated_Code/port.c ****     " bx r14                     \n"
+ 848:../Generated_Code/port.c ****     "                            \n"
+ 849:../Generated_Code/port.c ****     " .align 2                   \n"
+ 850:../Generated_Code/port.c ****     "pxCurrentTCBConst: .word pxCurrentTCB  \n"
+ 851:../Generated_Code/port.c ****     ::"i"(configMAX_SYSCALL_INTERRUPT_PRIORITY)
+ 852:../Generated_Code/port.c ****   );
+ 853:../Generated_Code/port.c **** #else /* Cortex M0+ */
+ 854:../Generated_Code/port.c ****   __asm volatile (
+ 855:../Generated_Code/port.c ****     " mrs r0, psp                \n"
+ 856:../Generated_Code/port.c ****     "                            \n"
+ 857:../Generated_Code/port.c ****     " ldr r3, pxCurrentTCBConst  \n" /* Get the location of the current TCB. */
+ 858:../Generated_Code/port.c ****     " ldr r2, [r3]   \n"
+ 859:../Generated_Code/port.c ****     "                            \n"
+ 860:../Generated_Code/port.c ****     " sub r0, r0, #32            \n" /* Make space for the remaining low registers. */
+ 861:../Generated_Code/port.c ****     " str r0, [r2]               \n" /* Save the new top of stack. */
+ 862:../Generated_Code/port.c ****     " stmia r0!, {r4-r7}         \n" /* Store the low registers that are not saved automatically. *
+ 863:../Generated_Code/port.c ****     " mov r4, r8                 \n" /* Store the high registers. */
+ 864:../Generated_Code/port.c ****     " mov r5, r9                 \n"
+ 865:../Generated_Code/port.c ****     " mov r6, r10                \n"
+ 866:../Generated_Code/port.c ****     " mov r7, r11                \n"
+ 867:../Generated_Code/port.c ****     " stmia r0!, {r4-r7}         \n"
+ 868:../Generated_Code/port.c ****     "                            \n"
+ 869:../Generated_Code/port.c ****     " push {r3, r14}             \n"
+ 870:../Generated_Code/port.c ****     " cpsid i                    \n"
+ 871:../Generated_Code/port.c ****     " bl vTaskSwitchContext      \n"
+ 872:../Generated_Code/port.c ****     " cpsie i                    \n"
+ 873:../Generated_Code/port.c ****     " pop {r2, r3}               \n" /* lr goes in r3. r2 now holds tcb pointer. */
+ 874:../Generated_Code/port.c ****     "                            \n"
+ 875:../Generated_Code/port.c ****     " ldr r1, [r2]               \n"
+ 876:../Generated_Code/port.c ****     " ldr r0, [r1]               \n" /* The first item in pxCurrentTCB is the task top of stack. */
+ 877:../Generated_Code/port.c ****     " add r0, r0, #16            \n" /* Move to the high registers. */
+ 878:../Generated_Code/port.c ****     " ldmia r0!, {r4-r7}         \n" /* Pop the high registers. */
+ 879:../Generated_Code/port.c ****     " mov r8, r4                 \n"
+ 880:../Generated_Code/port.c ****     " mov r9, r5                 \n"
+ 881:../Generated_Code/port.c ****     " mov r10, r6                \n"
+ 882:../Generated_Code/port.c ****     " mov r11, r7                \n"
+ 883:../Generated_Code/port.c ****     "                            \n"
+ 884:../Generated_Code/port.c ****     " msr psp, r0                \n" /* Remember the new top of stack for the task. */
+ 885:../Generated_Code/port.c ****     "                            \n"
+ 886:../Generated_Code/port.c ****     " sub r0, r0, #32            \n" /* Go back for the low registers that are not automatically re
+ 887:../Generated_Code/port.c ****     " ldmia r0!, {r4-r7}         \n" /* Pop low registers.  */
+ 888:../Generated_Code/port.c ****     "                            \n"
+ 889:../Generated_Code/port.c ****     " bx r3                      \n"
+ 890:../Generated_Code/port.c ****     "                            \n"
+ 891:../Generated_Code/port.c ****     ".align 2                    \n"
+ 892:../Generated_Code/port.c ****     "pxCurrentTCBConst: .word pxCurrentTCB"
+ 893:../Generated_Code/port.c ****   );
+ 579              		.loc 1 893 0
+ 580              	@ 893 "../Generated_Code/port.c" 1
+ 581 0000 EFF30980 		 mrs r0, psp                
+ 582              	                            
+ 583 0004 0E4B     	 ldr r3, pxCurrentTCBConst  
+ 584 0006 1A68     	 ldr r2, [r3]   
+ 585              	                            
+ 586 0008 2038     	 sub r0, r0, #32            
+ 587 000a 1060     	 str r0, [r2]               
+ 588 000c F0C0     	 stmia r0!, {r4-r7}         
+ 589 000e 4446     	 mov r4, r8                 
+ 590 0010 4D46     	 mov r5, r9                 
+ 591 0012 5646     	 mov r6, r10                
+ 592 0014 5F46     	 mov r7, r11                
+ 593 0016 F0C0     	 stmia r0!, {r4-r7}         
+ 594              	                            
+ 595 0018 08B5     	 push {r3, r14}             
+ 596 001a 72B6     	 cpsid i                    
+ 597 001c FFF7FEFF 	 bl vTaskSwitchContext      
+ 598 0020 62B6     	 cpsie i                    
+ 599 0022 0CBC     	 pop {r2, r3}               
+ 600              	                            
+ 601 0024 1168     	 ldr r1, [r2]               
+ 602 0026 0868     	 ldr r0, [r1]               
+ 603 0028 1030     	 add r0, r0, #16            
+ 604 002a F0C8     	 ldmia r0!, {r4-r7}         
+ 605 002c A046     	 mov r8, r4                 
+ 606 002e A946     	 mov r9, r5                 
+ 607 0030 B246     	 mov r10, r6                
+ 608 0032 BB46     	 mov r11, r7                
+ 609              	                            
+ 610 0034 80F30988 	 msr psp, r0                
+ 611              	                            
+ 612 0038 2038     	 sub r0, r0, #32            
+ 613 003a F0C8     	 ldmia r0!, {r4-r7}         
+ 614              	                            
+ 615 003c 1847     	 bx r3                      
+ 616              	                            
+ 617 003e C046     	.align 2                    
+ 618 0040 00000000 	pxCurrentTCBConst: .word pxCurrentTCB
+ 619              	@ 0 "" 2
+ 894:../Generated_Code/port.c **** #endif
+ 895:../Generated_Code/port.c **** }
+ 620              		.loc 1 895 0
+ 621              		.code	16
+ 622              		.cfi_endproc
+ 623              	.LFE12:
+ 625              		.text
+ 626              	.Letext0:
+ 627              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 628              		.file 3 "../Generated_Code/portmacro.h"
+ 629              		.file 4 "../Generated_Code/projdefs.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 port.c
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:18     .data._ZL17uxCriticalNesting:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:21     .data._ZL17uxCriticalNesting:00000000 _ZL17uxCriticalNesting
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:24     .text.pxPortInitialiseStack:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:29     .text.pxPortInitialiseStack:00000000 pxPortInitialiseStack
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:97     .text.vPortInitTickTimer:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:102    .text.vPortInitTickTimer:00000000 vPortInitTickTimer
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:141    .text.vPortInitTickTimer:00000028 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:150    .text.vPortStartTickTimer:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:155    .text.vPortStartTickTimer:00000000 vPortStartTickTimer
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:178    .text.vPortStartTickTimer:00000010 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:183    .text.vPortStopTickTimer:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:188    .text.vPortStopTickTimer:00000000 vPortStopTickTimer
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:211    .text.vPortStopTickTimer:00000010 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:216    .text.xPortStartScheduler:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:221    .text.xPortStartScheduler:00000000 xPortStartScheduler
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:498    .text.vPortStartFirstTask:00000000 vPortStartFirstTask
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:261    .text.xPortStartScheduler:0000002c $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:267    .text.vPortEnterCritical:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:272    .text.vPortEnterCritical:00000000 vPortEnterCritical
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:311    .text.vPortEnterCritical:0000001c $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:316    .text.vPortExitCritical:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:321    .text.vPortExitCritical:00000000 vPortExitCritical
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:357    .text.vPortExitCritical:0000001c $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:362    .text.vPortYieldFromISR:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:367    .text.vPortYieldFromISR:00000000 vPortYieldFromISR
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:400    .text.vPortYieldFromISR:00000018 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:405    .text._Z21uxGetTickCounterValuev:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:410    .text._Z21uxGetTickCounterValuev:00000000 _Z21uxGetTickCounterValuev
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:442    .text._Z21uxGetTickCounterValuev:00000018 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:447    .text.vPortTickHandler:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:452    .text.vPortTickHandler:00000000 vPortTickHandler
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:493    .text.vPortStartFirstTask:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:530    .text.vPortSVCHandler:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:535    .text.vPortSVCHandler:00000000 vPortSVCHandler
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:561    .text.vPortSVCHandler:00000024 pxCurrentTCBConst2
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:561    .text.vPortSVCHandler:00000024 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:570    .text.vPortPendSVHandler:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:575    .text.vPortPendSVHandler:00000000 vPortPendSVHandler
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:618    .text.vPortPendSVHandler:00000040 pxCurrentTCBConst
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:618    .text.vPortPendSVHandler:00000040 $d
+C:\Users\JH\AppData\Local\Temp\ccjremC3.s:529    .text.vPortStartFirstTask:00000018 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+xTaskIncrementTick
+pxCurrentTCB
+vTaskSwitchContext

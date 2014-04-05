@@ -1,0 +1,557 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"list.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.vListInitialise,"ax",%progbits
+  18              		.align	2
+  19              		.global	vListInitialise
+  20              		.code	16
+  21              		.thumb_func
+  23              	vListInitialise:
+  24              	.LFB4:
+  25              		.file 1 "../Generated_Code/list.c"
+   1:../Generated_Code/list.c **** /*
+   2:../Generated_Code/list.c ****     FreeRTOS V8.0.0 - Copyright (C) 2014 Real Time Engineers Ltd.
+   3:../Generated_Code/list.c ****     All rights reserved
+   4:../Generated_Code/list.c **** 
+   5:../Generated_Code/list.c ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+   6:../Generated_Code/list.c **** 
+   7:../Generated_Code/list.c ****     ***************************************************************************
+   8:../Generated_Code/list.c ****      *                                                                       *
+   9:../Generated_Code/list.c ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  10:../Generated_Code/list.c ****      *    robust, strictly quality controlled, supported, and cross          *
+  11:../Generated_Code/list.c ****      *    platform software that has become a de facto standard.             *
+  12:../Generated_Code/list.c ****      *                                                                       *
+  13:../Generated_Code/list.c ****      *    Help yourself get started quickly and support the FreeRTOS         *
+  14:../Generated_Code/list.c ****      *    project by purchasing a FreeRTOS tutorial book, reference          *
+  15:../Generated_Code/list.c ****      *    manual, or both from: http://www.FreeRTOS.org/Documentation        *
+  16:../Generated_Code/list.c ****      *                                                                       *
+  17:../Generated_Code/list.c ****      *    Thank you!                                                         *
+  18:../Generated_Code/list.c ****      *                                                                       *
+  19:../Generated_Code/list.c ****     ***************************************************************************
+  20:../Generated_Code/list.c **** 
+  21:../Generated_Code/list.c ****     This file is part of the FreeRTOS distribution.
+  22:../Generated_Code/list.c **** 
+  23:../Generated_Code/list.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  24:../Generated_Code/list.c ****     the terms of the GNU General Public License (version 2) as published by the
+  25:../Generated_Code/list.c ****     Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
+  26:../Generated_Code/list.c **** 
+  27:../Generated_Code/list.c ****     >>! NOTE: The modification to the GPL is included to allow you to distribute
+  28:../Generated_Code/list.c ****     >>! a combined work that includes FreeRTOS without being obliged to provide
+  29:../Generated_Code/list.c ****     >>! the source code for proprietary components outside of the FreeRTOS
+  30:../Generated_Code/list.c ****     >>! kernel.
+  31:../Generated_Code/list.c **** 
+  32:../Generated_Code/list.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  33:../Generated_Code/list.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  34:../Generated_Code/list.c ****     FOR A PARTICULAR PURPOSE.  Full license text is available from the following
+  35:../Generated_Code/list.c ****     link: http://www.freertos.org/a00114.html
+  36:../Generated_Code/list.c **** 
+  37:../Generated_Code/list.c ****     1 tab == 4 spaces!
+  38:../Generated_Code/list.c **** 
+  39:../Generated_Code/list.c ****     ***************************************************************************
+  40:../Generated_Code/list.c ****      *                                                                       *
+  41:../Generated_Code/list.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
+  42:../Generated_Code/list.c ****      *    not run, what could be wrong?"                                     *
+  43:../Generated_Code/list.c ****      *                                                                       *
+  44:../Generated_Code/list.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
+  45:../Generated_Code/list.c ****      *                                                                       *
+  46:../Generated_Code/list.c ****     ***************************************************************************
+  47:../Generated_Code/list.c **** 
+  48:../Generated_Code/list.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+  49:../Generated_Code/list.c ****     license and Real Time Engineers Ltd. contact details.
+  50:../Generated_Code/list.c **** 
+  51:../Generated_Code/list.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  52:../Generated_Code/list.c ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  53:../Generated_Code/list.c ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  54:../Generated_Code/list.c **** 
+  55:../Generated_Code/list.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+  56:../Generated_Code/list.c ****     Integrity Systems to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  57:../Generated_Code/list.c ****     licenses offer ticketed support, indemnification and middleware.
+  58:../Generated_Code/list.c **** 
+  59:../Generated_Code/list.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  60:../Generated_Code/list.c ****     engineered and independently SIL3 certified version for use in safety and
+  61:../Generated_Code/list.c ****     mission critical applications that require provable dependability.
+  62:../Generated_Code/list.c **** 
+  63:../Generated_Code/list.c ****     1 tab == 4 spaces!
+  64:../Generated_Code/list.c **** */
+  65:../Generated_Code/list.c **** 
+  66:../Generated_Code/list.c **** 
+  67:../Generated_Code/list.c **** #include <stdlib.h>
+  68:../Generated_Code/list.c **** #include "FreeRTOS.h"
+  69:../Generated_Code/list.c **** #include "list.h"
+  70:../Generated_Code/list.c **** 
+  71:../Generated_Code/list.c **** /*-----------------------------------------------------------
+  72:../Generated_Code/list.c ****  * PUBLIC LIST API documented in list.h
+  73:../Generated_Code/list.c ****  *----------------------------------------------------------*/
+  74:../Generated_Code/list.c **** 
+  75:../Generated_Code/list.c **** void vListInitialise( List_t * const pxList )
+  76:../Generated_Code/list.c **** {
+  26              		.loc 1 76 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  77:../Generated_Code/list.c ****         /* The list structure contains a list item which is used to mark the
+  78:../Generated_Code/list.c ****         end of the list.  To initialise the list the list end is inserted
+  79:../Generated_Code/list.c ****         as the only list entry. */
+  80:../Generated_Code/list.c ****         pxList->pxIndex = ( ListItem_t * ) &( pxList->xListEnd );                       /*lint !e82
+  40              		.loc 1 80 0
+  41 0008 7B68     		ldr	r3, [r7, #4]
+  42 000a 1A1C     		mov	r2, r3
+  43 000c 0832     		add	r2, r2, #8
+  44 000e 7B68     		ldr	r3, [r7, #4]
+  45 0010 5A60     		str	r2, [r3, #4]
+  81:../Generated_Code/list.c **** 
+  82:../Generated_Code/list.c ****         /* The list end value is the highest possible value in the list to
+  83:../Generated_Code/list.c ****         ensure it remains at the end of the list. */
+  84:../Generated_Code/list.c ****         pxList->xListEnd.xItemValue = portMAX_DELAY;
+  46              		.loc 1 84 0
+  47 0012 7B68     		ldr	r3, [r7, #4]
+  48 0014 0122     		mov	r2, #1
+  49 0016 5242     		neg	r2, r2
+  50 0018 9A60     		str	r2, [r3, #8]
+  85:../Generated_Code/list.c **** 
+  86:../Generated_Code/list.c ****         /* The list end next and previous pointers point to itself so we know
+  87:../Generated_Code/list.c ****         when the list is empty. */
+  88:../Generated_Code/list.c ****         pxList->xListEnd.pxNext = ( ListItem_t * ) &( pxList->xListEnd );       /*lint !e826 !e740 
+  51              		.loc 1 88 0
+  52 001a 7B68     		ldr	r3, [r7, #4]
+  53 001c 1A1C     		mov	r2, r3
+  54 001e 0832     		add	r2, r2, #8
+  55 0020 7B68     		ldr	r3, [r7, #4]
+  56 0022 DA60     		str	r2, [r3, #12]
+  89:../Generated_Code/list.c ****         pxList->xListEnd.pxPrevious = ( ListItem_t * ) &( pxList->xListEnd );/*lint !e826 !e740 The
+  57              		.loc 1 89 0
+  58 0024 7B68     		ldr	r3, [r7, #4]
+  59 0026 1A1C     		mov	r2, r3
+  60 0028 0832     		add	r2, r2, #8
+  61 002a 7B68     		ldr	r3, [r7, #4]
+  62 002c 1A61     		str	r2, [r3, #16]
+  90:../Generated_Code/list.c **** 
+  91:../Generated_Code/list.c ****         pxList->uxNumberOfItems = ( UBaseType_t ) 0U;
+  63              		.loc 1 91 0
+  64 002e 7B68     		ldr	r3, [r7, #4]
+  65 0030 0022     		mov	r2, #0
+  66 0032 1A60     		str	r2, [r3]
+  92:../Generated_Code/list.c **** }
+  67              		.loc 1 92 0
+  68 0034 BD46     		mov	sp, r7
+  69 0036 02B0     		add	sp, sp, #8
+  70              		@ sp needed for prologue
+  71 0038 80BD     		pop	{r7, pc}
+  72              		.cfi_endproc
+  73              	.LFE4:
+  75 003a C046     		.section	.text.vListInitialiseItem,"ax",%progbits
+  76              		.align	2
+  77              		.global	vListInitialiseItem
+  78              		.code	16
+  79              		.thumb_func
+  81              	vListInitialiseItem:
+  82              	.LFB5:
+  93:../Generated_Code/list.c **** /*-----------------------------------------------------------*/
+  94:../Generated_Code/list.c **** 
+  95:../Generated_Code/list.c **** void vListInitialiseItem( ListItem_t * const pxItem )
+  96:../Generated_Code/list.c **** {
+  83              		.loc 1 96 0
+  84              		.cfi_startproc
+  85 0000 80B5     		push	{r7, lr}
+  86              	.LCFI3:
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 7, -8
+  89              		.cfi_offset 14, -4
+  90 0002 82B0     		sub	sp, sp, #8
+  91              	.LCFI4:
+  92              		.cfi_def_cfa_offset 16
+  93 0004 00AF     		add	r7, sp, #0
+  94              	.LCFI5:
+  95              		.cfi_def_cfa_register 7
+  96 0006 7860     		str	r0, [r7, #4]
+  97:../Generated_Code/list.c ****         /* Make sure the list item is not recorded as being on a list. */
+  98:../Generated_Code/list.c ****         pxItem->pvContainer = NULL;
+  97              		.loc 1 98 0
+  98 0008 7B68     		ldr	r3, [r7, #4]
+  99 000a 0022     		mov	r2, #0
+ 100 000c 1A61     		str	r2, [r3, #16]
+  99:../Generated_Code/list.c **** }
+ 101              		.loc 1 99 0
+ 102 000e BD46     		mov	sp, r7
+ 103 0010 02B0     		add	sp, sp, #8
+ 104              		@ sp needed for prologue
+ 105 0012 80BD     		pop	{r7, pc}
+ 106              		.cfi_endproc
+ 107              	.LFE5:
+ 109              		.section	.text.vListInsertEnd,"ax",%progbits
+ 110              		.align	2
+ 111              		.global	vListInsertEnd
+ 112              		.code	16
+ 113              		.thumb_func
+ 115              	vListInsertEnd:
+ 116              	.LFB6:
+ 100:../Generated_Code/list.c **** /*-----------------------------------------------------------*/
+ 101:../Generated_Code/list.c **** 
+ 102:../Generated_Code/list.c **** void vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem )
+ 103:../Generated_Code/list.c **** {
+ 117              		.loc 1 103 0
+ 118              		.cfi_startproc
+ 119 0000 80B5     		push	{r7, lr}
+ 120              	.LCFI6:
+ 121              		.cfi_def_cfa_offset 8
+ 122              		.cfi_offset 7, -8
+ 123              		.cfi_offset 14, -4
+ 124 0002 84B0     		sub	sp, sp, #16
+ 125              	.LCFI7:
+ 126              		.cfi_def_cfa_offset 24
+ 127 0004 00AF     		add	r7, sp, #0
+ 128              	.LCFI8:
+ 129              		.cfi_def_cfa_register 7
+ 130 0006 7860     		str	r0, [r7, #4]
+ 131 0008 3960     		str	r1, [r7]
+ 132              	.LBB2:
+ 104:../Generated_Code/list.c **** ListItem_t * const pxIndex = pxList->pxIndex;
+ 133              		.loc 1 104 0
+ 134 000a 7B68     		ldr	r3, [r7, #4]
+ 135 000c 5B68     		ldr	r3, [r3, #4]
+ 136 000e FB60     		str	r3, [r7, #12]
+ 105:../Generated_Code/list.c **** 
+ 106:../Generated_Code/list.c ****         /* Insert a new list item into pxList, but rather than sort the list,
+ 107:../Generated_Code/list.c ****         makes the new list item the last item to be removed by a call to
+ 108:../Generated_Code/list.c ****         listGET_OWNER_OF_NEXT_ENTRY(). */
+ 109:../Generated_Code/list.c ****         pxNewListItem->pxNext = pxIndex;
+ 137              		.loc 1 109 0
+ 138 0010 3B68     		ldr	r3, [r7]
+ 139 0012 FA68     		ldr	r2, [r7, #12]
+ 140 0014 5A60     		str	r2, [r3, #4]
+ 110:../Generated_Code/list.c ****         pxNewListItem->pxPrevious = pxIndex->pxPrevious;
+ 141              		.loc 1 110 0
+ 142 0016 FB68     		ldr	r3, [r7, #12]
+ 143 0018 9A68     		ldr	r2, [r3, #8]
+ 144 001a 3B68     		ldr	r3, [r7]
+ 145 001c 9A60     		str	r2, [r3, #8]
+ 111:../Generated_Code/list.c ****         pxIndex->pxPrevious->pxNext = pxNewListItem;
+ 146              		.loc 1 111 0
+ 147 001e FB68     		ldr	r3, [r7, #12]
+ 148 0020 9B68     		ldr	r3, [r3, #8]
+ 149 0022 3A68     		ldr	r2, [r7]
+ 150 0024 5A60     		str	r2, [r3, #4]
+ 112:../Generated_Code/list.c ****         pxIndex->pxPrevious = pxNewListItem;
+ 151              		.loc 1 112 0
+ 152 0026 FB68     		ldr	r3, [r7, #12]
+ 153 0028 3A68     		ldr	r2, [r7]
+ 154 002a 9A60     		str	r2, [r3, #8]
+ 113:../Generated_Code/list.c **** 
+ 114:../Generated_Code/list.c ****         /* Remember which list the item is in. */
+ 115:../Generated_Code/list.c ****         pxNewListItem->pvContainer = ( void * ) pxList;
+ 155              		.loc 1 115 0
+ 156 002c 3B68     		ldr	r3, [r7]
+ 157 002e 7A68     		ldr	r2, [r7, #4]
+ 158 0030 1A61     		str	r2, [r3, #16]
+ 116:../Generated_Code/list.c **** 
+ 117:../Generated_Code/list.c ****         ( pxList->uxNumberOfItems )++;
+ 159              		.loc 1 117 0
+ 160 0032 7B68     		ldr	r3, [r7, #4]
+ 161 0034 1B68     		ldr	r3, [r3]
+ 162 0036 5A1C     		add	r2, r3, #1
+ 163 0038 7B68     		ldr	r3, [r7, #4]
+ 164 003a 1A60     		str	r2, [r3]
+ 165              	.LBE2:
+ 118:../Generated_Code/list.c **** }
+ 166              		.loc 1 118 0
+ 167 003c BD46     		mov	sp, r7
+ 168 003e 04B0     		add	sp, sp, #16
+ 169              		@ sp needed for prologue
+ 170 0040 80BD     		pop	{r7, pc}
+ 171              		.cfi_endproc
+ 172              	.LFE6:
+ 174 0042 C046     		.section	.text.vListInsert,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	vListInsert
+ 177              		.code	16
+ 178              		.thumb_func
+ 180              	vListInsert:
+ 181              	.LFB7:
+ 119:../Generated_Code/list.c **** /*-----------------------------------------------------------*/
+ 120:../Generated_Code/list.c **** 
+ 121:../Generated_Code/list.c **** void vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem )
+ 122:../Generated_Code/list.c **** {
+ 182              		.loc 1 122 0
+ 183              		.cfi_startproc
+ 184 0000 80B5     		push	{r7, lr}
+ 185              	.LCFI9:
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 7, -8
+ 188              		.cfi_offset 14, -4
+ 189 0002 84B0     		sub	sp, sp, #16
+ 190              	.LCFI10:
+ 191              		.cfi_def_cfa_offset 24
+ 192 0004 00AF     		add	r7, sp, #0
+ 193              	.LCFI11:
+ 194              		.cfi_def_cfa_register 7
+ 195 0006 7860     		str	r0, [r7, #4]
+ 196 0008 3960     		str	r1, [r7]
+ 197              	.LBB3:
+ 123:../Generated_Code/list.c **** ListItem_t *pxIterator;
+ 124:../Generated_Code/list.c **** const TickType_t xValueOfInsertion = pxNewListItem->xItemValue;
+ 198              		.loc 1 124 0
+ 199 000a 3B68     		ldr	r3, [r7]
+ 200 000c 1B68     		ldr	r3, [r3]
+ 201 000e BB60     		str	r3, [r7, #8]
+ 125:../Generated_Code/list.c **** 
+ 126:../Generated_Code/list.c ****         /* Insert the new list item into the list, sorted in xItemValue order.
+ 127:../Generated_Code/list.c **** 
+ 128:../Generated_Code/list.c ****         If the list already contains a list item with the same item value then
+ 129:../Generated_Code/list.c ****         the new list item should be placed after it.  This ensures that TCB's which
+ 130:../Generated_Code/list.c ****         are stored in ready lists (all of which have the same xItemValue value)
+ 131:../Generated_Code/list.c ****         get an equal share of the CPU.  However, if the xItemValue is the same as
+ 132:../Generated_Code/list.c ****         the back marker the iteration loop below will not end.  This means we need
+ 133:../Generated_Code/list.c ****         to guard against this by checking the value first and modifying the
+ 134:../Generated_Code/list.c ****         algorithm slightly if necessary. */
+ 135:../Generated_Code/list.c ****         if( xValueOfInsertion == portMAX_DELAY )
+ 202              		.loc 1 135 0
+ 203 0010 BB68     		ldr	r3, [r7, #8]
+ 204 0012 0133     		add	r3, r3, #1
+ 205 0014 03D1     		bne	.L5
+ 136:../Generated_Code/list.c ****         {
+ 137:../Generated_Code/list.c ****                 pxIterator = pxList->xListEnd.pxPrevious;
+ 206              		.loc 1 137 0
+ 207 0016 7B68     		ldr	r3, [r7, #4]
+ 208 0018 1B69     		ldr	r3, [r3, #16]
+ 209 001a FB60     		str	r3, [r7, #12]
+ 210 001c 10E0     		b	.L6
+ 211              	.L5:
+ 138:../Generated_Code/list.c ****         }
+ 139:../Generated_Code/list.c ****         else
+ 140:../Generated_Code/list.c ****         {
+ 141:../Generated_Code/list.c ****                 /* *** NOTE ***********************************************************
+ 142:../Generated_Code/list.c ****                 If you find your application is crashing here then likely causes are:
+ 143:../Generated_Code/list.c ****                         1) Stack overflow -
+ 144:../Generated_Code/list.c ****                            see http://www.freertos.org/Stacks-and-stack-overflow-checking.html
+ 145:../Generated_Code/list.c ****                         2) Incorrect interrupt priority assignment, especially on Cortex-M3
+ 146:../Generated_Code/list.c ****                            parts where numerically high priority values denote low actual
+ 147:../Generated_Code/list.c ****                            interrupt priories, which can seem counter intuitive.  See
+ 148:../Generated_Code/list.c ****                            configMAX_SYSCALL_INTERRUPT_PRIORITY on http://www.freertos.org/a00110.h
+ 149:../Generated_Code/list.c ****                         3) Calling an API function from within a critical section or when
+ 150:../Generated_Code/list.c ****                            the scheduler is suspended, or calling an API function that does
+ 151:../Generated_Code/list.c ****                            not end in "FromISR" from an interrupt.
+ 152:../Generated_Code/list.c ****                         4) Using a queue or semaphore before it has been initialised or
+ 153:../Generated_Code/list.c ****                            before the scheduler has been started (are interrupts firing
+ 154:../Generated_Code/list.c ****                            before vTaskStartScheduler() has been called?).
+ 155:../Generated_Code/list.c ****                 See http://www.freertos.org/FAQHelp.html for more tips, and ensure
+ 156:../Generated_Code/list.c ****                 configASSERT() is defined!  http://www.freertos.org/a00110.html#configASSERT
+ 157:../Generated_Code/list.c ****                 **********************************************************************/
+ 158:../Generated_Code/list.c **** 
+ 159:../Generated_Code/list.c ****                 for( pxIterator = ( ListItem_t * ) &( pxList->xListEnd ); pxIterator->pxNext->xItem
+ 212              		.loc 1 159 0
+ 213 001e 7B68     		ldr	r3, [r7, #4]
+ 214 0020 0833     		add	r3, r3, #8
+ 215 0022 FB60     		str	r3, [r7, #12]
+ 216 0024 02E0     		b	.L7
+ 217              	.L8:
+ 218              		.loc 1 159 0 is_stmt 0
+ 219 0026 FB68     		ldr	r3, [r7, #12]
+ 220 0028 5B68     		ldr	r3, [r3, #4]
+ 221 002a FB60     		str	r3, [r7, #12]
+ 222              	.L7:
+ 223              		.loc 1 159 0
+ 224 002c FB68     		ldr	r3, [r7, #12]
+ 225 002e 5B68     		ldr	r3, [r3, #4]
+ 226 0030 1A68     		ldr	r2, [r3]
+ 227 0032 B968     		ldr	r1, [r7, #8]
+ 228 0034 0023     		mov	r3, #0
+ 229 0036 9142     		cmp	r1, r2
+ 230 0038 5B41     		adc	r3, r3, r3
+ 231 003a DBB2     		uxtb	r3, r3
+ 232 003c 002B     		cmp	r3, #0
+ 233 003e F2D1     		bne	.L8
+ 234              	.L6:
+ 160:../Generated_Code/list.c ****                 {
+ 161:../Generated_Code/list.c ****                         /* There is nothing to do here, we are just iterating to the
+ 162:../Generated_Code/list.c ****                         wanted insertion position. */
+ 163:../Generated_Code/list.c ****                 }
+ 164:../Generated_Code/list.c ****         }
+ 165:../Generated_Code/list.c **** 
+ 166:../Generated_Code/list.c ****         pxNewListItem->pxNext = pxIterator->pxNext;
+ 235              		.loc 1 166 0 is_stmt 1
+ 236 0040 FB68     		ldr	r3, [r7, #12]
+ 237 0042 5A68     		ldr	r2, [r3, #4]
+ 238 0044 3B68     		ldr	r3, [r7]
+ 239 0046 5A60     		str	r2, [r3, #4]
+ 167:../Generated_Code/list.c ****         pxNewListItem->pxNext->pxPrevious = pxNewListItem;
+ 240              		.loc 1 167 0
+ 241 0048 3B68     		ldr	r3, [r7]
+ 242 004a 5B68     		ldr	r3, [r3, #4]
+ 243 004c 3A68     		ldr	r2, [r7]
+ 244 004e 9A60     		str	r2, [r3, #8]
+ 168:../Generated_Code/list.c ****         pxNewListItem->pxPrevious = pxIterator;
+ 245              		.loc 1 168 0
+ 246 0050 3B68     		ldr	r3, [r7]
+ 247 0052 FA68     		ldr	r2, [r7, #12]
+ 248 0054 9A60     		str	r2, [r3, #8]
+ 169:../Generated_Code/list.c ****         pxIterator->pxNext = pxNewListItem;
+ 249              		.loc 1 169 0
+ 250 0056 FB68     		ldr	r3, [r7, #12]
+ 251 0058 3A68     		ldr	r2, [r7]
+ 252 005a 5A60     		str	r2, [r3, #4]
+ 170:../Generated_Code/list.c **** 
+ 171:../Generated_Code/list.c ****         /* Remember which list the item is in.  This allows fast removal of the
+ 172:../Generated_Code/list.c ****         item later. */
+ 173:../Generated_Code/list.c ****         pxNewListItem->pvContainer = ( void * ) pxList;
+ 253              		.loc 1 173 0
+ 254 005c 3B68     		ldr	r3, [r7]
+ 255 005e 7A68     		ldr	r2, [r7, #4]
+ 256 0060 1A61     		str	r2, [r3, #16]
+ 174:../Generated_Code/list.c **** 
+ 175:../Generated_Code/list.c ****         ( pxList->uxNumberOfItems )++;
+ 257              		.loc 1 175 0
+ 258 0062 7B68     		ldr	r3, [r7, #4]
+ 259 0064 1B68     		ldr	r3, [r3]
+ 260 0066 5A1C     		add	r2, r3, #1
+ 261 0068 7B68     		ldr	r3, [r7, #4]
+ 262 006a 1A60     		str	r2, [r3]
+ 263              	.LBE3:
+ 176:../Generated_Code/list.c **** }
+ 264              		.loc 1 176 0
+ 265 006c BD46     		mov	sp, r7
+ 266 006e 04B0     		add	sp, sp, #16
+ 267              		@ sp needed for prologue
+ 268 0070 80BD     		pop	{r7, pc}
+ 269              		.cfi_endproc
+ 270              	.LFE7:
+ 272 0072 C046     		.section	.text.uxListRemove,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	uxListRemove
+ 275              		.code	16
+ 276              		.thumb_func
+ 278              	uxListRemove:
+ 279              	.LFB8:
+ 177:../Generated_Code/list.c **** /*-----------------------------------------------------------*/
+ 178:../Generated_Code/list.c **** 
+ 179:../Generated_Code/list.c **** UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove )
+ 180:../Generated_Code/list.c **** {
+ 280              		.loc 1 180 0
+ 281              		.cfi_startproc
+ 282 0000 80B5     		push	{r7, lr}
+ 283              	.LCFI12:
+ 284              		.cfi_def_cfa_offset 8
+ 285              		.cfi_offset 7, -8
+ 286              		.cfi_offset 14, -4
+ 287 0002 84B0     		sub	sp, sp, #16
+ 288              	.LCFI13:
+ 289              		.cfi_def_cfa_offset 24
+ 290 0004 00AF     		add	r7, sp, #0
+ 291              	.LCFI14:
+ 292              		.cfi_def_cfa_register 7
+ 293 0006 7860     		str	r0, [r7, #4]
+ 294              	.LBB4:
+ 181:../Generated_Code/list.c **** /* The list item knows which list it is in.  Obtain the list from the list
+ 182:../Generated_Code/list.c **** item. */
+ 183:../Generated_Code/list.c **** List_t * const pxList = ( List_t * ) pxItemToRemove->pvContainer;
+ 295              		.loc 1 183 0
+ 296 0008 7B68     		ldr	r3, [r7, #4]
+ 297 000a 1B69     		ldr	r3, [r3, #16]
+ 298 000c FB60     		str	r3, [r7, #12]
+ 184:../Generated_Code/list.c **** 
+ 185:../Generated_Code/list.c ****         pxItemToRemove->pxNext->pxPrevious = pxItemToRemove->pxPrevious;
+ 299              		.loc 1 185 0
+ 300 000e 7B68     		ldr	r3, [r7, #4]
+ 301 0010 5B68     		ldr	r3, [r3, #4]
+ 302 0012 7A68     		ldr	r2, [r7, #4]
+ 303 0014 9268     		ldr	r2, [r2, #8]
+ 304 0016 9A60     		str	r2, [r3, #8]
+ 186:../Generated_Code/list.c ****         pxItemToRemove->pxPrevious->pxNext = pxItemToRemove->pxNext;
+ 305              		.loc 1 186 0
+ 306 0018 7B68     		ldr	r3, [r7, #4]
+ 307 001a 9B68     		ldr	r3, [r3, #8]
+ 308 001c 7A68     		ldr	r2, [r7, #4]
+ 309 001e 5268     		ldr	r2, [r2, #4]
+ 310 0020 5A60     		str	r2, [r3, #4]
+ 187:../Generated_Code/list.c **** 
+ 188:../Generated_Code/list.c ****         /* Make sure the index is left pointing to a valid item. */
+ 189:../Generated_Code/list.c ****         if( pxList->pxIndex == pxItemToRemove )
+ 311              		.loc 1 189 0
+ 312 0022 FB68     		ldr	r3, [r7, #12]
+ 313 0024 5A68     		ldr	r2, [r3, #4]
+ 314 0026 7B68     		ldr	r3, [r7, #4]
+ 315 0028 9A42     		cmp	r2, r3
+ 316 002a 03D1     		bne	.L10
+ 190:../Generated_Code/list.c ****         {
+ 191:../Generated_Code/list.c ****                 pxList->pxIndex = pxItemToRemove->pxPrevious;
+ 317              		.loc 1 191 0
+ 318 002c 7B68     		ldr	r3, [r7, #4]
+ 319 002e 9A68     		ldr	r2, [r3, #8]
+ 320 0030 FB68     		ldr	r3, [r7, #12]
+ 321 0032 5A60     		str	r2, [r3, #4]
+ 322              	.L10:
+ 192:../Generated_Code/list.c ****         }
+ 193:../Generated_Code/list.c ****         else
+ 194:../Generated_Code/list.c ****         {
+ 195:../Generated_Code/list.c ****                 mtCOVERAGE_TEST_MARKER();
+ 196:../Generated_Code/list.c ****         }
+ 197:../Generated_Code/list.c **** 
+ 198:../Generated_Code/list.c ****         pxItemToRemove->pvContainer = NULL;
+ 323              		.loc 1 198 0
+ 324 0034 7B68     		ldr	r3, [r7, #4]
+ 325 0036 0022     		mov	r2, #0
+ 326 0038 1A61     		str	r2, [r3, #16]
+ 199:../Generated_Code/list.c ****         ( pxList->uxNumberOfItems )--;
+ 327              		.loc 1 199 0
+ 328 003a FB68     		ldr	r3, [r7, #12]
+ 329 003c 1B68     		ldr	r3, [r3]
+ 330 003e 5A1E     		sub	r2, r3, #1
+ 331 0040 FB68     		ldr	r3, [r7, #12]
+ 332 0042 1A60     		str	r2, [r3]
+ 200:../Generated_Code/list.c **** 
+ 201:../Generated_Code/list.c ****         return pxList->uxNumberOfItems;
+ 333              		.loc 1 201 0
+ 334 0044 FB68     		ldr	r3, [r7, #12]
+ 335 0046 1B68     		ldr	r3, [r3]
+ 336              	.LBE4:
+ 202:../Generated_Code/list.c **** }
+ 337              		.loc 1 202 0
+ 338 0048 181C     		mov	r0, r3
+ 339 004a BD46     		mov	sp, r7
+ 340 004c 04B0     		add	sp, sp, #16
+ 341              		@ sp needed for prologue
+ 342 004e 80BD     		pop	{r7, pc}
+ 343              		.cfi_endproc
+ 344              	.LFE8:
+ 346              		.text
+ 347              	.Letext0:
+ 348              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 349              		.file 3 "../Generated_Code/portmacro.h"
+ 350              		.file 4 "../Generated_Code/list.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 list.c
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:18     .text.vListInitialise:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:23     .text.vListInitialise:00000000 vListInitialise
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:76     .text.vListInitialiseItem:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:81     .text.vListInitialiseItem:00000000 vListInitialiseItem
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:110    .text.vListInsertEnd:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:115    .text.vListInsertEnd:00000000 vListInsertEnd
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:175    .text.vListInsert:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:180    .text.vListInsert:00000000 vListInsert
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:273    .text.uxListRemove:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccZ4OtvZ.s:278    .text.uxListRemove:00000000 uxListRemove
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,26 @@
+-mcpu=cortex-m0
+-mthumb
+-mfloat-abi=soft
+-g3
+-gdwarf-2
+-gstrict-dwarf
+-nostdinc
+-nostdinc++
+-I"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Project_Headers"
+-I"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Project_Settings/Startup_Code"
+-I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include"
+-I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C++/include"
+-I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include"
+-I"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code"
+-I"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Sources"
+-I"C:/Freescale/CW MCU v10.5/MCU/ProcessorExpert/lib/Kinetis/iofiles"
+-I"C:/Freescale/CW MCU v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc"
+-O0
+-ffunction-sections
+-fdata-sections
+-fno-exceptions
+-c
+-fmessage-length=0
+-Iinclude
+-include lib_ewl_c++.prefix
+-fpermissive

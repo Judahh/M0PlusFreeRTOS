@@ -1,0 +1,857 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"heap_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss._ZL6ucHeap,"aw",%nobits
+  18              		.align	2
+  21              	_ZL6ucHeap:
+  22 0000 00000000 		.space	5000
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  23              		.section	.bss._ZL6xStart,"aw",%nobits
+  24              		.align	2
+  27              	_ZL6xStart:
+  28 0000 00000000 		.space	8
+  28      00000000 
+  29              		.section	.bss._ZL4xEnd,"aw",%nobits
+  30              		.align	2
+  33              	_ZL4xEnd:
+  34 0000 00000000 		.space	8
+  34      00000000 
+  35              		.section	.data._ZL19xFreeBytesRemaining,"aw",%progbits
+  36              		.align	2
+  39              	_ZL19xFreeBytesRemaining:
+  40 0000 80130000 		.word	4992
+  41              		.section	.text.pvPortMalloc,"ax",%progbits
+  42              		.align	2
+  43              		.global	pvPortMalloc
+  44              		.code	16
+  45              		.thumb_func
+  47              	pvPortMalloc:
+  48              	.LFB9:
+  49              		.file 1 "../Generated_Code/heap_2.c"
+   1:../Generated_Code/heap_2.c **** /* << EST */
+   2:../Generated_Code/heap_2.c **** #include "FreeRTOSConfig.h"
+   3:../Generated_Code/heap_2.c **** #if configFRTOS_MEMORY_SCHEME==2
+   4:../Generated_Code/heap_2.c **** 
+   5:../Generated_Code/heap_2.c **** /*
+   6:../Generated_Code/heap_2.c ****     FreeRTOS V8.0.0 - Copyright (C) 2014 Real Time Engineers Ltd.
+   7:../Generated_Code/heap_2.c ****     All rights reserved
+   8:../Generated_Code/heap_2.c **** 
+   9:../Generated_Code/heap_2.c ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+  10:../Generated_Code/heap_2.c **** 
+  11:../Generated_Code/heap_2.c ****     ***************************************************************************
+  12:../Generated_Code/heap_2.c ****      *                                                                       *
+  13:../Generated_Code/heap_2.c ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  14:../Generated_Code/heap_2.c ****      *    robust, strictly quality controlled, supported, and cross          *
+  15:../Generated_Code/heap_2.c ****      *    platform software that has become a de facto standard.             *
+  16:../Generated_Code/heap_2.c ****      *                                                                       *
+  17:../Generated_Code/heap_2.c ****      *    Help yourself get started quickly and support the FreeRTOS         *
+  18:../Generated_Code/heap_2.c ****      *    project by purchasing a FreeRTOS tutorial book, reference          *
+  19:../Generated_Code/heap_2.c ****      *    manual, or both from: http://www.FreeRTOS.org/Documentation        *
+  20:../Generated_Code/heap_2.c ****      *                                                                       *
+  21:../Generated_Code/heap_2.c ****      *    Thank you!                                                         *
+  22:../Generated_Code/heap_2.c ****      *                                                                       *
+  23:../Generated_Code/heap_2.c ****     ***************************************************************************
+  24:../Generated_Code/heap_2.c **** 
+  25:../Generated_Code/heap_2.c ****     This file is part of the FreeRTOS distribution.
+  26:../Generated_Code/heap_2.c **** 
+  27:../Generated_Code/heap_2.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  28:../Generated_Code/heap_2.c ****     the terms of the GNU General Public License (version 2) as published by the
+  29:../Generated_Code/heap_2.c ****     Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
+  30:../Generated_Code/heap_2.c **** 
+  31:../Generated_Code/heap_2.c ****     >>! NOTE: The modification to the GPL is included to allow you to distribute
+  32:../Generated_Code/heap_2.c ****     >>! a combined work that includes FreeRTOS without being obliged to provide
+  33:../Generated_Code/heap_2.c ****     >>! the source code for proprietary components outside of the FreeRTOS
+  34:../Generated_Code/heap_2.c ****     >>! kernel.
+  35:../Generated_Code/heap_2.c **** 
+  36:../Generated_Code/heap_2.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  37:../Generated_Code/heap_2.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  38:../Generated_Code/heap_2.c ****     FOR A PARTICULAR PURPOSE.  Full license text is available from the following
+  39:../Generated_Code/heap_2.c ****     link: http://www.freertos.org/a00114.html
+  40:../Generated_Code/heap_2.c **** 
+  41:../Generated_Code/heap_2.c ****     1 tab == 4 spaces!
+  42:../Generated_Code/heap_2.c **** 
+  43:../Generated_Code/heap_2.c ****     ***************************************************************************
+  44:../Generated_Code/heap_2.c ****      *                                                                       *
+  45:../Generated_Code/heap_2.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
+  46:../Generated_Code/heap_2.c ****      *    not run, what could be wrong?"                                     *
+  47:../Generated_Code/heap_2.c ****      *                                                                       *
+  48:../Generated_Code/heap_2.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
+  49:../Generated_Code/heap_2.c ****      *                                                                       *
+  50:../Generated_Code/heap_2.c ****     ***************************************************************************
+  51:../Generated_Code/heap_2.c **** 
+  52:../Generated_Code/heap_2.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+  53:../Generated_Code/heap_2.c ****     license and Real Time Engineers Ltd. contact details.
+  54:../Generated_Code/heap_2.c **** 
+  55:../Generated_Code/heap_2.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  56:../Generated_Code/heap_2.c ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  57:../Generated_Code/heap_2.c ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  58:../Generated_Code/heap_2.c **** 
+  59:../Generated_Code/heap_2.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+  60:../Generated_Code/heap_2.c ****     Integrity Systems to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  61:../Generated_Code/heap_2.c ****     licenses offer ticketed support, indemnification and middleware.
+  62:../Generated_Code/heap_2.c **** 
+  63:../Generated_Code/heap_2.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  64:../Generated_Code/heap_2.c ****     engineered and independently SIL3 certified version for use in safety and
+  65:../Generated_Code/heap_2.c ****     mission critical applications that require provable dependability.
+  66:../Generated_Code/heap_2.c **** 
+  67:../Generated_Code/heap_2.c ****     1 tab == 4 spaces!
+  68:../Generated_Code/heap_2.c **** */
+  69:../Generated_Code/heap_2.c **** 
+  70:../Generated_Code/heap_2.c **** /*
+  71:../Generated_Code/heap_2.c ****  * A sample implementation of pvPortMalloc() and vPortFree() that permits
+  72:../Generated_Code/heap_2.c ****  * allocated blocks to be freed, but does not combine adjacent free blocks
+  73:../Generated_Code/heap_2.c ****  * into a single larger block (and so will fragment memory).  See heap_4.c for
+  74:../Generated_Code/heap_2.c ****  * an equivalent that does combine adjacent blocks into single larger blocks.
+  75:../Generated_Code/heap_2.c ****  *
+  76:../Generated_Code/heap_2.c ****  * See heap_1.c, heap_3.c and heap_4.c for alternative implementations, and the
+  77:../Generated_Code/heap_2.c ****  * memory management pages of http://www.FreeRTOS.org for more information.
+  78:../Generated_Code/heap_2.c ****  */
+  79:../Generated_Code/heap_2.c **** #include <stdlib.h>
+  80:../Generated_Code/heap_2.c **** 
+  81:../Generated_Code/heap_2.c **** #include "Events.h"
+  82:../Generated_Code/heap_2.c **** 
+  83:../Generated_Code/heap_2.c **** /* Defining MPU_WRAPPERS_INCLUDED_FROM_API_FILE prevents task.h from redefining
+  84:../Generated_Code/heap_2.c **** all the API functions to use the MPU wrappers.  That should only be done when
+  85:../Generated_Code/heap_2.c **** task.h is included from an application file. */
+  86:../Generated_Code/heap_2.c **** #define MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  87:../Generated_Code/heap_2.c **** 
+  88:../Generated_Code/heap_2.c **** #include "FreeRTOS.h"
+  89:../Generated_Code/heap_2.c **** #include "task.h"
+  90:../Generated_Code/heap_2.c **** 
+  91:../Generated_Code/heap_2.c **** #undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  92:../Generated_Code/heap_2.c **** 
+  93:../Generated_Code/heap_2.c **** /* A few bytes might be lost to byte aligning the heap start address. */
+  94:../Generated_Code/heap_2.c **** #define configADJUSTED_HEAP_SIZE        ( configTOTAL_HEAP_SIZE - portBYTE_ALIGNMENT )
+  95:../Generated_Code/heap_2.c **** 
+  96:../Generated_Code/heap_2.c **** /*
+  97:../Generated_Code/heap_2.c ****  * Initialises the heap structures before their first use.
+  98:../Generated_Code/heap_2.c ****  */
+  99:../Generated_Code/heap_2.c **** static void prvHeapInit( void );
+ 100:../Generated_Code/heap_2.c **** 
+ 101:../Generated_Code/heap_2.c **** /* Allocate the memory for the heap. */
+ 102:../Generated_Code/heap_2.c **** #if configUSE_HEAP_SECTION_NAME && configCOMPILER==configCOMPILER_ARM_IAR /* << EST */
+ 103:../Generated_Code/heap_2.c ****   #pragma language=extended
+ 104:../Generated_Code/heap_2.c ****   #pragma location = configHEAP_SECTION_NAME_STRING
+ 105:../Generated_Code/heap_2.c ****   static uint8_t ucHeap[configTOTAL_HEAP_SIZE] @ configHEAP_SECTION_NAME_STRING; 
+ 106:../Generated_Code/heap_2.c **** #elif configUSE_HEAP_SECTION_NAME
+ 107:../Generated_Code/heap_2.c ****   static uint8_t __attribute__((section (configHEAP_SECTION_NAME_STRING))) ucHeap[configTOTAL_HEAP_
+ 108:../Generated_Code/heap_2.c **** #else
+ 109:../Generated_Code/heap_2.c ****   static uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
+ 110:../Generated_Code/heap_2.c **** #endif
+ 111:../Generated_Code/heap_2.c **** 
+ 112:../Generated_Code/heap_2.c **** /* Define the linked list structure.  This is used to link free blocks in order
+ 113:../Generated_Code/heap_2.c **** of their size. */
+ 114:../Generated_Code/heap_2.c **** typedef struct A_BLOCK_LINK
+ 115:../Generated_Code/heap_2.c **** {
+ 116:../Generated_Code/heap_2.c ****         struct A_BLOCK_LINK *pxNextFreeBlock;   /*<< The next free block in the list. */
+ 117:../Generated_Code/heap_2.c ****         size_t xBlockSize;                                              /*<< The size of the free b
+ 118:../Generated_Code/heap_2.c **** } BlockLink_t;
+ 119:../Generated_Code/heap_2.c **** 
+ 120:../Generated_Code/heap_2.c **** 
+ 121:../Generated_Code/heap_2.c **** static const uint16_t heapSTRUCT_SIZE   = ( ( sizeof ( BlockLink_t ) + ( portBYTE_ALIGNMENT - 1 ) )
+ 122:../Generated_Code/heap_2.c **** #define heapMINIMUM_BLOCK_SIZE  ( ( size_t ) ( heapSTRUCT_SIZE * 2 ) )
+ 123:../Generated_Code/heap_2.c **** 
+ 124:../Generated_Code/heap_2.c **** /* Create a couple of list links to mark the start and end of the list. */
+ 125:../Generated_Code/heap_2.c **** static BlockLink_t xStart, xEnd;
+ 126:../Generated_Code/heap_2.c **** 
+ 127:../Generated_Code/heap_2.c **** /* Keeps track of the number of free bytes remaining, but says nothing about
+ 128:../Generated_Code/heap_2.c **** fragmentation. */
+ 129:../Generated_Code/heap_2.c **** static size_t xFreeBytesRemaining = configADJUSTED_HEAP_SIZE;
+ 130:../Generated_Code/heap_2.c **** 
+ 131:../Generated_Code/heap_2.c **** /* STATIC FUNCTIONS ARE DEFINED AS MACROS TO MINIMIZE THE FUNCTION CALL DEPTH. */
+ 132:../Generated_Code/heap_2.c **** 
+ 133:../Generated_Code/heap_2.c **** /*
+ 134:../Generated_Code/heap_2.c ****  * Insert a block into the list of free blocks - which is ordered by size of
+ 135:../Generated_Code/heap_2.c ****  * the block.  Small blocks at the start of the list and large blocks at the end
+ 136:../Generated_Code/heap_2.c ****  * of the list.
+ 137:../Generated_Code/heap_2.c ****  */
+ 138:../Generated_Code/heap_2.c **** #define prvInsertBlockIntoFreeList( pxBlockToInsert )                                              
+ 139:../Generated_Code/heap_2.c **** {                                                                                                  
+ 140:../Generated_Code/heap_2.c **** BlockLink_t *pxIterator;                                                                           
+ 141:../Generated_Code/heap_2.c **** size_t xBlockSize;                                                                                 
+ 142:../Generated_Code/heap_2.c ****                                                                                                    
+ 143:../Generated_Code/heap_2.c ****         xBlockSize = pxBlockToInsert->xBlockSize;                                                  
+ 144:../Generated_Code/heap_2.c ****                                                                                                    
+ 145:../Generated_Code/heap_2.c ****         /* Iterate through the list until a block is found that has a larger size */    \
+ 146:../Generated_Code/heap_2.c ****         /* than the block we are inserting. */                                                     
+ 147:../Generated_Code/heap_2.c ****         for( pxIterator = &xStart; pxIterator->pxNextFreeBlock->xBlockSize < xBlockSize; pxIterator
+ 148:../Generated_Code/heap_2.c ****         {                                                                                          
+ 149:../Generated_Code/heap_2.c ****                 /* There is nothing to do here - just iterate to the correct position. */       \
+ 150:../Generated_Code/heap_2.c ****         }                                                                                          
+ 151:../Generated_Code/heap_2.c ****                                                                                                    
+ 152:../Generated_Code/heap_2.c ****         /* Update the list to include the block being inserted in the correct */                \
+ 153:../Generated_Code/heap_2.c ****         /* position. */                                                                            
+ 154:../Generated_Code/heap_2.c ****         pxBlockToInsert->pxNextFreeBlock = pxIterator->pxNextFreeBlock;                            
+ 155:../Generated_Code/heap_2.c ****         pxIterator->pxNextFreeBlock = pxBlockToInsert;                                             
+ 156:../Generated_Code/heap_2.c **** }
+ 157:../Generated_Code/heap_2.c **** /*-----------------------------------------------------------*/
+ 158:../Generated_Code/heap_2.c **** 
+ 159:../Generated_Code/heap_2.c **** void *pvPortMalloc( size_t xWantedSize )
+ 160:../Generated_Code/heap_2.c **** {
+  50              		.loc 1 160 0
+  51              		.cfi_startproc
+  52 0000 80B5     		push	{r7, lr}
+  53              	.LCFI0:
+  54              		.cfi_def_cfa_offset 8
+  55              		.cfi_offset 7, -8
+  56              		.cfi_offset 14, -4
+  57 0002 88B0     		sub	sp, sp, #32
+  58              	.LCFI1:
+  59              		.cfi_def_cfa_offset 40
+  60 0004 00AF     		add	r7, sp, #0
+  61              	.LCFI2:
+  62              		.cfi_def_cfa_register 7
+  63 0006 7860     		str	r0, [r7, #4]
+  64              	.LBB2:
+ 161:../Generated_Code/heap_2.c **** BlockLink_t *pxBlock, *pxPreviousBlock, *pxNewBlockLink;
+ 162:../Generated_Code/heap_2.c **** static BaseType_t xHeapHasBeenInitialised = pdFALSE;
+ 163:../Generated_Code/heap_2.c **** void *pvReturn = NULL;
+  65              		.loc 1 163 0
+  66 0008 0023     		mov	r3, #0
+  67 000a 7B61     		str	r3, [r7, #20]
+ 164:../Generated_Code/heap_2.c **** 
+ 165:../Generated_Code/heap_2.c ****         vTaskSuspendAll();
+  68              		.loc 1 165 0
+  69 000c FFF7FEFF 		bl	vTaskSuspendAll
+  70              	.LBB3:
+ 166:../Generated_Code/heap_2.c ****         {
+ 167:../Generated_Code/heap_2.c ****                 /* If this is the first call to malloc then the heap will require
+ 168:../Generated_Code/heap_2.c ****                 initialisation to setup the list of free blocks. */
+ 169:../Generated_Code/heap_2.c ****                 if( xHeapHasBeenInitialised == pdFALSE )
+  71              		.loc 1 169 0
+  72 0010 414B     		ldr	r3, .L14
+  73 0012 1B68     		ldr	r3, [r3]
+  74 0014 002B     		cmp	r3, #0
+  75 0016 04D1     		bne	.L2
+ 170:../Generated_Code/heap_2.c ****                 {
+ 171:../Generated_Code/heap_2.c ****                         prvHeapInit();
+  76              		.loc 1 171 0
+  77 0018 FFF7FEFF 		bl	_ZL11prvHeapInitv
+ 172:../Generated_Code/heap_2.c ****                         xHeapHasBeenInitialised = pdTRUE;
+  78              		.loc 1 172 0
+  79 001c 3E4B     		ldr	r3, .L14
+  80 001e 0122     		mov	r2, #1
+  81 0020 1A60     		str	r2, [r3]
+  82              	.L2:
+ 173:../Generated_Code/heap_2.c ****                 }
+ 174:../Generated_Code/heap_2.c **** 
+ 175:../Generated_Code/heap_2.c ****                 /* The wanted size is increased so it can contain a BlockLink_t
+ 176:../Generated_Code/heap_2.c ****                 structure in addition to the requested amount of bytes. */
+ 177:../Generated_Code/heap_2.c ****                 if( xWantedSize > 0 )
+  83              		.loc 1 177 0
+  84 0022 7B68     		ldr	r3, [r7, #4]
+  85 0024 002B     		cmp	r3, #0
+  86 0026 0BD0     		beq	.L3
+ 178:../Generated_Code/heap_2.c ****                 {
+ 179:../Generated_Code/heap_2.c ****                         xWantedSize += heapSTRUCT_SIZE;
+  87              		.loc 1 179 0
+  88 0028 7B68     		ldr	r3, [r7, #4]
+  89 002a 0833     		add	r3, r3, #8
+  90 002c 7B60     		str	r3, [r7, #4]
+ 180:../Generated_Code/heap_2.c **** 
+ 181:../Generated_Code/heap_2.c ****                         /* Ensure that blocks are always aligned to the required number of bytes. *
+ 182:../Generated_Code/heap_2.c ****                         if( ( xWantedSize & portBYTE_ALIGNMENT_MASK ) != 0 )
+  91              		.loc 1 182 0
+  92 002e 7A68     		ldr	r2, [r7, #4]
+  93 0030 0723     		mov	r3, #7
+  94 0032 1340     		and	r3, r2
+  95 0034 04D0     		beq	.L3
+ 183:../Generated_Code/heap_2.c ****                         {
+ 184:../Generated_Code/heap_2.c ****                                 /* Byte alignment required. */
+ 185:../Generated_Code/heap_2.c ****                                 xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIG
+  96              		.loc 1 185 0
+  97 0036 7B68     		ldr	r3, [r7, #4]
+  98 0038 0722     		mov	r2, #7
+  99 003a 9343     		bic	r3, r2
+ 100 003c 0833     		add	r3, r3, #8
+ 101 003e 7B60     		str	r3, [r7, #4]
+ 102              	.L3:
+ 103              	.LBB4:
+ 186:../Generated_Code/heap_2.c ****                         }
+ 187:../Generated_Code/heap_2.c ****                 }
+ 188:../Generated_Code/heap_2.c **** 
+ 189:../Generated_Code/heap_2.c ****                 if( ( xWantedSize > 0 ) && ( xWantedSize < configADJUSTED_HEAP_SIZE ) )
+ 104              		.loc 1 189 0
+ 105 0040 7B68     		ldr	r3, [r7, #4]
+ 106 0042 002B     		cmp	r3, #0
+ 107 0044 5CD0     		beq	.L4
+ 108              		.loc 1 189 0 is_stmt 0
+ 109 0046 7A68     		ldr	r2, [r7, #4]
+ 110 0048 344B     		ldr	r3, .L14+4
+ 111 004a 9A42     		cmp	r2, r3
+ 112 004c 58D8     		bhi	.L4
+ 113              	.LBB5:
+ 190:../Generated_Code/heap_2.c ****                 {
+ 191:../Generated_Code/heap_2.c ****                         /* Blocks are stored in byte order - traverse the list from the start
+ 192:../Generated_Code/heap_2.c ****                         (smallest) block until one of adequate size is found. */
+ 193:../Generated_Code/heap_2.c ****                         pxPreviousBlock = &xStart;
+ 114              		.loc 1 193 0 is_stmt 1
+ 115 004e 344B     		ldr	r3, .L14+8
+ 116 0050 BB61     		str	r3, [r7, #24]
+ 194:../Generated_Code/heap_2.c ****                         pxBlock = xStart.pxNextFreeBlock;
+ 117              		.loc 1 194 0
+ 118 0052 334B     		ldr	r3, .L14+8
+ 119 0054 1B68     		ldr	r3, [r3]
+ 120 0056 FB61     		str	r3, [r7, #28]
+ 195:../Generated_Code/heap_2.c ****                         while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock 
+ 121              		.loc 1 195 0
+ 122 0058 04E0     		b	.L5
+ 123              	.L8:
+ 196:../Generated_Code/heap_2.c ****                         {
+ 197:../Generated_Code/heap_2.c ****                                 pxPreviousBlock = pxBlock;
+ 124              		.loc 1 197 0
+ 125 005a FB69     		ldr	r3, [r7, #28]
+ 126 005c BB61     		str	r3, [r7, #24]
+ 198:../Generated_Code/heap_2.c ****                                 pxBlock = pxBlock->pxNextFreeBlock;
+ 127              		.loc 1 198 0
+ 128 005e FB69     		ldr	r3, [r7, #28]
+ 129 0060 1B68     		ldr	r3, [r3]
+ 130 0062 FB61     		str	r3, [r7, #28]
+ 131              	.L5:
+ 195:../Generated_Code/heap_2.c ****                         while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock 
+ 132              		.loc 1 195 0
+ 133 0064 FB69     		ldr	r3, [r7, #28]
+ 134 0066 5A68     		ldr	r2, [r3, #4]
+ 135 0068 7B68     		ldr	r3, [r7, #4]
+ 136 006a 9A42     		cmp	r2, r3
+ 137 006c 05D2     		bcs	.L6
+ 195:../Generated_Code/heap_2.c ****                         while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock 
+ 138              		.loc 1 195 0 is_stmt 0
+ 139 006e FB69     		ldr	r3, [r7, #28]
+ 140 0070 1B68     		ldr	r3, [r3]
+ 141 0072 002B     		cmp	r3, #0
+ 142 0074 01D0     		beq	.L6
+ 195:../Generated_Code/heap_2.c ****                         while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock 
+ 143              		.loc 1 195 0
+ 144 0076 0123     		mov	r3, #1
+ 145 0078 00E0     		b	.L7
+ 146              	.L6:
+ 195:../Generated_Code/heap_2.c ****                         while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock 
+ 147              		.loc 1 195 0
+ 148 007a 0023     		mov	r3, #0
+ 149              	.L7:
+ 195:../Generated_Code/heap_2.c ****                         while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock 
+ 150              		.loc 1 195 0
+ 151 007c 002B     		cmp	r3, #0
+ 152 007e ECD1     		bne	.L8
+ 153              	.LBB6:
+ 199:../Generated_Code/heap_2.c ****                         }
+ 200:../Generated_Code/heap_2.c **** 
+ 201:../Generated_Code/heap_2.c ****                         /* If we found the end marker then a block of adequate size was not found. 
+ 202:../Generated_Code/heap_2.c ****                         if( pxBlock != &xEnd )
+ 154              		.loc 1 202 0 is_stmt 1
+ 155 0080 FA69     		ldr	r2, [r7, #28]
+ 156 0082 284B     		ldr	r3, .L14+12
+ 157 0084 9A42     		cmp	r2, r3
+ 158 0086 3BD0     		beq	.L4
+ 159              	.LBB7:
+ 203:../Generated_Code/heap_2.c ****                         {
+ 204:../Generated_Code/heap_2.c ****                                 /* Return the memory space - jumping over the BlockLink_t structure
+ 205:../Generated_Code/heap_2.c ****                                 at its start. */
+ 206:../Generated_Code/heap_2.c ****                                 pvReturn = ( void * ) ( ( ( uint8_t * ) pxPreviousBlock->pxNextFree
+ 160              		.loc 1 206 0
+ 161 0088 BB69     		ldr	r3, [r7, #24]
+ 162 008a 1B68     		ldr	r3, [r3]
+ 163 008c 0833     		add	r3, r3, #8
+ 164 008e 7B61     		str	r3, [r7, #20]
+ 207:../Generated_Code/heap_2.c **** 
+ 208:../Generated_Code/heap_2.c ****                                 /* This block is being returned for use so must be taken out of the
+ 209:../Generated_Code/heap_2.c ****                                 list of free blocks. */
+ 210:../Generated_Code/heap_2.c ****                                 pxPreviousBlock->pxNextFreeBlock = pxBlock->pxNextFreeBlock;
+ 165              		.loc 1 210 0
+ 166 0090 FB69     		ldr	r3, [r7, #28]
+ 167 0092 1A68     		ldr	r2, [r3]
+ 168 0094 BB69     		ldr	r3, [r7, #24]
+ 169 0096 1A60     		str	r2, [r3]
+ 170              	.LBB8:
+ 211:../Generated_Code/heap_2.c **** 
+ 212:../Generated_Code/heap_2.c ****                                 /* If the block is larger than required it can be split into two. *
+ 213:../Generated_Code/heap_2.c ****                                 if( ( pxBlock->xBlockSize - xWantedSize ) > heapMINIMUM_BLOCK_SIZE 
+ 171              		.loc 1 213 0
+ 172 0098 FB69     		ldr	r3, [r7, #28]
+ 173 009a 5A68     		ldr	r2, [r3, #4]
+ 174 009c 7B68     		ldr	r3, [r7, #4]
+ 175 009e D31A     		sub	r3, r2, r3
+ 176 00a0 102B     		cmp	r3, #16
+ 177 00a2 26D9     		bls	.L9
+ 178              	.LBB9:
+ 214:../Generated_Code/heap_2.c ****                                 {
+ 215:../Generated_Code/heap_2.c ****                                         /* This block is to be split into two.  Create a new block
+ 216:../Generated_Code/heap_2.c ****                                         following the number of bytes requested. The void cast is
+ 217:../Generated_Code/heap_2.c ****                                         used to prevent byte alignment warnings from the compiler. 
+ 218:../Generated_Code/heap_2.c ****                                         pxNewBlockLink = ( void * ) ( ( ( uint8_t * ) pxBlock ) + x
+ 179              		.loc 1 218 0
+ 180 00a4 FA69     		ldr	r2, [r7, #28]
+ 181 00a6 7B68     		ldr	r3, [r7, #4]
+ 182 00a8 D318     		add	r3, r2, r3
+ 183 00aa FB60     		str	r3, [r7, #12]
+ 219:../Generated_Code/heap_2.c **** 
+ 220:../Generated_Code/heap_2.c ****                                         /* Calculate the sizes of two blocks split from the single
+ 221:../Generated_Code/heap_2.c ****                                         block. */
+ 222:../Generated_Code/heap_2.c ****                                         pxNewBlockLink->xBlockSize = pxBlock->xBlockSize - xWantedS
+ 184              		.loc 1 222 0
+ 185 00ac FB69     		ldr	r3, [r7, #28]
+ 186 00ae 5A68     		ldr	r2, [r3, #4]
+ 187 00b0 7B68     		ldr	r3, [r7, #4]
+ 188 00b2 D21A     		sub	r2, r2, r3
+ 189 00b4 FB68     		ldr	r3, [r7, #12]
+ 190 00b6 5A60     		str	r2, [r3, #4]
+ 223:../Generated_Code/heap_2.c ****                                         pxBlock->xBlockSize = xWantedSize;
+ 191              		.loc 1 223 0
+ 192 00b8 FB69     		ldr	r3, [r7, #28]
+ 193 00ba 7A68     		ldr	r2, [r7, #4]
+ 194 00bc 5A60     		str	r2, [r3, #4]
+ 195              	.LBB10:
+ 224:../Generated_Code/heap_2.c **** 
+ 225:../Generated_Code/heap_2.c ****                                         /* Insert the new block into the list of free blocks. */
+ 226:../Generated_Code/heap_2.c ****                                         prvInsertBlockIntoFreeList( ( pxNewBlockLink ) );
+ 196              		.loc 1 226 0
+ 197 00be FB68     		ldr	r3, [r7, #12]
+ 198 00c0 5B68     		ldr	r3, [r3, #4]
+ 199 00c2 BB60     		str	r3, [r7, #8]
+ 200 00c4 164B     		ldr	r3, .L14+8
+ 201 00c6 3B61     		str	r3, [r7, #16]
+ 202 00c8 02E0     		b	.L10
+ 203              	.L11:
+ 204              		.loc 1 226 0 is_stmt 0
+ 205 00ca 3B69     		ldr	r3, [r7, #16]
+ 206 00cc 1B68     		ldr	r3, [r3]
+ 207 00ce 3B61     		str	r3, [r7, #16]
+ 208              	.L10:
+ 209              		.loc 1 226 0
+ 210 00d0 3B69     		ldr	r3, [r7, #16]
+ 211 00d2 1B68     		ldr	r3, [r3]
+ 212 00d4 5A68     		ldr	r2, [r3, #4]
+ 213 00d6 BB68     		ldr	r3, [r7, #8]
+ 214 00d8 9A42     		cmp	r2, r3
+ 215 00da 9B41     		sbc	r3, r3, r3
+ 216 00dc 5B42     		neg	r3, r3
+ 217 00de DBB2     		uxtb	r3, r3
+ 218 00e0 002B     		cmp	r3, #0
+ 219 00e2 F2D1     		bne	.L11
+ 220              		.loc 1 226 0
+ 221 00e4 3B69     		ldr	r3, [r7, #16]
+ 222 00e6 1A68     		ldr	r2, [r3]
+ 223 00e8 FB68     		ldr	r3, [r7, #12]
+ 224 00ea 1A60     		str	r2, [r3]
+ 225 00ec 3B69     		ldr	r3, [r7, #16]
+ 226 00ee FA68     		ldr	r2, [r7, #12]
+ 227 00f0 1A60     		str	r2, [r3]
+ 228              	.L9:
+ 229              	.LBE10:
+ 230              	.LBE9:
+ 231              	.LBE8:
+ 227:../Generated_Code/heap_2.c ****                                 }
+ 228:../Generated_Code/heap_2.c **** 
+ 229:../Generated_Code/heap_2.c ****                                 xFreeBytesRemaining -= pxBlock->xBlockSize;
+ 232              		.loc 1 229 0 is_stmt 1
+ 233 00f2 0D4B     		ldr	r3, .L14+16
+ 234 00f4 1A68     		ldr	r2, [r3]
+ 235 00f6 FB69     		ldr	r3, [r7, #28]
+ 236 00f8 5B68     		ldr	r3, [r3, #4]
+ 237 00fa D21A     		sub	r2, r2, r3
+ 238 00fc 0A4B     		ldr	r3, .L14+16
+ 239 00fe 1A60     		str	r2, [r3]
+ 240              	.L4:
+ 241              	.LBE7:
+ 242              	.LBE6:
+ 243              	.LBE5:
+ 244              	.LBE4:
+ 245              	.LBE3:
+ 230:../Generated_Code/heap_2.c ****                         }
+ 231:../Generated_Code/heap_2.c ****                 }
+ 232:../Generated_Code/heap_2.c **** 
+ 233:../Generated_Code/heap_2.c ****                 traceMALLOC( pvReturn, xWantedSize );
+ 234:../Generated_Code/heap_2.c ****         }
+ 235:../Generated_Code/heap_2.c ****         (void)xTaskResumeAll();
+ 246              		.loc 1 235 0
+ 247 0100 FFF7FEFF 		bl	xTaskResumeAll
+ 236:../Generated_Code/heap_2.c **** 
+ 237:../Generated_Code/heap_2.c ****         #if( configUSE_MALLOC_FAILED_HOOK == 1 )
+ 238:../Generated_Code/heap_2.c ****         {
+ 239:../Generated_Code/heap_2.c ****                 if( pvReturn == NULL )
+ 248              		.loc 1 239 0
+ 249 0104 7B69     		ldr	r3, [r7, #20]
+ 250 0106 002B     		cmp	r3, #0
+ 251 0108 01D1     		bne	.L12
+ 240:../Generated_Code/heap_2.c ****                 {
+ 241:../Generated_Code/heap_2.c ****                         FreeRTOS0_vApplicationMallocFailedHook();
+ 252              		.loc 1 241 0
+ 253 010a FFF7FEFF 		bl	_Z38FreeRTOS0_vApplicationMallocFailedHookv
+ 254              	.L12:
+ 242:../Generated_Code/heap_2.c ****                 }
+ 243:../Generated_Code/heap_2.c ****         }
+ 244:../Generated_Code/heap_2.c ****         #endif
+ 245:../Generated_Code/heap_2.c **** 
+ 246:../Generated_Code/heap_2.c ****         return pvReturn;
+ 255              		.loc 1 246 0
+ 256 010e 7B69     		ldr	r3, [r7, #20]
+ 257              	.LBE2:
+ 247:../Generated_Code/heap_2.c **** }
+ 258              		.loc 1 247 0
+ 259 0110 181C     		mov	r0, r3
+ 260 0112 BD46     		mov	sp, r7
+ 261 0114 08B0     		add	sp, sp, #32
+ 262              		@ sp needed for prologue
+ 263 0116 80BD     		pop	{r7, pc}
+ 264              	.L15:
+ 265              		.align	2
+ 266              	.L14:
+ 267 0118 00000000 		.word	_ZZ12pvPortMallocE23xHeapHasBeenInitialised
+ 268 011c 7F130000 		.word	4991
+ 269 0120 00000000 		.word	_ZL6xStart
+ 270 0124 00000000 		.word	_ZL4xEnd
+ 271 0128 00000000 		.word	_ZL19xFreeBytesRemaining
+ 272              		.cfi_endproc
+ 273              	.LFE9:
+ 275              		.section	.text.vPortFree,"ax",%progbits
+ 276              		.align	2
+ 277              		.global	vPortFree
+ 278              		.code	16
+ 279              		.thumb_func
+ 281              	vPortFree:
+ 282              	.LFB10:
+ 248:../Generated_Code/heap_2.c **** /*-----------------------------------------------------------*/
+ 249:../Generated_Code/heap_2.c **** 
+ 250:../Generated_Code/heap_2.c **** void vPortFree( void *pv )
+ 251:../Generated_Code/heap_2.c **** {
+ 283              		.loc 1 251 0
+ 284              		.cfi_startproc
+ 285 0000 80B5     		push	{r7, lr}
+ 286              	.LCFI3:
+ 287              		.cfi_def_cfa_offset 8
+ 288              		.cfi_offset 7, -8
+ 289              		.cfi_offset 14, -4
+ 290 0002 86B0     		sub	sp, sp, #24
+ 291              	.LCFI4:
+ 292              		.cfi_def_cfa_offset 32
+ 293 0004 00AF     		add	r7, sp, #0
+ 294              	.LCFI5:
+ 295              		.cfi_def_cfa_register 7
+ 296 0006 7860     		str	r0, [r7, #4]
+ 297              	.LBB11:
+ 252:../Generated_Code/heap_2.c **** uint8_t *puc = ( uint8_t * ) pv;
+ 298              		.loc 1 252 0
+ 299 0008 7B68     		ldr	r3, [r7, #4]
+ 300 000a 3B61     		str	r3, [r7, #16]
+ 301              	.LBB12:
+ 253:../Generated_Code/heap_2.c **** BlockLink_t *pxLink;
+ 254:../Generated_Code/heap_2.c **** 
+ 255:../Generated_Code/heap_2.c ****         if( pv != NULL )
+ 302              		.loc 1 255 0
+ 303 000c 7B68     		ldr	r3, [r7, #4]
+ 304 000e 002B     		cmp	r3, #0
+ 305 0010 29D0     		beq	.L16
+ 306              	.LBB13:
+ 256:../Generated_Code/heap_2.c ****         {
+ 257:../Generated_Code/heap_2.c ****                 /* The memory being freed will have an BlockLink_t structure immediately
+ 258:../Generated_Code/heap_2.c ****                 before it. */
+ 259:../Generated_Code/heap_2.c ****                 puc -= heapSTRUCT_SIZE;
+ 307              		.loc 1 259 0
+ 308 0012 3B69     		ldr	r3, [r7, #16]
+ 309 0014 083B     		sub	r3, r3, #8
+ 310 0016 3B61     		str	r3, [r7, #16]
+ 260:../Generated_Code/heap_2.c **** 
+ 261:../Generated_Code/heap_2.c ****                 /* This unexpected casting is to keep some compilers from issuing
+ 262:../Generated_Code/heap_2.c ****                 byte alignment warnings. */
+ 263:../Generated_Code/heap_2.c ****                 pxLink = ( void * ) puc;
+ 311              		.loc 1 263 0
+ 312 0018 3B69     		ldr	r3, [r7, #16]
+ 313 001a FB60     		str	r3, [r7, #12]
+ 264:../Generated_Code/heap_2.c **** 
+ 265:../Generated_Code/heap_2.c ****                 vTaskSuspendAll();
+ 314              		.loc 1 265 0
+ 315 001c FFF7FEFF 		bl	vTaskSuspendAll
+ 316              	.LBB14:
+ 317              	.LBB15:
+ 266:../Generated_Code/heap_2.c ****                 {
+ 267:../Generated_Code/heap_2.c ****                         /* Add this block to the list of free blocks. */
+ 268:../Generated_Code/heap_2.c ****                         prvInsertBlockIntoFreeList( ( ( BlockLink_t * ) pxLink ) );
+ 318              		.loc 1 268 0
+ 319 0020 FB68     		ldr	r3, [r7, #12]
+ 320 0022 5B68     		ldr	r3, [r3, #4]
+ 321 0024 BB60     		str	r3, [r7, #8]
+ 322 0026 114B     		ldr	r3, .L20
+ 323 0028 7B61     		str	r3, [r7, #20]
+ 324 002a 02E0     		b	.L18
+ 325              	.L19:
+ 326              		.loc 1 268 0 is_stmt 0
+ 327 002c 7B69     		ldr	r3, [r7, #20]
+ 328 002e 1B68     		ldr	r3, [r3]
+ 329 0030 7B61     		str	r3, [r7, #20]
+ 330              	.L18:
+ 331              		.loc 1 268 0
+ 332 0032 7B69     		ldr	r3, [r7, #20]
+ 333 0034 1B68     		ldr	r3, [r3]
+ 334 0036 5A68     		ldr	r2, [r3, #4]
+ 335 0038 BB68     		ldr	r3, [r7, #8]
+ 336 003a 9A42     		cmp	r2, r3
+ 337 003c 9B41     		sbc	r3, r3, r3
+ 338 003e 5B42     		neg	r3, r3
+ 339 0040 DBB2     		uxtb	r3, r3
+ 340 0042 002B     		cmp	r3, #0
+ 341 0044 F2D1     		bne	.L19
+ 342              		.loc 1 268 0
+ 343 0046 7B69     		ldr	r3, [r7, #20]
+ 344 0048 1A68     		ldr	r2, [r3]
+ 345 004a FB68     		ldr	r3, [r7, #12]
+ 346 004c 1A60     		str	r2, [r3]
+ 347 004e 7B69     		ldr	r3, [r7, #20]
+ 348 0050 FA68     		ldr	r2, [r7, #12]
+ 349 0052 1A60     		str	r2, [r3]
+ 350              	.LBE15:
+ 269:../Generated_Code/heap_2.c ****                         xFreeBytesRemaining += pxLink->xBlockSize;
+ 351              		.loc 1 269 0 is_stmt 1
+ 352 0054 FB68     		ldr	r3, [r7, #12]
+ 353 0056 5A68     		ldr	r2, [r3, #4]
+ 354 0058 054B     		ldr	r3, .L20+4
+ 355 005a 1B68     		ldr	r3, [r3]
+ 356 005c D218     		add	r2, r2, r3
+ 357 005e 044B     		ldr	r3, .L20+4
+ 358 0060 1A60     		str	r2, [r3]
+ 359              	.LBE14:
+ 270:../Generated_Code/heap_2.c ****                         traceFREE( pv, pxLink->xBlockSize );
+ 271:../Generated_Code/heap_2.c ****                 }
+ 272:../Generated_Code/heap_2.c ****                 (void)xTaskResumeAll();
+ 360              		.loc 1 272 0
+ 361 0062 FFF7FEFF 		bl	xTaskResumeAll
+ 362              	.L16:
+ 363              	.LBE13:
+ 364              	.LBE12:
+ 365              	.LBE11:
+ 273:../Generated_Code/heap_2.c ****         }
+ 274:../Generated_Code/heap_2.c **** }
+ 366              		.loc 1 274 0
+ 367 0066 BD46     		mov	sp, r7
+ 368 0068 06B0     		add	sp, sp, #24
+ 369              		@ sp needed for prologue
+ 370 006a 80BD     		pop	{r7, pc}
+ 371              	.L21:
+ 372              		.align	2
+ 373              	.L20:
+ 374 006c 00000000 		.word	_ZL6xStart
+ 375 0070 00000000 		.word	_ZL19xFreeBytesRemaining
+ 376              		.cfi_endproc
+ 377              	.LFE10:
+ 379              		.section	.text.xPortGetFreeHeapSize,"ax",%progbits
+ 380              		.align	2
+ 381              		.global	xPortGetFreeHeapSize
+ 382              		.code	16
+ 383              		.thumb_func
+ 385              	xPortGetFreeHeapSize:
+ 386              	.LFB11:
+ 275:../Generated_Code/heap_2.c **** /*-----------------------------------------------------------*/
+ 276:../Generated_Code/heap_2.c **** 
+ 277:../Generated_Code/heap_2.c **** size_t xPortGetFreeHeapSize( void )
+ 278:../Generated_Code/heap_2.c **** {
+ 387              		.loc 1 278 0
+ 388              		.cfi_startproc
+ 389 0000 80B5     		push	{r7, lr}
+ 390              	.LCFI6:
+ 391              		.cfi_def_cfa_offset 8
+ 392              		.cfi_offset 7, -8
+ 393              		.cfi_offset 14, -4
+ 394 0002 00AF     		add	r7, sp, #0
+ 395              	.LCFI7:
+ 396              		.cfi_def_cfa_register 7
+ 279:../Generated_Code/heap_2.c ****         return xFreeBytesRemaining;
+ 397              		.loc 1 279 0
+ 398 0004 024B     		ldr	r3, .L24
+ 399 0006 1B68     		ldr	r3, [r3]
+ 280:../Generated_Code/heap_2.c **** }
+ 400              		.loc 1 280 0
+ 401 0008 181C     		mov	r0, r3
+ 402 000a BD46     		mov	sp, r7
+ 403              		@ sp needed for prologue
+ 404 000c 80BD     		pop	{r7, pc}
+ 405              	.L25:
+ 406 000e C046     		.align	2
+ 407              	.L24:
+ 408 0010 00000000 		.word	_ZL19xFreeBytesRemaining
+ 409              		.cfi_endproc
+ 410              	.LFE11:
+ 412              		.section	.text.vPortInitialiseBlocks,"ax",%progbits
+ 413              		.align	2
+ 414              		.global	vPortInitialiseBlocks
+ 415              		.code	16
+ 416              		.thumb_func
+ 418              	vPortInitialiseBlocks:
+ 419              	.LFB12:
+ 281:../Generated_Code/heap_2.c **** /*-----------------------------------------------------------*/
+ 282:../Generated_Code/heap_2.c **** 
+ 283:../Generated_Code/heap_2.c **** void vPortInitialiseBlocks( void )
+ 284:../Generated_Code/heap_2.c **** {
+ 420              		.loc 1 284 0
+ 421              		.cfi_startproc
+ 422 0000 80B5     		push	{r7, lr}
+ 423              	.LCFI8:
+ 424              		.cfi_def_cfa_offset 8
+ 425              		.cfi_offset 7, -8
+ 426              		.cfi_offset 14, -4
+ 427 0002 00AF     		add	r7, sp, #0
+ 428              	.LCFI9:
+ 429              		.cfi_def_cfa_register 7
+ 285:../Generated_Code/heap_2.c ****         /* This just exists to keep the linker quiet. */
+ 286:../Generated_Code/heap_2.c **** }
+ 430              		.loc 1 286 0
+ 431 0004 BD46     		mov	sp, r7
+ 432              		@ sp needed for prologue
+ 433 0006 80BD     		pop	{r7, pc}
+ 434              		.cfi_endproc
+ 435              	.LFE12:
+ 437              		.section	.text._ZL11prvHeapInitv,"ax",%progbits
+ 438              		.align	2
+ 439              		.code	16
+ 440              		.thumb_func
+ 442              	_ZL11prvHeapInitv:
+ 443              	.LFB13:
+ 287:../Generated_Code/heap_2.c **** /*-----------------------------------------------------------*/
+ 288:../Generated_Code/heap_2.c **** 
+ 289:../Generated_Code/heap_2.c **** static void prvHeapInit( void )
+ 290:../Generated_Code/heap_2.c **** {
+ 444              		.loc 1 290 0
+ 445              		.cfi_startproc
+ 446 0000 80B5     		push	{r7, lr}
+ 447              	.LCFI10:
+ 448              		.cfi_def_cfa_offset 8
+ 449              		.cfi_offset 7, -8
+ 450              		.cfi_offset 14, -4
+ 451 0002 82B0     		sub	sp, sp, #8
+ 452              	.LCFI11:
+ 453              		.cfi_def_cfa_offset 16
+ 454 0004 00AF     		add	r7, sp, #0
+ 455              	.LCFI12:
+ 456              		.cfi_def_cfa_register 7
+ 457              	.LBB16:
+ 291:../Generated_Code/heap_2.c **** BlockLink_t *pxFirstFreeBlock;
+ 292:../Generated_Code/heap_2.c **** uint8_t *pucAlignedHeap;
+ 293:../Generated_Code/heap_2.c **** 
+ 294:../Generated_Code/heap_2.c ****         /* Ensure the heap starts on a correctly aligned boundary. */
+ 295:../Generated_Code/heap_2.c ****         pucAlignedHeap = ( uint8_t * ) ( ( ( portPOINTER_SIZE_TYPE ) &ucHeap[ portBYTE_ALIGNMENT ] 
+ 458              		.loc 1 295 0
+ 459 0006 0E4B     		ldr	r3, .L28
+ 460 0008 0722     		mov	r2, #7
+ 461 000a 9343     		bic	r3, r2
+ 462 000c 7B60     		str	r3, [r7, #4]
+ 296:../Generated_Code/heap_2.c **** 
+ 297:../Generated_Code/heap_2.c ****         /* xStart is used to hold a pointer to the first item in the list of free
+ 298:../Generated_Code/heap_2.c ****         blocks.  The void cast is used to prevent compiler warnings. */
+ 299:../Generated_Code/heap_2.c ****         xStart.pxNextFreeBlock = ( void * ) pucAlignedHeap;
+ 463              		.loc 1 299 0
+ 464 000e 0D4B     		ldr	r3, .L28+4
+ 465 0010 7A68     		ldr	r2, [r7, #4]
+ 466 0012 1A60     		str	r2, [r3]
+ 300:../Generated_Code/heap_2.c ****         xStart.xBlockSize = ( size_t ) 0;
+ 467              		.loc 1 300 0
+ 468 0014 0B4B     		ldr	r3, .L28+4
+ 469 0016 0022     		mov	r2, #0
+ 470 0018 5A60     		str	r2, [r3, #4]
+ 301:../Generated_Code/heap_2.c **** 
+ 302:../Generated_Code/heap_2.c ****         /* xEnd is used to mark the end of the list of free blocks. */
+ 303:../Generated_Code/heap_2.c ****         xEnd.xBlockSize = configADJUSTED_HEAP_SIZE;
+ 471              		.loc 1 303 0
+ 472 001a 0B4B     		ldr	r3, .L28+8
+ 473 001c 9C22     		mov	r2, #156
+ 474 001e 5201     		lsl	r2, r2, #5
+ 475 0020 5A60     		str	r2, [r3, #4]
+ 304:../Generated_Code/heap_2.c ****         xEnd.pxNextFreeBlock = NULL;
+ 476              		.loc 1 304 0
+ 477 0022 094B     		ldr	r3, .L28+8
+ 478 0024 0022     		mov	r2, #0
+ 479 0026 1A60     		str	r2, [r3]
+ 305:../Generated_Code/heap_2.c **** 
+ 306:../Generated_Code/heap_2.c ****         /* To start with there is a single free block that is sized to take up the
+ 307:../Generated_Code/heap_2.c ****         entire heap space. */
+ 308:../Generated_Code/heap_2.c ****         pxFirstFreeBlock = ( void * ) pucAlignedHeap;
+ 480              		.loc 1 308 0
+ 481 0028 7B68     		ldr	r3, [r7, #4]
+ 482 002a 3B60     		str	r3, [r7]
+ 309:../Generated_Code/heap_2.c ****         pxFirstFreeBlock->xBlockSize = configADJUSTED_HEAP_SIZE;
+ 483              		.loc 1 309 0
+ 484 002c 3B68     		ldr	r3, [r7]
+ 485 002e 9C22     		mov	r2, #156
+ 486 0030 5201     		lsl	r2, r2, #5
+ 487 0032 5A60     		str	r2, [r3, #4]
+ 310:../Generated_Code/heap_2.c ****         pxFirstFreeBlock->pxNextFreeBlock = &xEnd;
+ 488              		.loc 1 310 0
+ 489 0034 3B68     		ldr	r3, [r7]
+ 490 0036 044A     		ldr	r2, .L28+8
+ 491 0038 1A60     		str	r2, [r3]
+ 492              	.LBE16:
+ 311:../Generated_Code/heap_2.c **** }
+ 493              		.loc 1 311 0
+ 494 003a BD46     		mov	sp, r7
+ 495 003c 02B0     		add	sp, sp, #8
+ 496              		@ sp needed for prologue
+ 497 003e 80BD     		pop	{r7, pc}
+ 498              	.L29:
+ 499              		.align	2
+ 500              	.L28:
+ 501 0040 08000000 		.word	_ZL6ucHeap+8
+ 502 0044 00000000 		.word	_ZL6xStart
+ 503 0048 00000000 		.word	_ZL4xEnd
+ 504              		.cfi_endproc
+ 505              	.LFE13:
+ 507              		.section	.rodata._ZL15heapSTRUCT_SIZE,"a",%progbits
+ 508              		.align	1
+ 511              	_ZL15heapSTRUCT_SIZE:
+ 512 0000 0800     		.short	8
+ 513              		.section	.bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised,"aw",%nobits
+ 514              		.align	2
+ 517              	_ZZ12pvPortMallocE23xHeapHasBeenInitialised:
+ 518 0000 00000000 		.space	4
+ 519              		.text
+ 520              	.Letext0:
+ 521              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 522              		.file 3 "C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code/portmac
+ 523              		.file 4 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 heap_2.c
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:18     .bss._ZL6ucHeap:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:21     .bss._ZL6ucHeap:00000000 _ZL6ucHeap
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:24     .bss._ZL6xStart:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:27     .bss._ZL6xStart:00000000 _ZL6xStart
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:30     .bss._ZL4xEnd:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:33     .bss._ZL4xEnd:00000000 _ZL4xEnd
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:36     .data._ZL19xFreeBytesRemaining:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:39     .data._ZL19xFreeBytesRemaining:00000000 _ZL19xFreeBytesRemaining
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:42     .text.pvPortMalloc:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:47     .text.pvPortMalloc:00000000 pvPortMalloc
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:442    .text._ZL11prvHeapInitv:00000000 _ZL11prvHeapInitv
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:267    .text.pvPortMalloc:00000118 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:517    .bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised:00000000 _ZZ12pvPortMallocE23xHeapHasBeenInitialised
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:276    .text.vPortFree:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:281    .text.vPortFree:00000000 vPortFree
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:374    .text.vPortFree:0000006c $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:380    .text.xPortGetFreeHeapSize:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:385    .text.xPortGetFreeHeapSize:00000000 xPortGetFreeHeapSize
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:408    .text.xPortGetFreeHeapSize:00000010 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:413    .text.vPortInitialiseBlocks:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:418    .text.vPortInitialiseBlocks:00000000 vPortInitialiseBlocks
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:438    .text._ZL11prvHeapInitv:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:501    .text._ZL11prvHeapInitv:00000040 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:508    .rodata._ZL15heapSTRUCT_SIZE:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:511    .rodata._ZL15heapSTRUCT_SIZE:00000000 _ZL15heapSTRUCT_SIZE
+C:\Users\JH\AppData\Local\Temp\ccXv4jsL.s:514    .bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+vTaskSuspendAll
+xTaskResumeAll
+_Z38FreeRTOS0_vApplicationMallocFailedHookv
