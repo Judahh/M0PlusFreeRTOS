@@ -1,0 +1,562 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Thread.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN6Thread8toSignedEPKc,"axG",%progbits,_ZN6Thread8toSignedEPKc,comdat
+  18              		.align	2
+  19              		.weak	_ZN6Thread8toSignedEPKc
+  20              		.code	16
+  21              		.thumb_func
+  23              	_ZN6Thread8toSignedEPKc:
+  24              	.LFB9:
+  25              		.file 1 "../Sources/Task/Thread.h"
+   1:../Sources/Task/Thread.h **** /*
+   2:../Sources/Task/Thread.h ****  * Thread.h
+   3:../Sources/Task/Thread.h ****  *
+   4:../Sources/Task/Thread.h ****  *  Created on: Apr 5, 2014
+   5:../Sources/Task/Thread.h ****  *      Author: JH
+   6:../Sources/Task/Thread.h ****  */
+   7:../Sources/Task/Thread.h **** 
+   8:../Sources/Task/Thread.h **** #ifndef THREAD_H_
+   9:../Sources/Task/Thread.h **** #define THREAD_H_
+  10:../Sources/Task/Thread.h **** #include "FreeRTOS.h"
+  11:../Sources/Task/Thread.h **** #include "FreeRTOS0.h"
+  12:../Sources/Task/Thread.h **** #include "task.h"
+  13:../Sources/Task/Thread.h **** #include "stdio.h"
+  14:../Sources/Task/Thread.h **** 
+  15:../Sources/Task/Thread.h **** class Thread {
+  16:../Sources/Task/Thread.h **** 	private:
+  17:../Sources/Task/Thread.h **** 		char* name;
+  18:../Sources/Task/Thread.h **** 		unsigned int index;portBASE_TYPE portBase;
+  19:../Sources/Task/Thread.h **** 		unsigned int stackSize;
+  20:../Sources/Task/Thread.h **** 		uint8_t priority;
+  21:../Sources/Task/Thread.h **** 
+  22:../Sources/Task/Thread.h **** 		const signed char * toSigned(const char *taskName) {
+  26              		.loc 1 22 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  40 0008 3960     		str	r1, [r7]
+  23:../Sources/Task/Thread.h **** 			return reinterpret_cast<const signed char *>(taskName);
+  41              		.loc 1 23 0
+  42 000a 3B68     		ldr	r3, [r7]
+  24:../Sources/Task/Thread.h **** 		}
+  43              		.loc 1 24 0
+  44 000c 181C     		mov	r0, r3
+  45 000e BD46     		mov	sp, r7
+  46 0010 02B0     		add	sp, sp, #8
+  47              		@ sp needed for prologue
+  48 0012 80BD     		pop	{r7, pc}
+  49              		.cfi_endproc
+  50              	.LFE9:
+  52              		.section	.rodata
+  53              		.align	2
+  54              	.LC1:
+  55 0000 7461736B 		.ascii	"taskSendStringI%d\000"
+  55      53656E64 
+  55      53747269 
+  55      6E674925 
+  55      6400
+  56 0012 0000     		.align	2
+  57              	.LC3:
+  58 0014 73746172 		.ascii	"start da %s!\015\012\000"
+  58      74206461 
+  58      20257321 
+  58      0D0A00
+  59              		.section	.text._ZN6ThreadC2EjPKcjh,"ax",%progbits
+  60              		.align	2
+  61              		.global	_ZN6ThreadC2EjPKcjh
+  62              		.code	16
+  63              		.thumb_func
+  65              	_ZN6ThreadC2EjPKcjh:
+  66              	.LFB12:
+  67              		.file 2 "../Sources/Task/Thread.cpp"
+   1:../Sources/Task/Thread.cpp **** /*
+   2:../Sources/Task/Thread.cpp ****  * Thread.cpp
+   3:../Sources/Task/Thread.cpp ****  *
+   4:../Sources/Task/Thread.cpp ****  *  Created on: Apr 5, 2014
+   5:../Sources/Task/Thread.cpp ****  *      Author: JH
+   6:../Sources/Task/Thread.cpp ****  */
+   7:../Sources/Task/Thread.cpp **** 
+   8:../Sources/Task/Thread.cpp **** #include "Thread.h"
+   9:../Sources/Task/Thread.cpp **** 
+  10:../Sources/Task/Thread.cpp **** Thread::Thread(unsigned int index, const char *name, unsigned int stackSize,
+  68              		.loc 2 10 0
+  69              		.cfi_startproc
+  70 0000 80B5     		push	{r7, lr}
+  71              	.LCFI3:
+  72              		.cfi_def_cfa_offset 8
+  73              		.cfi_offset 7, -8
+  74              		.cfi_offset 14, -4
+  75 0002 84B0     		sub	sp, sp, #16
+  76              	.LCFI4:
+  77              		.cfi_def_cfa_offset 24
+  78 0004 00AF     		add	r7, sp, #0
+  79              	.LCFI5:
+  80              		.cfi_def_cfa_register 7
+  81 0006 F860     		str	r0, [r7, #12]
+  82 0008 B960     		str	r1, [r7, #8]
+  83 000a 7A60     		str	r2, [r7, #4]
+  84 000c 3B60     		str	r3, [r7]
+  85              	.LBB2:
+  11:../Sources/Task/Thread.cpp **** 		uint8_t priority) {
+  86              		.loc 2 11 0
+  87 000e FB68     		ldr	r3, [r7, #12]
+  88 0010 104A     		ldr	r2, .L6
+  89 0012 1A60     		str	r2, [r3]
+  12:../Sources/Task/Thread.cpp **** 	this->index = index;
+  90              		.loc 2 12 0
+  91 0014 FB68     		ldr	r3, [r7, #12]
+  92 0016 BA68     		ldr	r2, [r7, #8]
+  93 0018 9A60     		str	r2, [r3, #8]
+  13:../Sources/Task/Thread.cpp **** 	sprintf(this->name, "taskSendStringI%d", index);
+  94              		.loc 2 13 0
+  95 001a FB68     		ldr	r3, [r7, #12]
+  96 001c 5968     		ldr	r1, [r3, #4]
+  97 001e 0E4A     		ldr	r2, .L6+4
+  98 0020 BB68     		ldr	r3, [r7, #8]
+  99 0022 081C     		mov	r0, r1
+ 100 0024 111C     		mov	r1, r2
+ 101 0026 1A1C     		mov	r2, r3
+ 102 0028 FFF7FEFF 		bl	sprintf
+  14:../Sources/Task/Thread.cpp **** 	this->stackSize = stackSize;
+ 103              		.loc 2 14 0
+ 104 002c FB68     		ldr	r3, [r7, #12]
+ 105 002e 3A68     		ldr	r2, [r7]
+ 106 0030 1A61     		str	r2, [r3, #16]
+  15:../Sources/Task/Thread.cpp **** 	this->priority = priority;
+ 107              		.loc 2 15 0
+ 108 0032 FB68     		ldr	r3, [r7, #12]
+ 109 0034 3A1C     		mov	r2, r7
+ 110 0036 1832     		add	r2, r2, #24
+ 111 0038 1278     		ldrb	r2, [r2]
+ 112 003a 1A75     		strb	r2, [r3, #20]
+  16:../Sources/Task/Thread.cpp **** 	printf("start da %s!\r\n", name);
+ 113              		.loc 2 16 0
+ 114 003c 074A     		ldr	r2, .L6+8
+ 115 003e 7B68     		ldr	r3, [r7, #4]
+ 116 0040 101C     		mov	r0, r2
+ 117 0042 191C     		mov	r1, r3
+ 118 0044 FFF7FEFF 		bl	printf
+ 119              	.LBE2:
+  17:../Sources/Task/Thread.cpp **** }
+ 120              		.loc 2 17 0
+ 121 0048 FB68     		ldr	r3, [r7, #12]
+ 122 004a 181C     		mov	r0, r3
+ 123 004c BD46     		mov	sp, r7
+ 124 004e 04B0     		add	sp, sp, #16
+ 125              		@ sp needed for prologue
+ 126 0050 80BD     		pop	{r7, pc}
+ 127              	.L7:
+ 128 0052 C046     		.align	2
+ 129              	.L6:
+ 130 0054 08000000 		.word	_ZTV6Thread+8
+ 131 0058 00000000 		.word	.LC1
+ 132 005c 14000000 		.word	.LC3
+ 133              		.cfi_endproc
+ 134              	.LFE12:
+ 136              		.global	_ZN6ThreadC1EjPKcjh
+ 137              		.thumb_set _ZN6ThreadC1EjPKcjh,_ZN6ThreadC2EjPKcjh
+ 138              		.section	.rodata
+ 139 0023 00       		.align	2
+ 140              	.LC5:
+ 141 0024 2573210D 		.ascii	"%s!\015\012\000"
+ 141      0A00
+ 142 002a 0000     		.section	.text._ZN6Thread8taskWorkEv,"ax",%progbits
+ 143              		.align	2
+ 144              		.global	_ZN6Thread8taskWorkEv
+ 145              		.code	16
+ 146              		.thumb_func
+ 148              	_ZN6Thread8taskWorkEv:
+ 149              	.LFB14:
+  18:../Sources/Task/Thread.cpp **** 
+  19:../Sources/Task/Thread.cpp **** void Thread::taskWork() {
+ 150              		.loc 2 19 0
+ 151              		.cfi_startproc
+ 152 0000 80B5     		push	{r7, lr}
+ 153              	.LCFI6:
+ 154              		.cfi_def_cfa_offset 8
+ 155              		.cfi_offset 7, -8
+ 156              		.cfi_offset 14, -4
+ 157 0002 82B0     		sub	sp, sp, #8
+ 158              	.LCFI7:
+ 159              		.cfi_def_cfa_offset 16
+ 160 0004 00AF     		add	r7, sp, #0
+ 161              	.LCFI8:
+ 162              		.cfi_def_cfa_register 7
+ 163 0006 7860     		str	r0, [r7, #4]
+  20:../Sources/Task/Thread.cpp **** 	printf("%s!\r\n", this->name);
+ 164              		.loc 2 20 0
+ 165 0008 7B68     		ldr	r3, [r7, #4]
+ 166 000a 5B68     		ldr	r3, [r3, #4]
+ 167 000c 054A     		ldr	r2, .L9
+ 168 000e 101C     		mov	r0, r2
+ 169 0010 191C     		mov	r1, r3
+ 170 0012 FFF7FEFF 		bl	printf
+  21:../Sources/Task/Thread.cpp **** 	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
+ 171              		.loc 2 21 0
+ 172 0016 3220     		mov	r0, #50
+ 173 0018 FFF7FEFF 		bl	vTaskDelay
+  22:../Sources/Task/Thread.cpp **** }
+ 174              		.loc 2 22 0
+ 175 001c BD46     		mov	sp, r7
+ 176 001e 02B0     		add	sp, sp, #8
+ 177              		@ sp needed for prologue
+ 178 0020 80BD     		pop	{r7, pc}
+ 179              	.L10:
+ 180 0022 C046     		.align	2
+ 181              	.L9:
+ 182 0024 24000000 		.word	.LC5
+ 183              		.cfi_endproc
+ 184              	.LFE14:
+ 186              		.section	.text._ZN6Thread5startEv,"ax",%progbits
+ 187              		.align	2
+ 188              		.global	_ZN6Thread5startEv
+ 189              		.code	16
+ 190              		.thumb_func
+ 192              	_ZN6Thread5startEv:
+ 193              	.LFB15:
+  23:../Sources/Task/Thread.cpp **** 
+  24:../Sources/Task/Thread.cpp **** /**************************************************************************/
+  25:../Sources/Task/Thread.cpp **** /*! 
+  26:../Sources/Task/Thread.cpp ****  The main code that will execute as long as the task is active.
+  27:../Sources/Task/Thread.cpp ****  The first parameter (vMyTask in this case) needs to match the
+  28:../Sources/Task/Thread.cpp ****  name used when the task is created in the method just below.
+  29:../Sources/Task/Thread.cpp ****  */
+  30:../Sources/Task/Thread.cpp **** /**************************************************************************/
+  31:../Sources/Task/Thread.cpp **** 
+  32:../Sources/Task/Thread.cpp **** void Thread::start() {
+ 194              		.loc 2 32 0
+ 195              		.cfi_startproc
+ 196 0000 B0B5     		push	{r4, r5, r7, lr}
+ 197              	.LCFI9:
+ 198              		.cfi_def_cfa_offset 16
+ 199              		.cfi_offset 4, -16
+ 200              		.cfi_offset 5, -12
+ 201              		.cfi_offset 7, -8
+ 202              		.cfi_offset 14, -4
+ 203 0002 86B0     		sub	sp, sp, #24
+ 204              	.LCFI10:
+ 205              		.cfi_def_cfa_offset 40
+ 206 0004 04AF     		add	r7, sp, #16
+ 207              	.LCFI11:
+ 208              		.cfi_def_cfa 7, 24
+ 209 0006 7860     		str	r0, [r7, #4]
+  33:../Sources/Task/Thread.cpp **** 	this->portBase =
+  34:../Sources/Task/Thread.cpp **** 			FreeRTOS0_xTaskCreate(this->handle, toSigned(this->name), this->stackSize, this,
+ 210              		.loc 2 34 0
+ 211 0008 7B68     		ldr	r3, [r7, #4]
+ 212 000a 9B69     		ldr	r3, [r3, #24]
+ 213 000c 1C1C     		mov	r4, r3
+ 214 000e 7B68     		ldr	r3, [r7, #4]
+ 215 0010 5B68     		ldr	r3, [r3, #4]
+ 216 0012 7A68     		ldr	r2, [r7, #4]
+ 217 0014 101C     		mov	r0, r2
+ 218 0016 191C     		mov	r1, r3
+ 219 0018 FFF7FEFF 		bl	_ZN6Thread8toSignedEPKc
+ 220 001c 011C     		mov	r1, r0
+ 221 001e 7B68     		ldr	r3, [r7, #4]
+ 222 0020 1B69     		ldr	r3, [r3, #16]
+ 223 0022 9AB2     		uxth	r2, r3
+ 224 0024 7B68     		ldr	r3, [r7, #4]
+ 225 0026 1B7D     		ldrb	r3, [r3, #20]
+ 226 0028 1D1C     		mov	r5, r3
+ 227 002a 7B68     		ldr	r3, [r7, #4]
+ 228 002c 181C     		mov	r0, r3
+ 229 002e 1830     		add	r0, r0, #24
+ 230 0030 7B68     		ldr	r3, [r7, #4]
+ 231 0032 0095     		str	r5, [sp]
+ 232 0034 0190     		str	r0, [sp, #4]
+ 233 0036 0020     		mov	r0, #0
+ 234 0038 0290     		str	r0, [sp, #8]
+ 235 003a 0020     		mov	r0, #0
+ 236 003c 0390     		str	r0, [sp, #12]
+ 237 003e 201C     		mov	r0, r4
+ 238 0040 FFF7FEFF 		bl	xTaskGenericCreate
+ 239 0044 021C     		mov	r2, r0
+  35:../Sources/Task/Thread.cpp **** 					this->priority, &this->handle);
+ 240              		.loc 2 35 0
+ 241 0046 7B68     		ldr	r3, [r7, #4]
+ 242 0048 DA60     		str	r2, [r3, #12]
+  36:../Sources/Task/Thread.cpp **** }
+ 243              		.loc 2 36 0
+ 244 004a BD46     		mov	sp, r7
+ 245 004c 02B0     		add	sp, sp, #8
+ 246              		@ sp needed for prologue
+ 247 004e B0BD     		pop	{r4, r5, r7, pc}
+ 248              		.cfi_endproc
+ 249              	.LFE15:
+ 251              		.section	.text._ZN6ThreadD2Ev,"ax",%progbits
+ 252              		.align	2
+ 253              		.global	_ZN6ThreadD2Ev
+ 254              		.code	16
+ 255              		.thumb_func
+ 257              	_ZN6ThreadD2Ev:
+ 258              	.LFB17:
+  37:../Sources/Task/Thread.cpp **** 
+  38:../Sources/Task/Thread.cpp **** Thread::~Thread() {
+ 259              		.loc 2 38 0
+ 260              		.cfi_startproc
+ 261 0000 80B5     		push	{r7, lr}
+ 262              	.LCFI12:
+ 263              		.cfi_def_cfa_offset 8
+ 264              		.cfi_offset 7, -8
+ 265              		.cfi_offset 14, -4
+ 266 0002 82B0     		sub	sp, sp, #8
+ 267              	.LCFI13:
+ 268              		.cfi_def_cfa_offset 16
+ 269 0004 00AF     		add	r7, sp, #0
+ 270              	.LCFI14:
+ 271              		.cfi_def_cfa_register 7
+ 272 0006 7860     		str	r0, [r7, #4]
+ 273              	.LBB3:
+ 274              		.loc 2 38 0
+ 275 0008 7B68     		ldr	r3, [r7, #4]
+ 276 000a 0A4A     		ldr	r2, .L16
+ 277 000c 1A60     		str	r2, [r3]
+  39:../Sources/Task/Thread.cpp **** 	FreeRTOS0_vTaskDelete(this->handle);
+ 278              		.loc 2 39 0
+ 279 000e 7B68     		ldr	r3, [r7, #4]
+ 280 0010 9B69     		ldr	r3, [r3, #24]
+ 281 0012 181C     		mov	r0, r3
+ 282 0014 FFF7FEFF 		bl	vTaskDelete
+ 283              	.LBE3:
+  40:../Sources/Task/Thread.cpp **** }
+ 284              		.loc 2 40 0
+ 285 0018 0022     		mov	r2, #0
+ 286 001a 0123     		mov	r3, #1
+ 287 001c 1340     		and	r3, r2
+ 288 001e 03D0     		beq	.L14
+ 289              		.loc 2 40 0 is_stmt 0
+ 290 0020 7B68     		ldr	r3, [r7, #4]
+ 291 0022 181C     		mov	r0, r3
+ 292 0024 FFF7FEFF 		bl	_ZdlPv
+ 293              	.L14:
+ 294              		.loc 2 40 0
+ 295 0028 7B68     		ldr	r3, [r7, #4]
+ 296 002a 181C     		mov	r0, r3
+ 297 002c BD46     		mov	sp, r7
+ 298 002e 02B0     		add	sp, sp, #8
+ 299              		@ sp needed for prologue
+ 300 0030 80BD     		pop	{r7, pc}
+ 301              	.L17:
+ 302 0032 C046     		.align	2
+ 303              	.L16:
+ 304 0034 08000000 		.word	_ZTV6Thread+8
+ 305              		.cfi_endproc
+ 306              	.LFE17:
+ 308              		.global	_ZN6ThreadD1Ev
+ 309              		.thumb_set _ZN6ThreadD1Ev,_ZN6ThreadD2Ev
+ 310              		.section	.text._ZN6ThreadD0Ev,"ax",%progbits
+ 311              		.align	2
+ 312              		.global	_ZN6ThreadD0Ev
+ 313              		.code	16
+ 314              		.thumb_func
+ 316              	_ZN6ThreadD0Ev:
+ 317              	.LFB19:
+  38:../Sources/Task/Thread.cpp **** Thread::~Thread() {
+ 318              		.loc 2 38 0 is_stmt 1
+ 319              		.cfi_startproc
+ 320 0000 80B5     		push	{r7, lr}
+ 321              	.LCFI15:
+ 322              		.cfi_def_cfa_offset 8
+ 323              		.cfi_offset 7, -8
+ 324              		.cfi_offset 14, -4
+ 325 0002 82B0     		sub	sp, sp, #8
+ 326              	.LCFI16:
+ 327              		.cfi_def_cfa_offset 16
+ 328 0004 00AF     		add	r7, sp, #0
+ 329              	.LCFI17:
+ 330              		.cfi_def_cfa_register 7
+ 331 0006 7860     		str	r0, [r7, #4]
+ 332              		.loc 2 40 0
+ 333 0008 7B68     		ldr	r3, [r7, #4]
+ 334 000a 181C     		mov	r0, r3
+ 335 000c FFF7FEFF 		bl	_ZN6ThreadD1Ev
+ 336 0010 7B68     		ldr	r3, [r7, #4]
+ 337 0012 181C     		mov	r0, r3
+ 338 0014 FFF7FEFF 		bl	_ZdlPv
+ 339 0018 7B68     		ldr	r3, [r7, #4]
+ 340 001a 181C     		mov	r0, r3
+ 341 001c BD46     		mov	sp, r7
+ 342 001e 02B0     		add	sp, sp, #8
+ 343              		@ sp needed for prologue
+ 344 0020 80BD     		pop	{r7, pc}
+ 345              		.cfi_endproc
+ 346              	.LFE19:
+ 348 0022 C046     		.section	.text._ZN6Thread7setNameEPKc,"ax",%progbits
+ 349              		.align	2
+ 350              		.global	_ZN6Thread7setNameEPKc
+ 351              		.code	16
+ 352              		.thumb_func
+ 354              	_ZN6Thread7setNameEPKc:
+ 355              	.LFB20:
+  41:../Sources/Task/Thread.cpp **** 
+  42:../Sources/Task/Thread.cpp **** void Thread::setName(const char *newName) {
+ 356              		.loc 2 42 0
+ 357              		.cfi_startproc
+ 358 0000 80B5     		push	{r7, lr}
+ 359              	.LCFI18:
+ 360              		.cfi_def_cfa_offset 8
+ 361              		.cfi_offset 7, -8
+ 362              		.cfi_offset 14, -4
+ 363 0002 82B0     		sub	sp, sp, #8
+ 364              	.LCFI19:
+ 365              		.cfi_def_cfa_offset 16
+ 366 0004 00AF     		add	r7, sp, #0
+ 367              	.LCFI20:
+ 368              		.cfi_def_cfa_register 7
+ 369 0006 7860     		str	r0, [r7, #4]
+ 370 0008 3960     		str	r1, [r7]
+  43:../Sources/Task/Thread.cpp **** 	this->name = newName;
+ 371              		.loc 2 43 0
+ 372 000a 7B68     		ldr	r3, [r7, #4]
+ 373 000c 3A68     		ldr	r2, [r7]
+ 374 000e 5A60     		str	r2, [r3, #4]
+  44:../Sources/Task/Thread.cpp **** }
+ 375              		.loc 2 44 0
+ 376 0010 BD46     		mov	sp, r7
+ 377 0012 02B0     		add	sp, sp, #8
+ 378              		@ sp needed for prologue
+ 379 0014 80BD     		pop	{r7, pc}
+ 380              		.cfi_endproc
+ 381              	.LFE20:
+ 383 0016 C046     		.section	.text._ZN6Thread6msleepEm,"ax",%progbits
+ 384              		.align	2
+ 385              		.global	_ZN6Thread6msleepEm
+ 386              		.code	16
+ 387              		.thumb_func
+ 389              	_ZN6Thread6msleepEm:
+ 390              	.LFB21:
+  45:../Sources/Task/Thread.cpp **** 
+  46:../Sources/Task/Thread.cpp **** void Thread::msleep(uint32_t msecs) {
+ 391              		.loc 2 46 0
+ 392              		.cfi_startproc
+ 393 0000 80B5     		push	{r7, lr}
+ 394              	.LCFI21:
+ 395              		.cfi_def_cfa_offset 8
+ 396              		.cfi_offset 7, -8
+ 397              		.cfi_offset 14, -4
+ 398 0002 82B0     		sub	sp, sp, #8
+ 399              	.LCFI22:
+ 400              		.cfi_def_cfa_offset 16
+ 401 0004 00AF     		add	r7, sp, #0
+ 402              	.LCFI23:
+ 403              		.cfi_def_cfa_register 7
+ 404 0006 7860     		str	r0, [r7, #4]
+  47:../Sources/Task/Thread.cpp **** 	vTaskDelay(msecs);
+ 405              		.loc 2 47 0
+ 406 0008 7B68     		ldr	r3, [r7, #4]
+ 407 000a 181C     		mov	r0, r3
+ 408 000c FFF7FEFF 		bl	vTaskDelay
+  48:../Sources/Task/Thread.cpp **** }
+ 409              		.loc 2 48 0
+ 410 0010 BD46     		mov	sp, r7
+ 411 0012 02B0     		add	sp, sp, #8
+ 412              		@ sp needed for prologue
+ 413 0014 80BD     		pop	{r7, pc}
+ 414              		.cfi_endproc
+ 415              	.LFE21:
+ 417 0016 C046     		.section	.text._ZN6Thread5sleepEm,"ax",%progbits
+ 418              		.align	2
+ 419              		.global	_ZN6Thread5sleepEm
+ 420              		.code	16
+ 421              		.thumb_func
+ 423              	_ZN6Thread5sleepEm:
+ 424              	.LFB22:
+  49:../Sources/Task/Thread.cpp **** 
+  50:../Sources/Task/Thread.cpp **** void Thread::sleep(uint32_t secs) {
+ 425              		.loc 2 50 0
+ 426              		.cfi_startproc
+ 427 0000 80B5     		push	{r7, lr}
+ 428              	.LCFI24:
+ 429              		.cfi_def_cfa_offset 8
+ 430              		.cfi_offset 7, -8
+ 431              		.cfi_offset 14, -4
+ 432 0002 82B0     		sub	sp, sp, #8
+ 433              	.LCFI25:
+ 434              		.cfi_def_cfa_offset 16
+ 435 0004 00AF     		add	r7, sp, #0
+ 436              	.LCFI26:
+ 437              		.cfi_def_cfa_register 7
+ 438 0006 7860     		str	r0, [r7, #4]
+  51:../Sources/Task/Thread.cpp **** 	msleep(secs * 1000);
+ 439              		.loc 2 51 0
+ 440 0008 7B68     		ldr	r3, [r7, #4]
+ 441 000a FA22     		mov	r2, #250
+ 442 000c 9200     		lsl	r2, r2, #2
+ 443 000e 5343     		mul	r3, r2
+ 444 0010 181C     		mov	r0, r3
+ 445 0012 FFF7FEFF 		bl	_ZN6Thread6msleepEm
+  52:../Sources/Task/Thread.cpp **** }
+ 446              		.loc 2 52 0
+ 447 0016 BD46     		mov	sp, r7
+ 448 0018 02B0     		add	sp, sp, #8
+ 449              		@ sp needed for prologue
+ 450 001a 80BD     		pop	{r7, pc}
+ 451              		.cfi_endproc
+ 452              	.LFE22:
+ 454              		.text
+ 455              	.Letext0:
+ 456              		.file 3 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 457              		.file 4 "C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code/portmac
+ 458              		.file 5 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h"
+ 459              		.file 6 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/file_struc.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Thread.cpp
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:18     .text._ZN6Thread8toSignedEPKc:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:23     .text._ZN6Thread8toSignedEPKc:00000000 _ZN6Thread8toSignedEPKc
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:53     .rodata:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:60     .text._ZN6ThreadC2EjPKcjh:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:65     .text._ZN6ThreadC2EjPKcjh:00000000 _ZN6ThreadC2EjPKcjh
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:130    .text._ZN6ThreadC2EjPKcjh:00000054 $d
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:65     .text._ZN6ThreadC2EjPKcjh:00000000 _ZN6ThreadC1EjPKcjh
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:143    .text._ZN6Thread8taskWorkEv:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:148    .text._ZN6Thread8taskWorkEv:00000000 _ZN6Thread8taskWorkEv
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:182    .text._ZN6Thread8taskWorkEv:00000024 $d
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:187    .text._ZN6Thread5startEv:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:192    .text._ZN6Thread5startEv:00000000 _ZN6Thread5startEv
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:252    .text._ZN6ThreadD2Ev:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:257    .text._ZN6ThreadD2Ev:00000000 _ZN6ThreadD2Ev
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:304    .text._ZN6ThreadD2Ev:00000034 $d
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:257    .text._ZN6ThreadD2Ev:00000000 _ZN6ThreadD1Ev
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:311    .text._ZN6ThreadD0Ev:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:316    .text._ZN6ThreadD0Ev:00000000 _ZN6ThreadD0Ev
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:349    .text._ZN6Thread7setNameEPKc:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:354    .text._ZN6Thread7setNameEPKc:00000000 _ZN6Thread7setNameEPKc
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:384    .text._ZN6Thread6msleepEm:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:389    .text._ZN6Thread6msleepEm:00000000 _ZN6Thread6msleepEm
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:418    .text._ZN6Thread5sleepEm:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccRwm5Tv.s:423    .text._ZN6Thread5sleepEm:00000000 _ZN6Thread5sleepEm
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+sprintf
+printf
+_ZTV6Thread
+vTaskDelay
+xTaskGenericCreate
+vTaskDelete
+_ZdlPv

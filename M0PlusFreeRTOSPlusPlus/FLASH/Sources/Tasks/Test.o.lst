@@ -1,0 +1,301 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Test.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN4Test3runEv,"axG",%progbits,_ZN4Test3runEv,comdat
+  18              		.align	2
+  19              		.weak	_ZN4Test3runEv
+  20              		.code	16
+  21              		.thumb_func
+  23              	_ZN4Test3runEv:
+  24              	.LFB11:
+  25              		.file 1 "../Sources/Tasks/Test.h"
+   1:../Sources/Tasks/Test.h **** /*
+   2:../Sources/Tasks/Test.h ****  * Test.h
+   3:../Sources/Tasks/Test.h ****  *
+   4:../Sources/Tasks/Test.h ****  *  Created on: Apr 5, 2014
+   5:../Sources/Tasks/Test.h ****  *      Author: JH
+   6:../Sources/Tasks/Test.h ****  */
+   7:../Sources/Tasks/Test.h **** 
+   8:../Sources/Tasks/Test.h **** #ifndef TEST_H_
+   9:../Sources/Tasks/Test.h **** #define TEST_H_
+  10:../Sources/Tasks/Test.h **** 
+  11:../Sources/Tasks/Test.h **** #include "Task/Thread.h"
+  12:../Sources/Tasks/Test.h **** #include "PWMLEDGreen.h"
+  13:../Sources/Tasks/Test.h **** 
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+  15:../Sources/Tasks/Test.h **** 	public:
+  16:../Sources/Tasks/Test.h **** 		Test(unsigned int index, const char *name, unsigned int stackSize,
+  17:../Sources/Tasks/Test.h **** 				uint8_t priority);
+  18:../Sources/Tasks/Test.h **** 	protected:
+  19:../Sources/Tasks/Test.h **** 		void run(void) {
+  26              		.loc 1 19 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  20:../Sources/Tasks/Test.h **** 			PWMLEDGreen_SetRatio8(0xFF);
+  40              		.loc 1 20 0
+  41 0008 044B     		ldr	r3, .L2
+  42 000a 5B69     		ldr	r3, [r3, #20]
+  43 000c 181C     		mov	r0, r3
+  44 000e FF21     		mov	r1, #255
+  45 0010 FFF7FEFF 		bl	PwmLdd3_SetRatio8
+  21:../Sources/Tasks/Test.h **** 		}
+  46              		.loc 1 21 0
+  47 0014 BD46     		mov	sp, r7
+  48 0016 02B0     		add	sp, sp, #8
+  49              		@ sp needed for prologue
+  50 0018 80BD     		pop	{r7, pc}
+  51              	.L3:
+  52 001a C046     		.align	2
+  53              	.L2:
+  54 001c 00000000 		.word	PE_LDD_DeviceDataList
+  55              		.cfi_endproc
+  56              	.LFE11:
+  58              		.section	.text._ZN4TestC2EjPKcjh,"ax",%progbits
+  59              		.align	2
+  60              		.global	_ZN4TestC2EjPKcjh
+  61              		.code	16
+  62              		.thumb_func
+  64              	_ZN4TestC2EjPKcjh:
+  65              	.LFB13:
+  66              		.file 2 "../Sources/Tasks/Test.cpp"
+   1:../Sources/Tasks/Test.cpp **** /*
+   2:../Sources/Tasks/Test.cpp ****  * Test.cpp
+   3:../Sources/Tasks/Test.cpp ****  *
+   4:../Sources/Tasks/Test.cpp ****  *  Created on: Apr 5, 2014
+   5:../Sources/Tasks/Test.cpp ****  *      Author: JH
+   6:../Sources/Tasks/Test.cpp ****  */
+   7:../Sources/Tasks/Test.cpp **** 
+   8:../Sources/Tasks/Test.cpp **** #include "Test.h"
+   9:../Sources/Tasks/Test.cpp **** 
+  10:../Sources/Tasks/Test.cpp **** Test::Test(unsigned int index, const char *name, unsigned int stackSize,
+  67              		.loc 2 10 0
+  68              		.cfi_startproc
+  69 0000 90B5     		push	{r4, r7, lr}
+  70              	.LCFI3:
+  71              		.cfi_def_cfa_offset 12
+  72              		.cfi_offset 4, -12
+  73              		.cfi_offset 7, -8
+  74              		.cfi_offset 14, -4
+  75 0002 87B0     		sub	sp, sp, #28
+  76              	.LCFI4:
+  77              		.cfi_def_cfa_offset 40
+  78 0004 02AF     		add	r7, sp, #8
+  79              	.LCFI5:
+  80              		.cfi_def_cfa 7, 32
+  81 0006 F860     		str	r0, [r7, #12]
+  82 0008 B960     		str	r1, [r7, #8]
+  83 000a 7A60     		str	r2, [r7, #4]
+  84 000c 3B60     		str	r3, [r7]
+  85              	.LBB2:
+  11:../Sources/Tasks/Test.cpp **** 		uint8_t priority):Thread(index, name, stackSize, priority) {
+  86              		.loc 2 11 0
+  87 000e F868     		ldr	r0, [r7, #12]
+  88 0010 B968     		ldr	r1, [r7, #8]
+  89 0012 7A68     		ldr	r2, [r7, #4]
+  90 0014 3B68     		ldr	r3, [r7]
+  91 0016 3C1C     		mov	r4, r7
+  92 0018 2034     		add	r4, r4, #32
+  93 001a 2478     		ldrb	r4, [r4]
+  94 001c 0094     		str	r4, [sp]
+  95 001e FFF7FEFF 		bl	_ZN6ThreadC2EjPKcjh
+  96 0022 FB68     		ldr	r3, [r7, #12]
+  97 0024 034A     		ldr	r2, .L7
+  98 0026 1A60     		str	r2, [r3]
+  99              	.LBE2:
+  12:../Sources/Tasks/Test.cpp **** 	
+  13:../Sources/Tasks/Test.cpp **** }
+ 100              		.loc 2 13 0
+ 101 0028 FB68     		ldr	r3, [r7, #12]
+ 102 002a 181C     		mov	r0, r3
+ 103 002c BD46     		mov	sp, r7
+ 104 002e 05B0     		add	sp, sp, #20
+ 105              		@ sp needed for prologue
+ 106 0030 90BD     		pop	{r4, r7, pc}
+ 107              	.L8:
+ 108 0032 C046     		.align	2
+ 109              	.L7:
+ 110 0034 08000000 		.word	_ZTV4Test+8
+ 111              		.cfi_endproc
+ 112              	.LFE13:
+ 114              		.global	_ZN4TestC1EjPKcjh
+ 115              		.thumb_set _ZN4TestC1EjPKcjh,_ZN4TestC2EjPKcjh
+ 116              		.weak	_ZTV4Test
+ 117              		.section	.rodata._ZTV4Test,"aG",%progbits,_ZTV4Test,comdat
+ 118              		.align	3
+ 121              	_ZTV4Test:
+ 122 0000 00000000 		.word	0
+ 123 0004 00000000 		.word	_ZTI4Test
+ 124 0008 00000000 		.word	_ZN4Test3runEv
+ 125 000c 00000000 		.word	_ZN4TestD1Ev
+ 126 0010 00000000 		.word	_ZN4TestD0Ev
+ 127 0014 00000000 		.section	.text._ZN4TestD2Ev,"axG",%progbits,_ZN4TestD5Ev,comdat
+ 128              		.align	2
+ 129              		.weak	_ZN4TestD2Ev
+ 130              		.code	16
+ 131              		.thumb_func
+ 133              	_ZN4TestD2Ev:
+ 134              	.LFB16:
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+ 135              		.loc 1 14 0
+ 136              		.cfi_startproc
+ 137 0000 80B5     		push	{r7, lr}
+ 138              	.LCFI6:
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 7, -8
+ 141              		.cfi_offset 14, -4
+ 142 0002 82B0     		sub	sp, sp, #8
+ 143              	.LCFI7:
+ 144              		.cfi_def_cfa_offset 16
+ 145 0004 00AF     		add	r7, sp, #0
+ 146              	.LCFI8:
+ 147              		.cfi_def_cfa_register 7
+ 148 0006 7860     		str	r0, [r7, #4]
+ 149              	.LBB3:
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+ 150              		.loc 1 14 0
+ 151 0008 7B68     		ldr	r3, [r7, #4]
+ 152 000a 094A     		ldr	r2, .L13
+ 153 000c 1A60     		str	r2, [r3]
+ 154 000e 7B68     		ldr	r3, [r7, #4]
+ 155 0010 181C     		mov	r0, r3
+ 156 0012 FFF7FEFF 		bl	_ZN6ThreadD2Ev
+ 157              	.LBE3:
+ 158 0016 0022     		mov	r2, #0
+ 159 0018 0123     		mov	r3, #1
+ 160 001a 1340     		and	r3, r2
+ 161 001c 03D0     		beq	.L11
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+ 162              		.loc 1 14 0 is_stmt 0
+ 163 001e 7B68     		ldr	r3, [r7, #4]
+ 164 0020 181C     		mov	r0, r3
+ 165 0022 FFF7FEFF 		bl	_ZdlPv
+ 166              	.L11:
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+ 167              		.loc 1 14 0
+ 168 0026 7B68     		ldr	r3, [r7, #4]
+ 169 0028 181C     		mov	r0, r3
+ 170 002a BD46     		mov	sp, r7
+ 171 002c 02B0     		add	sp, sp, #8
+ 172              		@ sp needed for prologue
+ 173 002e 80BD     		pop	{r7, pc}
+ 174              	.L14:
+ 175              		.align	2
+ 176              	.L13:
+ 177 0030 08000000 		.word	_ZTV4Test+8
+ 178              		.cfi_endproc
+ 179              	.LFE16:
+ 181              		.weak	_ZN4TestD1Ev
+ 182              		.thumb_set _ZN4TestD1Ev,_ZN4TestD2Ev
+ 183              		.section	.text._ZN4TestD0Ev,"axG",%progbits,_ZN4TestD0Ev,comdat
+ 184              		.align	2
+ 185              		.weak	_ZN4TestD0Ev
+ 186              		.code	16
+ 187              		.thumb_func
+ 189              	_ZN4TestD0Ev:
+ 190              	.LFB18:
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+ 191              		.loc 1 14 0 is_stmt 1
+ 192              		.cfi_startproc
+ 193 0000 80B5     		push	{r7, lr}
+ 194              	.LCFI9:
+ 195              		.cfi_def_cfa_offset 8
+ 196              		.cfi_offset 7, -8
+ 197              		.cfi_offset 14, -4
+ 198 0002 82B0     		sub	sp, sp, #8
+ 199              	.LCFI10:
+ 200              		.cfi_def_cfa_offset 16
+ 201 0004 00AF     		add	r7, sp, #0
+ 202              	.LCFI11:
+ 203              		.cfi_def_cfa_register 7
+ 204 0006 7860     		str	r0, [r7, #4]
+  14:../Sources/Tasks/Test.h **** class Test: public Thread {
+ 205              		.loc 1 14 0
+ 206 0008 7B68     		ldr	r3, [r7, #4]
+ 207 000a 181C     		mov	r0, r3
+ 208 000c FFF7FEFF 		bl	_ZN4TestD1Ev
+ 209 0010 7B68     		ldr	r3, [r7, #4]
+ 210 0012 181C     		mov	r0, r3
+ 211 0014 FFF7FEFF 		bl	_ZdlPv
+ 212 0018 7B68     		ldr	r3, [r7, #4]
+ 213 001a 181C     		mov	r0, r3
+ 214 001c BD46     		mov	sp, r7
+ 215 001e 02B0     		add	sp, sp, #8
+ 216              		@ sp needed for prologue
+ 217 0020 80BD     		pop	{r7, pc}
+ 218              		.cfi_endproc
+ 219              	.LFE18:
+ 221              		.weak	_ZTS4Test
+ 222 0022 C046     		.section	.rodata._ZTS4Test,"aG",%progbits,_ZTS4Test,comdat
+ 223              		.align	2
+ 226              	_ZTS4Test:
+ 227 0000 34546573 		.ascii	"4Test\000"
+ 227      7400
+ 228              		.weak	_ZTI4Test
+ 229 0006 0000     		.section	.rodata._ZTI4Test,"aG",%progbits,_ZTI4Test,comdat
+ 230              		.align	2
+ 233              	_ZTI4Test:
+ 234 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 235 0004 00000000 		.word	_ZTS4Test
+ 236 0008 00000000 		.word	_ZTI6Thread
+ 237              		.text
+ 238              	.Letext0:
+ 239              		.file 3 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 240              		.file 4 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h"
+ 241              		.file 5 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/file_struc.h"
+ 242              		.file 6 "C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code/PE_Type
+DEFINED SYMBOLS
+                            *ABS*:00000000 Test.cpp
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:18     .text._ZN4Test3runEv:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:23     .text._ZN4Test3runEv:00000000 _ZN4Test3runEv
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:54     .text._ZN4Test3runEv:0000001c $d
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:59     .text._ZN4TestC2EjPKcjh:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:64     .text._ZN4TestC2EjPKcjh:00000000 _ZN4TestC2EjPKcjh
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:110    .text._ZN4TestC2EjPKcjh:00000034 $d
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:121    .rodata._ZTV4Test:00000000 _ZTV4Test
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:64     .text._ZN4TestC2EjPKcjh:00000000 _ZN4TestC1EjPKcjh
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:118    .rodata._ZTV4Test:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:233    .rodata._ZTI4Test:00000000 _ZTI4Test
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:133    .text._ZN4TestD2Ev:00000000 _ZN4TestD1Ev
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:189    .text._ZN4TestD0Ev:00000000 _ZN4TestD0Ev
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:128    .text._ZN4TestD2Ev:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:133    .text._ZN4TestD2Ev:00000000 _ZN4TestD2Ev
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:177    .text._ZN4TestD2Ev:00000030 $d
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:184    .text._ZN4TestD0Ev:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:226    .rodata._ZTS4Test:00000000 _ZTS4Test
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:223    .rodata._ZTS4Test:00000000 $d
+C:\Users\JH\AppData\Local\Temp\ccaO8E7q.s:230    .rodata._ZTI4Test:00000000 $d
+                     .debug_frame:00000010 $d
+                           .group:00000000 _ZN4TestD5Ev
+
+UNDEFINED SYMBOLS
+PwmLdd3_SetRatio8
+PE_LDD_DeviceDataList
+_ZN6ThreadC2EjPKcjh
+_ZN6ThreadD2Ev
+_ZdlPv
+_ZTVN10__cxxabiv120__si_class_type_infoE
+_ZTI6Thread

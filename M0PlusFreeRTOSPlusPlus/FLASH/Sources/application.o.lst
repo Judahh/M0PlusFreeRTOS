@@ -57,7 +57,7 @@
   43 000a 0022     		mov	r2, #0
   44 000c 1A60     		str	r2, [r3]
   45              	.LBE2:
-  16:../Sources/application.cpp **** 		};
+  16:../Sources/application.cpp **** 		}
   46              		.loc 1 16 0
   47 000e 7B68     		ldr	r3, [r7, #4]
   48 0010 181C     		mov	r0, r3
@@ -76,9 +76,10 @@
   62              		.thumb_func
   64              	_ZN12counterclass9incrementEv:
   65              	.LFB3:
-  17:../Sources/application.cpp **** 
-  18:../Sources/application.cpp **** 		void increment(void) {
-  66              		.loc 1 18 0
+  17:../Sources/application.cpp **** 		;
+  18:../Sources/application.cpp **** 
+  19:../Sources/application.cpp **** 		void increment(void) {
+  66              		.loc 1 19 0
   67              		.cfi_startproc
   68 0000 80B5     		push	{r7, lr}
   69              	.LCFI3:
@@ -93,15 +94,15 @@
   78              		.cfi_def_cfa_register 7
   79 0006 7860     		str	r0, [r7, #4]
   80              	.LBB3:
-  19:../Sources/application.cpp **** 			m_counter++;
-  81              		.loc 1 19 0
+  20:../Sources/application.cpp **** 			m_counter++;
+  81              		.loc 1 20 0
   82 0008 7B68     		ldr	r3, [r7, #4]
   83 000a 1B68     		ldr	r3, [r3]
   84 000c 5A1C     		add	r2, r3, #1
   85 000e 7B68     		ldr	r3, [r7, #4]
   86 0010 1A60     		str	r2, [r3]
-  20:../Sources/application.cpp **** 			uint8_t red = m_counter / 0x10000; //  12
-  87              		.loc 1 20 0
+  21:../Sources/application.cpp **** 			uint8_t red = m_counter / 0x10000; //  12
+  87              		.loc 1 21 0
   88 0012 7B68     		ldr	r3, [r7, #4]
   89 0014 1B68     		ldr	r3, [r3]
   90 0016 002B     		cmp	r3, #0
@@ -114,8 +115,8 @@
   97 0022 3B1C     		mov	r3, r7
   98 0024 0F33     		add	r3, r3, #15
   99 0026 1A70     		strb	r2, [r3]
-  21:../Sources/application.cpp **** 			uint8_t green = (m_counter % 0x10000) / 0x100; //  34
- 100              		.loc 1 21 0
+  22:../Sources/application.cpp **** 			uint8_t green = (m_counter % 0x10000) / 0x100; //  34
+ 100              		.loc 1 22 0
  101 0028 7B68     		ldr	r3, [r7, #4]
  102 002a 1A68     		ldr	r2, [r3]
  103 002c 1D4B     		ldr	r3, .L9+4
@@ -135,8 +136,8 @@
  117 0044 3B1C     		mov	r3, r7
  118 0046 0E33     		add	r3, r3, #14
  119 0048 1A70     		strb	r2, [r3]
-  22:../Sources/application.cpp **** 			uint8_t blue = m_counter % 0x100; // 56
- 120              		.loc 1 22 0
+  23:../Sources/application.cpp **** 			uint8_t blue = m_counter % 0x100; // 56
+ 120              		.loc 1 23 0
  121 004a 7B68     		ldr	r3, [r7, #4]
  122 004c 1A68     		ldr	r2, [r3]
  123 004e 174B     		ldr	r3, .L9+12
@@ -151,9 +152,9 @@
  132 005e 3B1C     		mov	r3, r7
  133 0060 0D33     		add	r3, r3, #13
  134 0062 1A70     		strb	r2, [r3]
-  23:../Sources/application.cpp **** 
-  24:../Sources/application.cpp **** 			PWMLEDRed_SetRatio8(red);
- 135              		.loc 1 24 0
+  24:../Sources/application.cpp **** 
+  25:../Sources/application.cpp **** 			PWMLEDRed_SetRatio8(red);
+ 135              		.loc 1 25 0
  136 0064 134B     		ldr	r3, .L9+20
  137 0066 1A69     		ldr	r2, [r3, #16]
  138 0068 3B1C     		mov	r3, r7
@@ -162,8 +163,8 @@
  141 006e 101C     		mov	r0, r2
  142 0070 191C     		mov	r1, r3
  143 0072 FFF7FEFF 		bl	PwmLdd2_SetRatio8
-  25:../Sources/application.cpp **** 			PWMLEDGreen_SetRatio8(green);
- 144              		.loc 1 25 0
+  26:../Sources/application.cpp **** 			PWMLEDGreen_SetRatio8(green);
+ 144              		.loc 1 26 0
  145 0076 0F4B     		ldr	r3, .L9+20
  146 0078 5A69     		ldr	r2, [r3, #20]
  147 007a 3B1C     		mov	r3, r7
@@ -172,8 +173,8 @@
  150 0080 101C     		mov	r0, r2
  151 0082 191C     		mov	r1, r3
  152 0084 FFF7FEFF 		bl	PwmLdd3_SetRatio8
-  26:../Sources/application.cpp **** 			PWMLEDBlue_SetRatio8(blue);
- 153              		.loc 1 26 0
+  27:../Sources/application.cpp **** 			PWMLEDBlue_SetRatio8(blue);
+ 153              		.loc 1 27 0
  154 0088 0A4B     		ldr	r3, .L9+20
  155 008a 9A68     		ldr	r2, [r3, #8]
  156 008c 3B1C     		mov	r3, r7
@@ -183,8 +184,8 @@
  160 0094 191C     		mov	r1, r3
  161 0096 FFF7FEFF 		bl	PwmLdd1_SetRatio8
  162              	.LBE3:
-  27:../Sources/application.cpp **** 		};
- 163              		.loc 1 27 0
+  28:../Sources/application.cpp **** 		}
+ 163              		.loc 1 28 0
  164 009a BD46     		mov	sp, r7
  165 009c 04B0     		add	sp, sp, #16
  166              		@ sp needed for prologue
@@ -207,11 +208,12 @@
  184              		.thumb_func
  186              	APP_Run:
  187              	.LFB4:
-  28:../Sources/application.cpp **** 
-  29:../Sources/application.cpp **** };
+  29:../Sources/application.cpp **** 		;
   30:../Sources/application.cpp **** 
-  31:../Sources/application.cpp **** void APP_Run(void) {
- 188              		.loc 1 31 0
+  31:../Sources/application.cpp **** };
+  32:../Sources/application.cpp **** 
+  33:../Sources/application.cpp **** void APP_Run(void) {
+ 188              		.loc 1 33 0
  189              		.cfi_startproc
  190 0000 80B5     		push	{r7, lr}
  191              	.LCFI6:
@@ -225,27 +227,27 @@
  199              	.LCFI8:
  200              		.cfi_def_cfa_register 7
  201              	.LBB4:
-  32:../Sources/application.cpp **** 	counterclass myccounter;
- 202              		.loc 1 32 0
+  34:../Sources/application.cpp **** 	counterclass myccounter;
+ 202              		.loc 1 34 0
  203 0006 3B1D     		add	r3, r7, #4
  204 0008 181C     		mov	r0, r3
  205 000a FFF7FEFF 		bl	_ZN12counterclassC1Ev
  206              	.L12:
-  33:../Sources/application.cpp **** 
-  34:../Sources/application.cpp **** 	/* Enabling 'puts' below will use the UART/SCI of your target.
-  35:../Sources/application.cpp **** 	 * Make sure you correctly set it up or how to use the Debug Console instead.
-  36:../Sources/application.cpp **** 	 * See the targeting manual for details.
-  37:../Sources/application.cpp **** 	 */
-  38:../Sources/application.cpp **** 	/*puts("Hello (Kinetis) World in 'C++' from MKL25Z128 derivative!");*/
-  39:../Sources/application.cpp **** 
-  40:../Sources/application.cpp **** 	for (;;) {
-  41:../Sources/application.cpp **** 		myccounter.increment();
- 207              		.loc 1 41 0
+  35:../Sources/application.cpp **** 
+  36:../Sources/application.cpp **** 	/* Enabling 'puts' below will use the UART/SCI of your target.
+  37:../Sources/application.cpp **** 	 * Make sure you correctly set it up or how to use the Debug Console instead.
+  38:../Sources/application.cpp **** 	 * See the targeting manual for details.
+  39:../Sources/application.cpp **** 	 */
+  40:../Sources/application.cpp **** 	/*puts("Hello (Kinetis) World in 'C++' from MKL25Z128 derivative!");*/
+  41:../Sources/application.cpp **** 
+  42:../Sources/application.cpp **** 	for (;;) {
+  43:../Sources/application.cpp **** 		myccounter.increment();
+ 207              		.loc 1 43 0
  208 000e 3B1D     		add	r3, r7, #4
  209 0010 181C     		mov	r0, r3
  210 0012 FFF7FEFF 		bl	_ZN12counterclass9incrementEv
-  40:../Sources/application.cpp **** 	for (;;) {
- 211              		.loc 1 40 0
+  42:../Sources/application.cpp **** 	for (;;) {
+ 211              		.loc 1 42 0
  212 0016 FAE7     		b	.L12
  213              	.LBE4:
  214              		.cfi_endproc
@@ -256,14 +258,14 @@
  220              		.file 3 "C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code/PE_Type
 DEFINED SYMBOLS
                             *ABS*:00000000 application.cpp
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:18     .text._ZN12counterclassC2Ev:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:23     .text._ZN12counterclassC2Ev:00000000 _ZN12counterclassC2Ev
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:23     .text._ZN12counterclassC2Ev:00000000 _ZN12counterclassC1Ev
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:59     .text._ZN12counterclass9incrementEv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:64     .text._ZN12counterclass9incrementEv:00000000 _ZN12counterclass9incrementEv
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:171    .text._ZN12counterclass9incrementEv:000000a0 $d
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:181    .text.APP_Run:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccn5PLIe.s:186    .text.APP_Run:00000000 APP_Run
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:18     .text._ZN12counterclassC2Ev:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:23     .text._ZN12counterclassC2Ev:00000000 _ZN12counterclassC2Ev
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:23     .text._ZN12counterclassC2Ev:00000000 _ZN12counterclassC1Ev
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:59     .text._ZN12counterclass9incrementEv:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:64     .text._ZN12counterclass9incrementEv:00000000 _ZN12counterclass9incrementEv
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:171    .text._ZN12counterclass9incrementEv:000000a0 $d
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:181    .text.APP_Run:00000000 $t
+C:\Users\JH\AppData\Local\Temp\ccK6Kyxb.s:186    .text.APP_Run:00000000 APP_Run
                      .debug_frame:00000010 $d
                            .group:00000000 _ZN12counterclassC5Ev
 

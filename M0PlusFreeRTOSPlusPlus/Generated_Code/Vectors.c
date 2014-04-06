@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-04-05, 15:28, # CodeGen: 4
+**     Date/Time   : 2014-04-05, 21:22, # CodeGen: 11
 **     Abstract    :
 **
 **     Settings    :
@@ -53,6 +53,7 @@
   "C"
   #endif
   void _Z15__thumb_startupv( void );
+  
   
   /*lint -esym(765,__vect_table) Disable MISRA rule (8.10) checking for symbols (__vect_table). Definition of the interrupt vector table placed by linker on a predefined location. */
   /*lint -save  -e926 -e927 -e928 -e929 Disable MISRA rule (11.4) checking. Need to explicitly cast pointers to the general ISR for Interrupt vector table */

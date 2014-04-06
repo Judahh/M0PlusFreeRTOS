@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 34
+#Progress monitor hint: 36
 first : all
 -include ../makefile.init
 
@@ -15,6 +15,8 @@ RM := "$(GNU_Make_Install_DirEnv)/rm" -rf
 -include sources.mk
 -include subdir.mk
 -include Sources/subdir.mk
+-include Sources/Tasks/subdir.mk
+-include Sources/Task/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
 -include Generated_Code/subdir.mk
 -include objects.mk
@@ -74,7 +76,7 @@ all: warning-messages explicit-dependencies M0PlusFreeRTOSPlusPlus.elf secondary
 # Tool invocations
 M0PlusFreeRTOSPlusPlus.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/ProcessorExpert.ld
 	@echo 'Building target: $@'
-	@echo 'Executing target #35 $@'
+	@echo 'Executing target #37 $@'
 	@echo 'Invoking: ARM Ltd Windows GCC C++ Linker'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-g++"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED) @"M0PlusFreeRTOSPlusPlus.args" -o"M0PlusFreeRTOSPlusPlus.elf"
 	@echo 'Finished building target: $@'
@@ -82,7 +84,7 @@ M0PlusFreeRTOSPlusPlus.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_File
 
 # Other Targets
 clean:
-	-$(RM) "./*/*.d"  "./*/*.o" "./*/*/*.o"  "./*/*.d"  $(CC_DEPS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(SX_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/M0PlusFreeRTOSPlusPlus.elf
+	-$(RM) "./*/*.d"  "./*/*.o" "./*/*/*.o"  "./*/*/*.d" "./*/*.d"  $(CC_DEPS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(SX_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/M0PlusFreeRTOSPlusPlus.elf
 	-@echo ' '
 
 secondary-outputs:

@@ -383,7 +383,7 @@ PE_DEBUGHALT();
     </Properties>
     <Methods>
       <xTaskCreate v="generate code" />
-      <vTaskDelete v="don&amp;apos;t generate code" />
+      <vTaskDelete v="generate code" />
       <vTaskStartScheduler v="generate code" />
       <vTaskEndScheduler v="don&amp;apos;t generate code" />
       <vTaskSuspend v="generate code" />
