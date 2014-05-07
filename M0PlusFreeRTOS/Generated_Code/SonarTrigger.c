@@ -6,7 +6,7 @@
 **     Component   : BitsIO_LDD
 **     Version     : Component 01.029, Driver 01.05, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-28, 22:15, # CodeGen: 115
+**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
 **     Abstract    :
 **         The HAL BitsIO component provides a low level API for unified
 **         access to general purpose digital input/output 32 pins across
@@ -115,10 +115,10 @@ LDD_TDeviceData* SonarTrigger_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   /* Configure pin directions */
   /* GPIOB_PDDR: PDD|=0x0F00 */
-  GPIOB_PDDR |= GPIO_PDDR_PDD(0x0F00);                                   
+  GPIOB_PDDR |= GPIO_PDDR_PDD(0x0F00);
   /* Set initialization value */
   /* GPIOB_PDOR: PDO&=~0x0F00 */
-  GPIOB_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x0F00));                                   
+  GPIOB_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x0F00));
   /* Initialization of Port Control register */
   /* PORTB_PCR8: ISF=0,MUX=1 */
   PORTB_PCR8 = (uint32_t)((PORTB_PCR8 & (uint32_t)~(uint32_t)(
@@ -126,28 +126,28 @@ LDD_TDeviceData* SonarTrigger_Init(LDD_TUserData *UserDataPtr)
                 PORT_PCR_MUX(0x06)
                )) | (uint32_t)(
                 PORT_PCR_MUX(0x01)
-               ));                                  
+               ));
   /* PORTB_PCR9: ISF=0,MUX=1 */
   PORTB_PCR9 = (uint32_t)((PORTB_PCR9 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
                 PORT_PCR_MUX(0x06)
                )) | (uint32_t)(
                 PORT_PCR_MUX(0x01)
-               ));                                  
+               ));
   /* PORTB_PCR10: ISF=0,MUX=1 */
   PORTB_PCR10 = (uint32_t)((PORTB_PCR10 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
                  PORT_PCR_MUX(0x06)
                 )) | (uint32_t)(
                  PORT_PCR_MUX(0x01)
-                ));                                  
+                ));
   /* PORTB_PCR11: ISF=0,MUX=1 */
   PORTB_PCR11 = (uint32_t)((PORTB_PCR11 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
                  PORT_PCR_MUX(0x06)
                 )) | (uint32_t)(
                  PORT_PCR_MUX(0x01)
-                ));                                  
+                ));
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_SonarTrigger_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv);
@@ -397,7 +397,7 @@ LDD_TError SonarTrigger_ClrBit(LDD_TDeviceData *DeviceDataPtr, uint8_t Bit)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

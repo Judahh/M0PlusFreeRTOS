@@ -2005,67 +2005,67 @@
  1507              		.text
  1508              	.Letext0:
  1509              		.file 2 "../Generated_Code/PE_Types.h"
- 1510              		.file 3 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 1510              		.file 3 "C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
  1511              		.file 4 "../Generated_Code/portmacro.h"
  1512              		.file 5 "../Generated_Code/queue.h"
  1513              		.file 6 "../Generated_Code/semphr.h"
  1514              		.file 7 "../Generated_Code/GI2C0.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 GI2C0.c
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:18     .bss._ZL16GI2C0_deviceData:00000000 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:21     .bss._ZL16GI2C0_deviceData:00000000 _ZL16GI2C0_deviceData
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:24     .bss._ZL12GI2C0_busSem:00000000 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:27     .bss._ZL12GI2C0_busSem:00000000 _ZL12GI2C0_busSem
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:30     .text._Z16GI2C0_RequestBusv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:35     .text._Z16GI2C0_RequestBusv:00000000 _Z16GI2C0_RequestBusv
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:63     .text._Z16GI2C0_RequestBusv:00000018 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:68     .text._Z16GI2C0_ReleaseBusv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:73     .text._Z16GI2C0_ReleaseBusv:00000000 _Z16GI2C0_ReleaseBusv
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:97     .text._Z16GI2C0_ReleaseBusv:00000014 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:102    .text._Z17GI2C0_SelectSlaveh:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:107    .text._Z17GI2C0_SelectSlaveh:00000000 _Z17GI2C0_SelectSlaveh
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:161    .text._Z17GI2C0_SelectSlaveh:00000044 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:166    .text._Z19GI2C0_UnselectSlavev:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:171    .text._Z19GI2C0_UnselectSlavev:00000000 _Z19GI2C0_UnselectSlavev
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:196    .text._Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:201    .text._Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_:00000000 _Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:292    .text._Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_:00000070 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:297    .text._Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:302    .text._Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_:00000000 _Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:393    .text._Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_:00000070 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:398    .text._Z17GI2C0_ReadAddresshPhhS_t:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:403    .text._Z17GI2C0_ReadAddresshPhhS_t:00000000 _Z17GI2C0_ReadAddresshPhhS_t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:563    .text._Z17GI2C0_ReadAddresshPhhS_t:000000ec $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:568    .text._Z18GI2C0_WriteAddresshPhhS_t:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:573    .text._Z18GI2C0_WriteAddresshPhhS_t:00000000 _Z18GI2C0_WriteAddresshPhhS_t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:813    .text._Z18GI2C0_WriteAddresshPhhS_t:00000164 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1505   .bss._ZZ18GI2C0_WriteAddresshPhhS_tE8writeBuf:00000000 _ZZ18GI2C0_WriteAddresshPhhS_tE8writeBuf
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:819    .text._Z22I2C0_OnMasterBlockSentPv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:824    .text._Z22I2C0_OnMasterBlockSentPv:00000000 _Z22I2C0_OnMasterBlockSentPv
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:867    .text._Z22I2C0_OnMasterBlockSentPv:00000020 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:872    .text._Z26I2C0_OnMasterBlockReceivedPv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:877    .text._Z26I2C0_OnMasterBlockReceivedPv:00000000 _Z26I2C0_OnMasterBlockReceivedPv
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:920    .text._Z26I2C0_OnMasterBlockReceivedPv:00000020 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:925    .text._Z10GI2C0_Initv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:930    .text._Z10GI2C0_Initv:00000000 _Z10GI2C0_Initv
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:980    .text._Z10GI2C0_Initv:00000038 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:986    .text._Z12GI2C0_Deinitv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:991    .text._Z12GI2C0_Deinitv:00000000 _Z12GI2C0_Deinitv
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1019   .text._Z12GI2C0_Deinitv:0000001c $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1025   .text._Z18GI2C0_GetSemaphorev:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1030   .text._Z18GI2C0_GetSemaphorev:00000000 _Z18GI2C0_GetSemaphorev
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1053   .text._Z18GI2C0_GetSemaphorev:00000010 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1058   .text._Z22GI2C0_ReadByteAddress8hhPh:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1063   .text._Z22GI2C0_ReadByteAddress8hhPh:00000000 _Z22GI2C0_ReadByteAddress8hhPh
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1107   .text._Z23GI2C0_WriteByteAddress8hhh:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1112   .text._Z23GI2C0_WriteByteAddress8hhh:00000000 _Z23GI2C0_WriteByteAddress8hhh
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1155   .text._Z16GI2C0_ScanDeviceh:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1160   .text._Z16GI2C0_ScanDeviceh:00000000 _Z16GI2C0_ScanDeviceh
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1298   .text._Z16GI2C0_ScanDeviceh:000000c4 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1305   .text._Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1310   .text._Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t:00000000 _Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1496   .text._Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t:00000128 $d
-C:\Users\JH\AppData\Local\Temp\ccTGgofb.s:1502   .bss._ZZ18GI2C0_WriteAddresshPhhS_tE8writeBuf:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:18     .bss._ZL16GI2C0_deviceData:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:21     .bss._ZL16GI2C0_deviceData:00000000 _ZL16GI2C0_deviceData
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:24     .bss._ZL12GI2C0_busSem:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:27     .bss._ZL12GI2C0_busSem:00000000 _ZL12GI2C0_busSem
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:30     .text._Z16GI2C0_RequestBusv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:35     .text._Z16GI2C0_RequestBusv:00000000 _Z16GI2C0_RequestBusv
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:63     .text._Z16GI2C0_RequestBusv:00000018 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:68     .text._Z16GI2C0_ReleaseBusv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:73     .text._Z16GI2C0_ReleaseBusv:00000000 _Z16GI2C0_ReleaseBusv
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:97     .text._Z16GI2C0_ReleaseBusv:00000014 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:102    .text._Z17GI2C0_SelectSlaveh:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:107    .text._Z17GI2C0_SelectSlaveh:00000000 _Z17GI2C0_SelectSlaveh
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:161    .text._Z17GI2C0_SelectSlaveh:00000044 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:166    .text._Z19GI2C0_UnselectSlavev:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:171    .text._Z19GI2C0_UnselectSlavev:00000000 _Z19GI2C0_UnselectSlavev
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:196    .text._Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:201    .text._Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_:00000000 _Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:292    .text._Z15GI2C0_ReadBlockPvt20GI2C0_EnumSendFlags_:00000070 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:297    .text._Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:302    .text._Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_:00000000 _Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:393    .text._Z16GI2C0_WriteBlockPvt20GI2C0_EnumSendFlags_:00000070 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:398    .text._Z17GI2C0_ReadAddresshPhhS_t:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:403    .text._Z17GI2C0_ReadAddresshPhhS_t:00000000 _Z17GI2C0_ReadAddresshPhhS_t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:563    .text._Z17GI2C0_ReadAddresshPhhS_t:000000ec $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:568    .text._Z18GI2C0_WriteAddresshPhhS_t:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:573    .text._Z18GI2C0_WriteAddresshPhhS_t:00000000 _Z18GI2C0_WriteAddresshPhhS_t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:813    .text._Z18GI2C0_WriteAddresshPhhS_t:00000164 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1505   .bss._ZZ18GI2C0_WriteAddresshPhhS_tE8writeBuf:00000000 _ZZ18GI2C0_WriteAddresshPhhS_tE8writeBuf
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:819    .text._Z22I2C0_OnMasterBlockSentPv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:824    .text._Z22I2C0_OnMasterBlockSentPv:00000000 _Z22I2C0_OnMasterBlockSentPv
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:867    .text._Z22I2C0_OnMasterBlockSentPv:00000020 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:872    .text._Z26I2C0_OnMasterBlockReceivedPv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:877    .text._Z26I2C0_OnMasterBlockReceivedPv:00000000 _Z26I2C0_OnMasterBlockReceivedPv
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:920    .text._Z26I2C0_OnMasterBlockReceivedPv:00000020 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:925    .text._Z10GI2C0_Initv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:930    .text._Z10GI2C0_Initv:00000000 _Z10GI2C0_Initv
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:980    .text._Z10GI2C0_Initv:00000038 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:986    .text._Z12GI2C0_Deinitv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:991    .text._Z12GI2C0_Deinitv:00000000 _Z12GI2C0_Deinitv
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1019   .text._Z12GI2C0_Deinitv:0000001c $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1025   .text._Z18GI2C0_GetSemaphorev:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1030   .text._Z18GI2C0_GetSemaphorev:00000000 _Z18GI2C0_GetSemaphorev
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1053   .text._Z18GI2C0_GetSemaphorev:00000010 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1058   .text._Z22GI2C0_ReadByteAddress8hhPh:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1063   .text._Z22GI2C0_ReadByteAddress8hhPh:00000000 _Z22GI2C0_ReadByteAddress8hhPh
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1107   .text._Z23GI2C0_WriteByteAddress8hhh:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1112   .text._Z23GI2C0_WriteByteAddress8hhh:00000000 _Z23GI2C0_WriteByteAddress8hhh
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1155   .text._Z16GI2C0_ScanDeviceh:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1160   .text._Z16GI2C0_ScanDeviceh:00000000 _Z16GI2C0_ScanDeviceh
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1298   .text._Z16GI2C0_ScanDeviceh:000000c4 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1305   .text._Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1310   .text._Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t:00000000 _Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1496   .text._Z14GI2C0_ProbeACKPvt20GI2C0_EnumSendFlags_t:00000128 $d
+C:\Users\Judah\AppData\Local\Temp\ccWzjcQX.s:1502   .bss._ZZ18GI2C0_WriteAddresshPhhS_tE8writeBuf:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

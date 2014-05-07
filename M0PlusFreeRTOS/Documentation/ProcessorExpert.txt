@@ -50,6 +50,7 @@ Module "UTIL0"     (component Utility)
    - UTIL0_ScanHex8uNumberNoPrefix -Scans a hexadecimal 8bit number, without 0x
    - UTIL0_ScanHex16uNumber -Scans a hexadecimal 16bit number, starting with 0x
    - UTIL0_ScanHex32uNumber -Scans a hexadecimal 32bit number, starting with 0x
+   - UTIL0_ScanSeparatedNumbers -Scans multiple numbers separated by character, e.g. "123.68.5.3"
    - UTIL0_strcmp -Wrapper to the standard strcmp() routine
    - UTIL0_strncmp -Wrapper to the standard strncmp() routine
    - UTIL0_strFind -Searches a substring inside a string and returns the position.
@@ -104,6 +105,7 @@ Module "UTIL1"     (component Utility)
    - UTIL1_ScanHex8uNumberNoPrefix -Scans a hexadecimal 8bit number, without 0x
    - UTIL1_ScanHex16uNumber -Scans a hexadecimal 16bit number, starting with 0x
    - UTIL1_ScanHex32uNumber -Scans a hexadecimal 32bit number, starting with 0x
+   - UTIL1_ScanSeparatedNumbers -Scans multiple numbers separated by character, e.g. "123.68.5.3"
    - UTIL1_strcmp -Wrapper to the standard strcmp() routine
    - UTIL1_strncmp -Wrapper to the standard strncmp() routine
    - UTIL1_strFind -Searches a substring inside a string and returns the position.
@@ -227,18 +229,6 @@ Module "TU2"       (component TimerUnit_LDD)
                 available when at least one channel is configured.
 
 Module "CsIO0"     (component ConsoleIO)
-
-Module "AD0"       (component ADC)
-   - AD0_Measure -This method performs one measurement on all channels that are set in the component inspector. (Note: If the 
-                <number of conversions> is more than one the conversion of A/D channels is performed specified number of times.)
-   - AD0_GetValue8 -This method returns the last measured values of all channels justified to the left. Compared with 
-                <GetValue> method this method returns more accurate result if the <number of conversions> is greater than 1 and 
-                <AD resolution> is less than 8 bits. In addition, the user code dependency on <AD resolution> is eliminated.
-   - AD0_GetValue16 -This method returns the last measured values of all channels justified to the left. Compared with 
-                <GetValue> method this method returns more accurate result if the <number of conversions> is greater than 1 and 
-                <AD resolution> is less than 16 bits. In addition, the user code dependency on <AD resolution> is eliminated.
-   - AD0_Calibrate -This method starts self calibration process. Calibration is typically used to remove the effects of the 
-                gain and offset from a specific reading.
 
 Module "TSSTouch"  (component TSS_Library)
    - TSSTouch_Configure -Whole TSS initialization and configuration of registers. Contains main TSS_Init() function, TSS System 

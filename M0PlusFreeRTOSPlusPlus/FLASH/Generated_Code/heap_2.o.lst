@@ -818,37 +818,37 @@
  518 0000 00000000 		.space	4
  519              		.text
  520              	.Letext0:
- 521              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 522              		.file 3 "C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code/portmac
- 523              		.file 4 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h"
+ 521              		.file 2 "C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 522              		.file 3 "C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSPlusPlus/Generated_Code/port
+ 523              		.file 4 "C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 heap_2.c
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:18     .bss._ZL6ucHeap:00000000 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:21     .bss._ZL6ucHeap:00000000 _ZL6ucHeap
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:24     .bss._ZL6xStart:00000000 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:27     .bss._ZL6xStart:00000000 _ZL6xStart
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:30     .bss._ZL4xEnd:00000000 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:33     .bss._ZL4xEnd:00000000 _ZL4xEnd
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:36     .data._ZL19xFreeBytesRemaining:00000000 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:39     .data._ZL19xFreeBytesRemaining:00000000 _ZL19xFreeBytesRemaining
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:42     .text.pvPortMalloc:00000000 $t
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:47     .text.pvPortMalloc:00000000 pvPortMalloc
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:442    .text._ZL11prvHeapInitv:00000000 _ZL11prvHeapInitv
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:267    .text.pvPortMalloc:00000118 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:517    .bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised:00000000 _ZZ12pvPortMallocE23xHeapHasBeenInitialised
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:276    .text.vPortFree:00000000 $t
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:281    .text.vPortFree:00000000 vPortFree
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:374    .text.vPortFree:0000006c $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:380    .text.xPortGetFreeHeapSize:00000000 $t
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:385    .text.xPortGetFreeHeapSize:00000000 xPortGetFreeHeapSize
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:408    .text.xPortGetFreeHeapSize:00000010 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:413    .text.vPortInitialiseBlocks:00000000 $t
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:418    .text.vPortInitialiseBlocks:00000000 vPortInitialiseBlocks
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:438    .text._ZL11prvHeapInitv:00000000 $t
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:501    .text._ZL11prvHeapInitv:00000040 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:508    .rodata._ZL15heapSTRUCT_SIZE:00000000 $d
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:511    .rodata._ZL15heapSTRUCT_SIZE:00000000 _ZL15heapSTRUCT_SIZE
-C:\Users\JH\AppData\Local\Temp\cc7lQyqt.s:514    .bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:18     .bss._ZL6ucHeap:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:21     .bss._ZL6ucHeap:00000000 _ZL6ucHeap
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:24     .bss._ZL6xStart:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:27     .bss._ZL6xStart:00000000 _ZL6xStart
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:30     .bss._ZL4xEnd:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:33     .bss._ZL4xEnd:00000000 _ZL4xEnd
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:36     .data._ZL19xFreeBytesRemaining:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:39     .data._ZL19xFreeBytesRemaining:00000000 _ZL19xFreeBytesRemaining
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:42     .text.pvPortMalloc:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:47     .text.pvPortMalloc:00000000 pvPortMalloc
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:442    .text._ZL11prvHeapInitv:00000000 _ZL11prvHeapInitv
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:267    .text.pvPortMalloc:00000118 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:517    .bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised:00000000 _ZZ12pvPortMallocE23xHeapHasBeenInitialised
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:276    .text.vPortFree:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:281    .text.vPortFree:00000000 vPortFree
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:374    .text.vPortFree:0000006c $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:380    .text.xPortGetFreeHeapSize:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:385    .text.xPortGetFreeHeapSize:00000000 xPortGetFreeHeapSize
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:408    .text.xPortGetFreeHeapSize:00000010 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:413    .text.vPortInitialiseBlocks:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:418    .text.vPortInitialiseBlocks:00000000 vPortInitialiseBlocks
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:438    .text._ZL11prvHeapInitv:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:501    .text._ZL11prvHeapInitv:00000040 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:508    .rodata._ZL15heapSTRUCT_SIZE:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:511    .rodata._ZL15heapSTRUCT_SIZE:00000000 _ZL15heapSTRUCT_SIZE
+C:\Users\Judah\AppData\Local\Temp\ccJ9TsYJ.s:514    .bss._ZZ12pvPortMallocE23xHeapHasBeenInitialised:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

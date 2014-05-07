@@ -7,8 +7,11 @@
 #include "TaskSendString2.h"
 
 void taskSendString2Work(void) {
-	printf("Envio da 2 pela Serial 1!\r\n");
-	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
+//	printf("Envio da 2 pela Serial 1!\r\n");
+//	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
+
+	FreeRTOS0_xQueueSendToBack(taskHandles [queueHandle],'2',500);
+	FreeRTOS0_vTaskDelay(200 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/
@@ -45,7 +48,7 @@ static portTASK_FUNCTION( TaskSendString2, pvParameters) {
 /**************************************************************************/
 signed portBASE_TYPE taskSendString2Start(void) {
 	printf("start da Task2!\r\n");
-	
+
 	return FreeRTOS0_xTaskCreate(TaskSendString2, /* pointer to the task */
 			(signed portCHAR *) "TaskSendString2", /* task name for kernel awareness debugging */
 			500, /* task stack size */

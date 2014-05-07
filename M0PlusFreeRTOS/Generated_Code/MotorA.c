@@ -6,7 +6,7 @@
 **     Component   : BitsIO_LDD
 **     Version     : Component 01.029, Driver 01.05, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-28, 22:15, # CodeGen: 115
+**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
 **     Abstract    :
 **         The HAL BitsIO component provides a low level API for unified
 **         access to general purpose digital input/output 32 pins across
@@ -109,10 +109,10 @@ LDD_TDeviceData* MotorA_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   /* Configure pin directions */
   /* GPIOC_PDDR: PDD|=0x00030000 */
-  GPIOC_PDDR |= GPIO_PDDR_PDD(0x00030000);                                   
+  GPIOC_PDDR |= GPIO_PDDR_PDD(0x00030000);
   /* Set initialization value */
   /* GPIOC_PDOR: PDO&=~0x00030000 */
-  GPIOC_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x00030000));                                   
+  GPIOC_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x00030000));
   /* Initialization of Port Control register */
   /* PORTC_PCR16: ISF=0,MUX=1 */
   PORTC_PCR16 = (uint32_t)((PORTC_PCR16 & (uint32_t)~(uint32_t)(
@@ -120,14 +120,14 @@ LDD_TDeviceData* MotorA_Init(LDD_TUserData *UserDataPtr)
                  PORT_PCR_MUX(0x06)
                 )) | (uint32_t)(
                  PORT_PCR_MUX(0x01)
-                ));                                  
+                ));
   /* PORTC_PCR17: ISF=0,MUX=1 */
   PORTC_PCR17 = (uint32_t)((PORTC_PCR17 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
                  PORT_PCR_MUX(0x06)
                 )) | (uint32_t)(
                  PORT_PCR_MUX(0x01)
-                ));                                  
+                ));
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_MotorA_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv);
@@ -377,7 +377,7 @@ LDD_TError MotorA_ClrBit(LDD_TDeviceData *DeviceDataPtr, uint8_t Bit)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

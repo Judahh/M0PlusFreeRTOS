@@ -5,7 +5,7 @@
 -gdwarf-2
 -gstrict-dwarf
 -x assembler-with-cpp
--I"C:/Users/GILLY/Documents/Gilly Lopes/Unifor/2014.1/Sis TR/Projetos/workspace/tstFreeRtos/Generated_Code"
+-I"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/tstFreeRtos/Generated_Code"
 -Wall
 -c
 -fmessage-length=0

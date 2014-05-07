@@ -37,8 +37,6 @@
 "./Generated_Code/CsIO0.o"
 "./Generated_Code/Cpu.o"
 "./Generated_Code/Break.o"
-"./Generated_Code/AdcLdd1.o"
-"./Generated_Code/AD0.o"
 "./Project_Settings/Startup_Code/__arm_start.o"
 "./Project_Settings/Startup_Code/__arm_end.o"
 "./Sources/TSS/TSS_SystemSetupData.o"
@@ -73,11 +71,11 @@
 -g3
 -gdwarf-2
 -gstrict-dwarf
--T"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Project_Settings/Linker_Files/ProcessorExpert.ld"
+-T"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Project_Settings/Linker_Files/ProcessorExpert.ld"
 -Xlinker
 --gc-sections
--L"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/lib/armv6-m"
--L"C:/Users/JH/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS"
+-L"C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m"
+-L"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS"
 -Wl,-Map,M0PlusFreeRTOS.map
 -n
 -specs=ewl_c.specs

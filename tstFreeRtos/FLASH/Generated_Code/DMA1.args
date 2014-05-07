@@ -4,14 +4,14 @@
 -g3
 -gdwarf-2
 -gstrict-dwarf
--I"C:/Users/GILLY/Documents/Gilly Lopes/Unifor/2014.1/Sis TR/Projetos/workspace/tstFreeRtos/Project_Headers"
--I"C:/Users/GILLY/Documents/Gilly Lopes/Unifor/2014.1/Sis TR/Projetos/workspace/tstFreeRtos/Project_Settings/Startup_Code"
--I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include"
--I"C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include"
--I"C:/Users/GILLY/Documents/Gilly Lopes/Unifor/2014.1/Sis TR/Projetos/workspace/tstFreeRtos/Generated_Code"
--I"C:/Users/GILLY/Documents/Gilly Lopes/Unifor/2014.1/Sis TR/Projetos/workspace/tstFreeRtos/Sources"
--I"C:/Freescale/CW MCU v10.5/MCU/ProcessorExpert/lib/Kinetis/iofiles"
--I"C:/Freescale/CW MCU v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc"
+-I"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/tstFreeRtos/Project_Headers"
+-I"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/tstFreeRtos/Project_Settings/Startup_Code"
+-I"C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include"
+-I"C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include"
+-I"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/tstFreeRtos/Generated_Code"
+-I"C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/tstFreeRtos/Sources"
+-I"C:/Freescale/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles"
+-I"C:/Freescale/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc"
 -O0
 -ffunction-sections
 -fdata-sections

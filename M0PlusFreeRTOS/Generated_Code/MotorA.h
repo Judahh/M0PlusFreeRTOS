@@ -6,7 +6,7 @@
 **     Component   : BitsIO_LDD
 **     Version     : Component 01.029, Driver 01.05, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-03-28, 22:15, # CodeGen: 115
+**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
 **     Abstract    :
 **         The HAL BitsIO component provides a low level API for unified
 **         access to general purpose digital input/output 32 pins across
@@ -288,7 +288,7 @@ LDD_TError MotorA_ClrBit(LDD_TDeviceData *DeviceDataPtr, uint8_t Bit);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

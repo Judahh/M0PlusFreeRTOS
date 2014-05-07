@@ -4,9 +4,9 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : FreeRTOS
-**     Version     : Component 01.360, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.366, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-04-04, 15:48, # CodeGen: 154
+**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -2332,7 +2332,7 @@ EventBits_t FreeRTOS0_xEventGroupSync(EventGroupHandle_t xEventGroup, const Even
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

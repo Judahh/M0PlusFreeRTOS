@@ -45,8 +45,6 @@
 #include "TU2.h"
 #include "I2C1.h"
 #include "I2C0.h"
-#include "AD0.h"
-#include "AdcLdd1.h"
 #include "MMA0.h"
 #include "GI2C0.h"
 #include "CsIO0.h"

@@ -1227,36 +1227,36 @@
  812 0000 00       		.space	1
  813 0001 000000   		.text
  814              	.Letext0:
- 815              		.file 2 "C:/Freescale/CW MCU v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 815              		.file 2 "C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
  816              		.file 3 "../Generated_Code/PE_Types.h"
  817              		.file 4 "../Generated_Code/IO_Map.h"
  818              		.file 5 "../Generated_Code/TU0.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 TU0.c
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:18     .bss._ZL33DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:21     .bss._ZL33DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 _ZL33DeviceDataPrv__DEFAULT_RTOS_ALLOC
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:24     .text.TU0_Init:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:29     .text.TU0_Init:00000000 TU0_Init
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:170    .text.TU0_Init:000000b8 $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:182    .text.TU0_GetPeriodTicks:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:187    .text.TU0_GetPeriodTicks:00000000 TU0_GetPeriodTicks
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:236    .text.TU0_GetPeriodTicks:00000038 $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:241    .text.TU0_GetCounterValue:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:246    .text.TU0_GetCounterValue:00000000 TU0_GetCounterValue
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:275    .text.TU0_GetCounterValue:00000018 $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:280    .text.TU0_SetOffsetTicks:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:285    .text.TU0_SetOffsetTicks:00000000 TU0_SetOffsetTicks
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:349    .text.TU0_SetOffsetTicks:0000004c $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:811    .rodata._ZL11ChannelMode:00000000 _ZL11ChannelMode
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:805    .rodata._ZL13ChannelDevice:00000000 _ZL13ChannelDevice
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:356    .text.TU0_GetOffsetTicks:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:361    .text.TU0_GetOffsetTicks:00000000 TU0_GetOffsetTicks
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:430    .text.TU0_GetOffsetTicks:00000058 $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:437    .text.TU0_SelectOutputAction:00000000 $t
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:442    .text.TU0_SelectOutputAction:00000000 TU0_SelectOutputAction
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:795    .text.TU0_SelectOutputAction:0000023c $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:802    .rodata._ZL13ChannelDevice:00000000 $d
-C:\Users\JH\AppData\Local\Temp\ccFfYMCg.s:808    .rodata._ZL11ChannelMode:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:18     .bss._ZL33DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:21     .bss._ZL33DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 _ZL33DeviceDataPrv__DEFAULT_RTOS_ALLOC
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:24     .text.TU0_Init:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:29     .text.TU0_Init:00000000 TU0_Init
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:170    .text.TU0_Init:000000b8 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:182    .text.TU0_GetPeriodTicks:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:187    .text.TU0_GetPeriodTicks:00000000 TU0_GetPeriodTicks
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:236    .text.TU0_GetPeriodTicks:00000038 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:241    .text.TU0_GetCounterValue:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:246    .text.TU0_GetCounterValue:00000000 TU0_GetCounterValue
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:275    .text.TU0_GetCounterValue:00000018 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:280    .text.TU0_SetOffsetTicks:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:285    .text.TU0_SetOffsetTicks:00000000 TU0_SetOffsetTicks
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:349    .text.TU0_SetOffsetTicks:0000004c $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:811    .rodata._ZL11ChannelMode:00000000 _ZL11ChannelMode
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:805    .rodata._ZL13ChannelDevice:00000000 _ZL13ChannelDevice
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:356    .text.TU0_GetOffsetTicks:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:361    .text.TU0_GetOffsetTicks:00000000 TU0_GetOffsetTicks
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:430    .text.TU0_GetOffsetTicks:00000058 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:437    .text.TU0_SelectOutputAction:00000000 $t
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:442    .text.TU0_SelectOutputAction:00000000 TU0_SelectOutputAction
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:795    .text.TU0_SelectOutputAction:0000023c $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:802    .rodata._ZL13ChannelDevice:00000000 $d
+C:\Users\Judah\AppData\Local\Temp\cc1UfBMz.s:808    .rodata._ZL11ChannelMode:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

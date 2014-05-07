@@ -7,6 +7,10 @@
 #include "TaskWriteString.h"
 
 void taskWriteStringWork(void) {
+	char item = 0;
+	FreeRTOS0_xQueueReceive(taskHandles [queueHandle], &item, 500);
+	FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
+	printf("%c",item);
 }
 
 /**************************************************************************/

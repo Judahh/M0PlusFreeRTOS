@@ -2147,7 +2147,7 @@ Autoselect
       </group>
       <group name="Ticks">
         <boolgroup name="Tickless Idle Mode" v="Enabled">
-          <Stopped_Timer_Compensation v="45" />
+          <Stopped_Timer_Compensation v="42" />
           <Expected_Idle_Time__Ticks__before_Sleep v="2" />
         </boolgroup>
         <Tick_Rate__Hz_ v="100" />

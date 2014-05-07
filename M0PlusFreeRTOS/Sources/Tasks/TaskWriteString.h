@@ -11,6 +11,7 @@
 #include "FreeRTOS.h"
 #include "FreeRTOS0.h"
 #include "task.h"
+#include "stdio.h"
 #include "Tasks/HandlesEnum.h"
 
 void taskWriteStringWork(void);

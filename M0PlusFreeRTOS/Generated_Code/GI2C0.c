@@ -6,7 +6,7 @@
 **     Component   : GenericI2C
 **     Version     : Component 01.020, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-04-03, 21:14, # CodeGen: 146
+**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
 **     Abstract    :
 **         This component implements a generic I2C driver wrapper to work both with LDD and non-LDD I2C components.
 **     Settings    :
@@ -519,7 +519,7 @@ byte GI2C0_ProbeACK(void* data, word dataSize, GI2C0_EnumSendFlags flags, word W
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

@@ -76,6 +76,7 @@
 
 #include "Cpu.h" /* include CPU module because of dependency to CPU clock rate */
 #include "FreeRTOSConfig.h"
+#include "portmacro.h"
 
 /*!
  * \brief Return the tick raw counter value. It is assumed that the counter register has been reset at the last tick time

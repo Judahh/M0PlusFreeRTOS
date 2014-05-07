@@ -99,37 +99,37 @@ void *pvPortMalloc( size_t xWantedSize )
 {
 void *pvReturn;
 
-        vTaskSuspendAll();
-        {
-                pvReturn = malloc( xWantedSize );
-                traceMALLOC( pvReturn, xWantedSize );
-        }
-        (void)xTaskResumeAll();
+	vTaskSuspendAll();
+	{
+		pvReturn = malloc( xWantedSize );
+		traceMALLOC( pvReturn, xWantedSize );
+	}
+	(void)xTaskResumeAll();
 
-        #if( configUSE_MALLOC_FAILED_HOOK == 1 )
-        {
-                if( pvReturn == NULL )
-                {
+	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
+	{
+		if( pvReturn == NULL )
+		{
       FreeRTOS0_vApplicationMallocFailedHook();
-                }
-        }
-        #endif
+		}
+	}
+	#endif
 	
-        return pvReturn;
+	return pvReturn;
 }
 /*-----------------------------------------------------------*/
 
 void vPortFree( void *pv )
 {
-        if( pv )
-        {
-                vTaskSuspendAll();
-                {
-                        free( pv );
-                        traceFREE( pv, 0 );
-                }
-                (void)xTaskResumeAll();
-        }
+	if( pv )
+	{
+		vTaskSuspendAll();
+		{
+			free( pv );
+			traceFREE( pv, 0 );
+		}
+		(void)xTaskResumeAll();
+	}
 }
 
 

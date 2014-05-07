@@ -23,6 +23,7 @@ typedef enum {
 	taskRotateLedHandle,
 	taskMotorDCHandle,
 	taskSonarHandle,
+	queueHandle,
 #if configGENERATE_RUN_TIME_STATS == 1
 	TASKHANDLE_RUNTIMESTATS,
 #endif

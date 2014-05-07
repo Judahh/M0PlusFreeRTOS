@@ -7,8 +7,11 @@
 #include "TaskSendString1.h"
 
 void taskSendString1Work(void) {
-	printf("Envio da 1 pela Serial 1!\r\n");
-	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
+//	printf("Envio da 1 pela Serial 1!\r\n");
+//	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
+	
+	FreeRTOS0_xQueueSendToBack(taskHandles [queueHandle],'1',500);
+	FreeRTOS0_vTaskDelay(50 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/

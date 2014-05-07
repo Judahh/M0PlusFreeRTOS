@@ -37,8 +37,6 @@
 #include "TU2.h"
 #include "I2C1.h"
 #include "I2C0.h"
-#include "AD0.h"
-#include "AdcLdd1.h"
 #include "MMA0.h"
 #include "GI2C0.h"
 #include "CsIO0.h"
@@ -61,6 +59,7 @@
 #include "Tasks/TaskSendString.h"
 #include "Tasks/TaskSendString1.h"
 #include "Tasks/TaskSendString2.h"
+#include "Tasks/TaskWriteString.h"
 #include "Tasks/TaskSendGlobalVariable.h"
 #include "Tasks/TaskAccelerometer.h"
 #include "Tasks/TaskGyroscope.h"
@@ -91,45 +90,52 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 
 	initGlobalVariables();
 
-	int homework = 1;
+	taskHandles[queueHandle] = FreeRTOS0_xQueueCreate(1000,sizeof(char));
+
+	int homework = 7;
 
 	switch (homework - 1) {
-		case 0:
-			if (taskSendString1Start() != pdPASS ) {
-				for (;;) {
-				};
-			}
+	case 0:
+		if (taskSendString1Start() != pdPASS ) {
+			for (;;) {
+			};
+		}
 
-			if (taskSendString2Start() != pdPASS ) {
-				for (;;) {
-				};
-			}
+		if (taskSendString2Start() != pdPASS ) {
+			for (;;) {
+			};
+		}
+
+		if (taskWriteStringStart() != pdPASS ) {
+			for (;;) {
+			};
+		}
 		break;
 
-		case 1:
-			if (taskSendStringStart(0) != pdPASS ) {
-				for (;;) {
-				};
-			}
+	case 1:
+		if (taskSendStringStart(0) != pdPASS ) {
+			for (;;) {
+			};
+		}
 
-			if (taskSendStringStart(1) != pdPASS ) {
-				for (;;) {
-				};
-			}
+		if (taskSendStringStart(1) != pdPASS ) {
+			for (;;) {
+			};
+		}
 		break;
 
-		case 5:
-			if (taskSendGlobalVariableStart() != pdPASS ) {
-				for (;;) {
-				};
-			}
+	case 5:
+		if (taskSendGlobalVariableStart() != pdPASS ) {
+			for (;;) {
+			};
+		}
 		break;
 
-		default:
-			if (taskAccelerometerStart() != pdPASS ) {
-				for (;;) {
-				};
-			}
+	default:
+		if (taskAccelerometerStart() != pdPASS ) {
+			for (;;) {
+			};
+		}
 		break;
 
 	}
