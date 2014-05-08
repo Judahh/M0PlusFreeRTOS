@@ -63,18 +63,18 @@ void taskAccelerometerWork(void) {
 	int32_t accerY = MMA0_GetY(); //100000
 	int32_t accerZ = MMA0_GetZ();
 
-	printf("X = %ld!\r\n", accerX);
-	printf("Y = %ld!\r\n", accerY);
-	printf("Z = %ld!\r\n", accerZ);
+//	printf("X = %ld!\r\n", accerX);
+//	printf("Y = %ld!\r\n", accerY);
+//	printf("Z = %ld!\r\n", accerZ);
 	
 	int32_t Sum = abs(accerX) + abs(accerY) + abs(accerZ);
-	if (Sum < 1000) {
+	if (Sum < 10000) {
 		PWMLEDBlue_SetRatio8(65535);
 		FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
 	} else {
 		PWMLEDBlue_SetRatio8(0);
 	}
-	printf("Soma = %ld!\r\n", Sum);
+//	printf("Soma = %ld!\r\n", Sum);
 }
 
 /**************************************************************************/

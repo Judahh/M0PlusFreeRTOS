@@ -1699,8 +1699,8 @@ LOAD ./Sources/Util/Accelerometer.o
 LOAD ./Sources/sa_mtb.o
 LOAD ./Sources/ProcessorExpert.o
 LOAD ./Sources/Events.o
-                0x00008674                __pformatter = __pformatter_
-                [0x00008a9c]                __sformatter = __sformatter
+                0x00008634                __pformatter = __pformatter_
+                [0x00008a5c]                __sformatter = __sformatter
 LOAD C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a
 START GROUP
 LOAD C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a
@@ -1727,7 +1727,7 @@ END GROUP
  *(.cfmconfig)
                 0x00000400                . = ALIGN (0x4)
 
-.text           0x00000410     0x9768
+.text           0x00000410     0x96f4
                 0x00000410                . = ALIGN (0x4)
  *(.text)
  .text          0x00000410      0x760 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_ASliderDecoder.o)
@@ -2246,385 +2246,385 @@ END GROUP
                 0x00007f2c       0x4c ./Sources/Tasks/TaskSendGlobalVariable.o
                 0x00007f2c                taskSendGlobalVariableStart
  .text.taskAccelerometerWork
-                0x00007f78       0xb4 ./Sources/Tasks/TaskAccelerometer.o
+                0x00007f78       0x74 ./Sources/Tasks/TaskAccelerometer.o
                 0x00007f78                taskAccelerometerWork
  .text.TaskAccelerometer
-                0x0000802c       0x50 ./Sources/Tasks/TaskAccelerometer.o
+                0x00007fec       0x50 ./Sources/Tasks/TaskAccelerometer.o
  .text.taskAccelerometerStart
-                0x0000807c       0x40 ./Sources/Tasks/TaskAccelerometer.o
-                0x0000807c                taskAccelerometerStart
+                0x0000803c       0x40 ./Sources/Tasks/TaskAccelerometer.o
+                0x0000803c                taskAccelerometerStart
  .text.initGlobalVariables
-                0x000080bc       0x14 ./Sources/Util/GlobalVariables.o
-                0x000080bc                initGlobalVariables
+                0x0000807c       0x14 ./Sources/Util/GlobalVariables.o
+                0x0000807c                initGlobalVariables
  .text.getIdleTaskHookInteger
-                0x000080d0       0x14 ./Sources/Util/GlobalVariables.o
-                0x000080d0                getIdleTaskHookInteger
+                0x00008090       0x14 ./Sources/Util/GlobalVariables.o
+                0x00008090                getIdleTaskHookInteger
  .text.incrementIdleTaskHookInteger
-                0x000080e4       0x18 ./Sources/Util/GlobalVariables.o
-                0x000080e4                incrementIdleTaskHookInteger
- .text.main     0x000080fc       0xa8 ./Sources/ProcessorExpert.o
-                0x000080fc                main
+                0x000080a4       0x18 ./Sources/Util/GlobalVariables.o
+                0x000080a4                incrementIdleTaskHookInteger
+ .text.main     0x000080bc       0xa8 ./Sources/ProcessorExpert.o
+                0x000080bc                main
  .text.I2C1_OnMasterBlockSent
-                0x000081a4       0x18 ./Sources/Events.o
-                0x000081a4                I2C1_OnMasterBlockSent
+                0x00008164       0x18 ./Sources/Events.o
+                0x00008164                I2C1_OnMasterBlockSent
  .text.I2C1_OnMasterBlockReceived
-                0x000081bc       0x18 ./Sources/Events.o
-                0x000081bc                I2C1_OnMasterBlockReceived
+                0x0000817c       0x18 ./Sources/Events.o
+                0x0000817c                I2C1_OnMasterBlockReceived
  .text.TSSTouch_fOnFault
-                0x000081d4       0x3c ./Sources/Events.o
-                0x000081d4                TSSTouch_fOnFault
+                0x00008194       0x3c ./Sources/Events.o
+                0x00008194                TSSTouch_fOnFault
  .text.TSSTouch_fOnInit
-                0x00008210        0xc ./Sources/Events.o
-                0x00008210                TSSTouch_fOnInit
+                0x000081d0        0xc ./Sources/Events.o
+                0x000081d0                TSSTouch_fOnInit
  .text.TSSTouch_fCallBack0
-                0x0000821c       0x98 ./Sources/Events.o
-                0x0000821c                TSSTouch_fCallBack0
+                0x000081dc       0x98 ./Sources/Events.o
+                0x000081dc                TSSTouch_fCallBack0
  .text.TU2_OnCounterRestart
-                0x000082b4       0x18 ./Sources/Events.o
-                0x000082b4                TU2_OnCounterRestart
+                0x00008274       0x18 ./Sources/Events.o
+                0x00008274                TU2_OnCounterRestart
  .text.TU2_OnChannel0
-                0x000082cc       0x18 ./Sources/Events.o
-                0x000082cc                TU2_OnChannel0
+                0x0000828c       0x18 ./Sources/Events.o
+                0x0000828c                TU2_OnChannel0
  .text.Cpu_OnNMIINT0
-                0x000082e4        0x8 ./Sources/Events.o
-                0x000082e4                Cpu_OnNMIINT0
+                0x000082a4        0x8 ./Sources/Events.o
+                0x000082a4                Cpu_OnNMIINT0
  .text.FreeRTOS0_vApplicationTickHook
-                0x000082ec        0x8 ./Sources/Events.o
-                0x000082ec                FreeRTOS0_vApplicationTickHook
+                0x000082ac        0x8 ./Sources/Events.o
+                0x000082ac                FreeRTOS0_vApplicationTickHook
  .text.FreeRTOS0_vApplicationIdleHook
-                0x000082f4        0xc ./Sources/Events.o
-                0x000082f4                FreeRTOS0_vApplicationIdleHook
+                0x000082b4        0xc ./Sources/Events.o
+                0x000082b4                FreeRTOS0_vApplicationIdleHook
  .text.FreeRTOS0_vApplicationMallocFailedHook
-                0x00008300        0x8 ./Sources/Events.o
-                0x00008300                FreeRTOS0_vApplicationMallocFailedHook
+                0x000082c0        0x8 ./Sources/Events.o
+                0x000082c0                FreeRTOS0_vApplicationMallocFailedHook
  .text.FreeRTOS0_vOnPreSleepProcessing
-                0x00008308       0x10 ./Sources/Events.o
-                0x00008308                FreeRTOS0_vOnPreSleepProcessing
+                0x000082c8       0x10 ./Sources/Events.o
+                0x000082c8                FreeRTOS0_vOnPreSleepProcessing
  .text.FreeRTOS0_vApplicationStackOverflowHook
-                0x00008318       0x10 ./Sources/Events.o
-                0x00008318                FreeRTOS0_vApplicationStackOverflowHook
+                0x000082d8       0x10 ./Sources/Events.o
+                0x000082d8                FreeRTOS0_vApplicationStackOverflowHook
  .text.FreeRTOS0_vOnPostSleepProcessing
-                0x00008328       0x10 ./Sources/Events.o
-                0x00008328                FreeRTOS0_vOnPostSleepProcessing
- .text.printf   0x00008338       0x28 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
-                0x00008338                printf
- .text.putchar  0x00008360       0x28 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
-                0x00008360                putchar
- .text.puts     0x00008388       0x54 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(puts.o)
-                0x00008388                puts
- .text.sprintf  0x000083dc       0x1a C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sprintf.o)
-                0x000083dc                sprintf
+                0x000082e8       0x10 ./Sources/Events.o
+                0x000082e8                FreeRTOS0_vOnPostSleepProcessing
+ .text.printf   0x000082f8       0x28 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+                0x000082f8                printf
+ .text.putchar  0x00008320       0x28 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+                0x00008320                putchar
+ .text.puts     0x00008348       0x54 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(puts.o)
+                0x00008348                puts
+ .text.sprintf  0x0000839c       0x1a C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sprintf.o)
+                0x0000839c                sprintf
  .text.__StringWrite
-                0x000083f6       0x26 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
-                0x000083f6                __StringWrite
+                0x000083b6       0x26 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+                0x000083b6                __StringWrite
  .text.vsnprintf
-                0x0000841c       0x38 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
-                0x0000841c                vsnprintf
- .text.exit     0x00008454       0x38 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
-                0x00008454                exit
- .text.memcpy   0x0000848c       0x12 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
-                0x0000848c                memcpy
- .text.memset   0x0000849e        0xc C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
-                0x0000849e                memset
- .text.strchr   0x000084aa       0x1e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
-                0x000084aa                strchr
- .text.strlen   0x000084c8       0x10 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
-                0x000084c8                strlen
+                0x000083dc       0x38 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+                0x000083dc                vsnprintf
+ .text.exit     0x00008414       0x38 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x00008414                exit
+ .text.memcpy   0x0000844c       0x12 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+                0x0000844c                memcpy
+ .text.memset   0x0000845e        0xc C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+                0x0000845e                memset
+ .text.strchr   0x0000846a       0x1e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+                0x0000846a                strchr
+ .text.strlen   0x00008488       0x10 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+                0x00008488                strlen
  .text.long2str.isra.0
-                0x000084d8      0x19c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00008498      0x19c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .text.__pformatter_
-                0x00008674      0x428 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
-                0x00008674                __pformatter_
+                0x00008634      0x428 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00008634                __pformatter_
  .text.__sformatter
-                0x00008a9c      0x698 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
-                0x00008a9c                __sformatter
- .text.isalpha  0x00009134       0x20 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x00009134                isalpha
- .text.isspace  0x00009154       0x20 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x00009154                isspace
- .text.toupper  0x00009174        0xe C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x00009174                toupper
+                0x00008a5c      0x698 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+                0x00008a5c                __sformatter
+ .text.isalpha  0x000090f4       0x20 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x000090f4                isalpha
+ .text.isspace  0x00009114       0x20 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00009114                isspace
+ .text.toupper  0x00009134        0xe C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00009134                toupper
  .text.__put_char
-                0x00009182       0x90 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
-                0x00009182                __put_char
+                0x00009142       0x90 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+                0x00009142                __put_char
  .text.__fwrite
-                0x00009212      0x160 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
-                0x00009212                __fwrite
+                0x000091d2      0x160 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+                0x000091d2                __fwrite
  .text.__FileWrite
-                0x00009372       0x1c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
-                0x00009372                __FileWrite
+                0x00009332       0x1c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+                0x00009332                __FileWrite
  .text.__strtoul
-                0x0000938e      0x1ce C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
-                0x0000938e                __strtoul
+                0x0000934e      0x1ce C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+                0x0000934e                __strtoul
  .text.__fill_mem
-                0x0000955c       0x7e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
-                0x0000955c                __fill_mem
+                0x0000951c       0x7e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+                0x0000951c                __fill_mem
  .text.__memrchr
-                0x000095da       0x1e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
-                0x000095da                __memrchr
- .text.memchr   0x000095f8       0x1a C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
-                0x000095f8                memchr
+                0x0000959a       0x1e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+                0x0000959a                __memrchr
+ .text.memchr   0x000095b8       0x1a C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+                0x000095b8                memchr
  .text.__prep_buffer
-                0x00009612       0x14 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
-                0x00009612                __prep_buffer
+                0x000095d2       0x14 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+                0x000095d2                __prep_buffer
  .text.__flush_buffer
-                0x00009626       0x38 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
-                0x00009626                __flush_buffer
- *fill*         0x0000965e        0x2 00
+                0x000095e6       0x38 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+                0x000095e6                __flush_buffer
+ *fill*         0x0000961e        0x2 00
  .text.__init_cpp
-                0x00009660       0x48 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
-                0x00009660                __init_cpp
+                0x00009620       0x48 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x00009620                __init_cpp
  .text.__fini_cpp
-                0x000096a8       0x34 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
-                0x000096a8                __fini_cpp
+                0x00009668       0x34 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x00009668                __fini_cpp
  .text.__copy_rom_section
-                0x000096dc       0x48 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
-                0x000096dc                __copy_rom_section
+                0x0000969c       0x48 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x0000969c                __copy_rom_section
  .text.__copy_rom_sections_to_ram
-                0x00009724       0x34 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
-                0x00009724                __copy_rom_sections_to_ram
+                0x000096e4       0x34 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x000096e4                __copy_rom_sections_to_ram
  .text.__destroy_global_chain
-                0x00009758       0x1c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x00009758                __destroy_global_chain
+                0x00009718       0x1c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00009718                __destroy_global_chain
  .text.__init_registers
-                0x00009774       0x1c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x00009774                __init_registers
+                0x00009734       0x1c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00009734                __init_registers
  .text.__init_user
-                0x00009790        0x4 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x00009790                __init_user
+                0x00009750        0x4 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00009750                __init_user
  *(.rodata)
- .rodata        0x00009794        0x8 ./Generated_Code/tasks.o
- .rodata        0x0000979c       0x10 ./Sources/Tasks/TaskWriteString.o
- .rodata        0x000097ac       0x24 ./Sources/Tasks/TaskSendString2.o
- .rodata        0x000097d0       0x24 ./Sources/Tasks/TaskSendString1.o
- .rodata        0x000097f4       0x44 ./Sources/Tasks/TaskSendString.o
- .rodata        0x00009838       0x38 ./Sources/Tasks/TaskSendGlobalVariable.o
- .rodata        0x00009870       0x48 ./Sources/Tasks/TaskAccelerometer.o
- .rodata        0x000098b8       0x14 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_KeyDetector.o)
- .rodata        0x000098cc        0xc C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_Main.o)
+ .rodata        0x00009754        0x8 ./Generated_Code/tasks.o
+ .rodata        0x0000975c       0x10 ./Sources/Tasks/TaskWriteString.o
+ .rodata        0x0000976c       0x24 ./Sources/Tasks/TaskSendString2.o
+ .rodata        0x00009790       0x24 ./Sources/Tasks/TaskSendString1.o
+ .rodata        0x000097b4       0x44 ./Sources/Tasks/TaskSendString.o
+ .rodata        0x000097f8       0x38 ./Sources/Tasks/TaskSendGlobalVariable.o
+ .rodata        0x00009830       0x14 ./Sources/Tasks/TaskAccelerometer.o
+ .rodata        0x00009844       0x14 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_KeyDetector.o)
+ .rodata        0x00009858        0xc C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS\libTSS_KXX_M0.a(TSS_Main.o)
  *(.rodata*)
  .rodata.heapSTRUCT_SIZE
-                0x000098d8        0x2 ./Generated_Code/heap_2.o
- *fill*         0x000098da        0x2 00
+                0x00009864        0x2 ./Generated_Code/heap_2.o
+ *fill*         0x00009866        0x2 00
  .rodata.ChannelDevice
-                0x000098dc        0x4 ./Generated_Code/TU2.o
+                0x00009868        0x4 ./Generated_Code/TU2.o
  .rodata.ChannelMode
-                0x000098e0        0x4 ./Generated_Code/TU2.o
+                0x0000986c        0x4 ./Generated_Code/TU2.o
  .rodata.ChannelDevice
-                0x000098e4        0x4 ./Generated_Code/TU1.o
+                0x00009870        0x4 ./Generated_Code/TU1.o
  .rodata.ChannelMode
-                0x000098e8        0x4 ./Generated_Code/TU1.o
+                0x00009874        0x4 ./Generated_Code/TU1.o
  .rodata.ChannelDevice
-                0x000098ec        0x4 ./Generated_Code/TU0.o
+                0x00009878        0x4 ./Generated_Code/TU0.o
  .rodata.ChannelMode
-                0x000098f0        0x4 ./Generated_Code/TU0.o
+                0x0000987c        0x4 ./Generated_Code/TU0.o
  .rodata.InitialCalibration
-                0x000098f4        0x8 ./Generated_Code/MMA0.o
+                0x00009880        0x8 ./Generated_Code/MMA0.o
  .rodata.addr.6513
-                0x000098fc        0x1 ./Generated_Code/MMA0.o
+                0x00009888        0x1 ./Generated_Code/MMA0.o
  .rodata.addr.6505
-                0x000098fd        0x1 ./Generated_Code/MMA0.o
+                0x00009889        0x1 ./Generated_Code/MMA0.o
  .rodata.addr.6497
-                0x000098fe        0x1 ./Generated_Code/MMA0.o
- *fill*         0x000098ff        0x1 00
+                0x0000988a        0x1 ./Generated_Code/MMA0.o
+ *fill*         0x0000988b        0x1 00
  .rodata.TSS_C0_INPUTS_GROUP
-                0x00009900        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009900                TSS_C0_INPUTS_GROUP
+                0x0000988c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000988c                TSS_C0_INPUTS_GROUP
  .rodata.TSS_C0_STRUCTURE_ROM_CONTEXT
-                0x00009904       0x1c ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009904                TSS_C0_STRUCTURE_ROM_CONTEXT
+                0x00009890       0x1c ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009890                TSS_C0_STRUCTURE_ROM_CONTEXT
  .rodata.tss_faCallback
-                0x00009920        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009920                tss_faCallback
+                0x000098ac        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098ac                tss_faCallback
  .rodata.tss_acpsDecRAMContext
-                0x00009924        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009924                tss_acpsDecRAMContext
+                0x000098b0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098b0                tss_acpsDecRAMContext
  .rodata.tss_acpsDecROMContext
-                0x00009928        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009928                tss_acpsDecROMContext
+                0x000098b4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098b4                tss_acpsDecROMContext
  .rodata.tss_acpsCSStructs
-                0x0000992c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000992c                tss_acpsCSStructs
+                0x000098b8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098b8                tss_acpsCSStructs
  .rodata.tss_faDecoders
-                0x00009930        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009930                tss_faDecoders
+                0x000098bc        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098bc                tss_faDecoders
  .rodata.tss_cau8ShieldPairs
-                0x00009934        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009934                tss_cau8ShieldPairs
+                0x000098c0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098c0                tss_cau8ShieldPairs
  .rodata.tss_cau8SignalDivider
-                0x00009938        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009938                tss_cau8SignalDivider
+                0x000098c4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098c4                tss_cau8SignalDivider
  .rodata.tss_cau8SignalMultiplier
-                0x0000993c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000993c                tss_cau8SignalMultiplier
+                0x000098c8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098c8                tss_cau8SignalMultiplier
  .rodata.tss_fSetInternalPrivateData
-                0x00009940        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009940                tss_fSetInternalPrivateData
+                0x000098cc        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098cc                tss_fSetInternalPrivateData
  .rodata.tss_fDecodersControl
-                0x00009944        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009944                tss_fDecodersControl
+                0x000098d0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098d0                tss_fDecodersControl
  .rodata.tss_cu8NumElecs
-                0x00009948        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009948                tss_cu8NumElecs
+                0x000098d4        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098d4                tss_cu8NumElecs
  .rodata.tss_cu8NumCtrls
-                0x00009949        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009949                tss_cu8NumCtrls
+                0x000098d5        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098d5                tss_cu8NumCtrls
  .rodata.tss_cu8ElecBitFldLn
-                0x0000994a        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000994a                tss_cu8ElecBitFldLn
- *fill*         0x0000994b        0x1 00
+                0x000098d6        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098d6                tss_cu8ElecBitFldLn
+ *fill*         0x000098d7        0x1 00
  .rodata.tss_fCalculateIIRFilter
-                0x0000994c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000994c                tss_fCalculateIIRFilter
+                0x000098d8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098d8                tss_fCalculateIIRFilter
  .rodata.tss_fCalculateShielding
-                0x00009950        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009950                tss_fCalculateShielding
+                0x000098dc        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098dc                tss_fCalculateShielding
  .rodata.tss_fInitPrevCapSample
-                0x00009954        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009954                tss_fInitPrevCapSample
+                0x000098e0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098e0                tss_fInitPrevCapSample
  .rodata.tss_fFillDeltaLogBuffer
-                0x00009958        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009958                tss_fFillDeltaLogBuffer
+                0x000098e4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098e4                tss_fFillDeltaLogBuffer
  .rodata.tss_fFillSignalLogBuffer
-                0x0000995c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000995c                tss_fFillSignalLogBuffer
+                0x000098e8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098e8                tss_fFillSignalLogBuffer
  .rodata.tss_fDataCorruptionCheck
-                0x00009960        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009960                tss_fDataCorruptionCheck
+                0x000098ec        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098ec                tss_fDataCorruptionCheck
  .rodata.tss_fFmstrCall
-                0x00009964        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009964                tss_fFmstrCall
+                0x000098f0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098f0                tss_fFmstrCall
  .rodata.tss_fTriggerConfig
-                0x00009968        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009968                tss_fTriggerConfig
+                0x000098f4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098f4                tss_fTriggerConfig
  .rodata.tss_fTriggerControl
-                0x0000996c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000996c                tss_fTriggerControl
+                0x000098f8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098f8                tss_fTriggerControl
  .rodata.tss_fLowPowerConfig
-                0x00009970        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009970                tss_fLowPowerConfig
+                0x000098fc        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x000098fc                tss_fLowPowerConfig
  .rodata.tss_fOnFault
-                0x00009974        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009974                tss_fOnFault
+                0x00009900        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009900                tss_fOnFault
  .rodata.tss_fOnInit
-                0x00009978        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009978                tss_fOnInit
+                0x00009904        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009904                tss_fOnInit
  .rodata.tss_cu8APosFilterWeight
-                0x0000997c        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000997c                tss_cu8APosFilterWeight
- *fill*         0x0000997d        0x3 00
+                0x00009908        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009908                tss_cu8APosFilterWeight
+ *fill*         0x00009909        0x3 00
  .rodata.tss_fASliderCalculatePosIIRFilter
-                0x00009980        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009980                tss_fASliderCalculatePosIIRFilter
+                0x0000990c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000990c                tss_fASliderCalculatePosIIRFilter
  .rodata.tss_cu8ASliderDelayBufferLength
-                0x00009984        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009984                tss_cu8ASliderDelayBufferLength
- *fill*         0x00009985        0x3 00
+                0x00009910        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009910                tss_cu8ASliderDelayBufferLength
+ *fill*         0x00009911        0x3 00
  .rodata.tss_fASliderDelayControl
-                0x00009988        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009988                tss_fASliderDelayControl
+                0x00009914        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009914                tss_fASliderDelayControl
  .rodata.tss_cu8ASliderTrendBufferLength
-                0x0000998c        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000998c                tss_cu8ASliderTrendBufferLength
+                0x00009918        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009918                tss_cu8ASliderTrendBufferLength
  .rodata.tss_i8ASliderTrendThreshold
-                0x0000998d        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000998d                tss_i8ASliderTrendThreshold
- *fill*         0x0000998e        0x2 00
+                0x00009919        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009919                tss_i8ASliderTrendThreshold
+ *fill*         0x0000991a        0x2 00
  .rodata.tss_fASliderTrendThreshold
-                0x00009990        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009990                tss_fASliderTrendThreshold
+                0x0000991c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000991c                tss_fASliderTrendThreshold
  .rodata.tss_fASliderTrendControl
-                0x00009994        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009994                tss_fASliderTrendControl
+                0x00009920        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009920                tss_fASliderTrendControl
  .rodata.tss_fOnProximity
-                0x00009998        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x00009998                tss_fOnProximity
+                0x00009924        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009924                tss_fOnProximity
  .rodata.tss_fProximityConfig
-                0x0000999c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x0000999c                tss_fProximityConfig
+                0x00009928        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009928                tss_fProximityConfig
  .rodata.tss_fStuckKeyControl
-                0x000099a0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099a0                tss_fStuckKeyControl
+                0x0000992c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000992c                tss_fStuckKeyControl
  .rodata.tss_fResetStuckKeyCounter
-                0x000099a4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099a4                tss_fResetStuckKeyCounter
+                0x00009930        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009930                tss_fResetStuckKeyCounter
  .rodata.tss_fNegativeBaselineDrop
-                0x000099a8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099a8                tss_fNegativeBaselineDrop
+                0x00009934        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009934                tss_fNegativeBaselineDrop
  .rodata.tss_fKeyDetectorRecalibrationRequest
-                0x000099ac        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099ac                tss_fKeyDetectorRecalibrationRequest
+                0x00009938        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009938                tss_fKeyDetectorRecalibrationRequest
  .rodata.tss_fSignalDivider
-                0x000099b0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099b0                tss_fSignalDivider
+                0x0000993c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000993c                tss_fSignalDivider
  .rodata.tss_fSignalMultiplier
-                0x000099b4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099b4                tss_fSignalMultiplier
+                0x00009940        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009940                tss_fSignalMultiplier
  .rodata.tss_fAutoCalibration
-                0x000099b8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099b8                tss_fAutoCalibration
+                0x00009944        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009944                tss_fAutoCalibration
  .rodata.tss_fSensitivityLowLimitControl
-                0x000099bc        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099bc                tss_fSensitivityLowLimitControl
+                0x00009948        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009948                tss_fSensitivityLowLimitControl
  .rodata.tss_fDeltaNoiseAnalysisIIRControl
-                0x000099c0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099c0                tss_fDeltaNoiseAnalysisIIRControl
+                0x0000994c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000994c                tss_fDeltaNoiseAnalysisIIRControl
  .rodata.tss_cu8BaselineInitLength
-                0x000099c4        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099c4                tss_cu8BaselineInitLength
+                0x00009950        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009950                tss_cu8BaselineInitLength
  .rodata.tss_cu8AutoCalibInitLength
-                0x000099c5        0x1 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099c5                tss_cu8AutoCalibInitLength
- *fill*         0x000099c6        0x2 00
+                0x00009951        0x1 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009951                tss_cu8AutoCalibInitLength
+ *fill*         0x00009952        0x2 00
  .rodata.tss_ci8DeltaNoiseAnalysisIIRWeights
-                0x000099c8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099c8                tss_ci8DeltaNoiseAnalysisIIRWeights
+                0x00009954        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009954                tss_ci8DeltaNoiseAnalysisIIRWeights
  .rodata.tss_csKeyBasicASCContext
-                0x000099cc        0x8 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099cc                tss_csKeyBasicASCContext
+                0x00009958        0x8 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009958                tss_csKeyBasicASCContext
  .rodata.tss_fKeyDetectorElectrodeEval
-                0x000099d4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099d4                tss_fKeyDetectorElectrodeEval
+                0x00009960        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009960                tss_fKeyDetectorElectrodeEval
  .rodata.tss_fKeyDetectorIntegrationResetEval
-                0x000099d8        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099d8                tss_fKeyDetectorIntegrationResetEval
+                0x00009964        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009964                tss_fKeyDetectorIntegrationResetEval
  .rodata.tss_fKeyNoiseSchedulerInit
-                0x000099dc        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099dc                tss_fKeyNoiseSchedulerInit
+                0x00009968        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009968                tss_fKeyNoiseSchedulerInit
  .rodata.tss_fKeyNoiseSchedulerRun
-                0x000099e0        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099e0                tss_fKeyNoiseSchedulerRun
+                0x0000996c        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x0000996c                tss_fKeyNoiseSchedulerRun
  .rodata.tss_fGetSystemDataContext
-                0x000099e4        0x4 ./Sources/TSS/TSS_SystemSetupData.o
-                0x000099e4                tss_fGetSystemDataContext
+                0x00009970        0x4 ./Sources/TSS/TSS_SystemSetupData.o
+                0x00009970                tss_fGetSystemDataContext
  .rodata.TSS_TSIL0_METHOD_ROMDATA_CONTEXT
-                0x000099e8       0x10 ./Sources/TSS/TSS_SensorTSIL.o
-                0x000099e8                TSS_TSIL0_METHOD_ROMDATA_CONTEXT
+                0x00009974       0x10 ./Sources/TSS/TSS_SensorTSIL.o
+                0x00009974                TSS_TSIL0_METHOD_ROMDATA_CONTEXT
  .rodata.TSS_E0_ROMDATA_CONTEXT
-                0x000099f8        0xc ./Sources/TSS/TSS_SensorTSIL.o
-                0x000099f8                TSS_E0_ROMDATA_CONTEXT
+                0x00009984        0xc ./Sources/TSS/TSS_SensorTSIL.o
+                0x00009984                TSS_E0_ROMDATA_CONTEXT
  .rodata.TSS_E1_ROMDATA_CONTEXT
-                0x00009a04        0xc ./Sources/TSS/TSS_SensorTSIL.o
-                0x00009a04                TSS_E1_ROMDATA_CONTEXT
+                0x00009990        0xc ./Sources/TSS/TSS_SensorTSIL.o
+                0x00009990                TSS_E1_ROMDATA_CONTEXT
  .rodata.TSIL_MethodControl
-                0x00009a10       0x24 ./Sources/TSS/TSS_SensorTSIL.o
+                0x0000999c       0x24 ./Sources/TSS/TSS_SensorTSIL.o
  .rodata.TSIL_SampleElectrode
-                0x00009a34       0x28 ./Sources/TSS/TSS_SensorTSIL.o
+                0x000099c0       0x28 ./Sources/TSS/TSS_SensorTSIL.o
  .rodata.tss_faSampleElectrode
-                0x00009a5c        0x8 ./Sources/TSS/TSS_Sensor.o
-                0x00009a5c                tss_faSampleElectrode
+                0x000099e8        0x8 ./Sources/TSS/TSS_Sensor.o
+                0x000099e8                tss_faSampleElectrode
  .rodata.tss_acp8ElectrodeROMData
-                0x00009a64        0x8 ./Sources/TSS/TSS_Sensor.o
-                0x00009a64                tss_acp8ElectrodeROMData
+                0x000099f0        0x8 ./Sources/TSS/TSS_Sensor.o
+                0x000099f0                tss_acp8ElectrodeROMData
  .rodata.str1.1
-                0x00009a6c        0x1 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x000099f8        0x1 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.CSWTCH.20
-                0x00009a6d        0x5 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x000099f9        0x5 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.CSWTCH.21
-                0x00009a72        0x5 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x000099fe        0x5 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.__aeabi_ctype_table_C
-                0x00009a77      0x101 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x00009a77                __aeabi_ctype_table_C
+                0x00009a03      0x101 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00009a03                __aeabi_ctype_table_C
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
@@ -2632,62 +2632,62 @@ END GROUP
  *(.eh_frame)
  *(.init)
  *(.fini)
-                0x00009b78                . = ALIGN (0x4)
-                0x00009b78                _etext = .
+                0x00009b04                . = ALIGN (0x4)
+                0x00009b04                _etext = .
 
-.vfp11_veneer   0x00009b78        0x0
+.vfp11_veneer   0x00009b04        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00009b78        0x0
+.v4_bx          0x00009b04        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00009b78        0x0
+.iplt           0x00009b04        0x0
  .iplt          0x00000000        0x0 ./Generated_Code/timers.o
 
-.rel.dyn        0x00009b78        0x0
+.rel.dyn        0x00009b04        0x0
  .rel.iplt      0x00000000        0x0 ./Generated_Code/timers.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00009b78        0x0
-                0x00009b78                __exidx_start = .
+.ARM            0x00009b04        0x0
+                0x00009b04                __exidx_start = .
  *(.ARM.exidx*)
-                0x00009b78                __exidx_end = .
+                0x00009b04                __exidx_end = .
 
-.ctors          0x00009b78        0x0
-                0x00009b78                __CTOR_LIST__ = .
+.ctors          0x00009b04        0x0
+                0x00009b04                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x00009b78                __CTOR_END__ = .
+                0x00009b04                __CTOR_END__ = .
 
-.dtors          0x00009b78        0x0
-                0x00009b78                __DTOR_LIST__ = .
+.dtors          0x00009b04        0x0
+                0x00009b04                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x00009b78                __DTOR_END__ = .
+                0x00009b04                __DTOR_END__ = .
 
-.preinit_array  0x00009b78        0x0
-                0x00009b78                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00009b04        0x0
+                0x00009b04                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x00009b78                PROVIDE (__preinit_array_end, .)
+                0x00009b04                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00009b78        0x0
-                0x00009b78                PROVIDE (__init_array_start, .)
+.init_array     0x00009b04        0x0
+                0x00009b04                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
-                0x00009b78                PROVIDE (__init_array_end, .)
+                0x00009b04                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00009b78        0x0
-                0x00009b78                PROVIDE (__fini_array_start, .)
+.fini_array     0x00009b04        0x0
+                0x00009b04                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
-                0x00009b78                PROVIDE (__fini_array_end, .)
-                0x00009b78                ___ROM_AT = .
+                0x00009b04                PROVIDE (__fini_array_end, .)
+                0x00009b04                ___ROM_AT = .
 
 .mtb            0x20000000        0x0
                 0x20000000                . = ALIGN (0x8)
@@ -2696,7 +2696,7 @@ END GROUP
                 0x20000000                . = ALIGN (0x8)
                 0x20000000                _mtb_end = .
 
-.data           0x20000000       0xe4 load address 0x00009b78
+.data           0x20000000       0xe4 load address 0x00009b04
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -2717,13 +2717,13 @@ END GROUP
                 0x200000e4                . = ALIGN (0x4)
                 0x200000e4                _edata = .
                 0x000000e4                ___data_size = (_edata - _sdata)
-                0x00009c5c                ___m_data_1FFFF000_ROMStart = (___ROM_AT + SIZEOF (.data))
+                0x00009be8                ___m_data_1FFFF000_ROMStart = (___ROM_AT + SIZEOF (.data))
 
-.igot.plt       0x200000e4        0x0 load address 0x00009c5c
+.igot.plt       0x200000e4        0x0 load address 0x00009be8
  .igot.plt      0x00000000        0x0 ./Generated_Code/timers.o
 
 .m_data_1FFFF000
-                0x1ffff000        0x0 load address 0x00009c5c
+                0x1ffff000        0x0 load address 0x00009be8
                 0x1ffff000                . = ALIGN (0x4)
                 0x1ffff000                ___m_data_1FFFF000_RAMStart = .
  *(.m_data_1FFFF000)
@@ -2732,7 +2732,7 @@ END GROUP
                 0x00000000                ___m_data_1FFFF000_ROMSize = (___m_data_1FFFF000_RAMEnd - ___m_data_1FFFF000_RAMStart)
                 0x1ffff000                . = ALIGN (0x4)
 
-.bss            0x200000e4     0x2b3c load address 0x00009c5c
+.bss            0x200000e4     0x2b3c load address 0x00009be8
                 0x200000e4                __START_BSS = .
                 0x200000e4                PROVIDE (__bss_start__, __START_BSS)
  *(.bss)
@@ -2904,14 +2904,14 @@ END GROUP
  *fill*         0x20002c1e        0x2 00
                 0x20002c20                __END_BSS = .
                 0x20002c20                PROVIDE (__bss_end__, __END_BSS)
-                0x00009c5c                _romp_at = ((___ROM_AT + SIZEOF (.data)) + SIZEOF (.m_data_1FFFF000))
+                0x00009be8                _romp_at = ((___ROM_AT + SIZEOF (.data)) + SIZEOF (.m_data_1FFFF000))
 
-.romp           0x20002c20       0x24 load address 0x00009c5c
-                0x00009c5c                __S_romp = _romp_at
-                0x20002c20        0x4 LONG 0x9b78 ___ROM_AT
+.romp           0x20002c20       0x24 load address 0x00009be8
+                0x00009be8                __S_romp = _romp_at
+                0x20002c20        0x4 LONG 0x9b04 ___ROM_AT
                 0x20002c24        0x4 LONG 0x20000000 _sdata
                 0x20002c28        0x4 LONG 0xe4 ___data_size
-                0x20002c2c        0x4 LONG 0x9c5c ___m_data_1FFFF000_ROMStart
+                0x20002c2c        0x4 LONG 0x9be8 ___m_data_1FFFF000_ROMStart
                 0x20002c30        0x4 LONG 0x1ffff000 ___m_data_1FFFF000_RAMStart
                 0x20002c34        0x4 LONG 0x0 ___m_data_1FFFF000_ROMSize
                 0x20002c38        0x4 LONG 0x0
@@ -2919,7 +2919,7 @@ END GROUP
                 0x20002c40        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x20002c44       0x40 load address 0x00009c80
+                0x20002c44       0x40 load address 0x00009c0c
                 0x20002c44                . = ALIGN (0x4)
                 0x20002c44                PROVIDE (end, .)
                 0x20002c44                PROVIDE (_end, .)
@@ -3491,7 +3491,7 @@ OUTPUT(M0PlusFreeRTOS.elf elf32-littlearm)
  .debug_macinfo
                 0x007e7c4d    0x45c44 ./Sources/Events.o
 
-.debug_line     0x00000000     0xebfa
+.debug_line     0x00000000     0xebf6
  .debug_line    0x00000000      0xd7e ./Generated_Code/tasks.o
  .debug_line    0x00000d7e      0x6d2 ./Generated_Code/queue.o
  .debug_line    0x00001450      0x413 ./Generated_Code/port.o
@@ -3528,34 +3528,34 @@ OUTPUT(M0PlusFreeRTOS.elf elf32-littlearm)
  .debug_line    0x0000ace0      0x4b6 ./Sources/Tasks/TaskSendString1.o
  .debug_line    0x0000b196      0x4b7 ./Sources/Tasks/TaskSendString.o
  .debug_line    0x0000b64d      0x525 ./Sources/Tasks/TaskSendGlobalVariable.o
- .debug_line    0x0000bb72      0x7b7 ./Sources/Tasks/TaskAccelerometer.o
- .debug_line    0x0000c329      0x100 ./Sources/Util/GlobalVariables.o
- .debug_line    0x0000c429      0x8c7 ./Sources/ProcessorExpert.o
- .debug_line    0x0000ccf0      0x883 ./Sources/Events.o
- .debug_line    0x0000d573       0xb0 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
- .debug_line    0x0000d623       0x97 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
- .debug_line    0x0000d6ba       0x9a C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(puts.o)
- .debug_line    0x0000d754       0x93 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sprintf.o)
- .debug_line    0x0000d7e7       0xd4 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
- .debug_line    0x0000d8bb       0x8d C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_line    0x0000d948       0x8b C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_line    0x0000d9d3       0x90 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_line    0x0000da63       0x7d C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_line    0x0000dae0       0x85 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_line    0x0000db65      0x2c3 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_line    0x0000de28      0x2be C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
- .debug_line    0x0000e0e6      0x1be C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
- .debug_line    0x0000e2a4       0xc2 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
- .debug_line    0x0000e366       0xc0 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
- .debug_line    0x0000e426      0x158 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
- .debug_line    0x0000e57e      0x11e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
- .debug_line    0x0000e69c       0xf6 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_line    0x0000e792       0x99 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
- .debug_line    0x0000e82b       0x9f C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_line    0x0000e8ca       0xf0 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
- .debug_line    0x0000e9ba       0x6c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_line    0x0000ea26       0xbd C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_line    0x0000eae3      0x117 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_line    0x0000bb72      0x7b3 ./Sources/Tasks/TaskAccelerometer.o
+ .debug_line    0x0000c325      0x100 ./Sources/Util/GlobalVariables.o
+ .debug_line    0x0000c425      0x8c7 ./Sources/ProcessorExpert.o
+ .debug_line    0x0000ccec      0x883 ./Sources/Events.o
+ .debug_line    0x0000d56f       0xb0 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_line    0x0000d61f       0x97 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_line    0x0000d6b6       0x9a C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(puts.o)
+ .debug_line    0x0000d750       0x93 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sprintf.o)
+ .debug_line    0x0000d7e3       0xd4 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+ .debug_line    0x0000d8b7       0x8d C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_line    0x0000d944       0x8b C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_line    0x0000d9cf       0x90 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_line    0x0000da5f       0x7d C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_line    0x0000dadc       0x85 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_line    0x0000db61      0x2c3 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_line    0x0000de24      0x2be C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+ .debug_line    0x0000e0e2      0x1be C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+ .debug_line    0x0000e2a0       0xc2 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_line    0x0000e362       0xc0 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_line    0x0000e422      0x158 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_line    0x0000e57a      0x11e C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+ .debug_line    0x0000e698       0xf6 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_line    0x0000e78e       0x99 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_line    0x0000e827       0x9f C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_line    0x0000e8c6       0xf0 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_line    0x0000e9b6       0x6c C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_line    0x0000ea22       0xbd C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_line    0x0000eadf      0x117 C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
 .debug_str      0x00000000     0x5d59
  .debug_str     0x00000000      0xc00 ./Generated_Code/tasks.o
