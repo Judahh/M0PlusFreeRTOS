@@ -13,68 +13,20 @@ static int32_t spaceY;
 static int32_t spaceZ;
 
 void taskAccelerometerWork(void) {
-//	int32_t accerX = MMA0_GetXmg()*980665/1000;//(MMA0_GetX()/16384)*980665
-//	int32_t accerY = MMA0_GetYmg()*980665/1000;//100000
-//	int32_t accerZ = MMA0_GetZmg()*980665/1000;
-
-//	int16_t x = accerX / (327.67 / 2.55);
-//	int16_t y = accerY / (327.67 / 2.55);
-//	int16_t z = accerZ / (327.67 / 2.55);
-
-//	printf("accer X = %ld!\r\n", accerX);
-//	printf("accer Y = %ld!\r\n", accerY);
-//	printf("accer Z = %ld!\r\n", accerZ);
-//
-//	speedX += accerX;
-//	speedY += accerY;
-//	speedZ += accerZ;
-//
-//	printf("speed X = %ld!\r\n", speedX);
-//	printf("speed Y = %ld!\r\n", speedY);
-//	printf("speed Z = %ld!\r\n", speedZ);
-//
-//	spaceX += speedX;
-//	spaceY += speedY;
-//	spaceZ += speedZ;
-//
-//	printf("space X = %ld!\r\n", spaceX);
-//	printf("space Y = %ld!\r\n", spaceY);
-//	printf("space Z = %ld!\r\n", spaceZ);
-//	
-//	FreeRTOS0_vTaskDelay(10 / portTICK_RATE_MS);
-
-//	if (x < 0) {
-//		x = 0;
-//	}
-//
-//	if (y < 0) {
-//		y = 0;
-//	}
-//
-//	if (z < 0) {
-//		z = 0;
-//	}
-//
-//	PWMLEDRed_SetRatio8(x);
-//	PWMLEDGreen_SetRatio8(y);
-//	PWMLEDBlue_SetRatio8(z);
-
-	int32_t accerX = MMA0_GetX(); //(MMA0_GetX()/16384)*980665
-	int32_t accerY = MMA0_GetY(); //100000
-	int32_t accerZ = MMA0_GetZ();
-
-//	printf("X = %ld!\r\n", accerX);
-//	printf("Y = %ld!\r\n", accerY);
-//	printf("Z = %ld!\r\n", accerZ);
+	int32_t accelerationX = MMA0_GetX(); //(MMA0_GetX()/16384)*980665
+	int32_t accelerationY = MMA0_GetY(); //100000
+	int32_t accelerationZ = MMA0_GetZ();
 	
-	int32_t Sum = abs(accerX) + abs(accerY) + abs(accerZ);
-	if (Sum < 10000) {
+	int32_t sum = abs(accelerationX) + abs(accelerationY) + abs(accelerationZ);
+	
+	printf("Soma = %ld!\r\n", sum);
+	
+	if (Sum < 5000) {
 		PWMLEDBlue_SetRatio8(65535);
 		FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
 	} else {
 		PWMLEDBlue_SetRatio8(0);
 	}
-//	printf("Soma = %ld!\r\n", Sum);
 }
 
 /**************************************************************************/
