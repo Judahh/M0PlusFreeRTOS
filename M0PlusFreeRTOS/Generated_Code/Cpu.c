@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
+**     Date/Time   : 2014-05-14, 11:26, # CodeGen: 163
 **     Abstract    :
 **
 **     Settings    :
@@ -62,14 +62,10 @@
 #include "FreeRTOS.h" /* FreeRTOS interface */
 #include "UTIL0.h"
 #include "UTIL1.h"
-#include "WAIT0.h"
-#include "I2C0.h"
-#include "I2C1.h"
-#include "TU0.h"
-#include "TU1.h"
-#include "TU2.h"
 #include "CsIO0.h"
 #include "IO1.h"
+#include "WAIT0.h"
+#include "MMA0.h"
 #include "TSSTouch.h"
 #include "PWMLEDBlue.h"
 #include "PwmLdd1.h"
@@ -77,13 +73,15 @@
 #include "PwmLdd2.h"
 #include "PWMLEDRed.h"
 #include "PwmLdd3.h"
-#include "Break.h"
-#include "MotorA.h"
-#include "MotorB.h"
-#include "SonarTrigger.h"
 #include "FreeRTOS0.h"
-#include "MMA0.h"
 #include "GI2C0.h"
+#include "PWMBuzzer.h"
+#include "PwmLdd4.h"
+#include "I2C1.h"
+#include "I2C0.h"
+#include "TU2.h"
+#include "TU1.h"
+#include "TU0.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -149,10 +147,9 @@ void __init_hardware(void)
   /* System clock initialization */
   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTB=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
                SIM_SCGC5_PORTD_MASK |
-               SIM_SCGC5_PORTC_MASK |
                SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
@@ -278,24 +275,6 @@ void PE_low_level_init(void)
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));
   /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)IO1_Init(NULL);
-  /* ### TSS_Library "TSSTouch" init code ... */
-
-  /* Write code here ... */
-
-  /* ### PWM_LDD "PwmLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd1_Init(NULL);
-  /* ### PWM_LDD "PwmLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd2_Init(NULL);
-  /* ### PWM_LDD "PwmLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd3_Init(NULL);
-  /* ### GPIO_LDD "Break" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)Break_Init(NULL);
-  /* ### GPIO_LDD "MotorA" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)MotorA_Init(NULL);
-  /* ### GPIO_LDD "MotorB" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)MotorB_Init(NULL);
-  /* ### GPIO_LDD "SonarTrigger" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)SonarTrigger_Init(NULL);
   /* ### FreeRTOS "FreeRTOS0" init code ... */
 
 #if configSYSTICK_USE_LOW_POWER_TIMER
@@ -307,6 +286,18 @@ void PE_low_level_init(void)
   GI2C0_Init();
   /* ### MMA8451Q "MMA0" init code ... */
   /* Write code here ... */
+  /* ### TSS_Library "TSSTouch" init code ... */
+
+  /* Write code here ... */
+
+  /* ### PWM_LDD "PwmLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)PwmLdd1_Init(NULL);
+  /* ### PWM_LDD "PwmLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)PwmLdd2_Init(NULL);
+  /* ### PWM_LDD "PwmLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)PwmLdd3_Init(NULL);
+  /* ### PWM_LDD "PwmLdd4" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)PwmLdd4_Init(NULL);
 }
 
 /* END Cpu. */

@@ -42,10 +42,6 @@ Sources/Tasks/TaskMotorDC.o: ../Sources/Tasks/TaskMotorDC.c \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/event_groups.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/timers.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/task.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorA.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorB.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/Tasks/HandlesEnum.h
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
@@ -133,13 +129,5 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/eve
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/timers.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/task.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorA.h:
-
-C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
-
-C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/MotorB.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/Tasks/HandlesEnum.h:

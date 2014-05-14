@@ -21,11 +21,15 @@ void taskAccelerometerWork(void) {
 	
 	printf("Soma = %ld!\r\n", sum);
 	
-	if (Sum < 5000) {
-		PWMLEDBlue_SetRatio8(65535);
+	if (sum < 5000) {
+		PWMLEDBlue_SetRatio8(0xFF);
+		PWMBuzzer_Enable();
+		PWMBuzzer_SetRatio8(0xFF/50);
 		FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
 	} else {
+		PWMBuzzer_Disable();
 		PWMLEDBlue_SetRatio8(0);
+		PWMBuzzer_SetRatio8(0);
 	}
 }
 
@@ -71,9 +75,10 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStart(void) {
+	printf("START!\r\n");
 	return FreeRTOS0_xTaskCreate(TaskAccelerometer, /* pointer to the task */
 			(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
-			1000, /* task stack size */
+			1500, /* task stack size */
 			(void*) NULL, /* optional task startup argument */
 			tskIDLE_PRIORITY, /* initial priority */
 			&taskHandles [taskAccelerometerHandle]);

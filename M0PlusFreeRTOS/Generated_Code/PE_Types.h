@@ -6,7 +6,7 @@
 **     Component   : PE_Types
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
+**     Date/Time   : 2014-05-14, 11:26, # CodeGen: 163
 **     Abstract    :
 **         PE_Types.h - contains definitions of basic types,
 **         register access macros and hardware specific macros
@@ -203,20 +203,17 @@ typedef unsigned long int       uint32;
 ** is used internally as an index to the array of LDD device structures.
 ** ===========================================================================
 */
-#define PE_LDD_COMPONENT_I2C0_ID                 0x00U
-#define PE_LDD_COMPONENT_I2C1_ID                 0x01U
-#define PE_LDD_COMPONENT_TU0_ID                  0x02U
-#define PE_LDD_COMPONENT_TU1_ID                  0x03U
-#define PE_LDD_COMPONENT_TU2_ID                  0x04U
-#define PE_LDD_COMPONENT_IO1_ID                  0x05U
-#define PE_LDD_COMPONENT_TSSTouch_ID             0x06U
-#define PE_LDD_COMPONENT_PwmLdd1_ID              0x07U
-#define PE_LDD_COMPONENT_PwmLdd2_ID              0x08U
-#define PE_LDD_COMPONENT_PwmLdd3_ID              0x09U
-#define PE_LDD_COMPONENT_Break_ID                0x0AU
-#define PE_LDD_COMPONENT_MotorA_ID               0x0BU
-#define PE_LDD_COMPONENT_MotorB_ID               0x0CU
-#define PE_LDD_COMPONENT_SonarTrigger_ID         0x0DU
+#define PE_LDD_COMPONENT_IO1_ID                  0x00U
+#define PE_LDD_COMPONENT_I2C0_ID                 0x01U
+#define PE_LDD_COMPONENT_TSSTouch_ID             0x02U
+#define PE_LDD_COMPONENT_TU0_ID                  0x03U
+#define PE_LDD_COMPONENT_PwmLdd1_ID              0x04U
+#define PE_LDD_COMPONENT_TU1_ID                  0x05U
+#define PE_LDD_COMPONENT_PwmLdd2_ID              0x06U
+#define PE_LDD_COMPONENT_PwmLdd3_ID              0x07U
+#define PE_LDD_COMPONENT_TU2_ID                  0x08U
+#define PE_LDD_COMPONENT_PwmLdd4_ID              0x09U
+#define PE_LDD_COMPONENT_I2C1_ID                 0x0AU
 
 /*
 ** ===================================================================

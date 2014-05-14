@@ -6,7 +6,7 @@
 **     Component   : FreeRTOS
 **     Version     : Component 01.366, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
+**     Date/Time   : 2014-05-13, 20:48, # CodeGen: 160
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -54,7 +54,7 @@
 **            non-LDD Tick                                 : Disabled
 **            LDD Tick                                     : Disabled
 **          Queues                                         : Settings for Queues
-**            Queue Registry Size                          : 0
+**            Queue Registry Size                          : 1
 **            Queue Sets                                   : no
 **          Semaphores and Mutexes                         : Settings for Mutex and Semaphore
 **            Use Mutexes                                  : yes

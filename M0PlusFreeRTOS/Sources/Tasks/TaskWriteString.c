@@ -46,7 +46,7 @@ static portTASK_FUNCTION( TaskWriteString, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskWriteStringStart(void) {
-	xTaskHandle TaskWriteStringHandle = NULL;
+	printf("start da Write!\r\n");
 	return FreeRTOS0_xTaskCreate(TaskWriteString, /* pointer to the task */
 			(signed portCHAR *) "TaskWriteString", /* task name for kernel awareness debugging */
 			configMINIMAL_STACK_SIZE, /* task stack size */

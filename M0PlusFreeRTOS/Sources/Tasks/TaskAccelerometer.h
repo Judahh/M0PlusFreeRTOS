@@ -14,6 +14,7 @@
 #include "task.h"
 #include "stdio.h"
 #include "Util/Accelerometer.h"
+#include "PWMBuzzer.h"
 #include "Tasks/HandlesEnum.h"
 #include "MMA0.h"
 

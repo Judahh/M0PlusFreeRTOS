@@ -10,7 +10,7 @@ void taskSendString2Work(void) {
 //	printf("Envio da 2 pela Serial 1!\r\n");
 //	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 
-	FreeRTOS0_xQueueSendToBack(taskHandles [queueHandle],'2',500);
+	FreeRTOS0_xQueueSendToBack(taskHandles [queueHandle],"2",500);
 	FreeRTOS0_vTaskDelay(200 / portTICK_RATE_MS);
 }
 

@@ -114,6 +114,8 @@ Module "UTIL1"     (component Utility)
    - UTIL1_strCutTail -Removes a tailing substring from a string. The string passed will be modified (the tail is cut by 
                 writing a zero byte to the string!)
 
+Module "CsIO0"     (component ConsoleIO)
+
 Module "WAIT0"     (component Wait)
    - WAIT0_Wait10Cycles -Wait for 10 CPU cycles.
    - WAIT0_Wait100Cycles -Wait for 100 CPU cycles.
@@ -125,110 +127,38 @@ Module "WAIT0"     (component Wait)
    - WAIT0_WaitOSms -If an RTOS is enabled, this routine will use a non-blocking wait method. Otherwise it will do a 
                 busy/blocking wait.
 
-Module "I2C0"      (component I2C_LDD)
-   - I2C0_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc.   If the "Enable in init. code" is set to "yes" value 
-                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
-                is not necessary and needn't to be generated.    This method can be called only once. Before the second call of 
-                Init() the Deinit() must be called first.
-   - I2C0_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
-                etc.
-   - I2C0_MasterSendBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes inclusive 
-                of R/W bit = 0 to the I2C bus and then writes the block of characters to the bus. The slave address must be 
-                specified before, by the "SelectSlaveDevice" method or in component initialization section, "Target slave 
-                address init" property. If the method returns ERR_OK, it doesn't mean that transmission was successful. The 
-                state of transmission is detectable by means of events (OnMasterSendComplete or OnError). Data to be sent are 
-                not copied to an internal buffer and remains in the original location. Therefore the content of the buffer 
-                should not be changed until the transmission is complete. Event "OnMasterBlockSent"can be used to detect the 
-                end of the transmission. This method is available only for the MASTER or MASTER - SLAVE mode.
-   - I2C0_MasterReceiveBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes 
-                inclusive of R/W bit = 1 to the I2C bus and then receives the block of characters from the bus. The slave 
-                address must be specified before, by the "SelectSlaveDevice" method or in component initialization section, 
-                "Target slave address init" property. If the method returns ERR_OK, it doesn't mean that reception was 
-                successful. The state of reception is detectable by means of events (OnMasterSendComplete  or OnError). Data to 
-                be received are not copied to an internal buffer and remains in the original location. Therefore the content of 
-                the buffer should not be changed until the transmission is complete. Event "OnMasterBlockReceived"can be used 
-                to detect the end of the reception. This method is available only for the MASTER or MASTER - SLAVE mode.
-   - I2C0_SelectSlaveDevice -This method selects a new slave for communication by its 7-bit slave, 10-bit address or general 
-                call value. Any send or receive method directs to or from selected device, until a new slave device is selected 
-                by this method. This method is available for the MASTER mode.
-
-Module "I2C1"      (component I2C_LDD)
-   - I2C1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc.   If the "Enable in init. code" is set to "yes" value 
-                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
-                is not necessary and needn't to be generated.    This method can be called only once. Before the second call of 
-                Init() the Deinit() must be called first.
-   - I2C1_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
-                etc.
-   - I2C1_MasterSendBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes inclusive 
-                of R/W bit = 0 to the I2C bus and then writes the block of characters to the bus. The slave address must be 
-                specified before, by the "SelectSlaveDevice" method or in component initialization section, "Target slave 
-                address init" property. If the method returns ERR_OK, it doesn't mean that transmission was successful. The 
-                state of transmission is detectable by means of events (OnMasterSendComplete or OnError). Data to be sent are 
-                not copied to an internal buffer and remains in the original location. Therefore the content of the buffer 
-                should not be changed until the transmission is complete. Event "OnMasterBlockSent"can be used to detect the 
-                end of the transmission. This method is available only for the MASTER or MASTER - SLAVE mode.
-   - I2C1_MasterReceiveBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes 
-                inclusive of R/W bit = 1 to the I2C bus and then receives the block of characters from the bus. The slave 
-                address must be specified before, by the "SelectSlaveDevice" method or in component initialization section, 
-                "Target slave address init" property. If the method returns ERR_OK, it doesn't mean that reception was 
-                successful. The state of reception is detectable by means of events (OnMasterSendComplete  or OnError). Data to 
-                be received are not copied to an internal buffer and remains in the original location. Therefore the content of 
-                the buffer should not be changed until the transmission is complete. Event "OnMasterBlockReceived"can be used 
-                to detect the end of the reception. This method is available only for the MASTER or MASTER - SLAVE mode.
-
-Module "TU0"       (component TimerUnit_LDD)
-   - TU0_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
-                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
-                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
-                second call of Init the <Deinit> must be called first.
-   - TU0_Enable -Enables the component - it starts the signal generation. Events may be generated (see SetEventMask). The 
-                method is not available if the counter can't be disabled/enabled by HW.
-   - TU0_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
-                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
-   - TU0_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
-                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
-   - TU0_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
-                to use value below selected period. This method is available when at least one channel is configured.
-   - TU0_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
-                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
-   - TU0_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
-                available when at least one channel is configured.
-
-Module "TU1"       (component TimerUnit_LDD)
-   - TU1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
-                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
-                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
-                second call of Init the <Deinit> must be called first.
-   - TU1_Enable -Enables the component - it starts the signal generation. Events may be generated (see SetEventMask). The 
-                method is not available if the counter can't be disabled/enabled by HW.
-   - TU1_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
-                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
-   - TU1_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
-                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
-   - TU1_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
-                to use value below selected period. This method is available when at least one channel is configured.
-   - TU1_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
-                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
-   - TU1_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
-                available when at least one channel is configured.
-
-Module "TU2"       (component TimerUnit_LDD)
-   - TU2_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
-                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
-                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
-                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
-                second call of Init the <Deinit> must be called first.
-   - TU2_ResetCounter -Resets counter. If counter is counting up then it is set to zero. If counter is counting down then 
-                counter is updated to the reload value.   The method is not available if HW doesn't allow resetting of the 
-                counter.
-   - TU2_GetCaptureValue -Returns the content of capture register specified by the parameter ChannelIdx. This method is 
-                available when at least one channel is configured.
-
-Module "CsIO0"     (component ConsoleIO)
+Module "MMA0"      (component MMA8451Q)
+   - MMA0_Enable -Enables the device with setting the ACTIVE bit in the CTRL register 1
+   - MMA0_Disable -Disables the device with clearing the ACTIVE bit in the CTRL register 1
+   - MMA0_isEnabled -Returns the status of the the ACTIVE bit in the CTRL register 1
+   - MMA0_GetX -Retrieves the value for the X axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
+                for negative acceleration and positive for positive acceleration).
+   - MMA0_GetY -Retrieves the value for the Y axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
+                for negative acceleration and positive for positive acceleration).
+   - MMA0_GetZ -Retrieves the value for the Z axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
+                for negative acceleration and positive for positive acceleration).
+   - MMA0_GetRaw8XYZ -Returns in an array the x, y and z accelerometer as 8bit values.
+   - MMA0_CalibrateX1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
+                has 1 g.
+   - MMA0_CalibrateY1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
+                has 1 g.
+   - MMA0_CalibrateZ1g -Performs a calibration of the sensor. It is assumed that the X and Y sensors have 0 g, and the X sensor 
+                has 1 g.
+   - MMA0_GetXmg -Returns the X value in mg
+   - MMA0_GetYmg -Returns the Y value in mg
+   - MMA0_GetZmg -Returns the Z value in mg
+   - MMA0_MeasureGetRawX -Performs a measurement on X channel and returns the raw value.
+   - MMA0_MeasureGetRawY -Performs a measurement on Y channel and returns the raw value.
+   - MMA0_MeasureGetRawZ -Performs a measurement on Z channel and returns the raw value.
+   - MMA0_GetXOffset -Returns the offset applied to the X value.
+   - MMA0_GetYOffset -Returns the offset applied to the Y value.
+   - MMA0_GetZOffset -Returns the offset applied to the Z value.
+   - MMA0_GetX1gValue -Returns the value for 1g for channel  X.
+   - MMA0_GetY1gValue -Returns the value for 1g for channel  Y.
+   - MMA0_GetZ1gValue -Returns the value for 1g for channel  Z.
+   - MMA0_SetFastMode -Turns the F_READ (Fast Read Mode) on or off
+   - MMA0_Init -Initializes the device driver
+   - MMA0_Deinit -Counterpart to Init() method.
 
 Module "TSSTouch"  (component TSS_Library)
    - TSSTouch_Configure -Whole TSS initialization and configuration of registers. Contains main TSS_Init() function, TSS System 
@@ -288,94 +218,6 @@ Module "PWMLEDRed" (component PWM)
    - PWMLEDRed_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as a 
                 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
                 <Starting pulse width> property.
-
-Module "Break"     (component BitsIO_LDD)
-   - Break_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
-                called automatically as a part of the application initialization code.
-   - Break_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value of 
-                the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
-                property for limitations).
-   - Break_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value to a 
-                memory or a register, this value will be written to the pins after switching to the output mode - using 
-                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
-                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - Break_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] then 
-                it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
-                written value (see <Safe mode> property for limitations).
-   - Break_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
-                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
-                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
-                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - Break_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
-                (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - Break_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, FALSE)
-                ]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-
-Module "MotorA"    (component BitsIO_LDD)
-   - MotorA_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
-                called automatically as a part of the application initialization code.
-   - MotorA_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value of 
-                the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
-                property for limitations).
-   - MotorA_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value to a 
-                memory or a register, this value will be written to the pins after switching to the output mode - using 
-                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
-                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - MotorA_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] then 
-                it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
-                written value (see <Safe mode> property for limitations).
-   - MotorA_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
-                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
-                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
-                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - MotorA_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
-                (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - MotorA_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, FALSE)
-                ]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-
-Module "MotorB"    (component BitsIO_LDD)
-   - MotorB_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
-                called automatically as a part of the application initialization code.
-   - MotorB_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input value of 
-                the pins and returns it. If the direction is [output] then returns the last written value (see <Safe mode> 
-                property for limitations).
-   - MotorB_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value to a 
-                memory or a register, this value will be written to the pins after switching to the output mode - using 
-                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
-                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - MotorB_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] then 
-                it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
-                written value (see <Safe mode> property for limitations).
-   - MotorB_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
-                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
-                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
-                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - MotorB_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
-                (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - MotorB_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, FALSE)
-                ]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-
-Module "SonarTrigger" (component BitsIO_LDD)
-   - SonarTrigger_Init -This method initializes the associated peripheral(s) and the component internal variables. The method 
-                is called automatically as a part of the application initialization code.
-   - SonarTrigger_GetVal -Returns the value of the Input/Output component. If the direction is [input] then reads the input 
-                value of the pins and returns it. If the direction is [output] then returns the last written value (see <Safe 
-                mode> property for limitations).
-   - SonarTrigger_PutVal -Specified value is passed to the Input/Output component. If the direction is [input] saves the value 
-                to a memory or a register, this value will be written to the pins after switching to the output mode - using 
-                [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] it writes the value to 
-                the pins. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - SonarTrigger_GetBit -Returns the value of the specified bit/pin of the Input/Output component. If the direction is [input] 
-                then it reads the input value of the pin and returns it. If the direction is [output] then it returns the last 
-                written value (see <Safe mode> property for limitations).
-   - SonarTrigger_PutBit -Specified value is passed to the specified bit/pin of the Input/Output component. If the direction is 
-                [input] it saves the value to a memory or register, this value will be written to the pin after switching to 
-                the output mode - using [SetDir(TRUE)] (see <Safe mode> property for limitations). If the direction is [output] 
-                it writes the value to the pin. (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - SonarTrigger_SetBit -Sets (to one) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, TRUE)]. 
-                (Method is available only if the Direction = _[output]_ or _[input/output]_).
-   - SonarTrigger_ClrBit -Clears (sets to zero) the specified bit of the Input/Output component. It is the same as [PutBit(Bit, 
-                FALSE)]. (Method is available only if the Direction = _[output]_ or _[input/output]_).
 
 Module "FreeRTOS0" (component FreeRTOS)
    - FreeRTOS0_xTaskCreate -Create a new task and add it to the list of tasks that are ready to run.
@@ -622,39 +464,6 @@ Module "FreeRTOS0" (component FreeRTOS)
    - FreeRTOS0_Init -Low level initialization routine called from startup code. This method ensures that the tick timer is  not 
                 enabled.
 
-Module "MMA0"      (component MMA8451Q)
-   - MMA0_Enable -Enables the device with setting the ACTIVE bit in the CTRL register 1
-   - MMA0_Disable -Disables the device with clearing the ACTIVE bit in the CTRL register 1
-   - MMA0_isEnabled -Returns the status of the the ACTIVE bit in the CTRL register 1
-   - MMA0_GetX -Retrieves the value for the X axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
-                for negative acceleration and positive for positive acceleration).
-   - MMA0_GetY -Retrieves the value for the Y axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
-                for negative acceleration and positive for positive acceleration).
-   - MMA0_GetZ -Retrieves the value for the Z axis. The value is adjusted with the zero calibration value (0 for 0 g, negative 
-                for negative acceleration and positive for positive acceleration).
-   - MMA0_GetRaw8XYZ -Returns in an array the x, y and z accelerometer as 8bit values.
-   - MMA0_CalibrateX1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
-                has 1 g.
-   - MMA0_CalibrateY1g -Performs a calibration of the sensor. It is assumed that the Y and Z sensors have 0 g, and the X sensor 
-                has 1 g.
-   - MMA0_CalibrateZ1g -Performs a calibration of the sensor. It is assumed that the X and Y sensors have 0 g, and the X sensor 
-                has 1 g.
-   - MMA0_GetXmg -Returns the X value in mg
-   - MMA0_GetYmg -Returns the Y value in mg
-   - MMA0_GetZmg -Returns the Z value in mg
-   - MMA0_MeasureGetRawX -Performs a measurement on X channel and returns the raw value.
-   - MMA0_MeasureGetRawY -Performs a measurement on Y channel and returns the raw value.
-   - MMA0_MeasureGetRawZ -Performs a measurement on Z channel and returns the raw value.
-   - MMA0_GetXOffset -Returns the offset applied to the X value.
-   - MMA0_GetYOffset -Returns the offset applied to the Y value.
-   - MMA0_GetZOffset -Returns the offset applied to the Z value.
-   - MMA0_GetX1gValue -Returns the value for 1g for channel  X.
-   - MMA0_GetY1gValue -Returns the value for 1g for channel  Y.
-   - MMA0_GetZ1gValue -Returns the value for 1g for channel  Z.
-   - MMA0_SetFastMode -Turns the F_READ (Fast Read Mode) on or off
-   - MMA0_Init -Initializes the device driver
-   - MMA0_Deinit -Counterpart to Init() method.
-
 Module "GI2C0"     (component GenericI2C)
    - GI2C0_SelectSlave -Selects the slave device on the bus. Method might use a semaphore to protect bus access.
    - GI2C0_UnselectSlave -Unselects the device. Method will release a used a semaphore.
@@ -673,6 +482,143 @@ Module "GI2C0"     (component GenericI2C)
    - GI2C0_Deinit -Deinitializes the driver.
    - GI2C0_ScanDevice -Checks if a device responds on the bus with an ACK.
    - GI2C0_Init -Initializes the driver.
+
+Module "PWMBuzzer" (component PWM)
+   - PWMBuzzer_Enable -This method enables the component - it starts the signal generation. Events may be generated 
+                (<DisableEvent>/<EnableEvent>).
+   - PWMBuzzer_Disable -This method disables the component - it stops the signal generation and events calling. When the timer 
+                is disabled, it is possible to call <ClrValue> and <SetValue> methods.
+   - PWMBuzzer_SetRatio8 -This method sets a new duty-cycle ratio. Ratio is expressed as an 8-bit unsigned integer number. 0 - 
+                FF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer capabilities 
+                and on the selected period.
+   - PWMBuzzer_SetRatio16 -This method sets a new duty-cycle ratio. Ratio is expressed as a 16-bit unsigned integer number. 0 - 
+                FFFF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer 
+                possibilities and on the selected period.
+   - PWMBuzzer_SetDutyUS -This method sets the new duty value of the output signal. The duty is expressed in microseconds as a 
+                16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
+                <Starting pulse width> property.
+   - PWMBuzzer_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as a 
+                16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
+                <Starting pulse width> property.
+
+Module "I2C1"      (component I2C_LDD)
+   - I2C1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc.   If the "Enable in init. code" is set to "yes" value 
+                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
+                is not necessary and needn't to be generated.    This method can be called only once. Before the second call of 
+                Init() the Deinit() must be called first.
+   - I2C1_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
+                etc.
+   - I2C1_MasterSendBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes inclusive 
+                of R/W bit = 0 to the I2C bus and then writes the block of characters to the bus. The slave address must be 
+                specified before, by the "SelectSlaveDevice" method or in component initialization section, "Target slave 
+                address init" property. If the method returns ERR_OK, it doesn't mean that transmission was successful. The 
+                state of transmission is detectable by means of events (OnMasterSendComplete or OnError). Data to be sent are 
+                not copied to an internal buffer and remains in the original location. Therefore the content of the buffer 
+                should not be changed until the transmission is complete. Event "OnMasterBlockSent"can be used to detect the 
+                end of the transmission. This method is available only for the MASTER or MASTER - SLAVE mode.
+   - I2C1_MasterReceiveBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes 
+                inclusive of R/W bit = 1 to the I2C bus and then receives the block of characters from the bus. The slave 
+                address must be specified before, by the "SelectSlaveDevice" method or in component initialization section, 
+                "Target slave address init" property. If the method returns ERR_OK, it doesn't mean that reception was 
+                successful. The state of reception is detectable by means of events (OnMasterSendComplete  or OnError). Data to 
+                be received are not copied to an internal buffer and remains in the original location. Therefore the content of 
+                the buffer should not be changed until the transmission is complete. Event "OnMasterBlockReceived"can be used 
+                to detect the end of the reception. This method is available only for the MASTER or MASTER - SLAVE mode.
+
+Module "I2C0"      (component I2C_LDD)
+   - I2C0_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc.   If the "Enable in init. code" is set to "yes" value 
+                then the device is also enabled(see the description of the Enable() method). In this case the Enable() method 
+                is not necessary and needn't to be generated.    This method can be called only once. Before the second call of 
+                Init() the Deinit() must be called first.
+   - I2C0_Deinit -Deinitializes the device. Switches off the device, frees the device data structure memory, interrupts vectors,
+                etc.
+   - I2C0_MasterSendBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes inclusive 
+                of R/W bit = 0 to the I2C bus and then writes the block of characters to the bus. The slave address must be 
+                specified before, by the "SelectSlaveDevice" method or in component initialization section, "Target slave 
+                address init" property. If the method returns ERR_OK, it doesn't mean that transmission was successful. The 
+                state of transmission is detectable by means of events (OnMasterSendComplete or OnError). Data to be sent are 
+                not copied to an internal buffer and remains in the original location. Therefore the content of the buffer 
+                should not be changed until the transmission is complete. Event "OnMasterBlockSent"can be used to detect the 
+                end of the transmission. This method is available only for the MASTER or MASTER - SLAVE mode.
+   - I2C0_MasterReceiveBlock -This method writes one (7-bit addressing) or two (10-bit addressing) slave address bytes 
+                inclusive of R/W bit = 1 to the I2C bus and then receives the block of characters from the bus. The slave 
+                address must be specified before, by the "SelectSlaveDevice" method or in component initialization section, 
+                "Target slave address init" property. If the method returns ERR_OK, it doesn't mean that reception was 
+                successful. The state of reception is detectable by means of events (OnMasterSendComplete  or OnError). Data to 
+                be received are not copied to an internal buffer and remains in the original location. Therefore the content of 
+                the buffer should not be changed until the transmission is complete. Event "OnMasterBlockReceived"can be used 
+                to detect the end of the reception. This method is available only for the MASTER or MASTER - SLAVE mode.
+   - I2C0_SelectSlaveDevice -This method selects a new slave for communication by its 7-bit slave, 10-bit address or general 
+                call value. Any send or receive method directs to or from selected device, until a new slave device is selected 
+                by this method. This method is available for the MASTER mode.
+
+Module "TU2"       (component TimerUnit_LDD)
+   - TU2_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU2_Enable -Enables the component - it starts the signal generation. Events may be generated (see SetEventMask). The 
+                method is not available if the counter can't be disabled/enabled by HW.
+   - TU2_Disable -Disables the component - it stops signal generation and events calling. The method is not available if the 
+                counter can't be disabled/enabled by HW.
+   - TU2_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
+                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
+   - TU2_ResetCounter -Resets counter. If counter is counting up then it is set to zero. If counter is counting down then 
+                counter is updated to the reload value.   The method is not available if HW doesn't allow resetting of the 
+                counter.
+   - TU2_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
+                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
+   - TU2_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
+                to use value below selected period. This method is available when at least one channel is configured.
+   - TU2_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
+                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
+   - TU2_GetCaptureValue -Returns the content of capture register specified by the parameter ChannelIdx. This method is 
+                available when at least one channel is configured.
+   - TU2_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
+                available when at least one channel is configured.
+
+Module "TU1"       (component TimerUnit_LDD)
+   - TU1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU1_Enable -Enables the component - it starts the signal generation. Events may be generated (see SetEventMask). The 
+                method is not available if the counter can't be disabled/enabled by HW.
+   - TU1_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
+                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
+   - TU1_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
+                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
+   - TU1_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
+                to use value below selected period. This method is available when at least one channel is configured.
+   - TU1_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
+                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
+   - TU1_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
+                available when at least one channel is configured.
+
+Module "TU0"       (component TimerUnit_LDD)
+   - TU0_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU0_Enable -Enables the component - it starts the signal generation. Events may be generated (see SetEventMask). The 
+                method is not available if the counter can't be disabled/enabled by HW.
+   - TU0_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
+                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
+   - TU0_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
+                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
+   - TU0_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
+                to use value below selected period. This method is available when at least one channel is configured.
+   - TU0_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
+                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
+   - TU0_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
+                available when at least one channel is configured.
 
 Module "Cpu"       (component FRDM_KL25Z_CPU_48MHz)
 

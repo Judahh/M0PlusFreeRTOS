@@ -28,19 +28,16 @@
 
 \page page_components Components 
 
-- \subpage I2C0
-- \subpage I2C1
-- \subpage TU0
-- \subpage TU1
-- \subpage TU2
 - \subpage IO1
+- \subpage I2C0
+- \subpage TU0
 - \subpage PwmLdd1
+- \subpage TU1
 - \subpage PwmLdd2
 - \subpage PwmLdd3
-- \subpage Break
-- \subpage MotorA
-- \subpage MotorB
-- \subpage SonarTrigger
+- \subpage TU2
+- \subpage PwmLdd4
+- \subpage I2C1
 
 
 */

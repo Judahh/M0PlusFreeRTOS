@@ -29,13 +29,7 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h \
- ../Generated_Code/UTIL1.h ../Generated_Code/WAIT0.h \
- ../Generated_Code/I2C0.h ../Generated_Code/I2C1.h \
- ../Generated_Code/TU0.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
- ../Generated_Code/TU1.h ../Generated_Code/TU2.h \
- ../Generated_Code/CsIO0.h \
+ ../Generated_Code/UTIL1.h ../Generated_Code/CsIO0.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/eof.h \
@@ -45,7 +39,12 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdarg.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdarg \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h \
- ../Generated_Code/IO1.h ../Generated_Code/TSSTouch.h \
+ ../Generated_Code/IO1.h ../Generated_Code/WAIT0.h \
+ ../Generated_Code/MMA0.h ../Generated_Code/GI2C0.h \
+ ../Generated_Code/I2C0.h ../Generated_Code/FreeRTOS0.h \
+ ../Generated_Code/semphr.h ../Generated_Code/queue.h \
+ ../Generated_Code/event_groups.h ../Generated_Code/timers.h \
+ ../Generated_Code/TSSTouch.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_API.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS_SystemSetup.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_StatusCodes.h \
@@ -55,15 +54,14 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/Cpu.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_API.h \
  ../Generated_Code/PWMLEDBlue.h ../Generated_Code/PwmLdd1.h \
+ ../Generated_Code/TU0.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  ../Generated_Code/PWMLEDGreen.h ../Generated_Code/PwmLdd2.h \
- ../Generated_Code/PWMLEDRed.h ../Generated_Code/PwmLdd3.h \
- ../Generated_Code/Break.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
- ../Generated_Code/MotorA.h ../Generated_Code/MotorB.h \
- ../Generated_Code/SonarTrigger.h ../Generated_Code/FreeRTOS0.h \
- ../Generated_Code/semphr.h ../Generated_Code/queue.h \
- ../Generated_Code/event_groups.h ../Generated_Code/timers.h \
- ../Generated_Code/MMA0.h ../Generated_Code/GI2C0.h
+ ../Generated_Code/TU1.h ../Generated_Code/PWMLEDRed.h \
+ ../Generated_Code/PwmLdd3.h ../Generated_Code/PWMBuzzer.h \
+ ../Generated_Code/PwmLdd4.h ../Generated_Code/TU2.h \
+ ../Generated_Code/I2C1.h
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -139,22 +137,6 @@ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h:
 
 ../Generated_Code/UTIL1.h:
 
-../Generated_Code/WAIT0.h:
-
-../Generated_Code/I2C0.h:
-
-../Generated_Code/I2C1.h:
-
-../Generated_Code/TU0.h:
-
-C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
-
-C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
-
-../Generated_Code/TU1.h:
-
-../Generated_Code/TU2.h:
-
 ../Generated_Code/CsIO0.h:
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
@@ -176,6 +158,24 @@ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdarg:
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h:
 
 ../Generated_Code/IO1.h:
+
+../Generated_Code/WAIT0.h:
+
+../Generated_Code/MMA0.h:
+
+../Generated_Code/GI2C0.h:
+
+../Generated_Code/I2C0.h:
+
+../Generated_Code/FreeRTOS0.h:
+
+../Generated_Code/semphr.h:
+
+../Generated_Code/queue.h:
+
+../Generated_Code/event_groups.h:
+
+../Generated_Code/timers.h:
 
 ../Generated_Code/TSSTouch.h:
 
@@ -199,34 +199,26 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_AP
 
 ../Generated_Code/PwmLdd1.h:
 
+../Generated_Code/TU0.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
+
 ../Generated_Code/PWMLEDGreen.h:
 
 ../Generated_Code/PwmLdd2.h:
+
+../Generated_Code/TU1.h:
 
 ../Generated_Code/PWMLEDRed.h:
 
 ../Generated_Code/PwmLdd3.h:
 
-../Generated_Code/Break.h:
+../Generated_Code/PWMBuzzer.h:
 
-C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
+../Generated_Code/PwmLdd4.h:
 
-../Generated_Code/MotorA.h:
+../Generated_Code/TU2.h:
 
-../Generated_Code/MotorB.h:
-
-../Generated_Code/SonarTrigger.h:
-
-../Generated_Code/FreeRTOS0.h:
-
-../Generated_Code/semphr.h:
-
-../Generated_Code/queue.h:
-
-../Generated_Code/event_groups.h:
-
-../Generated_Code/timers.h:
-
-../Generated_Code/MMA0.h:
-
-../Generated_Code/GI2C0.h:
+../Generated_Code/I2C1.h:
