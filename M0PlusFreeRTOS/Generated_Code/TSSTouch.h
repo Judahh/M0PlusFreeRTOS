@@ -6,7 +6,7 @@
 **     Component   : TSS_Library
 **     Version     : Component 03.001, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
+**     Date/Time   : 2014-05-15, 17:38, # CodeGen: 174
 **     Contents    :
 **         Configure - byte TSSTouch_Configure(void);
 **
@@ -96,7 +96,7 @@ byte TSSTouch_Configure(void);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.09]
+**     This file was created by Processor Expert 10.3 [05.08]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

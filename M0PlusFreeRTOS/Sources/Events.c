@@ -461,7 +461,7 @@ void FreeRTOS0_vApplicationIdleHook(void) {
 	/* Called whenever the RTOS is idle (from the IDLE task).
 	 Here would be a good place to put the CPU into low power mode. */
 	/* Write your code here ... */
-	incrementIdleTaskHookInteger();
+	//incrementIdleTaskHookInteger();
 }
 
 /*
@@ -539,7 +539,7 @@ void FreeRTOS0_vOnPreSleepProcessing(portTickType expectedIdleTicks) {
 **     Returns     : Nothing
 ** ===================================================================
 */
-void FreeRTOS0_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskName)
+void FreeRTOS0_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *pcTaskName)
 {
   /* This will get called if a stack overflow is detected during the context
      switch.  Set configCHECK_FOR_STACK_OVERFLOWS to 2 to also check for stack

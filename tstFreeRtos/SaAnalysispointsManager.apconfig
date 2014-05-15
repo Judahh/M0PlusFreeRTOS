@@ -1,6 +1,6 @@
 <Analysispoints>
 	<Name>AnalysispointsManager</Name>
-	<ProjectPath>C:/Users/GILLY/Documents/Gilly Lopes/Unifor/2014.1/Sis TR/Projetos/workspace/tstFreeRtos/SaAnalysispointsManager.apconfig</ProjectPath>
+	<ProjectPath>C:/Users/Avell G1512NEW/Documents/GitHub/M0PlusFreeRTOS/tstFreeRtos/SaAnalysispointsManager.apconfig</ProjectPath>
 	<MaxNumberOfCores>1</MaxNumberOfCores>
 	<Comments>Analysispoints Manager</Comments>
 	<IgnoreAll>false</IgnoreAll>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PE_PROJECT_SETTINGS_DOCUMENTATION>
   <PE_product_version v="version 10.3 for Freescale Microcontrollers" />
-  <PE_core_version v="Processor Expert Version 0509" />
+  <PE_core_version v="Processor Expert Version 0508" />
   <CPU_Bean name="Cpu" type="MKL25Z128LK4">
     <Enabled v="Y" />
     <Template v="FRDM_KL25Z_CPU_48MHz" />
@@ -24,9 +24,11 @@
             <enumgroup name="Clock source" v="External crystal">
               <group name="Clock input pin">
                 <Pin_name v="EXTAL0/PTA18/UART1_RX/TPM_CLKIN0" />
+                <Pin_signal v="" />
               </group>
               <group name="Clock output pin">
                 <Pin_name v="XTAL0/PTA19/UART1_TX/TPM_CLKIN1/LPTMR0_ALT1" />
+                <Pin_signal v="" />
               </group>
               <Clock_frequency__MHz_ v="8" />
               <Capacitor_load v="18pF" />
@@ -61,7 +63,7 @@
                 <group name="FLL settings">
                   <FLL_module v="Disabled" />
                   <FLL_output__MHz_ v="0" />
-                  <MCGFFCLK_clock__kHz_ v="31.250000000000" />
+                  <MCGFFCLK_clock__kHz_ v="15.625000000000" />
                   <enumgroup name="Reference clock source" v="External clock">
                     <Reference_clock_divider v="Auto select" />
                   </enumgroup>
@@ -88,11 +90,13 @@
         <list name="Shared NMI settings" v="1">
           <boolgroup name="NMI pin" v="Enabled">
             <NMI_Pin v="TSI0_CH5/PTA4/I2C1_SDA/TPM0_CH1/NMI_b" />
+            <NMI_Pin_signal v="" />
           </boolgroup>
         </list>
         <list name="Shared Reset settings" v="1">
           <boolgroup name="Reset control" v="Enabled">
             <Reset_pin v="PTA20/RESET_b" />
+            <Reset_pin_signal v="" />
             <Filter_in_STOP v="Disabled" />
             <Filter_in_RUN_WAIT v="Disabled" />
             <Filter_width v="1" />
@@ -153,12 +157,12 @@
           <boolgroup name="Usage Fault" v="Disabled" />
           <boolgroup name="Supervisor Call" v="Disabled" />
           <boolgroup name="Pendable Service" v="Disabled" />
-          <boolgroup name="MCG" v="Disabled" />
+          <boolgroup name="MCG Loss of lock" v="Disabled" />
         </group>
       </list>
       <group name="Low power mode settings">
         <list name="Shared Low Power Settings" v="1">
-          <group name="Allowed power modes">
+          <group name="Allowed low power modes">
             <Very_low_power_modes v="Not allowed" />
             <Low_leakage_stop_mode v="Not allowed" />
             <Very_low_leakage_stop_mode v="Not allowed" />
@@ -189,7 +193,7 @@
             <MCGIRCLK_clock__MHz_ v="0.032768" />
             <OSCERCLK_clock__MHz_ v="8" />
             <ERCLK32K__clock__MHz_ v="0.001" />
-            <MCGFFCLK__kHz_ v="31.25" />
+            <MCGFFCLK__kHz_ v="15.625" />
           </enumgroup>
           <group name="System clocks">
             <Core_clock_prescaler v="Auto select" />
@@ -214,7 +218,6 @@
         <EnableInt v="don&amp;apos;t generate code" />
         <DisableInt v="don&amp;apos;t generate code" />
         <GetLLSWakeUpFlags v="don&amp;apos;t generate code" />
-        <OpenBackDoor v="don&amp;apos;t generate code" />
         <MCGAutoTrim v="don&amp;apos;t generate code" />
         <VLPModeEnable v="don&amp;apos;t generate code" />
         <VLPModeDisable v="don&amp;apos;t generate code" />
@@ -362,7 +365,6 @@ PE_DEBUGHALT();
       <ScanHex8uNumberNoPrefix v="generate code" />
       <ScanHex16uNumber v="generate code" />
       <ScanHex32uNumber v="generate code" />
-      <ScanSeparatedNumbers v="generate code" />
       <strcmp v="generate code" />
       <strncmp v="generate code" />
       <strFind v="generate code" />
@@ -424,7 +426,6 @@ PE_DEBUGHALT();
       <ScanHex8uNumberNoPrefix v="generate code" />
       <ScanHex16uNumber v="generate code" />
       <ScanHex32uNumber v="generate code" />
-      <ScanSeparatedNumbers v="generate code" />
       <strcmp v="generate code" />
       <strncmp v="generate code" />
       <strFind v="generate code" />
@@ -461,9 +462,11 @@ PE_DEBUGHALT();
             <Break_generation_length v="10/11 bits" />
             <boolgroup name="Receiver" v="Enabled">
               <RxD v="TSI0_CH2/PTA1/UART0_RX/TPM2_CH0" />
+              <RxD_pin_signal v="" />
             </boolgroup>
             <boolgroup name="Transmitter" v="Enabled">
               <TxD v="TSI0_CH3/PTA2/UART0_TX/TPM2_CH1" />
+              <TxD_pin_signal v="" />
             </boolgroup>
             <enumgroup name="Flow control" v="None">
               <EmptySection_DummyValue />
@@ -542,7 +545,6 @@ PE_DEBUGHALT();
           <event name="OnTxComplete" v="don&amp;apos;t generate code" />
         </Events>
       </inhrbean>
-      <Wait_until_at_least_one_char_is_received v="yes" />
       <group name="New line sequence settings">
         <Rx_new_line_sequence_ v="CR" />
         <Tx_new_line_sequence_ v="CRLF" />
@@ -811,6 +813,7 @@ PE_DEBUGHALT();
       <PWM_or_PPG_device v="TPM0_C1V" />
       <Duty_compare v="" />
       <Output_pin v="ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1" />
+      <Output_pin_signal v="" />
       <Counter v="TPM0_CNT" />
       <boolgroup name="Interrupt service/event" v="Disabled" />
       <Period v="6.25 ms" />
@@ -835,6 +838,7 @@ PE_DEBUGHALT();
             <Period_device v="TPM0_MOD" />
             <Duty_device v="TPM0_C1V" />
             <Output_pin v="ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1" />
+            <Output_pin_signal v="" />
             <Counter v="TPM0_CNT" />
             <boolgroup name="Interrupt service/event" v="Disabled" />
             <Period v="6.25 ms" />
@@ -922,6 +926,7 @@ PE_DEBUGHALT();
       <PWM_or_PPG_device v="TPM2_C1V" />
       <Duty_compare v="" />
       <Output_pin v="TSI0_CH12/PTB19/TPM2_CH1" />
+      <Output_pin_signal v="" />
       <Counter v="TPM2_CNT" />
       <boolgroup name="Interrupt service/event" v="Disabled" />
       <Period v="6.25 ms" />
@@ -946,6 +951,7 @@ PE_DEBUGHALT();
             <Period_device v="TPM2_MOD" />
             <Duty_device v="TPM2_C1V" />
             <Output_pin v="TSI0_CH12/PTB19/TPM2_CH1" />
+            <Output_pin_signal v="" />
             <Counter v="TPM2_CNT" />
             <boolgroup name="Interrupt service/event" v="Disabled" />
             <Period v="6.25 ms" />
@@ -1033,6 +1039,7 @@ PE_DEBUGHALT();
       <PWM_or_PPG_device v="TPM2_C0V" />
       <Duty_compare v="" />
       <Output_pin v="TSI0_CH11/PTB18/TPM2_CH0" />
+      <Output_pin_signal v="" />
       <Counter v="TPM2_CNT" />
       <boolgroup name="Interrupt service/event" v="Disabled" />
       <Period v="6.25 ms" />
@@ -1057,6 +1064,7 @@ PE_DEBUGHALT();
             <Period_device v="TPM2_MOD" />
             <Duty_device v="TPM2_C0V" />
             <Output_pin v="TSI0_CH11/PTB18/TPM2_CH0" />
+            <Output_pin_signal v="" />
             <Counter v="TPM2_CNT" />
             <boolgroup name="Interrupt service/event" v="Disabled" />
             <Period v="6.25 ms" />
@@ -1141,7 +1149,7 @@ PE_DEBUGHALT();
     <Enabled v="Y" />
     <Properties>
       <Component_name v="FreeRTOS0" />
-      <RTOS_Version v="V8.0.0" />
+      <RTOS_Version v="V7.5.0" />
       <group name="Custom Port">
         <Compiler v="automatic" />
         <boolgroup name="Static Sources" v="Disabled" />
@@ -1183,7 +1191,6 @@ PE_DEBUGHALT();
         <boolgroup name="Tickless Idle Mode" v="Enabled">
           <Stopped_Timer_Compensation v="42" />
           <Expected_Idle_Time__Ticks__before_Sleep v="2" />
-          <boolgroup name="Idle Decision Hook" v="Disabled" />
         </boolgroup>
         <Tick_Rate__Hz_ v="100" />
         <Use_16bit_ticks v="no" />
@@ -1204,6 +1211,7 @@ PE_DEBUGHALT();
         <boolgroup name="User Heap Section" v="Disabled" />
         <Total_Heap_Size v="10000" />
       </group>
+      <boolgroup name="Command Interpreter" v="Disabled" />
       <boolgroup name="Shell" v="Disabled" />
       <Utility v="UTIL0" />
     </Properties>
@@ -1280,15 +1288,6 @@ PE_DEBUGHALT();
       <xQueueRemoveFromSet v="don&amp;apos;t generate code" />
       <xQueueSelectFromSet v="don&amp;apos;t generate code" />
       <xQueueSelectFromSetFromISR v="don&amp;apos;t generate code" />
-      <xEventGroupCreate v="generate code" />
-      <xEventGroupWaitBits v="generate code" />
-      <xEventGroupSetBits v="generate code" />
-      <xEventGroupSetBitsFromISR v="generate code" />
-      <xEventGroupClearBits v="generate code" />
-      <xEventGroupClearBitsFromISR v="generate code" />
-      <xEventGroupGetBits v="generate code" />
-      <xEventGroupGetBitsFromISR v="generate code" />
-      <xEventGroupSync v="generate code" />
       <ParseCommand v="don&amp;apos;t generate code" />
       <Init v="generate code" />
     </Methods>
@@ -1319,7 +1318,6 @@ PE_DEBUGHALT();
     <Properties>
       <Component_name v="GI2C0" />
       <Wait v="WAIT0" />
-      <Support_STOP_NOSTART v="yes" />
       <Write_Buffer_Size v="16" />
       <boolgroup name="non-LDD I2C" v="Disabled" />
       <boolgroup name="LDD I2C" v="Enabled">
@@ -1364,12 +1362,13 @@ PE_DEBUGHALT();
       <PWM_or_PPG_device v="TPM1_C1V" />
       <Duty_compare v="" />
       <Output_pin v="ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1" />
+      <Output_pin_signal v="" />
       <Counter v="TPM1_CNT" />
       <boolgroup name="Interrupt service/event" v="Disabled" />
       <Period v="21.845333 ms" />
       <Starting_pulse_width v="0 &amp;#181;s" />
       <Initial_polarity v="low" />
-      <Same_period_in_modes v="no" />
+      <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
         <Enabled_in_init__code v="no" />
@@ -1388,6 +1387,7 @@ PE_DEBUGHALT();
             <Period_device v="TPM1_MOD" />
             <Duty_device v="TPM1_C1V" />
             <Output_pin v="ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1" />
+            <Output_pin_signal v="" />
             <Counter v="TPM1_CNT" />
             <boolgroup name="Interrupt service/event" v="Disabled" />
             <Period v="21.845333 ms" />
@@ -1427,9 +1427,9 @@ PE_DEBUGHALT();
             <GetEventMask v="don&amp;apos;t generate code" />
             <GetEventStatus v="don&amp;apos;t generate code" />
             <SetRatio8 v="generate code" />
-            <SetRatio16 v="generate code" />
-            <SetDutyUS v="generate code" />
-            <SetDutyMS v="generate code" />
+            <SetRatio16 v="don&amp;apos;t generate code" />
+            <SetDutyUS v="don&amp;apos;t generate code" />
+            <SetDutyMS v="don&amp;apos;t generate code" />
             <SetDutySec v="don&amp;apos;t generate code" />
             <SetDutyReal v="don&amp;apos;t generate code" />
             <SetValue v="don&amp;apos;t generate code" />
@@ -1451,11 +1451,11 @@ PE_DEBUGHALT();
       <EnableEvent v="don&amp;apos;t generate code" />
       <DisableEvent v="don&amp;apos;t generate code" />
       <SetRatio8 v="generate code" />
-      <SetRatio16 v="generate code" />
+      <SetRatio16 v="don&amp;apos;t generate code" />
       <SetDutyTicks16 v="don&amp;apos;t generate code" />
       <SetDutyTicks32 v="don&amp;apos;t generate code" />
-      <SetDutyUS v="generate code" />
-      <SetDutyMS v="generate code" />
+      <SetDutyUS v="don&amp;apos;t generate code" />
+      <SetDutyMS v="don&amp;apos;t generate code" />
       <SetDutySec v="don&amp;apos;t generate code" />
       <SetDutyReal v="don&amp;apos;t generate code" />
       <SetValue v="don&amp;apos;t generate code" />
@@ -1489,9 +1489,11 @@ PE_DEBUGHALT();
         <group name="Pins">
           <group name="SDA pin">
             <SDA_pin v="PTE0/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA" />
+            <SDA_pin_signal v="I2C1_SDA" />
           </group>
           <group name="SCL pin">
             <SCL_pin v="PTE1/SPI1_MOSI/UART1_RX/SPI1_MISO/I2C1_SCL" />
+            <SCL_pin_signal v="I2C1_SCL" />
           </group>
           <High_drive_select v="Disabled" />
           <Input_Glitch_filter v="0" />
@@ -1616,9 +1618,11 @@ PE_DEBUGHALT();
         <group name="Pins">
           <group name="SDA pin">
             <SDA_pin v="PTE25/TPM0_CH1/I2C0_SDA" />
+            <SDA_pin_signal v="I2C_SDA" />
           </group>
           <group name="SCL pin">
             <SCL_pin v="PTE24/TPM0_CH0/I2C0_SCL" />
+            <SCL_pin_signal v="I2C_SCL" />
           </group>
           <High_drive_select v="Disabled" />
           <Input_Glitch_filter v="0" />
@@ -1748,6 +1752,7 @@ PE_DEBUGHALT();
               <Output_on_overrun v="Clear" />
               <Initial_state v="Low" />
               <Output_pin v="ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1" />
+              <Output_pin_signal v="" />
             </enumgroup>
             <boolgroup name="Interrupt" v="Enabled">
               <Interrupt v="INT_TPM1" />
@@ -1851,6 +1856,7 @@ PE_DEBUGHALT();
               <Output_on_overrun v="Clear" />
               <Initial_state v="Low" />
               <Output_pin v="TSI0_CH12/PTB19/TPM2_CH1" />
+              <Output_pin_signal v="" />
             </enumgroup>
             <boolgroup name="Interrupt" v="Disabled" />
           </enumgroup>
@@ -1863,6 +1869,7 @@ PE_DEBUGHALT();
               <Output_on_overrun v="Clear" />
               <Initial_state v="Low" />
               <Output_pin v="TSI0_CH11/PTB18/TPM2_CH0" />
+              <Output_pin_signal v="" />
             </enumgroup>
             <boolgroup name="Interrupt" v="Disabled" />
           </enumgroup>
@@ -1961,6 +1968,7 @@ PE_DEBUGHALT();
               <Output_on_overrun v="Clear" />
               <Initial_state v="Low" />
               <Output_pin v="ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1" />
+              <Output_pin_signal v="" />
             </enumgroup>
             <boolgroup name="Interrupt" v="Disabled" />
           </enumgroup>

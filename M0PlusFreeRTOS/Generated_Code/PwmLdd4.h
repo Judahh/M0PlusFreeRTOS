@@ -6,7 +6,7 @@
 **     Component   : PWM_LDD
 **     Version     : Component 01.013, Driver 01.03, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-14, 11:49, # CodeGen: 173
+**     Date/Time   : 2014-05-15, 18:53, # CodeGen: 183
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -41,44 +41,16 @@
 **          Referenced components                          : 
 **            Linked component                             : TU2
 **     Contents    :
-**         Init       - LDD_TDeviceData* PwmLdd4_Init(LDD_TUserData *UserDataPtr);
-**         Enable     - LDD_TError PwmLdd4_Enable(LDD_TDeviceData *DeviceDataPtr);
-**         Disable    - LDD_TError PwmLdd4_Disable(LDD_TDeviceData *DeviceDataPtr);
-**         SetRatio8  - LDD_TError PwmLdd4_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio);
-**         SetRatio16 - LDD_TError PwmLdd4_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio);
-**         SetDutyUS  - LDD_TError PwmLdd4_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
-**         SetDutyMS  - LDD_TError PwmLdd4_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
+**         Init      - LDD_TDeviceData* PwmLdd4_Init(LDD_TUserData *UserDataPtr);
+**         Enable    - LDD_TError PwmLdd4_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         Disable   - LDD_TError PwmLdd4_Disable(LDD_TDeviceData *DeviceDataPtr);
+**         SetRatio8 - LDD_TError PwmLdd4_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio);
 **
-**     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
-**     All Rights Reserved.
+**     Copyright : 1997 - 2013 Freescale Semiconductor, Inc. All Rights Reserved.
+**     SOURCE DISTRIBUTION PERMISSIBLE as directed in End User License Agreement.
 **     
-**     Redistribution and use in source and binary forms, with or without modification,
-**     are permitted provided that the following conditions are met:
-**     
-**     o Redistributions of source code must retain the above copyright notice, this list
-**       of conditions and the following disclaimer.
-**     
-**     o Redistributions in binary form must reproduce the above copyright notice, this
-**       list of conditions and the following disclaimer in the documentation and/or
-**       other materials provided with the distribution.
-**     
-**     o Neither the name of Freescale Semiconductor, Inc. nor the names of its
-**       contributors may be used to endorse or promote products derived from this
-**       software without specific prior written permission.
-**     
-**     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-**     ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-**     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-**     DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-**     ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-**     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-**     LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-**     ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-**     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-**     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-**     
-**     http: www.freescale.com
-**     mail: support@freescale.com
+**     http      : www.freescale.com
+**     mail      : support@freescale.com
 ** ###################################################################*/
 /*!
 ** @file PwmLdd4.h
@@ -130,9 +102,6 @@ extern "C" {
 #define PwmLdd4_Enable_METHOD_ENABLED  /*!< Enable method of the component PwmLdd4 is enabled (generated) */
 #define PwmLdd4_Disable_METHOD_ENABLED /*!< Disable method of the component PwmLdd4 is enabled (generated) */
 #define PwmLdd4_SetRatio8_METHOD_ENABLED /*!< SetRatio8 method of the component PwmLdd4 is enabled (generated) */
-#define PwmLdd4_SetRatio16_METHOD_ENABLED /*!< SetRatio16 method of the component PwmLdd4 is enabled (generated) */
-#define PwmLdd4_SetDutyUS_METHOD_ENABLED /*!< SetDutyUS method of the component PwmLdd4 is enabled (generated) */
-#define PwmLdd4_SetDutyMS_METHOD_ENABLED /*!< SetDutyMS method of the component PwmLdd4 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
 
@@ -232,88 +201,6 @@ LDD_TError PwmLdd4_Disable(LDD_TDeviceData *DeviceDataPtr);
 /* ===================================================================*/
 LDD_TError PwmLdd4_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio);
 
-/*
-** ===================================================================
-**     Method      :  PwmLdd4_SetRatio16 (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets a new duty-cycle ratio. Ratio is expressed
-**         as a 16-bit unsigned integer number. 0 - FFFF value is
-**         proportional to ratio 0 - 100%. The method is available
-**         only if it is not selected list of predefined values in
-**         [Starting pulse width] property. 
-**         Note: Calculated duty depends on the timer possibilities and
-**         on the selected period.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Ratio           - Ratio to set. 0 - 65535 value is
-**                           proportional to ratio 0 - 100%
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd4_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio);
-
-/*
-** ===================================================================
-**     Method      :  PwmLdd4_SetDutyUS (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in microseconds as a 16-bit unsigned
-**         integer number. The method is available only if it is not
-**         selected list of predefined values in [Starting pulse width]
-**         property.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Time            - Duty to set [in microseconds]
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_PARAM_RANGE - Parameter out of range
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd4_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
-
-/*
-** ===================================================================
-**     Method      :  PwmLdd4_SetDutyMS (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in milliseconds as a 16-bit unsigned
-**         integer number. The method is available only if it is not
-**         selected list of predefined values in [Starting pulse width]
-**         property.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Time            - Duty to set [in milliseconds]
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_PARAM_RANGE - Parameter out of range
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd4_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
-
 /* END PwmLdd4. */
 
 #ifdef __cplusplus
@@ -328,7 +215,7 @@ LDD_TError PwmLdd4_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.09]
+**     This file was created by Processor Expert 10.3 [05.08]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

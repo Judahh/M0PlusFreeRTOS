@@ -4,20 +4,19 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : FreeRTOS
-**     Version     : Component 01.366, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.337, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-13, 20:48, # CodeGen: 160
+**     Date/Time   : 2014-05-15, 17:38, # CodeGen: 174
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
 **          Component name                                 : FreeRTOS0
-**          RTOS Version                                   : V8.0.0
-**          Custom Port                                    : Custom port settings
-**            Compiler                                     : automatic
-**            Static Sources                               : Disabled
-**            Custom portBASE_TYPE                         : Disabled
+**          RTOS Version                                   : V7.5.0
+**          Compiler                                       : automatic
+**          Static Sources                                 : Disabled
 **          Classic CodeWarrior                            : no
 **          Disabled Interrupts in Startup                 : yes
+**          Utility                                        : UTIL0
 **          Application Task Tags                          : no
 **          Use Trace Facility                             : no
 **          Trace Hooks                                    : Disabled
@@ -34,7 +33,6 @@
 **              Compiler Optimization Level                : 0
 **              SysTick                                    : Enabled
 **                Core Clock                               : yes
-**              Low Power Timer                            : Disabled
 **            non-LDD SWI                                  : Disabled
 **            Preemptive                                   : yes
 **            Use Co-Routines                              : yes
@@ -64,8 +62,8 @@
 **            Memory Allocation Scheme                     : Scheme 2
 **            User Heap Section                            : Disabled
 **            Total Heap Size                              : 10000
+**          Command Interpreter                            : Disabled
 **          Shell                                          : Disabled
-**          Utility                                        : UTIL0
 **     Contents    :
 **         xTaskCreate                    - portBASE_TYPE FreeRTOS0_xTaskCreate(pdTASK_CODE pvTaskCode, const portCHAR *...
 **         vTaskStartScheduler            - void FreeRTOS0_vTaskStartScheduler(void);
@@ -122,19 +120,10 @@
 **         vQueueUnregisterQueue          - void FreeRTOS0_vQueueUnregisterQueue(xQueueHandle xQueue);
 **         xQueueIsQueueFullFromISR       - portBASE_TYPE FreeRTOS0_xQueueIsQueueFullFromISR(xQueueHandle xQueue);
 **         xQueueIsQueueEmptyFromISR      - portBASE_TYPE FreeRTOS0_xQueueIsQueueEmptyFromISR(xQueueHandle xQueue);
-**         xEventGroupCreate              - EventGroupHandle_t FreeRTOS0_xEventGroupCreate(void);
-**         xEventGroupWaitBits            - byte FreeRTOS0_xEventGroupWaitBits(const EventGroupHandle_t xEventGroup,...
-**         xEventGroupSetBits             - EventBits_t FreeRTOS0_xEventGroupSetBits(EventGroupHandle_t xEventGroup,...
-**         xEventGroupSetBitsFromISR      - EventBits_t FreeRTOS0_xEventGroupSetBitsFromISR(EventGroupHandle_t...
-**         xEventGroupClearBits           - EventBits_t FreeRTOS0_xEventGroupClearBits(EventGroupHandle_t xEventGroup,...
-**         xEventGroupClearBitsFromISR    - EventBits_t FreeRTOS0_xEventGroupClearBitsFromISR(EventGroupHandle_t...
-**         xEventGroupGetBits             - EventBits_t FreeRTOS0_xEventGroupGetBits(EventGroupHandle_t xEventGroup);
-**         xEventGroupGetBitsFromISR      - EventBits_t FreeRTOS0_xEventGroupGetBitsFromISR(EventGroupHandle_t xEventGroup);
-**         xEventGroupSync                - EventBits_t FreeRTOS0_xEventGroupSync(EventGroupHandle_t xEventGroup, const...
 **         Init                           - void FreeRTOS0_Init(void);
 **
 **     License : Open Source (LGPL)
-**     FreeRTOS (c) Copyright 2003-2014 Richard Barry, http: www.FreeRTOS.org
+**     FreeRTOS (c) Copyright 2003-2013 Richard Barry, http: www.FreeRTOS.org
 **     FreeRTOS Processor Expert Component: (c) Copyright Erich Styger, 2013
 **     Processor Expert and CodeWarrior (c) Copyright Freescale Semiconductor, 2013, all rights reserved
 **     This is a free software and is opened for education, research and commercial developments under license policy of following terms:
@@ -170,8 +159,6 @@
 #include "FreeRTOS.h"
 #include "task.h"                      /* task API */
 #include "semphr.h"                    /* semaphore API */
-#include "event_groups.h"              /* event group API */
-#include "timers.h"                    /* timer module API */
 #include <stddef.h>                    /* for size_t type */
 
 /* Macro for shell support */
@@ -1726,400 +1713,6 @@ void FreeRTOS0_Init(void);
 ** ===================================================================
 */
 
-#define FreeRTOS0_xEventGroupCreate() \
-  xEventGroupCreate()
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupCreate (component FreeRTOS)
-**     Description :
-**          Create a new RTOS event group. This function cannot be
-**         called from an interrupt.
-**         Event groups are stored in variables of type
-**         EventGroupHandle_t. The number of bits (or flags)
-**         implemented within an event group is 8 if
-**         configUSE_16_BIT_TICKS is set to 1, or 24 if
-**         configUSE_16_BIT_TICKS is set to 0. The dependency on
-**         configUSE_16_BIT_TICKS results from the data type used for
-**         thread local storage in the internal implementation of RTOS
-**         tasks. 
-**     Parameters  : None
-**     Returns     :
-**         ---             - Event Group Handle. If the event group was
-**                           created then a handle to the event group is
-**                           returned. If there was insufficient
-**                           FreeRTOS heap available to create the event
-**                           group then NULL is returned. 
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupWaitBits(xEventGroup, uxBitsToWaitFor, xClearOnExit, xWaitForAllBits, xTicksToWait) \
-  xEventGroupWaitBits(xEventGroup, uxBitsToWaitFor, xClearOnExit, xWaitForAllBits, xTicksToWait)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupWaitBits (component FreeRTOS)
-**     Description :
-**          Read bits within an RTOS event group, optionally entering
-**         the Blocked state (with a timeout) to wait for a bit or
-**         group of bits to become set. This function cannot be called
-**         from an interrupt. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group in which
-**                           the bits are being tested. The event group
-**                           must have previously been created using a
-**                           call to xEventGroupCreate(). 
-**         uxBitsToWaitFor - A bitwise value
-**                           that indicates the bit or bits to test
-**                           inside the event group. For example, to
-**                           wait for bit 0 and/or bit 2 set
-**                           uxBitsToWaitFor to 0x05. To wait for bits 0
-**                           and/or bit 1 and/or bit 2 set
-**                           uxBitsToWaitFor to 0x07. Etc.
-**                           uxBitsToWaitFor must not be set to 0. 
-**         xClearOnExit    - If xClearOnExit is set
-**                           to pdTRUE then any bits set in the value
-**                           passed as the uxBitsToWaitFor parameter
-**                           will be cleared in the event group before
-**                           xEventGroupWaitBits() returns if
-**                           xEventGroupWaitBits() returns for any
-**                           reason other than a timeout. The timeout
-**                           value is set by the xTicksToWait parameter.
-**                           If xClearOnExit is set to pdFALSE then the
-**                           bits set in the event group are not altered
-**                           when the call to xEventGroupWaitBits()
-**                           returns. 
-**         xWaitForAllBits - xWaitForAllBits is
-**                           used to create either a logical AND test
-**                           (where all bits must be set) or a logical
-**                           OR test (where one or more bits must be set)
-**                           as follows:
-**                           If xWaitForAllBits is set to pdTRUE then
-**                           xEventGroupWaitBits() will return when
-**                           either all the bits set in the value passed
-**                           as the uxBitsToWaitFor parameter are set in
-**                           the event group or the specified block time
-**                           expires.
-**                           If xWaitForAllBits is set to pdFALSE then
-**                           xEventGroupWaitBits() will return when any
-**                           of the bits set in the value passed as the
-**                           uxBitsToWaitFor parameter are set in the
-**                           event group or the specified block time
-**                           expires. 
-**         xTicksToWait    - The maximum amount of
-**                           time (specified in 'ticks') to wait for
-**                           one/all (depending on the xWaitForAllBits
-**                           value) of the bits specified by
-**                           uxBitsToWaitFor to become set. 
-**     Returns     :
-**         ---             - EventBits_t: The value of the event group
-**                           at the time either the event bits being
-**                           waited for became set, or the block time
-**                           expired. The current value of the event
-**                           bits in an event group will be different to
-**                           the returned value if a higher priority
-**                           task or interrupt changed the value of an
-**                           event bit between the calling task leaving
-**                           the Blocked state and exiting the
-**                           xEventGroupWaitBits() function.
-**                           Test the return value to know which bits
-**                           were set. If xEventGroupWaitBits() returned
-**                           because its timeout expired then not all
-**                           the bits being waited for will be set. If
-**                           xEventGroupWaitBits() returned because the
-**                           bits it was waiting for were set then the
-**                           returned value is the event group value
-**                           before any bits were automatically cleared
-**                           because the xClearOnExit parameter was set
-**                           to pdTRUE. 
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupSetBits(xEventGroup, uxBitsToSet) \
-  xEventGroupSetBits(xEventGroup, uxBitsToSet)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupSetBits (component FreeRTOS)
-**     Description :
-**          Set bits (flags) within an RTOS event group. This function
-**         cannot be called from an interrupt.
-**         xEventGroupSetBitsFromISR() is a version that can be called
-**         from an interrupt.
-**         Setting bits in an event group will automatically unblock
-**         tasks that are blocked waiting for the bits. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group in which
-**                           the bits are to be set. The event group
-**                           must have previously been created using a
-**                           call to xEventGroupCreate(). 
-**         uxBitsToSet     - A bitwise value that
-**                           indicates the bit or bits to set in the
-**                           event group. For example, set uxBitsToSet
-**                           to 0x08 to set only bit 3. Set uxBitsToSet
-**                           to 0x09 to set bit 3 and bit 0. 
-**     Returns     :
-**         ---             - The value of the event group at the time
-**                           the call to xEventGroupSetBits() returns.
-**                           There are two reasons why the returned
-**                           value might have the bits specified by the
-**                           uxBitsToSet parameter cleared:
-**                           If setting a bit results in a task that was
-**                           waiting for the bit leaving the blocked
-**                           state then it is possible the bit will have
-**                           been cleared automatically (see the
-**                           xClearBitOnExit parameter of
-**                           xEventGroupWaitBits()).
-**                           Any unblocked (or otherwise Ready state)
-**                           task that has a priority above that of the
-**                           task that called xEventGroupSetBits() will
-**                           execute and may change the event group
-**                           value before the call to
-**                           xEventGroupSetBits() returns.
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupSetBitsFromISR(xEventGroup, uxBitsToSet, pxHigherPriorityTaskWoken) \
-  xEventGroupSetBitsFromISR(xEventGroup, uxBitsToSet, pxHigherPriorityTaskWoken)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupSetBitsFromISR (component FreeRTOS)
-**     Description :
-**          Set bits (flags) within an RTOS event group. A version of
-**         xEventGroupSetBits() that can be called from an interrupt
-**         service routine (ISR).
-**         Setting bits in an event group will automatically unblock
-**         tasks that are blocked waiting for the bits.
-**         Setting bits in an event group is not a deterministic
-**         operation because there are an unknown number of tasks that
-**         may be waiting for the bit or bits being set. FreeRTOS does
-**         not allow non-deterministic operations to be performed in
-**         interrupts or from critical sections. Therefore
-**         xEventGroupSetBitFromISR() sends a message to the RTOS
-**         daemon task to have the set operation performed in the
-**         context of the daemon task - where a scheduler lock is used
-**         in place of a critical section.
-**         INCLUDE_xEventGroupSetBitFromISR, configUSE_TIMERS and
-**         INCLUDE_xTimerPendFunctionCall must all be set to 1 in
-**         FreeRTOSConfig.h for the xEventGroupSetBitsFromISR()
-**         function to be available. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group in which
-**                           the bits are to be set. The event group
-**                           must have previously been created using a
-**                           call to xEventGroupCreate(). 
-**         uxBitsToSet     - A bitwise value that
-**                           indicates the bit or bits to set in the
-**                           event group. For example, set uxBitsToSet
-**                           to 0x08 to set only bit 3. Set uxBitsToSet
-**                           to 0x09 to set bit 3 and bit 0. 
-**         pxHigherPriorityTaskWoken 
-**                           - Calling this function will result in a
-**                           message being sent to the RTOS daemon task.
-**                           If the priority of the daemon task is
-**                           higher than the priority of the currently
-**                           running task (the task the interrupt
-**                           interrupted) then
-**                           *pxHigherPriorityTaskWoken will be set to
-**                           pdTRUE by xEventGroupSetBitsFromISR(),
-**                           indicating that a context switch should be
-**                           requested before the interrupt exits. For
-**                           that reason *pxHigherPriorityTaskWoken must
-**                           be initialised to pdFALSE. See the example
-**                           code below. 
-**     Returns     :
-**         ---             - The value of the event group at the time
-**                           the call to xEventGroupSetBits() returns.
-**                           There are two reasons why the returned
-**                           value might have the bits specified by the
-**                           uxBitsToSet parameter cleared:
-**                           If setting a bit results in a task that was
-**                           waiting for the bit leaving the blocked
-**                           state then it is possible the bit will have
-**                           been cleared automatically (see the
-**                           xClearBitOnExit parameter of
-**                           xEventGroupWaitBits()).
-**                           Any unblocked (or otherwise Ready state)
-**                           task that has a priority above that of the
-**                           task that called xEventGroupSetBits() will
-**                           execute and may change the event group
-**                           value before the call to
-**                           xEventGroupSetBits() returns.
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupClearBits(xEventGroup, uxBitsToSet) \
-  xEventGroupClearBits(xEventGroup, uxBitsToSet)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupClearBits (component FreeRTOS)
-**     Description :
-**         Clear bits (flags) within an RTOS event group. This function
-**         cannot be called from an interrupt. See
-**         xEventGroupClearBitsFromISR() for a version that can be
-**         called from an interrupt. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group in which
-**                           the bits are to be cleared. The event group
-**                           must have previously been created using a
-**                           call to xEventGroupCreate(). 
-**         uxBitsToSet     - A bitwise value that
-**                           indicates the bit or bits to clear in the
-**                           event group. For example set uxBitsToClear
-**                           to 0x08 to clear just bit 3. Set
-**                           uxBitsToClear to 0x09 to clear bit 3 and
-**                           bit 0. 
-**     Returns     :
-**         ---             - The value of the event group at the time
-**                           the call to xEventGroupSetBits() returns.
-**                           There are two reasons why the returned
-**                           value might have the bits specified by the
-**                           uxBitsToSet parameter cleared:
-**                           If setting a bit results in a task that was
-**                           waiting for the bit leaving the blocked
-**                           state then it is possible the bit will have
-**                           been cleared automatically (see the
-**                           xClearBitOnExit parameter of
-**                           xEventGroupWaitBits()).
-**                           Any unblocked (or otherwise Ready state)
-**                           task that has a priority above that of the
-**                           task that called xEventGroupSetBits() will
-**                           execute and may change the event group
-**                           value before the call to
-**                           xEventGroupSetBits() returns.
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupClearBitsFromISR(xEventGroup, uxBitsToSet) \
-  xEventGroupClearBitsFromISR(xEventGroup, uxBitsToSet)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupClearBitsFromISR (component FreeRTOS)
-**     Description :
-**          A version of xEventGroupClearBits() that can be called from
-**         an interrupt. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group in which
-**                           the bits are to be set. The event group
-**                           must have previously been created using a
-**                           call to xEventGroupCreate(). 
-**         uxBitsToSet     - A bitwise value that
-**                           indicates the bit or bits to set in the
-**                           event group. For example, set uxBitsToSet
-**                           to 0x08 to set only bit 3. Set uxBitsToSet
-**                           to 0x09 to set bit 3 and bit 0. 
-**     Returns     :
-**         ---             - The value of the event group at the time
-**                           the call to xEventGroupSetBits() returns.
-**                           There are two reasons why the returned
-**                           value might have the bits specified by the
-**                           uxBitsToSet parameter cleared:
-**                           If setting a bit results in a task that was
-**                           waiting for the bit leaving the blocked
-**                           state then it is possible the bit will have
-**                           been cleared automatically (see the
-**                           xClearBitOnExit parameter of
-**                           xEventGroupWaitBits()).
-**                           Any unblocked (or otherwise Ready state)
-**                           task that has a priority above that of the
-**                           task that called xEventGroupSetBits() will
-**                           execute and may change the event group
-**                           value before the call to
-**                           xEventGroupSetBits() returns.
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupGetBits(xEventGroup) \
-  xEventGroupGetBits(xEventGroup)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupGetBits (component FreeRTOS)
-**     Description :
-**         Returns the current value of the event bits (event flags) in
-**         an RTOS event group. This function cannot be used from an
-**         interrupt. See xEventGroupsGetBitsFromISR() for a version
-**         that can be used in an interrupt. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group being
-**                           queried. The event group must have
-**                           previously been created using a call to
-**                           xEventGroupCreate().
-**     Returns     :
-**         ---             - The value of the event bits in the event
-**                           group at the time xEventGroupGetBits() was
-**                           called. 
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupGetBitsFromISR(xEventGroup) \
-  xEventGroupGetBitsFromISR(xEventGroup)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupGetBitsFromISR (component FreeRTOS)
-**     Description :
-**         A version of xEventGroupGetBits() that can be called from an
-**         interrupt. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group being
-**                           queried. The event group must have
-**                           previously been created using a call to
-**                           xEventGroupCreate().
-**     Returns     :
-**         ---             - The value of the event bits in the event
-**                           group at the time xEventGroupGetBits() was
-**                           called. 
-** ===================================================================
-*/
-
-#define FreeRTOS0_xEventGroupSync(xEventGroup, uxBitsToSet, uxBitsToWaitFor, xTicksToWait) \
-  xEventGroupSync(xEventGroup, uxBitsToSet, uxBitsToWaitFor, xTicksToWait)
-/*
-** ===================================================================
-**     Method      :  FreeRTOS0_xEventGroupSync (component FreeRTOS)
-**     Description :
-**          Atomically set bits (flags) within an RTOS event group,
-**         then wait for a combination of bits to be set within the
-**         same event group. This functionality is typically used to
-**         synchronise multiple tasks (often called a task rendezvous),
-**         where each task has to wait for the other tasks to reach a
-**         synchronisation point before proceeding.
-**         This function cannot be used from an interrupt.
-**         The function will return before its block time expires if
-**         the bits specified by the uxBitsToWait parameter are set, or
-**         become set within that time. In this case all the bits
-**         specified by uxBitsToWait will be automatically cleared
-**         before the function returns. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         xEventGroup     - The event group in which
-**                           the bits are being set and tested. The
-**                           event group must have previously been
-**                           created using a call to xEventGroupCreate().
-**         uxBitsToSet     - The bit or bits to set in
-**                           the event group before determining if (and
-**                           possibly waiting for), all the bits
-**                           specified by the uxBitsToWait parameter are
-**                           set. For example, set uxBitsToSet to 0x04
-**                           to set bit 2 within the event group. 
-**         uxBitsToWaitFor - A bitwise value
-**                           that indicates the bit or bits to test
-**                           inside the event group. For example, set
-**                           uxBitsToWaitFor to 0x05 to wait for bits 0
-**                           and bit 2. Set uxBitsToWaitFor to 0x07 to
-**                           wait for bit 0 and bit 1 and bit 2. Etc. 
-**         xTicksToWait    - The maximum amount of
-**                           time (specified in 'ticks') to wait for all
-**                           the bits specified by the uxBitsToWaitFor
-**                           parameter value to become set. 
-**     Returns     :
-**         ---             - Error code
-** ===================================================================
-*/
-
 /* END FreeRTOS0. */
 
 #endif
@@ -2130,7 +1723,7 @@ void FreeRTOS0_Init(void);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.09]
+**     This file was created by Processor Expert 10.3 [05.08]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

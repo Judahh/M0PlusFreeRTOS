@@ -4,9 +4,9 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : Wait
-**     Version     : Component 01.067, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.064, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
+**     Date/Time   : 2014-05-15, 17:38, # CodeGen: 174
 **     Abstract    :
 **          Implements busy waiting routines.
 **     Settings    :
@@ -18,15 +18,15 @@
 **     Contents    :
 **         Wait10Cycles   - void WAIT0_Wait10Cycles(void);
 **         Wait100Cycles  - void WAIT0_Wait100Cycles(void);
-**         WaitCycles     - void WAIT0_WaitCycles(uint16_t cycles);
-**         WaitLongCycles - void WAIT0_WaitLongCycles(uint32_t cycles);
-**         Waitms         - void WAIT0_Waitms(uint16_t ms);
-**         Waitus         - void WAIT0_Waitus(uint16_t us);
-**         Waitns         - void WAIT0_Waitns(uint16_t ns);
+**         WaitCycles     - void WAIT0_WaitCycles(word cycles);
+**         WaitLongCycles - void WAIT0_WaitLongCycles(dword cycles);
+**         Waitms         - void WAIT0_Waitms(word ms);
+**         Waitus         - void WAIT0_Waitus(word us);
+**         Waitns         - void WAIT0_Waitns(word ns);
 **         WaitOSms       - void WAIT0_WaitOSms(void);
 **
 **     License   : Open Source (LGPL)
-**     Copyright : Erich Styger, 2013-2014, all rights reserved.
+**     Copyright : Erich Styger, 2013, all rights reserved.
 **     Web       : www.mcuoneclipse.com
 **     This an open source software implementing waiting routines using Processor Expert.
 **     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
@@ -64,7 +64,7 @@ __attribute__((naked)) void WAIT0_Wait10Cycles(void)
   /* This function will wait 10 CPU cycles (including call overhead). */
   /* NOTE: Cortex-M0 and M4 have 1 cycle for a NOP */
   /* Compiler is GNUC */
-  __asm (
+  asm (
    /* bl Wai10Cycles() to here: [4] */
    "nop   \n\t" /* [1] */
    "nop   \n\t" /* [1] */
@@ -85,7 +85,7 @@ __attribute__((naked)) void WAIT0_Wait10Cycles(void)
 __attribute__((naked)) void WAIT0_Wait100Cycles(void)
 {
   /* This function will spend 100 CPU cycles (including call overhead). */
-  __asm (
+  asm (
    /* bl to here:               [4] */
    "movs r0, #0 \n\t"        /* [1] */
    "loop:       \n\t"
@@ -113,7 +113,7 @@ __attribute__((naked)) void WAIT0_Wait100Cycles(void)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void WAIT0_WaitCycles(uint16_t cycles)
+void WAIT0_WaitCycles(word cycles)
 {
   while(cycles > 100) {
     WAIT0_Wait100Cycles();
@@ -136,13 +136,13 @@ void WAIT0_WaitCycles(uint16_t cycles)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void WAIT0_WaitLongCycles(uint32_t cycles)
+void WAIT0_WaitLongCycles(dword cycles)
 {
   while(cycles>60000) {
     WAIT0_WaitCycles(60000);
     cycles -= 60000;
   }
-  WAIT0_WaitCycles((uint16_t)cycles);
+  WAIT0_WaitCycles((word)cycles);
 }
 
 /*
@@ -157,9 +157,9 @@ void WAIT0_WaitLongCycles(uint32_t cycles)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void WAIT0_Waitms(uint16_t ms)
+void WAIT0_Waitms(word ms)
 {
-  uint32_t msCycles; /* cycles for 1 ms */
+  dword msCycles; /* cycles for 1 ms */
 
   /* static clock/speed configuration */
   msCycles = WAIT0_NofCyclesMs(1, CPU_CORE_CLK_HZ);
@@ -218,7 +218,7 @@ void WAIT0_WaitOSms(void)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.09]
+**     This file was created by Processor Expert 10.3 [05.08]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

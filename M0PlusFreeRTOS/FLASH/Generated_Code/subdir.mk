@@ -32,7 +32,6 @@ C_SRCS_QUOTED += \
 "../Generated_Code/Vectors.c" \
 "../Generated_Code/WAIT0.c" \
 "../Generated_Code/croutine.c" \
-"../Generated_Code/event_groups.c" \
 "../Generated_Code/heap_1.c" \
 "../Generated_Code/heap_2.c" \
 "../Generated_Code/heap_3.c" \
@@ -70,7 +69,6 @@ C_SRCS += \
 ../Generated_Code/Vectors.c \
 ../Generated_Code/WAIT0.c \
 ../Generated_Code/croutine.c \
-../Generated_Code/event_groups.c \
 ../Generated_Code/heap_1.c \
 ../Generated_Code/heap_2.c \
 ../Generated_Code/heap_3.c \
@@ -117,7 +115,6 @@ OBJS += \
 ./Generated_Code/Vectors.o \
 ./Generated_Code/WAIT0.o \
 ./Generated_Code/croutine.o \
-./Generated_Code/event_groups.o \
 ./Generated_Code/heap_1.o \
 ./Generated_Code/heap_2.o \
 ./Generated_Code/heap_3.o \
@@ -159,7 +156,6 @@ OBJS_QUOTED += \
 "./Generated_Code/Vectors.o" \
 "./Generated_Code/WAIT0.o" \
 "./Generated_Code/croutine.o" \
-"./Generated_Code/event_groups.o" \
 "./Generated_Code/heap_1.o" \
 "./Generated_Code/heap_2.o" \
 "./Generated_Code/heap_3.o" \
@@ -198,7 +194,6 @@ C_DEPS += \
 ./Generated_Code/Vectors.d \
 ./Generated_Code/WAIT0.d \
 ./Generated_Code/croutine.d \
-./Generated_Code/event_groups.d \
 ./Generated_Code/heap_1.d \
 ./Generated_Code/heap_2.d \
 ./Generated_Code/heap_3.d \
@@ -236,7 +231,6 @@ OBJS_OS_FORMAT += \
 ./Generated_Code/Vectors.o \
 ./Generated_Code/WAIT0.o \
 ./Generated_Code/croutine.o \
-./Generated_Code/event_groups.o \
 ./Generated_Code/heap_1.o \
 ./Generated_Code/heap_2.o \
 ./Generated_Code/heap_3.o \
@@ -275,7 +269,6 @@ C_DEPS_QUOTED += \
 "./Generated_Code/Vectors.d" \
 "./Generated_Code/WAIT0.d" \
 "./Generated_Code/croutine.d" \
-"./Generated_Code/event_groups.d" \
 "./Generated_Code/heap_1.d" \
 "./Generated_Code/heap_2.d" \
 "./Generated_Code/heap_3.d" \
@@ -496,17 +489,9 @@ Generated_Code/croutine.o: ../Generated_Code/croutine.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/event_groups.o: ../Generated_Code/event_groups.c
-	@echo 'Building file: $<'
-	@echo 'Executing target #55 $<'
-	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/event_groups.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/event_groups.o"
-	@echo 'Finished building: $<'
-	@echo ' '
-
 Generated_Code/heap_1.o: ../Generated_Code/heap_1.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #56 $<'
+	@echo 'Executing target #55 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/heap_1.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/heap_1.o"
 	@echo 'Finished building: $<'
@@ -514,7 +499,7 @@ Generated_Code/heap_1.o: ../Generated_Code/heap_1.c
 
 Generated_Code/heap_2.o: ../Generated_Code/heap_2.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #57 $<'
+	@echo 'Executing target #56 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/heap_2.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/heap_2.o"
 	@echo 'Finished building: $<'
@@ -522,7 +507,7 @@ Generated_Code/heap_2.o: ../Generated_Code/heap_2.c
 
 Generated_Code/heap_3.o: ../Generated_Code/heap_3.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #58 $<'
+	@echo 'Executing target #57 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/heap_3.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/heap_3.o"
 	@echo 'Finished building: $<'
@@ -530,7 +515,7 @@ Generated_Code/heap_3.o: ../Generated_Code/heap_3.c
 
 Generated_Code/heap_4.o: ../Generated_Code/heap_4.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #59 $<'
+	@echo 'Executing target #58 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/heap_4.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/heap_4.o"
 	@echo 'Finished building: $<'
@@ -538,7 +523,7 @@ Generated_Code/heap_4.o: ../Generated_Code/heap_4.c
 
 Generated_Code/list.o: ../Generated_Code/list.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #60 $<'
+	@echo 'Executing target #59 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/list.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/list.o"
 	@echo 'Finished building: $<'
@@ -546,7 +531,7 @@ Generated_Code/list.o: ../Generated_Code/list.c
 
 Generated_Code/port.o: ../Generated_Code/port.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #61 $<'
+	@echo 'Executing target #60 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/port.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/port.o"
 	@echo 'Finished building: $<'
@@ -554,7 +539,7 @@ Generated_Code/port.o: ../Generated_Code/port.c
 
 Generated_Code/portasm.o: ../Generated_Code/portasm.s
 	@echo 'Building file: $<'
-	@echo 'Executing target #62 $<'
+	@echo 'Executing target #61 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC Assembler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/portasm.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/portasm.o"
 	@echo 'Finished building: $<'
@@ -562,7 +547,7 @@ Generated_Code/portasm.o: ../Generated_Code/portasm.s
 
 Generated_Code/queue.o: ../Generated_Code/queue.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #63 $<'
+	@echo 'Executing target #62 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/queue.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/queue.o"
 	@echo 'Finished building: $<'
@@ -570,7 +555,7 @@ Generated_Code/queue.o: ../Generated_Code/queue.c
 
 Generated_Code/tasks.o: ../Generated_Code/tasks.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #64 $<'
+	@echo 'Executing target #63 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/tasks.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/tasks.o"
 	@echo 'Finished building: $<'
@@ -578,7 +563,7 @@ Generated_Code/tasks.o: ../Generated_Code/tasks.c
 
 Generated_Code/timers.o: ../Generated_Code/timers.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #65 $<'
+	@echo 'Executing target #64 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Generated_Code/timers.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Generated_Code/timers.o"
 	@echo 'Finished building: $<'

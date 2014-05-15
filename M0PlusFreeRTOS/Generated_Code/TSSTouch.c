@@ -6,7 +6,7 @@
 **     Component   : TSS_Library
 **     Version     : Component 03.001, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-06, 18:10, # CodeGen: 158
+**     Date/Time   : 2014-05-15, 17:38, # CodeGen: 174
 **     Contents    :
 **         Configure - byte TSSTouch_Configure(void);
 **
@@ -53,9 +53,9 @@ void TSSTouch_InitDevices(void)
   /* Modules Clock support */
 
   /* SIM_SCGC5: PORTB=1 */
-  SIM_SCGC5 |= SIM_SCGC5_PORTB_MASK;
+  SIM_SCGC5 |= SIM_SCGC5_PORTB_MASK;                                   
   /* SIM_SCGC5: TSI=1 */
-  SIM_SCGC5 |= SIM_SCGC5_TSI_MASK;
+  SIM_SCGC5 |= SIM_SCGC5_TSI_MASK;                                   
 
   /* TSI Module MUX Settings */
 
@@ -104,7 +104,7 @@ byte TSSTouch_Configure(void)
   u8Result |= TSS_SetASliderConfig(TSSTouch_cKey0.ControlId, ASlider_ControlConfig_Register, TSS_ASLIDER_CONTROL_EN_MASK | TSS_ASLIDER_CALLBACK_EN_MASK);
 
   /* Enables electrodes */
-  u8Temp = (byte) TSS_GetSystemConfig(System_ElectrodeEnablers_Register+0);
+  u8Temp = TSS_GetSystemConfig(System_ElectrodeEnablers_Register+0);
   u8Result |= TSS_SetSystemConfig(System_ElectrodeEnablers_Register+0, (u8Temp | 0x03) & ~0x00);
   /* Electrode dc-tracker enablers */
   u8Result |= TSS_SetSystemConfig(System_DCTrackerEnablers_Register+0, 0x03);
@@ -135,7 +135,7 @@ byte TSSTouch_Configure(void)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.09]
+**     This file was created by Processor Expert 10.3 [05.08]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

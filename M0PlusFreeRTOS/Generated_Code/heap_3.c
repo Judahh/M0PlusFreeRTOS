@@ -3,8 +3,7 @@
 #if configFRTOS_MEMORY_SCHEME==3
 
 /*
-    FreeRTOS V8.0.0 - Copyright (C) 2014 Real Time Engineers Ltd. 
-    All rights reserved
+    FreeRTOS V7.5.0 - Copyright (C) 2013 Real Time Engineers Ltd.
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
 
@@ -99,37 +98,35 @@ void *pvPortMalloc( size_t xWantedSize )
 {
 void *pvReturn;
 
-	vTaskSuspendAll();
-	{
-		pvReturn = malloc( xWantedSize );
-		traceMALLOC( pvReturn, xWantedSize );
-	}
-	(void)xTaskResumeAll();
+        vTaskSuspendAll();
+        {
+                pvReturn = malloc( xWantedSize );
+        }
+        (void)xTaskResumeAll();
 
-	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
-	{
-		if( pvReturn == NULL )
-		{
+        #if( configUSE_MALLOC_FAILED_HOOK == 1 )
+        {
+                if( pvReturn == NULL )
+                {
       FreeRTOS0_vApplicationMallocFailedHook();
-		}
-	}
-	#endif
+                }
+        }
+        #endif
 	
-	return pvReturn;
+        return pvReturn;
 }
 /*-----------------------------------------------------------*/
 
 void vPortFree( void *pv )
 {
-	if( pv )
-	{
-		vTaskSuspendAll();
-		{
-			free( pv );
-			traceFREE( pv, 0 );
-		}
-		(void)xTaskResumeAll();
-	}
+        if( pv )
+        {
+                vTaskSuspendAll();
+                {
+                        free( pv );
+                }
+                (void)xTaskResumeAll();
+        }
 }
 
 

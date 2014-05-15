@@ -318,7 +318,7 @@ void TU2_OnChannel0(LDD_TUserData *UserDataPtr);
 /* ===================================================================*/
 void Cpu_OnNMIINT0(void);
 
-void FreeRTOS0_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskName);
+void FreeRTOS0_vApplicationStackOverflowHook(xTaskHandle pxTask, signed portCHAR *pcTaskName);
 /*
 ** ===================================================================
 **     Event       :  FreeRTOS0_vApplicationStackOverflowHook (module Events)
