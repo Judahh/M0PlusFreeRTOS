@@ -12,7 +12,6 @@
 -I"C:/Users/Avell G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources"
 -I"C:/Freescale/CW MCU v10.5/MCU/ProcessorExpert/lib/Kinetis/iofiles"
 -I"C:/Freescale/CW MCU v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc"
--I"C:/Users/Avell G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS"
 -O0
 -ffunction-sections
 -fdata-sections

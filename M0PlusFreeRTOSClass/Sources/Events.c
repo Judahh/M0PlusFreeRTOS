@@ -142,8 +142,8 @@ void FRTOS1_vApplicationMallocFailedHook(void) {
  */
 /* ===================================================================*/
 void I2C1_OnMasterBlockSent(LDD_TUserData *UserDataPtr) {
-	GyroscopeTDataState *ptr = (GyroscopeTDataState*) UserDataPtr;
-	ptr->dataTransmittedFlg = TRUE;
+//	GyroscopeTDataState *ptr = (GyroscopeTDataState*) UserDataPtr;
+//	ptr->dataTransmittedFlg = TRUE;
 }
 
 /*
@@ -165,8 +165,8 @@ void I2C1_OnMasterBlockSent(LDD_TUserData *UserDataPtr) {
  */
 /* ===================================================================*/
 void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr) {
-	GyroscopeTDataState *ptr = (GyroscopeTDataState*) UserDataPtr;
-	ptr->dataReceivedFlg = TRUE;
+//	GyroscopeTDataState *ptr = (GyroscopeTDataState*) UserDataPtr;
+//	ptr->dataReceivedFlg = TRUE;
 }
 
 /*
@@ -187,118 +187,6 @@ void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr) {
 /* ===================================================================*/
 void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr) {
 
-}
-
-/*
- ** ===================================================================
- **     Event       :  TSSTouch_fOnFault (module Events)
- **
- **     Component   :  TSSTouch [TSS_Library]
- **     Description :
- **         This callback function is called by TSS after Fault
- **         occurence. This event is enabled always and depends on
- **         selection 'generate code' if the callback is used.
- **         The default CallBack Name is automatically generated with
- **         automatic prefix update by current Component Name. User can
- **         define own name, but then the automatic name update is not
- **         functional.
- **         Option is available from TSS3.0 version.
- **     Parameters  :
- **         NAME            - DESCRIPTION
- **         u8FaultElecNum  - The value defines
- **                           electrode number on which measurement fault
- **                           occured.
- **     Returns     : Nothing
- ** ===================================================================
- */
-void TSSTouch_fOnFault(byte u8FaultElecNum) {
-	/* If large or small capacitor fault  */
-	if (tss_CSSys.Faults.ChargeTimeout || tss_CSSys.Faults.SmallCapacitor) {
-		/* Write your code here ... */
-	}
-	/* If data corruption fault  */
-	if (tss_CSSys.Faults.DataCorruption) {
-		/* Write your code here ... */
-	}
-	/* If small trigger period fault  */
-	if (tss_CSSys.Faults.SmallTriggerPeriod) {
-		/* Write your code here ... */
-	}
-	/* Clear the fault flags */
-	(void) TSS_SetSystemConfig(System_Faults_Register, 0x00);
-
-	(void) u8FaultElecNum;
-	return;
-}
-
-/*
- ** ===================================================================
- **     Event       :  TSSTouch_fOnInit (module Events)
- **
- **     Component   :  TSSTouch [TSS_Library]
- **     Description :
- **         This callback function is automatically called during the
- **         TSS Init function execution. The function is intended for
- **         implementation of peripherals initialization. TSS Component
- **         automatically enables clock for all used TSS peripherals in
- **         the internal function TSS_InitDevices which is called by
- **         this callback.
- **         This event is enabled always and depends on selection
- **         'generate code' if the callback is used.
- **         The default CallBack Name is automatically generated with
- **         automatic prefix update by current Component Name. User can
- **         define own name, but then the automatic name update is not
- **         functional.
- **     Parameters  : None
- **     Returns     : Nothing
- ** ===================================================================
- */
-void TSSTouch_fOnInit(void) {
-	TSSTouch_InitDevices();
-
-	/* Write your code here ... */
-
-}
-
-/*
- ** ===================================================================
- **     Event       :  TSSTouch_fCallBack0 (module Events)
- **
- **     Component   :  TSSTouch [TSS_Library]
- **     Description :
- **         Callback definition for Control 0. This event is enabled
- **         only if Control 0 is enabled.
- **         The default CallBack Name is automatically generated with
- **         automatic prefix update by current Component Name. User can
- **         define own name, but then the automatic name update is not
- **         functional.
- **     Parameters  :
- **         NAME            - DESCRIPTION
- **         u8ControlId     - Valid unique Identifier of
- **                           the Control which generated the CallBack
- **                           function. This Id can be used for finding
- **                           of Callback's source Control.
- **     Returns     : Nothing
- ** ===================================================================
- */
-void TSSTouch_fCallBack0(TSS_CONTROL_ID u8ControlId) {
-	PWMLEDRed_SetRatio8(TSSTouch_cKey0.Position);
-	if (TSSTouch_cKey0.DynamicStatus.Movement) {
-		if (TSSTouch_cKey0.Events.Touch) {
-			if (!(TSSTouch_cKey0.Events.InvalidPos)) {
-				(void) TSSTouch_cKey0.Position;
-				/* Write your code here ... */
-				PWMLEDRed_SetRatio8(TSSTouch_cKey0.Position);
-			}
-		} else {
-			/* Write your code here ... */
-			PWMLEDRed_SetRatio8(TSSTouch_cKey0.Position);
-		}
-	}
-	PWMLEDRed_SetRatio8(TSSTouch_cKey0.Position);
-	(void) u8ControlId;
-	PWMLEDRed_SetRatio8(TSSTouch_cKey0.Position);
-	return;
 }
 
 /*

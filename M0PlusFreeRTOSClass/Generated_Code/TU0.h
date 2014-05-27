@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.158, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-15, 17:38, # CodeGen: 174
+**     Date/Time   : 2014-05-27, 17:55, # CodeGen: 187
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -23,17 +23,7 @@
 **            Period device                                : TPM0_MOD
 **            Period                                       : 6.25 ms
 **            Interrupt                                    : Disabled
-**          Channel list                                   : 1
-**            Channel 0                                    : 
-**              Mode                                       : Compare
-**                Compare                                  : TPM0_C1V
-**                Offset                                   : 0 ms
-**                Output on compare                        : Set
-**                  Output on overrun                      : Clear
-**                  Initial state                          : Low
-**                  Output pin                             : ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1
-**                  Output pin signal                      : 
-**                Interrupt                                : Disabled
+**          Channel list                                   : 0
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : no
@@ -57,13 +47,10 @@
 **            Clock configuration 6                        : This component disabled
 **            Clock configuration 7                        : This component disabled
 **     Contents    :
-**         Init               - LDD_TDeviceData* TU0_Init(LDD_TUserData *UserDataPtr);
-**         Enable             - LDD_TError TU0_Enable(LDD_TDeviceData *DeviceDataPtr);
-**         GetPeriodTicks     - LDD_TError TU0_GetPeriodTicks(LDD_TDeviceData *DeviceDataPtr, TU0_TValueType...
-**         GetCounterValue    - TU0_TValueType TU0_GetCounterValue(LDD_TDeviceData *DeviceDataPtr);
-**         SetOffsetTicks     - LDD_TError TU0_SetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t...
-**         GetOffsetTicks     - LDD_TError TU0_GetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t...
-**         SelectOutputAction - LDD_TError TU0_SelectOutputAction(LDD_TDeviceData *DeviceDataPtr, uint8_t...
+**         Init            - LDD_TDeviceData* TU0_Init(LDD_TUserData *UserDataPtr);
+**         Enable          - LDD_TError TU0_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         GetPeriodTicks  - LDD_TError TU0_GetPeriodTicks(LDD_TDeviceData *DeviceDataPtr, TU0_TValueType...
+**         GetCounterValue - TU0_TValueType TU0_GetCounterValue(LDD_TDeviceData *DeviceDataPtr);
 **
 **     Copyright : 1997 - 2013 Freescale Semiconductor, Inc. All Rights Reserved.
 **     SOURCE DISTRIBUTION PERMISSIBLE as directed in End User License Agreement.
@@ -111,10 +98,9 @@ extern "C" {
 #define TU0_CNT_INP_FREQ_R_0 5999988.000024F /* Counter input frequency in Hz */
 #define TU0_CNT_INP_FREQ_COUNT 0U      /* Count of predefined counter input frequencies */
 #define TU0_PERIOD_TICKS   0x927CUL    /* Initialization value of period in 'counter ticks' */
-#define TU0_NUMBER_OF_CHANNELS 0x01U   /* Count of predefined channels */
+#define TU0_NUMBER_OF_CHANNELS 0x00U   /* Count of predefined channels */
 #define TU0_COUNTER_WIDTH  0x10U       /* Counter width in bits  */
 #define TU0_COUNTER_DIR    DIR_UP      /* Direction of counting */
-#define TU0_OFFSET_0_TICKS 0x00ul      /* Initialization value of offset as 'counter ticks' for channel 0 */
 /*! Peripheral base address of a device allocated by the component. This constant can be used directly in PDD macros. */
 #define TU0_PRPH_BASE_ADDRESS  0x40038000U
   
@@ -123,9 +109,6 @@ extern "C" {
 #define TU0_Enable_METHOD_ENABLED      /*!< Enable method of the component TU0 is enabled (generated) */
 #define TU0_GetPeriodTicks_METHOD_ENABLED /*!< GetPeriodTicks method of the component TU0 is enabled (generated) */
 #define TU0_GetCounterValue_METHOD_ENABLED /*!< GetCounterValue method of the component TU0 is enabled (generated) */
-#define TU0_SetOffsetTicks_METHOD_ENABLED /*!< SetOffsetTicks method of the component TU0 is enabled (generated) */
-#define TU0_GetOffsetTicks_METHOD_ENABLED /*!< GetOffsetTicks method of the component TU0 is enabled (generated) */
-#define TU0_SelectOutputAction_METHOD_ENABLED /*!< SelectOutputAction method of the component TU0 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
 
@@ -222,107 +205,6 @@ LDD_TError TU0_GetPeriodTicks(LDD_TDeviceData *DeviceDataPtr, TU0_TValueType *Ti
 */
 /* ===================================================================*/
 TU0_TValueType TU0_GetCounterValue(LDD_TDeviceData *DeviceDataPtr);
-
-/*
-** ===================================================================
-**     Method      :  TU0_SetOffsetTicks (component TimerUnit_LDD)
-*/
-/*!
-**     @brief
-**         Sets the new offset value to channel specified by the
-**         parameter ChannelIdx. It is user responsibility to use value
-**         below selected period. This method is available when at
-**         least one channel is configured.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         ChannelIdx      - Index of the component
-**                           channel.
-**     @param
-**         Ticks           - Number of counter ticks to compare
-**                           match.
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK 
-**                           ERR_PARAM_INDEX - ChannelIdx parameter is
-**                           out of possible range.
-**                           ERR_NOTAVAIL -  The compare mode is not
-**                           selected for selected channel
-**                           ERR_PARAM_TICKS - Ticks parameter is out of
-**                           possible range.
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-*/
-/* ===================================================================*/
-LDD_TError TU0_SetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t ChannelIdx, TU0_TValueType Ticks);
-
-/*
-** ===================================================================
-**     Method      :  TU0_GetOffsetTicks (component TimerUnit_LDD)
-*/
-/*!
-**     @brief
-**         Returns the number of counter ticks to compare match channel
-**         specified by the parameter ChannelIdx. See also method
-**         [SetOffsetTicks]. This method is available when at least one
-**         channel is configured.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         ChannelIdx      - Index of the component
-**                           channel.
-**     @param
-**         TicksPtr        - Pointer to return value of the
-**                           number of counter ticks to compare match.
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK 
-**                           ERR_PARAM_INDEX - ChannelIdx parameter is
-**                           out of possible range.
-**                           ERR_NOTAVAIL -  The compare mode is not
-**                           selected for selected channel.
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-*/
-/* ===================================================================*/
-LDD_TError TU0_GetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t ChannelIdx, TU0_TValueType *TicksPtr);
-
-/*
-** ===================================================================
-**     Method      :  TU0_SelectOutputAction (component TimerUnit_LDD)
-*/
-/*!
-**     @brief
-**         Sets the type of compare match and counter overflow action
-**         on channel output. This method is available when at least
-**         one channel is configured.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         ChannelIdx      - Index of the component
-**                           channel.
-**     @param
-**         CompareAction   - Select output action
-**                           on compare match
-**     @param
-**         CounterAction   - Select output action
-**                           on counter overflow
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_PARAM_INDEX - ChannelIdx parameter is
-**                           out of possible range
-**                           ERR_NOTAVAIL -  Action is not possible on
-**                           selected channel or counter. Supported
-**                           combinations are HW specific.
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-*/
-/* ===================================================================*/
-LDD_TError TU0_SelectOutputAction(LDD_TDeviceData *DeviceDataPtr, uint8_t ChannelIdx, LDD_TimerUnit_TOutAction CompareAction, LDD_TimerUnit_TOutAction CounterAction);
 
 /* END TU0. */
 

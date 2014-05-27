@@ -36,30 +36,27 @@
 #include "IO_Map.h"
 #include "UTIL0.h"
 #include "UTIL1.h"
-//#include "Util/Accelerometer.h"
-#include "Util/Gyroscope.h"
 #include "Util/GlobalVariables.h"
 #include "WAIT0.h"
 #include "TU0.h"
-#include "TU1.h"
-#include "TU2.h"
+#include "LEDRed.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
+#include "LEDBlue.h"
+#include "LEDpin2.h"
+#include "BitIoLdd2.h"
+#include "LEDGreen.h"
+#include "LEDpin3.h"
+#include "BitIoLdd3.h"
+#include "Buzzer.h"
+#include "BitIoLdd4.h"
 #include "I2C1.h"
 #include "I2C0.h"
 #include "MMA0.h"
 #include "GI2C0.h"
-#include "PWMBuzzer.h"
-#include "PwmLdd4.h"
 #include "CsIO0.h"
 #include "IO1.h"
-#include "TSSTouch.h"
-#include "PWMLEDBlue.h"
-#include "PwmLdd1.h"
-#include "PWMLEDGreen.h"
-#include "PwmLdd2.h"
-#include "PWMLEDRed.h"
-#include "PwmLdd3.h"
 #include "FreeRTOS0.h"
-#include "Tasks/TaskSonar.h"
 #include "Cpu.h"
 
 #ifdef __cplusplus
@@ -172,56 +169,6 @@ void I2C1_OnMasterBlockReceived(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr);
-
-void TSSTouch_fOnFault(byte u8FaultElecNum);
-/*
-** ===================================================================
-**     Event       :  TSSTouch_fOnFault (module Events)
-**
-**     Component   :  TSSTouch [TSS_Library]
-**     Description :
-**         This callback function is called by TSS after Fault
-**         occurence. This event is enabled always and depends on
-**         selection 'generate code' if the callback is used.
-**         The default CallBack Name is automatically generated with
-**         automatic prefix update by current Component Name. User can
-**         define own name, but then the automatic name update is not
-**         functional.
-**         Option is available from TSS3.0 version.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         u8FaultElecNum  - The value defines
-**                           electrode number on which measurement fault
-**                           occured.
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void TSSTouch_fOnInit(void);
-/*
-** ===================================================================
-**     Event       :  TSSTouch_fOnInit (module Events)
-**
-**     Component   :  TSSTouch [TSS_Library]
-**     Description :
-**         This callback function is automatically called during the
-**         TSS Init function execution. The function is intended for
-**         implementation of peripherals initialization. TSS Component
-**         automatically enables clock for all used TSS peripherals in
-**         the internal function TSS_InitDevices which is called by
-**         this callback.
-**         This event is enabled always and depends on selection
-**         'generate code' if the callback is used.
-**         The default CallBack Name is automatically generated with
-**         automatic prefix update by current Component Name. User can
-**         define own name, but then the automatic name update is not
-**         functional.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void TSSTouch_fCallBack0(TSS_CONTROL_ID u8ControlId);
 /*
 ** ===================================================================
 **     Event       :  TSSTouch_fCallBack0 (module Events)

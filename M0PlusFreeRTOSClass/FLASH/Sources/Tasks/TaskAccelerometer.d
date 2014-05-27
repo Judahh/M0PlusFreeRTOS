@@ -59,34 +59,28 @@ Sources/Tasks/TaskAccelerometer.o: ../Sources/Tasks/TaskAccelerometer.c \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/GI2C0.h \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C0.h \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS0.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TSSTouch.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_API.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS_SystemSetup.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_StatusCodes.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_DataTypes.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_Sensor.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/derivative.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_API.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDBlue.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd1.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C1.h \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU0.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDGreen.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd2.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU1.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDRed.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd3.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMBuzzer.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd4.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU2.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C1.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDRed.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDpin1.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd1.h \
+ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDBlue.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDpin2.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd2.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDGreen.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDpin3.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd3.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Buzzer.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd4.h \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C0.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDBlue.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDGreen.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDRed.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMBuzzer.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDBlue.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDGreen.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDRed.h \
+ ../Sources/Tasks/TaskBuzzer.h \
+ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Buzzer.h \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Tasks/HandlesEnum.h \
  C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/MMA0.h
 
@@ -210,27 +204,7 @@ C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Gen
 
 C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS0.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TSSTouch.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_API.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS_SystemSetup.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_StatusCodes.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_DataTypes.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_Sensor.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/derivative.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/TSS/TSS_API.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDBlue.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd1.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C1.h:
 
 C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU0.h:
 
@@ -238,33 +212,41 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDGreen.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDRed.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd2.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDpin1.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU1.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd1.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDRed.h:
+C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd3.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDBlue.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMBuzzer.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDpin2.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PwmLdd4.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd2.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU2.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDGreen.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C1.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDpin3.h:
+
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd3.h:
+
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Buzzer.h:
+
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/BitIoLdd4.h:
 
 C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/I2C0.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDBlue.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDBlue.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDGreen.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDGreen.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMLEDRed.h:
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/LEDRed.h:
 
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PWMBuzzer.h:
+../Sources/Tasks/TaskBuzzer.h:
+
+C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Buzzer.h:
 
 C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Tasks/HandlesEnum.h:
 

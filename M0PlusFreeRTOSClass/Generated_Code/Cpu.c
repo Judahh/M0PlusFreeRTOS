@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-15, 17:38, # CodeGen: 174
+**     Date/Time   : 2014-05-27, 18:56, # CodeGen: 196
 **     Abstract    :
 **
 **     Settings    :
@@ -41,22 +41,22 @@
 #include "IO1.h"
 #include "WAIT0.h"
 #include "MMA0.h"
-#include "TSSTouch.h"
-#include "PWMLEDBlue.h"
-#include "PwmLdd1.h"
-#include "PWMLEDGreen.h"
-#include "PwmLdd2.h"
-#include "PWMLEDRed.h"
-#include "PwmLdd3.h"
 #include "FreeRTOS0.h"
 #include "GI2C0.h"
-#include "PWMBuzzer.h"
-#include "PwmLdd4.h"
 #include "I2C1.h"
 #include "I2C0.h"
-#include "TU2.h"
-#include "TU1.h"
 #include "TU0.h"
+#include "LEDRed.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
+#include "LEDBlue.h"
+#include "LEDpin2.h"
+#include "BitIoLdd2.h"
+#include "LEDGreen.h"
+#include "LEDpin3.h"
+#include "BitIoLdd3.h"
+#include "Buzzer.h"
+#include "BitIoLdd4.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -261,18 +261,20 @@ void PE_low_level_init(void)
   GI2C0_Init();
   /* ### MMA8451Q "MMA0" init code ... */
   /* Write code here ... */
-  /* ### TSS_Library "TSSTouch" init code ... */
-
-  /* Write code here ... */
-
-  /* ### PWM_LDD "PwmLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd1_Init(NULL);
-  /* ### PWM_LDD "PwmLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd2_Init(NULL);
-  /* ### PWM_LDD "PwmLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd3_Init(NULL);
-  /* ### PWM_LDD "PwmLdd4" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd4_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd1_Init(NULL);
+  /* ### LED "LEDRed" init code ... */
+  LEDRed_Init(); /* initialize LED driver */
+  /* ### BitIO_LDD "BitIoLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd2_Init(NULL);
+  /* ### LED "LEDBlue" init code ... */
+  LEDBlue_Init(); /* initialize LED driver */
+  /* ### BitIO_LDD "BitIoLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd3_Init(NULL);
+  /* ### LED "LEDGreen" init code ... */
+  LEDGreen_Init(); /* initialize LED driver */
+  /* ### BitIO_LDD "BitIoLdd4" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd4_Init(NULL);
 }
 
 /* END Cpu. */

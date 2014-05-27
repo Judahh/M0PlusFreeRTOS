@@ -11,7 +11,7 @@
 #include "FreeRTOS.h"
 #include "FreeRTOS0.h"
 #include "task.h"
-#include "PWMLEDBlue.h"
+#include "LEDBlue.h"
 #include "Tasks/HandlesEnum.h"
 
 void taskBlueLedWork(void);

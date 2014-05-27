@@ -9,20 +9,9 @@
 #define HANDLESENUM_H_
 
 typedef enum {
-	taskSendStringHandle0,
-	taskSendStringHandle1,
-	taskSendString1Handle,
-	taskSendString2Handle,
-	taskSendGlobalVariableHandle,
-	taskWriteStringHandle,
 	taskAccelerometerHandle,
-	taskGyroscopeHandle,
 	taskBlueLedHandle,
-	taskGreenLedHandle,
-	taskRedLedHandle,
-	taskRotateLedHandle,
-	taskMotorDCHandle,
-	taskSonarHandle,
+	taskBuzzerHandle,
 	queueHandle,
 #if configGENERATE_RUN_TIME_STATS == 1
 	TASKHANDLE_RUNTIMESTATS,

@@ -33,36 +33,26 @@
 #include "UTIL1.h"
 #include "WAIT0.h"
 #include "TU0.h"
-#include "TU1.h"
-#include "TU2.h"
+#include "LEDRed.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
+#include "LEDBlue.h"
+#include "LEDpin2.h"
+#include "BitIoLdd2.h"
+#include "LEDGreen.h"
+#include "LEDpin3.h"
+#include "BitIoLdd3.h"
+#include "Buzzer.h"
+#include "BitIoLdd4.h"
 #include "I2C1.h"
 #include "I2C0.h"
 #include "MMA0.h"
 #include "GI2C0.h"
-#include "PWMBuzzer.h"
-#include "PwmLdd4.h"
 #include "CsIO0.h"
 #include "IO1.h"
-#include "TSSTouch.h"
-#include "PWMLEDBlue.h"
-#include "PwmLdd1.h"
-#include "PWMLEDGreen.h"
-#include "PwmLdd2.h"
-#include "PWMLEDRed.h"
-#include "PwmLdd3.h"
 #include "FreeRTOS0.h"
 #include "Tasks/TaskBlueLed.h"
-#include "Tasks/TaskGreenLed.h"
-#include "Tasks/TaskRedLed.h"
-#include "Tasks/TaskSendString.h"
-#include "Tasks/TaskSendString1.h"
-#include "Tasks/TaskSendString2.h"
-#include "Tasks/TaskWriteString.h"
-#include "Tasks/TaskSendGlobalVariable.h"
 #include "Tasks/TaskAccelerometer.h"
-#include "Tasks/TaskGyroscope.h"
-#include "Tasks/TaskRotateLed.h"
-#include "Tasks/TaskMotorDC.h"
 #include "Util/Led.h"
 #include "Util/GlobalVariables.h"
 /* Including shared modules, which are used for whole project */
@@ -90,52 +80,14 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 
 	taskHandles[queueHandle] = FreeRTOS0_xQueueCreate(1000,sizeof(char));
 
-	int homework = 7;
+	if (taskBuzzerStart() != pdPASS ) {
+		for (;;) {
+		};
+	}
 
-	switch (homework - 1) {
-	case 0:
-		if (taskSendString1Start() != pdPASS ) {
-			for (;;) {
-			};
-		}
-
-		if (taskSendString2Start() != pdPASS ) {
-			for (;;) {
-			};
-		}
-
-		if (taskWriteStringStart() != pdPASS ) {
-			for (;;) {
-			};
-		}
-		break;
-
-	case 1:
-		if (taskSendStringStart(0) != pdPASS ) {
-			for (;;) {
-			};
-		}
-
-		if (taskSendStringStart(1) != pdPASS ) {
-			for (;;) {
-			};
-		}
-		break;
-
-	case 5:
-		if (taskSendGlobalVariableStart() != pdPASS ) {
-			for (;;) {
-			};
-		}
-		break;
-
-	default:
-		if (taskAccelerometerStart() != pdPASS ) {
-			for (;;) {
-			};
-		}
-		break;
-
+	if (taskAccelerometerStart() != pdPASS ) {
+		for (;;) {
+		};
 	}
 
 //	static uint8_t value;

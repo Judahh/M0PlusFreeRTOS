@@ -68,7 +68,6 @@ SUBDIRS := \
 Sources \
 Sources/Util \
 Sources/Tasks \
-Sources/TSS \
 Project_Settings/Startup_Code \
 Generated_Code \
 

@@ -11,26 +11,21 @@ static int32_t speedZ;
 static int32_t spaceX;
 static int32_t spaceY;
 static int32_t spaceZ;
-static bool enabled;
 
 void initBeep(void) {
-	enabled = 0;
+	stopBeep();
 }
 
 void startBeep(void) {
-	if (!enabled) {
-		PWMBuzzer_Enable();
-		enabled = 1;
-	}
-	PWMBuzzer_SetRatio8(65535/50);
+	printf("start Beep!\r\n");
+	FreeRTOS0_vTaskResume(taskHandles[taskBuzzerHandle]);
+	printf("start Beep 2!\r\n");
 }
 
 void stopBeep(void) {
-	if (enabled) {
-		PWMBuzzer_SetRatio8(0);
-		PWMBuzzer_Disable();
-		enabled = 0;
-	}
+	printf("stop Beep!\r\n");
+	FreeRTOS0_vTaskSuspend(taskHandles[taskBuzzerHandle]);
+	printf("stop Beep 2!\r\n");
 }
 
 void taskAccelerometerWork(void) {
@@ -43,13 +38,13 @@ void taskAccelerometerWork(void) {
 //	printf("Soma = %ld!\r\n", sum);
 
 	if (sum < 5000) {
-		PWMLEDBlue_SetRatio8(65535);
+		LEDBlue_ClrVal();
 		printf("QUEDA LIVRE!\r\n");
-		//startBeep();
+		startBeep();
 		FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
 	} else {
-		PWMLEDBlue_SetRatio8(0);
-		//stopBeep();
+		LEDBlue_SetVal();
+		stopBeep();
 	}
 }
 
@@ -80,7 +75,7 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 	spaceZ = 0;
 
 	initBeep();
-
+	
 	MMA0_Init();
 	for (;;) {
 		taskAccelerometerWork();
@@ -97,10 +92,10 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskAccelerometerStart(void) {
-	printf("START!\r\n");
+	printf("START Accelerometer!\r\n");
 	return FreeRTOS0_xTaskCreate(TaskAccelerometer, /* pointer to the task */
 			(signed portCHAR *) "TaskAccelerometer", /* task name for kernel awareness debugging */
-			1500, /* task stack size */
+			1000, /* task stack size */
 			(void*) NULL, /* optional task startup argument */
 			1, /* initial priority */
 			&taskHandles [taskAccelerometerHandle]);

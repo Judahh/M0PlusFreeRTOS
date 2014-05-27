@@ -14,12 +14,18 @@
 #include "task.h"
 #include "stdio.h"
 #include "Util/Accelerometer.h"
-#include "PWMBuzzer.h"
+#include "TaskBuzzer.h"
 #include "Tasks/HandlesEnum.h"
 #include "MMA0.h"
 
 void taskAccelerometerWork(void);
 signed portBASE_TYPE taskAccelerometerStart(void);
 signed portBASE_TYPE taskAccelerometerStop(void);
+
+void initBeep(void);
+
+void startBeep(void);
+
+void stopBeep(void);
 
 #endif /* TASKACCELEROMETER_H_ */

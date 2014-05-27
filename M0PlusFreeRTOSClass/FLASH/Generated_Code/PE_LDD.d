@@ -42,24 +42,16 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/MMA0.h ../Generated_Code/GI2C0.h \
  ../Generated_Code/I2C0.h ../Generated_Code/FreeRTOS0.h \
  ../Generated_Code/semphr.h ../Generated_Code/queue.h \
- ../Generated_Code/TSSTouch.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_API.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS_SystemSetup.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_StatusCodes.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_DataTypes.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_Sensor.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/derivative.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/Cpu.h \
- C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_API.h \
- ../Generated_Code/PWMLEDBlue.h ../Generated_Code/PwmLdd1.h \
- ../Generated_Code/TU0.h \
+ ../Generated_Code/I2C1.h ../Generated_Code/TU0.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
- ../Generated_Code/PWMLEDGreen.h ../Generated_Code/PwmLdd2.h \
- ../Generated_Code/TU1.h ../Generated_Code/PWMLEDRed.h \
- ../Generated_Code/PwmLdd3.h ../Generated_Code/PWMBuzzer.h \
- ../Generated_Code/PwmLdd4.h ../Generated_Code/TU2.h \
- ../Generated_Code/I2C1.h
+ ../Generated_Code/LEDRed.h ../Generated_Code/LEDpin1.h \
+ ../Generated_Code/BitIoLdd1.h \
+ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
+ ../Generated_Code/LEDBlue.h ../Generated_Code/LEDpin2.h \
+ ../Generated_Code/BitIoLdd2.h ../Generated_Code/LEDGreen.h \
+ ../Generated_Code/LEDpin3.h ../Generated_Code/BitIoLdd3.h \
+ ../Generated_Code/Buzzer.h ../Generated_Code/BitIoLdd4.h
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -169,27 +161,7 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM
 
 ../Generated_Code/queue.h:
 
-../Generated_Code/TSSTouch.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_API.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS_SystemSetup.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_StatusCodes.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_DataTypes.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_Sensor.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/derivative.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Generated_Code/Cpu.h:
-
-C:/Users/Avell\ G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOS/Sources/TSS/TSS_API.h:
-
-../Generated_Code/PWMLEDBlue.h:
-
-../Generated_Code/PwmLdd1.h:
+../Generated_Code/I2C1.h:
 
 ../Generated_Code/TU0.h:
 
@@ -197,20 +169,26 @@ C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
 
 C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
-../Generated_Code/PWMLEDGreen.h:
+../Generated_Code/LEDRed.h:
 
-../Generated_Code/PwmLdd2.h:
+../Generated_Code/LEDpin1.h:
 
-../Generated_Code/TU1.h:
+../Generated_Code/BitIoLdd1.h:
 
-../Generated_Code/PWMLEDRed.h:
+C:/Freescale/CW\ MCU\ v10.5/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
 
-../Generated_Code/PwmLdd3.h:
+../Generated_Code/LEDBlue.h:
 
-../Generated_Code/PWMBuzzer.h:
+../Generated_Code/LEDpin2.h:
 
-../Generated_Code/PwmLdd4.h:
+../Generated_Code/BitIoLdd2.h:
 
-../Generated_Code/TU2.h:
+../Generated_Code/LEDGreen.h:
 
-../Generated_Code/I2C1.h:
+../Generated_Code/LEDpin3.h:
+
+../Generated_Code/BitIoLdd3.h:
+
+../Generated_Code/Buzzer.h:
+
+../Generated_Code/BitIoLdd4.h:

@@ -30,14 +30,12 @@
 
 - \subpage IO1
 - \subpage I2C0
-- \subpage TU0
-- \subpage PwmLdd1
-- \subpage TU1
-- \subpage PwmLdd2
-- \subpage PwmLdd3
-- \subpage TU2
-- \subpage PwmLdd4
 - \subpage I2C1
+- \subpage TU0
+- \subpage BitIoLdd1
+- \subpage BitIoLdd2
+- \subpage BitIoLdd3
+- \subpage BitIoLdd4
 
 
 */

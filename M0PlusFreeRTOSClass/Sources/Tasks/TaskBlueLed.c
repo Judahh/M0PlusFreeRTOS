@@ -7,11 +7,11 @@
 #include "TaskBlueLed.h"
 
 void taskBlueLedWork(void) {
-	FreeRTOS0_vTaskSuspend(taskHandles[taskGreenLedHandle]);
+//	FreeRTOS0_vTaskSuspend(taskHandles[taskGreenLedHandle]);
 	PWMLEDBlue_SetRatio8(0xFF);
 	FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 	PWMLEDBlue_SetRatio8(0x00);
-	FreeRTOS0_vTaskResume(taskHandles[taskRedLedHandle]);
+//	FreeRTOS0_vTaskResume(taskHandles[taskRedLedHandle]);
 //	PWMLEDBlue_SetRatio8(0x00);
 //	FRTOS1_vTaskDelay(1000 / portTICK_RATE_MS);
 //	PWMLEDBlue_SetRatio8(0xFF);
