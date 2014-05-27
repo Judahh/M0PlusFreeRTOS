@@ -90,7 +90,7 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 
 	taskHandles[queueHandle] = FreeRTOS0_xQueueCreate(1000,sizeof(char));
 
-	int homework = 7;
+	int homework = 1;
 
 	switch (homework - 1) {
 	case 0:
