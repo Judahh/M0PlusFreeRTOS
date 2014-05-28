@@ -51,7 +51,7 @@
 #include "CsIO0.h"
 #include "IO1.h"
 #include "FreeRTOS0.h"
-#include "Tasks/TaskBlueLed.h"
+#include "Tasks/TaskError.h"
 #include "Tasks/TaskAccelerometer.h"
 #include "Util/Led.h"
 #include "Util/GlobalVariables.h"
@@ -81,6 +81,11 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 	taskHandles[queueHandle] = FreeRTOS0_xQueueCreate(1000,sizeof(char));
 
 	if (taskBuzzerStart() != pdPASS ) {
+		for (;;) {
+		};
+	}
+
+	if (taskErrorStart() != pdPASS ) {
 		for (;;) {
 		};
 	}
@@ -118,14 +123,15 @@ int main(void) {/*lint -restore Enable MISRA rule (6.3) checking. */
 
 //	FRTOS1_vTaskStartScheduler();
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
-  /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
-  #ifdef PEX_RTOS_START
-    PEX_RTOS_START();                  /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
-  #endif
-  /*** End of RTOS startup code.  ***/
-  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-  for(;;){}
-  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+	/*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
+#ifdef PEX_RTOS_START
+	PEX_RTOS_START(); /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
+#endif
+	/*** End of RTOS startup code.  ***/
+	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+	for (;;) {
+	}
+	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END ProcessorExpert */

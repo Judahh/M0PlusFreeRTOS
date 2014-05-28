@@ -1,6 +1,6 @@
 <Analysispoints>
 	<Name>AnalysispointsManager</Name>
-	<ProjectPath>C:/Users/Avell G1512NEW/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/SaAnalysispointsManager.apconfig</ProjectPath>
+	<ProjectPath>C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/SaAnalysispointsManager.apconfig</ProjectPath>
 	<MaxNumberOfCores>1</MaxNumberOfCores>
 	<Comments>Analysispoints Manager</Comments>
 	<IgnoreAll>false</IgnoreAll>

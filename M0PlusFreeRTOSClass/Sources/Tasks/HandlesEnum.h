@@ -10,7 +10,7 @@
 
 typedef enum {
 	taskAccelerometerHandle,
-	taskBlueLedHandle,
+	taskErrorHandle,
 	taskBuzzerHandle,
 	queueHandle,
 #if configGENERATE_RUN_TIME_STATS == 1

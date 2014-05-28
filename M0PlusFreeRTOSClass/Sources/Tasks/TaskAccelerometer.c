@@ -4,16 +4,19 @@
  *  Created on: Feb 6, 2014
  *      Author: JH
  */
-#include "TaskAccelerometer.h"
-static int32_t speedX;
-static int32_t speedY;
-static int32_t speedZ;
-static int32_t spaceX;
-static int32_t spaceY;
-static int32_t spaceZ;
+#include "TaskAccelerometer.h" 
+
+void init(void) {
+	initBeep();
+	initError();
+}
 
 void initBeep(void) {
 	stopBeep();
+}
+
+void initError(void) {
+	stopError();
 }
 
 void startBeep(void) {
@@ -22,30 +25,53 @@ void startBeep(void) {
 	printf("start Beep 2!\r\n");
 }
 
+void startError(void) {
+	stopBeep();
+	printf("start Error!\r\n");
+	FreeRTOS0_vTaskResume(taskHandles[taskErrorHandle]);
+	printf("start Error 2!\r\n");
+}
+
 void stopBeep(void) {
 	printf("stop Beep!\r\n");
 	FreeRTOS0_vTaskSuspend(taskHandles[taskBuzzerHandle]);
 	printf("stop Beep 2!\r\n");
 }
 
-void taskAccelerometerWork(void) {
-	int32_t accelerationX = MMA0_GetX(); //(MMA0_GetX()/16384)*980665
-	int32_t accelerationY = MMA0_GetY(); //100000
-	int32_t accelerationZ = MMA0_GetZ();
+void stopError(void) {
+	printf("stop Error!\r\n");
+	FreeRTOS0_vTaskSuspend(taskHandles[taskErrorHandle]);
+	printf("stop Error 2!\r\n");
+}
 
-	int32_t sum = abs(accelerationX) + abs(accelerationY) + abs(accelerationZ);
+bool taskAccelerometerWork(bool likelyError) {
+	int32_t accelerationX = abs(MMA0_GetX()); //(MMA0_GetX()/16384)*980665
+	int32_t accelerationY = abs(MMA0_GetY()); //100000
+	int32_t accelerationZ = abs(MMA0_GetZ());
+
+	int32_t sum = accelerationX + accelerationY + accelerationZ;
 
 //	printf("Soma = %ld!\r\n", sum);
 
+	if (likelyError) {
+		if (!((accelerationX == accelerationY)
+				&& (accelerationY == accelerationZ))) {
+			likelyError = 0;
+		}
+	}
+
 	if (sum < 5000) {
-		LEDBlue_ClrVal();
+		LEDBlue_SetVal();
+		LEDRed_ClrVal();
 		printf("QUEDA LIVRE!\r\n");
 		startBeep();
 		FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
 	} else {
-		LEDBlue_SetVal();
+		LEDRed_SetVal();
+		LEDBlue_ClrVal();
 		stopBeep();
 	}
+	return likelyError;
 }
 
 /**************************************************************************/
@@ -56,34 +82,25 @@ void taskAccelerometerWork(void) {
  */
 /**************************************************************************/
 static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
-	(void) pvParameters; /* parameter not used */
-	// Do any required initialisation or 
-	// set up any hardware before the task
-	// begins executing for the first time
-
-	// ToDo: ...
-
-	// The code within the for loop is your actual
-	// task that will continously execute
-
-	speedX = 0;
-	speedY = 0;
-	speedZ = 0;
-
-	spaceX = 0;
-	spaceY = 0;
-	spaceZ = 0;
-
-	initBeep();
-	
+	(void) pvParameters;
+	init();
+	bool likelyError = 1;
+	bool ok = 1;
+	int likely = 0;
+	int index = 0;
 	MMA0_Init();
-	for (;;) {
-		taskAccelerometerWork();
-
-		// vTaskDelay will cause the task to be delayed for 
-		// a specified number of ticks
-//		vTaskDelay(100);  // Wait 100 ticks or 1 second
+	
+	while (((ok && likely < 10) || (index != likely))) {
+		likelyError = taskAccelerometerWork(likelyError);
+		ok=!likelyError;
+		if (!ok) {
+			likely++;
+		} else {
+			likely = 0;
+		}
+		index++;
 	}
+	startError();
 }
 /**************************************************************************/
 /*! 

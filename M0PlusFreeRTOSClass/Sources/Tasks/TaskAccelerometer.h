@@ -10,7 +10,6 @@
 
 #include "FreeRTOS.h"
 #include "FreeRTOS0.h"
-//#include "stdlib.h"
 #include "task.h"
 #include "stdio.h"
 #include "Util/Accelerometer.h"
@@ -18,14 +17,22 @@
 #include "Tasks/HandlesEnum.h"
 #include "MMA0.h"
 
-void taskAccelerometerWork(void);
+bool taskAccelerometerWork(bool likelyError);
 signed portBASE_TYPE taskAccelerometerStart(void);
 signed portBASE_TYPE taskAccelerometerStop(void);
 
+void init(void);
+
 void initBeep(void);
+
+void initError(void);
 
 void startBeep(void);
 
+void startError(void);
+
 void stopBeep(void);
+
+void stopError(void);
 
 #endif /* TASKACCELEROMETER_H_ */
