@@ -21,11 +21,14 @@ void initError(void) {
 
 void startBeep(void) {
 	printf("start Beep!\r\n");
-	FreeRTOS0_vTaskResume(taskHandles[taskBuzzerHandle]);
+	Buzzer_SetVal();
+//	FreeRTOS0_vTaskResume(taskHandles[taskBuzzerHandle]);
 	printf("start Beep 2!\r\n");
 }
 
 void startError(void) {
+	LEDBlue_SetVal();
+	LEDRed_SetVal();
 	stopBeep();
 	printf("start Error!\r\n");
 	FreeRTOS0_vTaskResume(taskHandles[taskErrorHandle]);
@@ -34,7 +37,8 @@ void startError(void) {
 
 void stopBeep(void) {
 	printf("stop Beep!\r\n");
-	FreeRTOS0_vTaskSuspend(taskHandles[taskBuzzerHandle]);
+	Buzzer_ClrVal();
+//	FreeRTOS0_vTaskSuspend(taskHandles[taskBuzzerHandle]);
 	printf("stop Beep 2!\r\n");
 }
 
@@ -65,12 +69,13 @@ bool taskAccelerometerWork(bool likelyError) {
 		LEDRed_ClrVal();
 		printf("QUEDA LIVRE!\r\n");
 		startBeep();
-		FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
+		FreeRTOS0_vTaskDelay(500 / portTICK_RATE_MS);
 	} else {
 		LEDRed_SetVal();
 		LEDBlue_ClrVal();
 		stopBeep();
 	}
+	
 	return likelyError;
 }
 
@@ -90,7 +95,7 @@ static portTASK_FUNCTION(TaskAccelerometer, pvParameters) {
 	int index = 0;
 	MMA0_Init();
 	
-	while (((ok && likely < 10) || (index != likely))) {
+	while (((ok && likely < 2) || (index != likely))) {
 		likelyError = taskAccelerometerWork(likelyError);
 		ok=!likelyError;
 		if (!ok) {

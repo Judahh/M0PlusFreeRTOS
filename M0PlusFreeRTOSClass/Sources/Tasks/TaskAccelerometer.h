@@ -14,6 +14,7 @@
 #include "stdio.h"
 #include "Util/Accelerometer.h"
 #include "TaskBuzzer.h"
+#include "Buzzer.h"
 #include "Tasks/HandlesEnum.h"
 #include "MMA0.h"
 

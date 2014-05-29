@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V7.5.0 - Copyright (C) 2013 Real Time Engineers Ltd.
+    FreeRTOS V8.0.0 - Copyright (C) 2013 Real Time Engineers Ltd.
 
     FEATURES AND PORTS ARE ADDED TO FREERTOS ALL THE TIME.  PLEASE VISIT
     http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -85,20 +85,29 @@
  *
  * See http://www.freertos.org/a00110.html.
  *----------------------------------------------------------*/
-#define configGENERATE_RUN_TIME_STATS             0
-#define configUSE_PREEMPTION                      1
-#define configUSE_IDLE_HOOK                       1
-#define configUSE_TICK_HOOK                       1
-#define configUSE_MALLOC_FAILED_HOOK              1
-#define configTICK_RATE_HZ                        ((portTickType)100) /* frequency of tick interrupt */
+#define configGENERATE_STATIC_SOURCES             0 /* 1: it will create 'static' sources to be used without Processor Expert; 0: Processor Expert code generated */
+#define configPEX_KINETIS_SDK                     0 /* 1: project is a Kinetis SDK Processor Expert project; 0: No Kinetis Processor Expert project */
+
+#define configGENERATE_RUN_TIME_STATS             0 /* 1: generate runtime statistics; 0: no runtime statistics */
+#define configUSE_PREEMPTION                      1 /* 1: pre-emptive mode; 0: cooperative mode */
+#define configUSE_IDLE_HOOK                       1 /* 1: use Idle hook; 0: no Idle hook */
+#define configUSE_TICK_HOOK                       1 /* 1: use Tick hook; 0: no Tick hook */
+#define configUSE_MALLOC_FAILED_HOOK              1 /* 1: use MallocFailed hook; 0: no MallocFailed hook */
+#define configTICK_RATE_HZ                        ((TickType_t)100) /* frequency of tick interrupt */
 #define configSYSTICK_USE_LOW_POWER_TIMER         0 /* If using Kinetis Low Power Timer (LPTMR) instead of SysTick timer */
-#define configSYSTICK_LOW_POWER_TIMER_CLOCK_HZ    1 /* dummy value */
+#define configSYSTICK_LOW_POWER_TIMER_CLOCK_HZ    1 /* 1 kHz LPO timer. Set to 1 if not used */
+#if configPEX_KINETIS_SDK
+/* The SDK variable SystemCoreClock contains the current clock speed */
+#define configCPU_CLOCK_HZ                        SystemCoreClock /* CPU clock frequency */
+#define configBUS_CLOCK_HZ                        SystemCoreClock /* Bus clock frequency */
+#else
 #define configCPU_CLOCK_HZ                        CPU_CORE_CLK_HZ /* CPU core clock defined in Cpu.h */
 #define configBUS_CLOCK_HZ                        CPU_BUS_CLK_HZ /* CPU bus clock defined in Cpu.h */
+#endif /* configPEX_KINETIS_SDK */
 #define configSYSTICK_USE_CORE_CLOCK              1 /* System Tick is using core clock  */
 #define configSYSTICK_CLOCK_DIVIDER               1 /* no divider */
 #define configSYSTICK_CLOCK_HZ                    ((configCPU_CLOCK_HZ)/configSYSTICK_CLOCK_DIVIDER) /* frequency of system tick counter */
-#define configMINIMAL_STACK_SIZE                  ((unsigned portSHORT)200)
+#define configMINIMAL_STACK_SIZE                  ((unsigned portSHORT)200) /* stack size in addressable stack units */
 /*----------------------------------------------------------*/
 /* Heap Memory */
 #define configFRTOS_MEMORY_SCHEME                 2 /* either 1 (only alloc), 2 (alloc/free), 3 (malloc) or 4 (coalesc blocks) */
@@ -121,8 +130,11 @@
 #define configUSE_QUEUE_SETS                      0
 #define configUSE_COUNTING_SEMAPHORES             1
 #define configUSE_APPLICATION_TASK_TAG            0
-#define configUSE_TICKLESS_IDLE                   1
-#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP     2
+/* Tickless Idle Mode ----------------------------------------------------------*/
+#define configUSE_TICKLESS_IDLE                   1 /* set to 1 for tickless idle mode, 0 otherwise */
+#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP     2 /* number of ticks must be larger than this to enter tickless idle mode */
+#define configUSE_TICKLESS_IDLE_DECISION_HOOK     0 /* set to 1 to enable application hook, zero otherwise */
+#define configUSE_TICKLESS_IDLE_DECISION_HOOK_NAME xEnterTicklessIdle /* function name of decision hook */
 
 #define configMAX_PRIORITIES                      ((unsigned portBASE_TYPE)6)
 #define configMAX_CO_ROUTINE_PRIORITIES           2
@@ -179,7 +191,11 @@
 #define configCPU_FAMILY                          configCPU_FAMILY_ARM_M0P
 /* -------------------------------------------------------------------- */
 /* Cortex-M specific definitions. */
-#define configPRIO_BITS                           2 /* 4 priority levels on ARM Cortex M0+ (Kinetis L Family) */
+#if configCPU_FAMILY_IS_ARM_M4(configCPU_FAMILY)
+  #define configPRIO_BITS                         4 /* 4 bits/16 priority levels on ARM Cortex M4 (Kinetis K Family) */
+#else
+  #define configPRIO_BITS                         2 /* 2 bits/4 priority levels on ARM Cortex M0+ (Kinetis L Family) */
+#endif
 
 /* The lowest interrupt priority that can be used in a call to a "set priority" function. */
 #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY   3

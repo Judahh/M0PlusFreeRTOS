@@ -15,6 +15,7 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Error.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Const.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/IO_Map.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Types.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Error.h \
@@ -34,8 +35,8 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Util/GlobalVariables.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/WAIT0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/projdefs.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOSConfig.h \
+ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/projdefs.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portable.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portmacro.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/mpu_wrappers.h \
@@ -73,6 +74,8 @@ Generated_Code/I2C1.o: ../Generated_Code/I2C1.c \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/semphr.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/queue.h \
+ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/event_groups.h \
+ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/timers.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/GI2C0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/CsIO0.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
@@ -124,6 +127,8 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/IO_Map.h:
 
+C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h:
+
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL0.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Types.h:
@@ -162,9 +167,9 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS.h:
 
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/projdefs.h:
-
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOSConfig.h:
+
+C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/projdefs.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portable.h:
 
@@ -239,6 +244,10 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/semphr.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/queue.h:
+
+C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/event_groups.h:
+
+C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/timers.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/GI2C0.h:
 

@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-27, 17:55, # CodeGen: 187
+**     Date/Time   : 2014-05-28, 14:07, # CodeGen: 200
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -87,11 +87,36 @@
 **         MasterSendBlock    - LDD_TError I2C1_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
 **         MasterReceiveBlock - LDD_TError I2C1_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
 **
-**     Copyright : 1997 - 2013 Freescale Semiconductor, Inc. All Rights Reserved.
-**     SOURCE DISTRIBUTION PERMISSIBLE as directed in End User License Agreement.
+**     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
+**     All Rights Reserved.
 **     
-**     http      : www.freescale.com
-**     mail      : support@freescale.com
+**     Redistribution and use in source and binary forms, with or without modification,
+**     are permitted provided that the following conditions are met:
+**     
+**     o Redistributions of source code must retain the above copyright notice, this list
+**       of conditions and the following disclaimer.
+**     
+**     o Redistributions in binary form must reproduce the above copyright notice, this
+**       list of conditions and the following disclaimer in the documentation and/or
+**       other materials provided with the distribution.
+**     
+**     o Neither the name of Freescale Semiconductor, Inc. nor the names of its
+**       contributors may be used to endorse or promote products derived from this
+**       software without specific prior written permission.
+**     
+**     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+**     ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+**     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+**     DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+**     ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+**     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+**     LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+**     ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+**     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+**     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**     
+**     http: www.freescale.com
+**     mail: support@freescale.com
 ** ###################################################################*/
 /*!
 ** @file I2C1.c
@@ -295,7 +320,7 @@ LDD_TDeviceData* I2C1_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv->InpLenM = 0x00U;      /* Set zero counter of data of reception */
   DeviceDataPrv->OutLenM = 0x00U;      /* Set zero counter of data of transmission */
   /* SIM_SCGC4: I2C1=1 */
-  SIM_SCGC4 |= SIM_SCGC4_I2C1_MASK;                                   
+  SIM_SCGC4 |= SIM_SCGC4_I2C1_MASK;
   /* I2C1_C1: IICEN=0,IICIE=0,MST=0,TX=0,TXAK=0,RSTA=0,WUEN=0,DMAEN=0 */
   I2C1_C1 = 0x00U;                     /* Clear control register */
   /* I2C1_FLT: SHEN=0,STOPF=1,STOPIE=0,FLT=0 */
@@ -308,28 +333,28 @@ LDD_TDeviceData* I2C1_Init(LDD_TUserData *UserDataPtr)
                 PORT_PCR_MUX(0x01)
                )) | (uint32_t)(
                 PORT_PCR_MUX(0x06)
-               ));                                  
+               ));
   /* PORTE_PCR1: ISF=0,MUX=6 */
   PORTE_PCR1 = (uint32_t)((PORTE_PCR1 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
                 PORT_PCR_MUX(0x01)
                )) | (uint32_t)(
                 PORT_PCR_MUX(0x06)
-               ));                                  
+               ));
   /* NVIC_IPR2: PRI_9=0x80 */
   NVIC_IPR2 = (uint32_t)((NVIC_IPR2 & (uint32_t)~(uint32_t)(
                NVIC_IP_PRI_9(0x7F)
               )) | (uint32_t)(
                NVIC_IP_PRI_9(0x80)
-              ));                                  
+              ));
   /* NVIC_ISER: SETENA|=0x0200 */
-  NVIC_ISER |= NVIC_ISER_SETENA(0x0200);                                   
+  NVIC_ISER |= NVIC_ISER_SETENA(0x0200);
   /* I2C1_C2: GCAEN=0,ADEXT=0,HDRS=0,SBRC=0,RMEN=0,AD=0 */
-  I2C1_C2 = I2C_C2_AD(0x00);                                   
+  I2C1_C2 = I2C_C2_AD(0x00);
   /* I2C1_FLT: SHEN=0,STOPF=0,STOPIE=0,FLT=0 */
   I2C1_FLT = I2C_FLT_FLT(0x00);        /* Set glitch filter register */
   /* I2C1_SMB: FACK=0,ALERTEN=0,SIICAEN=0,TCKSEL=0,SLTF=1,SHTF1=0,SHTF2=0,SHTF2IE=0 */
-  I2C1_SMB = I2C_SMB_SLTF_MASK;                                   
+  I2C1_SMB = I2C_SMB_SLTF_MASK;
   /* I2C1_F: MULT=0,ICR=0x1F */
   I2C1_F = (I2C_F_MULT(0x00) | I2C_F_ICR(0x1F)); /* Set prescaler bits */
   I2C_PDD_EnableDevice(I2C1_BASE_PTR, PDD_ENABLE); /* Enable device */
@@ -365,7 +390,7 @@ void I2C1_Deinit(LDD_TDeviceData *DeviceDataPtr)
   /* Deallocation of the device structure */
   /* {FreeRTOS RTOS Adapter} Driver memory deallocation: Dynamic allocation is simulated, no deallocation code is generated */
   /* SIM_SCGC4: I2C1=0 */
-  SIM_SCGC4 &= (uint32_t)~(uint32_t)(SIM_SCGC4_I2C1_MASK);                                   
+  SIM_SCGC4 &= (uint32_t)~(uint32_t)(SIM_SCGC4_I2C1_MASK);
 }
 
 /*
@@ -445,7 +470,7 @@ LDD_TError I2C1_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buffe
     I2C_PDD_SetMasterMode(I2C1_BASE_PTR, I2C_PDD_MASTER_MODE); /* If no then start signal generated */
   }
   DeviceDataPrv->SerFlag &= (uint8_t)~(ADDR_COMPLETE | REP_ADDR_COMPLETE); /* Second byte of the addres will be sent later */
-  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0xF0U); /* Send slave address - high byte*/
+  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0xF0U); /* Send slave address - high byte */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
   taskEXIT_CRITICAL();
   return ERR_OK;                       /* OK */
@@ -535,7 +560,7 @@ LDD_TError I2C1_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Bu
     I2C_PDD_SetMasterMode(I2C1_BASE_PTR, I2C_PDD_MASTER_MODE); /* If no then start signal generated */
   }
   DeviceDataPrv->SerFlag &= (uint8_t)~(ADDR_COMPLETE | REP_ADDR_COMPLETE); /* Second byte of the addres will be sent later */
-  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0xF0U); /* Send slave address - high byte*/
+  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0xF0U); /* Send slave address - high byte */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
   taskEXIT_CRITICAL();
   return ERR_OK;                       /* OK */
@@ -553,7 +578,7 @@ LDD_TError I2C1_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Bu
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

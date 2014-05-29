@@ -6,7 +6,7 @@
 **     Component   : LED
 **     Version     : Component 01.062, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-27, 17:58, # CodeGen: 188
+**     Date/Time   : 2014-05-28, 14:07, # CodeGen: 200
 **     Abstract    :
 **          This component implements a universal driver for a single LED.
 **     Settings    :
@@ -190,7 +190,7 @@ void LEDGreen_SetRatio16(word ratio)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

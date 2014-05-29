@@ -4,64 +4,65 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : Utility
-**     Version     : Component 01.095, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.104, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-27, 17:55, # CodeGen: 187
+**     Date/Time   : 2014-05-28, 14:07, # CodeGen: 200
 **     Abstract    :
 **          Contains various utility functions.
 **     Settings    :
 **          Component name                                 : UTIL1
 **     Contents    :
-**         strcpy                  - void UTIL1_strcpy(byte *dst, size_t dstSize, const unsigned char *src);
-**         strcat                  - void UTIL1_strcat(byte *dst, size_t dstSize, const unsigned char *src);
-**         chcat                   - void UTIL1_chcat(byte *dst, size_t dstSize, byte ch);
-**         Num8sToStr              - void UTIL1_Num8sToStr(byte *dst, size_t dstSize, signed char val);
-**         Num8uToStr              - void UTIL1_Num8uToStr(byte *dst, size_t dstSize, byte val);
-**         Num16sToStr             - void UTIL1_Num16sToStr(byte *dst, size_t dstSize, int16_t val);
-**         Num16uToStr             - void UTIL1_Num16uToStr(byte *dst, size_t dstSize, word val);
-**         Num32uToStr             - void UTIL1_Num32uToStr(byte *dst, size_t dstSize, dword val);
-**         Num32sToStr             - void UTIL1_Num32sToStr(byte *dst, size_t dstSize, long val);
-**         Num16sToStrFormatted    - void UTIL1_Num16sToStrFormatted(byte *dst, size_t dstSize, int16_t val, char...
-**         Num16uToStrFormatted    - void UTIL1_Num16uToStrFormatted(byte *dst, size_t dstSize, word val, char...
-**         Num32uToStrFormatted    - void UTIL1_Num32uToStrFormatted(byte *dst, size_t dstSize, dword val, char...
-**         Num32sToStrFormatted    - void UTIL1_Num32sToStrFormatted(byte *dst, size_t dstSize, long val, char...
-**         strcatNum8u             - void UTIL1_strcatNum8u(byte *dst, size_t dstSize, byte val);
-**         strcatNum8s             - void UTIL1_strcatNum8s(byte *dst, size_t dstSize, signed char val);
-**         strcatNum16u            - void UTIL1_strcatNum16u(byte *dst, size_t dstSize, word val);
-**         strcatNum16s            - void UTIL1_strcatNum16s(byte *dst, size_t dstSize, int16_t val);
-**         strcatNum32u            - void UTIL1_strcatNum32u(byte *dst, size_t dstSize, dword val);
-**         strcatNum32s            - void UTIL1_strcatNum32s(byte *dst, size_t dstSize, long val);
-**         strcatNum16uFormatted   - void UTIL1_strcatNum16uFormatted(byte *dst, size_t dstSize, word val, char...
-**         strcatNum16sFormatted   - void UTIL1_strcatNum16sFormatted(byte *dst, size_t dstSize, int16_t val, char...
-**         strcatNum32uFormatted   - void UTIL1_strcatNum32uFormatted(byte *dst, size_t dstSize, dword val, char...
-**         strcatNum32sFormatted   - void UTIL1_strcatNum32sFormatted(byte *dst, size_t dstSize, long val, char...
-**         strcatNum8Hex           - void UTIL1_strcatNum8Hex(byte *dst, size_t dstSize, byte num);
-**         strcatNum16Hex          - void UTIL1_strcatNum16Hex(byte *dst, size_t dstSize, word num);
-**         strcatNum24Hex          - void UTIL1_strcatNum24Hex(byte *dst, size_t dstSize, dword num);
-**         strcatNum32Hex          - void UTIL1_strcatNum32Hex(byte *dst, size_t dstSize, dword num);
-**         strcatNum32sDotValue100 - void UTIL1_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num);
-**         IsLeapYear              - bool UTIL1_IsLeapYear(word year);
-**         WeekDay                 - byte UTIL1_WeekDay(word year, byte month, byte day);
-**         ReadEscapedName         - byte UTIL1_ReadEscapedName(const unsigned char *filename, byte *destname,...
+**         strcpy                  - void UTIL1_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src);
+**         strcat                  - void UTIL1_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src);
+**         chcat                   - void UTIL1_chcat(uint8_t *dst, size_t dstSize, uint8_t ch);
+**         Num8sToStr              - void UTIL1_Num8sToStr(uint8_t *dst, size_t dstSize, signed char val);
+**         Num8uToStr              - void UTIL1_Num8uToStr(uint8_t *dst, size_t dstSize, uint8_t val);
+**         Num16sToStr             - void UTIL1_Num16sToStr(uint8_t *dst, size_t dstSize, int16_t val);
+**         Num16uToStr             - void UTIL1_Num16uToStr(uint8_t *dst, size_t dstSize, uint16_t val);
+**         Num32uToStr             - void UTIL1_Num32uToStr(uint8_t *dst, size_t dstSize, uint32_t val);
+**         Num32sToStr             - void UTIL1_Num32sToStr(uint8_t *dst, size_t dstSize, int32_t val);
+**         Num16sToStrFormatted    - void UTIL1_Num16sToStrFormatted(uint8_t *dst, size_t dstSize, int16_t val,...
+**         Num16uToStrFormatted    - void UTIL1_Num16uToStrFormatted(uint8_t *dst, size_t dstSize, uint16_t val,...
+**         Num32uToStrFormatted    - void UTIL1_Num32uToStrFormatted(uint8_t *dst, size_t dstSize, uint32_t val,...
+**         Num32sToStrFormatted    - void UTIL1_Num32sToStrFormatted(uint8_t *dst, size_t dstSize, int32_t val,...
+**         strcatNum8u             - void UTIL1_strcatNum8u(uint8_t *dst, size_t dstSize, uint8_t val);
+**         strcatNum8s             - void UTIL1_strcatNum8s(uint8_t *dst, size_t dstSize, signed char val);
+**         strcatNum16u            - void UTIL1_strcatNum16u(uint8_t *dst, size_t dstSize, uint16_t val);
+**         strcatNum16s            - void UTIL1_strcatNum16s(uint8_t *dst, size_t dstSize, int16_t val);
+**         strcatNum32u            - void UTIL1_strcatNum32u(uint8_t *dst, size_t dstSize, uint32_t val);
+**         strcatNum32s            - void UTIL1_strcatNum32s(uint8_t *dst, size_t dstSize, int32_t val);
+**         strcatNum16uFormatted   - void UTIL1_strcatNum16uFormatted(uint8_t *dst, size_t dstSize, uint16_t val,...
+**         strcatNum16sFormatted   - void UTIL1_strcatNum16sFormatted(uint8_t *dst, size_t dstSize, int16_t val,...
+**         strcatNum32uFormatted   - void UTIL1_strcatNum32uFormatted(uint8_t *dst, size_t dstSize, uint32_t val,...
+**         strcatNum32sFormatted   - void UTIL1_strcatNum32sFormatted(uint8_t *dst, size_t dstSize, int32_t val,...
+**         strcatNum8Hex           - void UTIL1_strcatNum8Hex(uint8_t *dst, size_t dstSize, uint8_t num);
+**         strcatNum16Hex          - void UTIL1_strcatNum16Hex(uint8_t *dst, size_t dstSize, uint16_t num);
+**         strcatNum24Hex          - void UTIL1_strcatNum24Hex(uint8_t *dst, size_t dstSize, uint32_t num);
+**         strcatNum32Hex          - void UTIL1_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num);
+**         strcatNum32sDotValue100 - void UTIL1_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num);
+**         IsLeapYear              - bool UTIL1_IsLeapYear(uint16_t year);
+**         WeekDay                 - byte UTIL1_WeekDay(uint16_t year, uint8_t month, uint8_t day);
+**         ReadEscapedName         - byte UTIL1_ReadEscapedName(const unsigned char *filename, uint8_t *destname,...
 **         xatoi                   - byte UTIL1_xatoi(const unsigned char **str, int32_t *res);
-**         ScanDate                - byte UTIL1_ScanDate(const unsigned char **str, byte *day, byte *month, word...
-**         ScanTime                - byte UTIL1_ScanTime(const unsigned char **str, byte *hour, byte *minute, byte...
-**         ScanDecimal8uNumber     - byte UTIL1_ScanDecimal8uNumber(const unsigned char **str, byte *val);
+**         ScanDate                - byte UTIL1_ScanDate(const unsigned char **str, uint8_t *day, uint8_t *month,...
+**         ScanTime                - byte UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t...
+**         ScanDecimal8uNumber     - byte UTIL1_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
 **         ScanDecimal8sNumber     - byte UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
-**         ScanDecimal16uNumber    - byte UTIL1_ScanDecimal16uNumber(const unsigned char **str, word *val);
+**         ScanDecimal16uNumber    - byte UTIL1_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
 **         ScanDecimal16sNumber    - byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
 **         ScanDecimal32uNumber    - byte UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
-**         ScanDecimal32sNumber    - byte UTIL1_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val);
-**         ScanHex8uNumber         - byte UTIL1_ScanHex8uNumber(const unsigned char **str, byte *val);
-**         ScanHex8uNumberNoPrefix - byte UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, byte *val);
-**         ScanHex16uNumber        - byte UTIL1_ScanHex16uNumber(const unsigned char **str, word *val);
-**         ScanHex32uNumber        - byte UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
+**         ScanDecimal32sNumber    - byte UTIL1_ScanDecimal32sNumber(const unsigned char **str, int32_t *val);
+**         ScanHex8uNumber         - byte UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
+**         ScanHex8uNumberNoPrefix - byte UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
+**         ScanHex16uNumber        - byte UTIL1_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
+**         ScanHex32uNumber        - uint8_t UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
+**         ScanSeparatedNumbers    - uint8_t UTIL1_ScanSeparatedNumbers(const unsigned char **str, uint8_t...
 **         strcmp                  - int16_t UTIL1_strcmp(const char *, const char *);
 **         strncmp                 - int16_t UTIL1_strncmp(const char *, const char *, size_t size);
-**         strFind                 - int16_t UTIL1_strFind(byte *str, byte *subStr);
-**         strtailcmp              - byte UTIL1_strtailcmp(byte *str, byte *tail);
+**         strFind                 - int16_t UTIL1_strFind(uint8_t *str, uint8_t *subStr);
+**         strtailcmp              - byte UTIL1_strtailcmp(uint8_t *str, uint8_t *tail);
 **         strlen                  - word UTIL1_strlen(const char *);
-**         strCutTail              - byte UTIL1_strCutTail(byte *str, byte *tail);
+**         strCutTail              - byte UTIL1_strCutTail(uint8_t *str, uint8_t *tail);
 **
 **     License   :  Open Source (LGPL)
 **     Copyright : (c) Copyright Erich Styger, 2014, all rights reserved.
@@ -89,7 +90,7 @@
 #include "UTIL1.h"
 
 /* Internal method prototypes */
-static void ShiftRightAndFill(byte *dst, byte fill, byte nofFill);
+static void ShiftRightAndFill(uint8_t *dst, uint8_t fill, uint8_t nofFill);
 
 /*
 ** ===================================================================
@@ -110,15 +111,15 @@ static void ShiftRightAndFill(byte *dst, byte fill, byte nofFill);
   \brief copy the string src into dst. It performs the same task as strncpy, except
      - always terminates the result string.
      - does not zero out the remaining part in dst.
-     Note: dstSize is the size of dst INCLUDING zero byte.
+     Note: dstSize is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] src The source string to copy
 */
-void UTIL1_strcpy(byte *dst, size_t dstSize, const unsigned char *src)
+void UTIL1_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src)
 {
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   while (dstSize > 0 && *src != '\0') {
     *dst++ = *src++;
     dstSize--;
@@ -143,15 +144,15 @@ void UTIL1_strcpy(byte *dst, size_t dstSize, const unsigned char *src)
 */
 /*!
   \brief Concat the string src into dst. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] src The source string to add
   */
-void UTIL1_strcat(byte *dst, size_t dstSize, const unsigned char *src)
+void UTIL1_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src)
 {
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   /* point to the end of the source */
   while (dstSize > 0 && *dst != '\0') {
     dst++;
@@ -181,9 +182,9 @@ void UTIL1_strcat(byte *dst, size_t dstSize, const unsigned char *src)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void UTIL1_chcat(byte *dst, size_t dstSize, byte ch)
+void UTIL1_chcat(uint8_t *dst, size_t dstSize, uint8_t ch)
 {
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   /* point to the end of the source */
   while (dstSize > 0 && *dst != '\0') {
     dst++;
@@ -214,10 +215,10 @@ void UTIL1_chcat(byte *dst, size_t dstSize, byte ch)
 /*!
   \brief Converts an 8bit unsigned number into a string.
   \param[in,out] dst String buffer to store the number.
-  \param[in] dstSize Size of the destination buffer in bytes.
+  \param[in] dstSize Size of the destination buffer in uint8_ts.
   \param[in] val 8bit unsigned number to convert.
  */
-void UTIL1_Num8uToStr(byte *dst, size_t dstSize, byte val)
+void UTIL1_Num8uToStr(uint8_t *dst, size_t dstSize, uint8_t val)
 {
   UTIL1_Num16uToStr(dst, dstSize, (uint16_t)val);
 }
@@ -239,10 +240,10 @@ void UTIL1_Num8uToStr(byte *dst, size_t dstSize, byte val)
 /*!
   \brief Converts an 8bit signed number into a string.
   \param[in,out] dst String buffer to store the number.
-  \param[in] dstSize Size of the destination buffer in bytes.
+  \param[in] dstSize Size of the destination buffer in uint8_ts.
   \param[in] val 8bit signed number to convert.
  */
-void UTIL1_Num8sToStr(byte *dst, size_t dstSize, signed char val)
+void UTIL1_Num8sToStr(uint8_t *dst, size_t dstSize, signed char val)
 {
   UTIL1_Num16sToStr(dst, dstSize, (int16_t)val);
 }
@@ -264,16 +265,16 @@ void UTIL1_Num8sToStr(byte *dst, size_t dstSize, signed char val)
 /*!
   \brief Converts a 16bit unsigned number into a string.
   \param[in,out] dst String buffer to store the number.
-  \param[in] dstSize Size of the destination buffer in bytes.
+  \param[in] dstSize Size of the destination buffer in uint8_ts.
   \param[in] val 16bit unsigned number to convert.
  */
-void UTIL1_Num16uToStr(byte *dst, size_t dstSize, word val)
+void UTIL1_Num16uToStr(uint8_t *dst, size_t dstSize, uint16_t val)
 {
   unsigned char *ptr = ((unsigned char *)dst);
   unsigned char i=0, j;
   unsigned char tmp;
 
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   if (val == 0 && dstSize > 0){
     ptr[i++] = '0';
     dstSize--;
@@ -308,10 +309,10 @@ void UTIL1_Num16uToStr(byte *dst, size_t dstSize, word val)
 /*!
   \brief Converts a 16bit signed number into a string.
   \param[in,out] dst String buffer to store the number.
-  \param[in] dstSize Size of the destination buffer in bytes.
+  \param[in] dstSize Size of the destination buffer in uint8_ts.
   \param[in] val 16bit signed number to convert.
  */
-void UTIL1_Num16sToStr(byte *dst, size_t dstSize, int16_t val)
+void UTIL1_Num16sToStr(uint8_t *dst, size_t dstSize, int16_t val)
 {
   unsigned char *ptr =  ((unsigned char *)dst);
   unsigned char i=0, j;
@@ -322,7 +323,7 @@ void UTIL1_Num16sToStr(byte *dst, size_t dstSize, int16_t val)
     UTIL1_strcpy(dst, dstSize, (unsigned char*)"-32768");
     return;
   }
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   if (sign) {
     val = -val;
   }
@@ -357,7 +358,7 @@ void UTIL1_Num16sToStr(byte *dst, size_t dstSize, int16_t val)
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-static void ShiftRightAndFill(byte *dst, byte fill, byte nofFill)
+static void ShiftRightAndFill(uint8_t *dst, uint8_t fill, uint8_t nofFill)
 {
   signed char i, j;
 
@@ -401,15 +402,15 @@ static void ShiftRightAndFill(byte *dst, byte fill, byte nofFill)
 /*!
   \brief Converts a 16bit signed number to a string, in a formatted way (like printf with "%0d").
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize Size of the destination buffer, in bytes.
+  \param[in] dstSize Size of the destination buffer, in uint8_ts.
   \param[in] val The 16bit signed number to add
   \param[in] fill Fill character, typically ' ' (like for "%2d" or '0' (for "%02d")
   \param[in] nofFill Size for the format (right aligned) string, e.g. '2' for "%2d"
 */
-void UTIL1_Num16sToStrFormatted(byte *dst, size_t dstSize, int16_t val, char fill, byte nofFill)
+void UTIL1_Num16sToStrFormatted(uint8_t *dst, size_t dstSize, int16_t val, char fill, uint8_t nofFill)
 {
   UTIL1_Num16sToStr(dst, dstSize, val);
   ShiftRightAndFill(dst, fill, nofFill);
@@ -434,15 +435,15 @@ void UTIL1_Num16sToStrFormatted(byte *dst, size_t dstSize, int16_t val, char fil
 /*!
   \brief Converts a 16bit unsigned number to a string, in a formatted way (like printf with "%0d").
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize Size of the destination buffer, in bytes.
+  \param[in] dstSize Size of the destination buffer, in uint8_ts.
   \param[in] val The 16bit unsigned number to add
   \param[in] fill Fill character, typically ' ' (like for "%2d" or '0' (for "%02d")
   \param[in] nofFill Size for the format (right aligned) string, e.g. '2' for "%2d"
 */
-void UTIL1_Num16uToStrFormatted(byte *dst, size_t dstSize, word val, char fill, byte nofFill)
+void UTIL1_Num16uToStrFormatted(uint8_t *dst, size_t dstSize, uint16_t val, char fill, uint8_t nofFill)
 {
   UTIL1_Num16uToStr(dst, dstSize, val);
   ShiftRightAndFill(dst, fill, nofFill);
@@ -467,15 +468,15 @@ void UTIL1_Num16uToStrFormatted(byte *dst, size_t dstSize, word val, char fill, 
 /*!
   \brief Converts a 32bit unsigned number to a string, in a formatted way (like printf with "%0d").
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize Size of the destination buffer, in bytes.
+  \param[in] dstSize Size of the destination buffer, in uint8_ts.
   \param[in] val The 32bit unsigned number to add
   \param[in] fill Fill character, typically ' ' (like for "%2d" or '0' (for "%02d")
   \param[in] nofFill Size for the format (right aligned) string, e.g. '2' for "%2d"
 */
-void UTIL1_Num32uToStrFormatted(byte *dst, size_t dstSize, dword val, char fill, byte nofFill)
+void UTIL1_Num32uToStrFormatted(uint8_t *dst, size_t dstSize, uint32_t val, char fill, uint8_t nofFill)
 {
   UTIL1_Num32uToStr(dst, dstSize, val);
   ShiftRightAndFill(dst, fill, nofFill);
@@ -500,15 +501,15 @@ void UTIL1_Num32uToStrFormatted(byte *dst, size_t dstSize, dword val, char fill,
 /*!
   \brief Converts a 32bit signed number to a string, in a formatted way (like printf with "%0d").
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize Size of the destination buffer, in bytes.
+  \param[in] dstSize Size of the destination buffer, in uint8_ts.
   \param[in] val The 32bit signed number to add
   \param[in] fill Fill character, typically ' ' (like for "%2d" or '0' (for "%02d")
   \param[in] nofFill Size for the format (right aligned) string, e.g. '2' for "%2d"
 */
-void UTIL1_Num32sToStrFormatted(byte *dst, size_t dstSize, long val, char fill, byte nofFill)
+void UTIL1_Num32sToStrFormatted(uint8_t *dst, size_t dstSize, int32_t val, char fill, uint8_t nofFill)
 {
   UTIL1_Num32sToStr(dst, dstSize, val);
   ShiftRightAndFill(dst, fill, nofFill);
@@ -530,13 +531,13 @@ void UTIL1_Num32sToStrFormatted(byte *dst, size_t dstSize, long val, char fill, 
 */
 /*!
   \brief appends a 8bit unsigned number to a string. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 8bit unsigned number to add
   */
-void UTIL1_strcatNum8u(byte *dst, size_t dstSize, byte val)
+void UTIL1_strcatNum8u(uint8_t *dst, size_t dstSize, uint8_t val)
 {
   unsigned char buf[sizeof("256")]; /* maximum buffer size we need */
 
@@ -560,13 +561,13 @@ void UTIL1_strcatNum8u(byte *dst, size_t dstSize, byte val)
 */
 /*!
   \brief appends a 8bit signed number to a string. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 8bit signed number to add
   */
-void UTIL1_strcatNum8s(byte *dst, size_t dstSize, signed char val)
+void UTIL1_strcatNum8s(uint8_t *dst, size_t dstSize, signed char val)
 {
   unsigned char buf[sizeof("-128")]; /* maximum buffer size we need */
 
@@ -590,13 +591,13 @@ void UTIL1_strcatNum8s(byte *dst, size_t dstSize, signed char val)
 */
 /*!
   \brief appends a 16bit unsigned number to a string. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 16bit unsigned number to add
   */
-void UTIL1_strcatNum16u(byte *dst, size_t dstSize, word val)
+void UTIL1_strcatNum16u(uint8_t *dst, size_t dstSize, uint16_t val)
 {
   unsigned char buf[sizeof("32768")]; /* maximum buffer size we need */
 
@@ -620,13 +621,13 @@ void UTIL1_strcatNum16u(byte *dst, size_t dstSize, word val)
 */
 /*!
   \brief appends a 16bit signed number to a string. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 16bit signed number to add
   */
-void UTIL1_strcatNum16s(byte *dst, size_t dstSize, int16_t val)
+void UTIL1_strcatNum16s(uint8_t *dst, size_t dstSize, int16_t val)
 {
   unsigned char buf[sizeof("-32768")]; /* maximum buffer size we need */
 
@@ -654,15 +655,15 @@ void UTIL1_strcatNum16s(byte *dst, size_t dstSize, int16_t val)
 /*!
   \brief appends a 16bit unsigned number to a string, in a formatted way (like printf with "%0d".
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 16bit unsigned number to add
   \param[in] fill Fill character
   \param[in] nofFill Number of fill characters
   */
-void UTIL1_strcatNum16uFormatted(byte *dst, size_t dstSize, word val, char fill, byte nofFill)
+void UTIL1_strcatNum16uFormatted(uint8_t *dst, size_t dstSize, uint16_t val, char fill, uint8_t nofFill)
 {
   unsigned char buf[sizeof("32768")]; /* maximum buffer size we need */
 
@@ -690,15 +691,15 @@ void UTIL1_strcatNum16uFormatted(byte *dst, size_t dstSize, word val, char fill,
 /*!
   \brief appends a 16bit signed number to a string, in a formatted way (like printf with "%0d".
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 16bit signed number to add
   \param[in] fill Fill character
   \param[in] nofFill Number of fill characters
   */
-void UTIL1_strcatNum16sFormatted(byte *dst, size_t dstSize, int16_t val, char fill, byte nofFill)
+void UTIL1_strcatNum16sFormatted(uint8_t *dst, size_t dstSize, int16_t val, char fill, uint8_t nofFill)
 {
   unsigned char buf[sizeof("-32768")]; /* maximum buffer size we need */
 
@@ -726,15 +727,15 @@ void UTIL1_strcatNum16sFormatted(byte *dst, size_t dstSize, int16_t val, char fi
 /*!
   \brief appends a 32bit unsigned number to a string, in a formatted way (like printf with "%0d".
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 32bit unsigned number to add
   \param[in] fill Fill character
   \param[in] nofFill Number of fill characters
   */
-void UTIL1_strcatNum32uFormatted(byte *dst, size_t dstSize, dword val, char fill, byte nofFill)
+void UTIL1_strcatNum32uFormatted(uint8_t *dst, size_t dstSize, uint32_t val, char fill, uint8_t nofFill)
 {
   unsigned char buf[sizeof("4294967295")]; /* maximum buffer size we need */
 
@@ -762,15 +763,15 @@ void UTIL1_strcatNum32uFormatted(byte *dst, size_t dstSize, dword val, char fill
 /*!
   \brief appends a 32bit signed number to a string, in a formatted way (like printf with "%0d".
      Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 32bit signed number to add
   \param[in] fill Fill character
   \param[in] nofFill Number of fill characters
   */
-void UTIL1_strcatNum32sFormatted(byte *dst, size_t dstSize, long val, char fill, byte nofFill)
+void UTIL1_strcatNum32sFormatted(uint8_t *dst, size_t dstSize, int32_t val, char fill, uint8_t nofFill)
 {
   unsigned char buf[sizeof("-4294967295")]; /* maximum buffer size we need */
 
@@ -796,10 +797,10 @@ void UTIL1_strcatNum32sFormatted(byte *dst, size_t dstSize, long val, char fill,
 /*!
   \brief Adds a 8bit number as hex value to a string.
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] num The 8bit number to add
   */
-void UTIL1_strcatNum8Hex(byte *dst, size_t dstSize, byte num)
+void UTIL1_strcatNum8Hex(uint8_t *dst, size_t dstSize, uint8_t num)
 {
   unsigned char buf[sizeof("FF")]; /* maximum buffer size we need */
   unsigned char hex;
@@ -830,10 +831,10 @@ void UTIL1_strcatNum8Hex(byte *dst, size_t dstSize, byte num)
 /*!
   \brief Adds a 16bit number as hex value to a string.
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] num The 16bit number to add
   */
-void UTIL1_strcatNum16Hex(byte *dst, size_t dstSize, word num)
+void UTIL1_strcatNum16Hex(uint8_t *dst, size_t dstSize, uint16_t num)
 {
   unsigned char buf[sizeof("FFFF")]; /* maximum buffer size we need */
   unsigned char hex;
@@ -868,10 +869,10 @@ void UTIL1_strcatNum16Hex(byte *dst, size_t dstSize, word num)
 /*!
   \brief Adds a 24bit number as hex value to a string.
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] num The 24bit number to add
   */
-void UTIL1_strcatNum24Hex(byte *dst, size_t dstSize, dword num)
+void UTIL1_strcatNum24Hex(uint8_t *dst, size_t dstSize, uint32_t num)
 {
   unsigned char buf[sizeof("FFFFFF")]; /* maximum buffer size we need */
   unsigned char hex;
@@ -906,10 +907,10 @@ void UTIL1_strcatNum24Hex(byte *dst, size_t dstSize, dword num)
 /*!
   \brief Adds a 32bit number as hex value to a string.
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] num The 32bit number to add
   */
-void UTIL1_strcatNum32Hex(byte *dst, size_t dstSize, dword num)
+void UTIL1_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num)
 {
   unsigned char buf[sizeof("FFFFFFFF")]; /* maximum buffer size we need */
   unsigned char hex;
@@ -942,13 +943,13 @@ void UTIL1_strcatNum32Hex(byte *dst, size_t dstSize, dword num)
 */
 /*!
   \brief appends a 32bit (long) number to a string. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 32bit number to add
   */
-void UTIL1_strcatNum32s(byte *dst, size_t dstSize, long val)
+void UTIL1_strcatNum32s(uint8_t *dst, size_t dstSize, int32_t val)
 {
   unsigned char buf[sizeof("-4294967295")]; /* maximum buffer size we need */
 
@@ -972,13 +973,13 @@ void UTIL1_strcatNum32s(byte *dst, size_t dstSize, long val)
 */
 /*!
   \brief appends a 32bit (unsigned long) number to a string. Always terminates the result string.
-     Note: count is the size of dst INCLUDING zero byte.
+     Note: count is the size of dst INCLUDING zero uint8_t.
      Precondition: src, dst != NULL
   \param[in,out] dst Start of buffer, where to append the number string
-  \param[in] dstSize The size of the buffer, including the zero byte
+  \param[in] dstSize The size of the buffer, including the zero uint8_t
   \param[in] val The 32bit unsigned number to add
   */
-void UTIL1_strcatNum32u(byte *dst, size_t dstSize, dword val)
+void UTIL1_strcatNum32u(uint8_t *dst, size_t dstSize, uint32_t val)
 {
   unsigned char buf[sizeof("4294967295")]; /* maximum buffer size we need */
 
@@ -1003,10 +1004,10 @@ void UTIL1_strcatNum32u(byte *dst, size_t dstSize, dword val)
 /*!
   \brief Converts a 32bit number to a string.
   \param[in,out] dst String buffer to store the number.
-  \param[in] dstSize Size of the destination buffer in bytes.
+  \param[in] dstSize Size of the destination buffer in uint8_ts.
   \param[in] val 32bit signed number to convert.
  */
-void UTIL1_Num32sToStr(byte *dst, size_t dstSize, long val)
+void UTIL1_Num32sToStr(uint8_t *dst, size_t dstSize, int32_t val)
 {
   unsigned char *ptr = ((unsigned char *)dst);
   unsigned char i=0, j;
@@ -1017,7 +1018,7 @@ void UTIL1_Num32sToStr(byte *dst, size_t dstSize, long val)
     UTIL1_strcpy(dst, dstSize, (unsigned char*)"-2147483648");
     return;
   }
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   if (sign) {
     val = -val;
   }
@@ -1059,16 +1060,16 @@ void UTIL1_Num32sToStr(byte *dst, size_t dstSize, long val)
 /*!
   \brief Converts a 32bit signed number to a string.
   \param[in,out] dst String buffer to store the number.
-  \param[in] dstSize Size of the destination buffer in bytes.
+  \param[in] dstSize Size of the destination buffer in uint8_ts.
   \param[in] val 32bit unsigned number to convert.
  */
-void UTIL1_Num32uToStr(byte *dst, size_t dstSize, dword val)
+void UTIL1_Num32uToStr(uint8_t *dst, size_t dstSize, uint32_t val)
 {
   unsigned char *ptr = ((unsigned char *)dst);
   unsigned char i=0, j;
   unsigned char tmp;
 
-  dstSize--; /* for zero byte */
+  dstSize--; /* for zero uint8_t */
   if (val == 0 && dstSize > 0){
     ptr[i++] = '0';
     dstSize--;
@@ -1098,7 +1099,7 @@ void UTIL1_Num32uToStr(byte *dst, size_t dstSize, dword val)
 **         ---             - If the year is a leap year or not.
 ** ===================================================================
 */
-bool UTIL1_IsLeapYear(word year)
+bool UTIL1_IsLeapYear(uint16_t year)
 {
   return ((((year%4)==0) && (year%100)!=0) || (year%400)==0);
 }
@@ -1119,13 +1120,13 @@ bool UTIL1_IsLeapYear(word year)
 **                           Monday, 2 for Tuesday, etc.
 ** ===================================================================
 */
-byte UTIL1_WeekDay(word year, byte month, byte day)
+uint8_t UTIL1_WeekDay(uint16_t year, uint8_t month, uint8_t day)
 {
   /* see http://klausler.com/new-dayofweek.html */
-  static const byte skew[12] = {0,3,3,6,1,4,6,2,5,0,3,5};
-  word sum;
+  static const uint8_t skew[12] = {0,3,3,6,1,4,6,2,5,0,3,5};
+  uint16_t sum;
 
-  sum = (word)(year-1900);
+  sum = (uint16_t)(year-1900);
   sum += sum/4;
   sum %= 7;
   if (UTIL1_IsLeapYear(year) && (month==1 || month==2)) {
@@ -1135,7 +1136,7 @@ byte UTIL1_WeekDay(word year, byte month, byte day)
   sum %= 7;
   sum += skew[month-1];
   sum %= 7;
-  return (byte)sum; /* 0: Sunday, 1: Monday, 2: Tuesday, 3: Wednesday, ... */
+  return (uint8_t)sum; /* 0: Sunday, 1: Monday, 2: Tuesday, 3: Wednesday, ... */
 }
 
 /*
@@ -1168,7 +1169,7 @@ byte UTIL1_WeekDay(word year, byte month, byte day)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ReadEscapedName(const unsigned char *filename, byte *destname, size_t maxlen, size_t *lenRead, size_t *lenWritten, const char *terminators)
+uint8_t UTIL1_ReadEscapedName(const unsigned char *filename, uint8_t *destname, size_t maxlen, size_t *lenRead, size_t *lenWritten, const char *terminators)
 {
   size_t lenCopied = 0, lenOverread = 0;
   bool quoteMode = FALSE;  /* quoteMode means the name is surrounded by ". In this mode, only a second single quote "
@@ -1224,7 +1225,7 @@ byte UTIL1_ReadEscapedName(const unsigned char *filename, byte *destname, size_t
     *lenRead = lenCopied+lenOverread;
   }
   if (lenWritten != NULL) {
-    *lenWritten = lenCopied + 1; /* additionally a zero byte written */
+    *lenWritten = lenCopied + 1; /* additionally a zero uint8_t written */
   }
   return res;
 }
@@ -1258,7 +1259,7 @@ byte UTIL1_ReadEscapedName(const unsigned char *filename, byte *destname, size_t
 #ifdef __HC12__
   #pragma MESSAGE DISABLE C12056  /* message about SP debug info */
 #endif
-byte UTIL1_xatoi(const unsigned char **str, int32_t *res)
+uint8_t UTIL1_xatoi(const unsigned char **str, int32_t *res)
 {
 /* 123 -5   0x3ff 0b1111 0377 3.25  w "
       ^                               1st call returns 123 and next ptr
@@ -1345,7 +1346,7 @@ byte UTIL1_xatoi(const unsigned char **str, int32_t *res)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDate(const unsigned char **str, byte *day, byte *month, word *year)
+uint8_t UTIL1_ScanDate(const unsigned char **str, uint8_t *day, uint8_t *month, uint16_t *year)
 {
   /* precondition: string points to starting of date, e.g. "01.01.10" or "12.5.2010", and date is in format dd.mm.yy or dd.mm.yyyy */
   const unsigned char *p;
@@ -1406,7 +1407,7 @@ byte UTIL1_ScanDate(const unsigned char **str, byte *day, byte *month, word *yea
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanTime(const unsigned char **str, byte *hour, byte *minute, byte *second, byte *hSecond)
+uint8_t UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t *minute, uint8_t *second, uint8_t *hSecond)
 {
   /* precondition: string points to starting of time string, e.g. "03:15:05" or "03:15:05,3" or "03:15:05,17", and time is in format hh:mm:ss[,hh] */
   const unsigned char *p;
@@ -1479,7 +1480,7 @@ byte UTIL1_ScanTime(const unsigned char **str, byte *hour, byte *minute, byte *s
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDecimal8uNumber(const unsigned char **str, byte *val)
+uint8_t UTIL1_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val)
 {
   /* scans a decimal number, and stops at any non-number. Number can have any preceding zeros or spaces. */
   #define _8_NOF_DIGITS  (3+1)
@@ -1519,7 +1520,7 @@ byte UTIL1_ScanDecimal8uNumber(const unsigned char **str, byte *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val)
+uint8_t UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val)
 {
   /* Scans a decimal number, and stops at any non-number. Number can have any preceding spaces. */
   const unsigned char *p = *str;
@@ -1564,7 +1565,7 @@ byte UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDecimal16uNumber(const unsigned char **str, word *val)
+uint8_t UTIL1_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val)
 {
   /* scans a decimal number, and stops at any non-number. Number can have any preceding zeros or spaces. */
   #define _16_NOF_DIGITS  (5+1)
@@ -1604,7 +1605,7 @@ byte UTIL1_ScanDecimal16uNumber(const unsigned char **str, word *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val)
+uint8_t UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val)
 {
   /* Scans a decimal number, and stops at any non-number. Number can have any preceding spaces. */
   const unsigned char *p = *str;
@@ -1622,7 +1623,7 @@ byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val)
   } else {
     isNeg = FALSE;
   }
-  res = UTIL1_ScanDecimal16uNumber(&p, &val16u);
+  res = UTIL1_ScanDecimal16uNumber(&p, (uint16_t*)&val16u);
   if (res != ERR_OK) {
     return res;
   }
@@ -1649,7 +1650,7 @@ byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val)
+uint8_t UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val)
 {
   /* scans a decimal number, and stops at any non-number. Number can have any preceding zeros or spaces. */
   #define _32_NOF_DIGITS  (10+1)
@@ -1689,7 +1690,7 @@ byte UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val)
+byte UTIL1_ScanDecimal32sNumber(const unsigned char **str, int32_t *val)
 {
   /* Scans a decimal number, and stops at any non-number. Number can have any preceding spaces. */
   const unsigned char *p = *str;
@@ -1712,9 +1713,9 @@ byte UTIL1_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val)
     return res;
   }
   if (isNeg) {
-    *val = (uint32_t)(-(int32_t)val32u);
+    *val = (int32_t)(-(int32_t)val32u);
   } else {
-    *val = val32u;
+    *val = (int32_t)val32u;
   }
   *str = p;
   return ERR_OK;
@@ -1776,13 +1777,13 @@ int16_t UTIL1_strncmp(const char *, const char *, size_t size)
 ** ===================================================================
 */
 /***
-word UTIL1_strlen(const char *)
+uint16_t UTIL1_strlen(const char *)
 {
   Method is implemented as macro in the header file as wrapper to the standard strlen() function
 }
 */
 
-static byte PreScanHexNumber(const unsigned char **str)
+static uint8_t PreScanHexNumber(const unsigned char **str)
 {
   const unsigned char *p = *str;
 
@@ -1801,7 +1802,7 @@ static byte PreScanHexNumber(const unsigned char **str)
   return ERR_OK;
 }
 
-static byte HexToDec(const unsigned char **p, unsigned char *val) {
+static uint8_t HexToDec(const unsigned char **p, unsigned char *val) {
   /* convert a hexadecimal character into a decimal value */
   unsigned char ch = **p;
 
@@ -1835,12 +1836,12 @@ static byte HexToDec(const unsigned char **p, unsigned char *val) {
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val)
+uint8_t UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val)
 {
   /* scans a decimal number, and stops at any non-number. Number can have any preceding zeros or spaces. */
   uint8_t nofDigits = 8+1; /* maximum number of digits to avoid overflow */
   const unsigned char *p = *str;
-  byte v;
+  uint8_t v;
 
   if (PreScanHexNumber(&p)!=ERR_OK) { /* skip leading spaces, and scan '0x' */
     return ERR_FAILED;
@@ -1871,12 +1872,12 @@ byte UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanHex16uNumber(const unsigned char **str, word *val)
+uint8_t UTIL1_ScanHex16uNumber(const unsigned char **str, uint16_t *val)
 {
   /* scans a decimal number, and stops at any non-number. Number can have any preceding zeros or spaces. */
   uint8_t nofDigits = 4+1; /* maximum number of digits to avoid overflow */
   const unsigned char *p = *str;
-  byte v;
+  uint8_t v;
 
   if (PreScanHexNumber(&p)!=ERR_OK) { /* skip leading spaces, and scan '0x' */
     return ERR_FAILED;
@@ -1907,12 +1908,12 @@ byte UTIL1_ScanHex16uNumber(const unsigned char **str, word *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanHex8uNumber(const unsigned char **str, byte *val)
+uint8_t UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val)
 {
   /* scans a hex number with 0x, and stops at any non-number. Number can have any preceding zeros or spaces. */
   uint8_t nofDigits = 2+1; /* maximum number of digits to avoid overflow */
   const unsigned char *p = *str;
-  byte v;
+  uint8_t v;
 
   if (PreScanHexNumber(&p)!=ERR_OK) { /* skip leading spaces, and scan '0x' */
     return ERR_FAILED;
@@ -1943,12 +1944,12 @@ byte UTIL1_ScanHex8uNumber(const unsigned char **str, byte *val)
 **         ---             - Error code
 ** ===================================================================
 */
-byte UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, byte *val)
+uint8_t UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val)
 {
   /* scans a hex number without 0x, and stops at any non-number. Number can have any preceding zeros or spaces. */
   uint8_t nofDigits = 2+1; /* maximum number of digits to avoid overflow */
   const unsigned char *p = *str;
-  byte v;
+  uint8_t v;
 
   while(*p==' ') { /* skip leading spaces */
     p++; /* skip space */
@@ -1980,7 +1981,7 @@ byte UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, byte *val)
 **         ---             - returns 0 if tail matches, -1 otherwise
 ** ===================================================================
 */
-byte UTIL1_strtailcmp(byte *str, byte *tail)
+uint8_t UTIL1_strtailcmp(uint8_t *str, uint8_t *tail)
 {
   int i, j;
 
@@ -2016,7 +2017,7 @@ byte UTIL1_strtailcmp(byte *str, byte *tail)
 **                           ERR_FAIL if tail is not found
 ** ===================================================================
 */
-byte UTIL1_strCutTail(byte *str, byte *tail)
+uint8_t UTIL1_strCutTail(uint8_t *str, uint8_t *tail)
 {
   /* cut the tail from the string */
   size_t strLen, tailLen;
@@ -2047,7 +2048,7 @@ byte UTIL1_strCutTail(byte *str, byte *tail)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void UTIL1_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num)
+void UTIL1_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num)
 {
   UTIL1_strcatNum32s(dst, dstSize, num/100);
   UTIL1_chcat(dst, dstSize, '.');
@@ -2073,7 +2074,7 @@ void UTIL1_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num)
 **                           index.
 ** ===================================================================
 */
-int16_t UTIL1_strFind(byte *str, byte *subStr)
+int16_t UTIL1_strFind(uint8_t *str, uint8_t *subStr)
 {
   int16_t i, len;
 
@@ -2086,6 +2087,58 @@ int16_t UTIL1_strFind(byte *str, byte *subStr)
   return -1; /* not found */
 }
 
+/*
+** ===================================================================
+**     Method      :  UTIL1_ScanSeparatedNumbers (component Utility)
+**     Description :
+**         Scans multiple numbers separated by character, e.g. "123.68.
+**         5.3"
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         str             - String to scan. It returns as well until
+**                           where it has scanned
+**       * values          - Pointer to array where to store the
+**                           values
+**         nofValues       - Number of values in the array
+**         separator       - Character separator, e.g. '.'
+**         numberType      - type of number to scan
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+uint8_t UTIL1_ScanSeparatedNumbers(const unsigned char **str, uint8_t *values, uint8_t nofValues, char separator, UTIL1_SeparatedNumberType numberType)
+{
+  int i;
+  uint8_t res;
+  const unsigned char *p;
+
+  if (nofValues<=1) {
+    return ERR_FAILED; /* need at least two values */
+  }
+  p = *str;
+  for(i=0;i<nofValues;i++) {
+    if (numberType==UTIL1_SEP_NUM_TYPE_UINT8) {
+      res = UTIL1_ScanDecimal8uNumber(&p, &values[i]);
+    } else if (numberType==UTIL1_SEP_NUM_TYPE_UINT8_HEX_NO_PREFIX) {
+      res = UTIL1_ScanHex8uNumberNoPrefix(&p, &values[i]);
+    } else {
+      res = ERR_FAILED;
+    }
+    if (res==ERR_OK) { /* parsing ok */
+      if (i!=nofValues-1) {
+        if ((*p)!=separator) { /* not last one */
+          return ERR_FAILED; /* wrong separator */
+        } /* if */
+        p++; /* skip separator and continue scanning */
+      } /* if */
+    } else {
+      return ERR_FAILED; /* failed parsing number */
+    } /* if */
+  } /* for */
+  *str = p;
+  return ERR_OK;
+}
+
 /* END UTIL1. */
 
 /*!
@@ -2094,7 +2147,7 @@ int16_t UTIL1_strFind(byte *str, byte *subStr)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

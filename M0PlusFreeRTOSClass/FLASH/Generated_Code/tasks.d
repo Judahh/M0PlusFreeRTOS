@@ -19,31 +19,32 @@ Generated_Code/tasks.o: ../Generated_Code/tasks.c \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h \
+ ../Generated_Code/FreeRTOS.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stddef.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
+ ../Generated_Code/FreeRTOSConfig.h ../Generated_Code/PE_Types.h \
+ ../Generated_Code/projdefs.h ../Generated_Code/portable.h \
+ ../Generated_Code/portmacro.h ../Generated_Code/mpu_wrappers.h \
+ ../Generated_Code/task.h ../Generated_Code/list.h \
+ ../Generated_Code/timers.h ../Generated_Code/StackMacros.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Events.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Types.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Error.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Const.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/IO_Map.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Types.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Error.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Const.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/IO_Map.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stddef.h \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef \
- C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL1.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Util/GlobalVariables.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/WAIT0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/projdefs.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOSConfig.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portable.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portmacro.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/mpu_wrappers.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/task.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/list.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU0.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
@@ -76,6 +77,8 @@ Generated_Code/tasks.o: ../Generated_Code/tasks.c \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/semphr.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/queue.h \
+ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/event_groups.h \
+ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/timers.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/GI2C0.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/CsIO0.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
@@ -89,9 +92,7 @@ Generated_Code/tasks.o: ../Generated_Code/tasks.c \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/IO1.h \
  C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS0.h \
- C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h \
- ../Generated_Code/FreeRTOS.h ../Generated_Code/task.h \
- ../Generated_Code/timers.h ../Generated_Code/StackMacros.h
+ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -133,6 +134,34 @@ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring:
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h:
 
+../Generated_Code/FreeRTOS.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stddef.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h:
+
+../Generated_Code/FreeRTOSConfig.h:
+
+../Generated_Code/PE_Types.h:
+
+../Generated_Code/projdefs.h:
+
+../Generated_Code/portable.h:
+
+../Generated_Code/portmacro.h:
+
+../Generated_Code/mpu_wrappers.h:
+
+../Generated_Code/task.h:
+
+../Generated_Code/list.h:
+
+../Generated_Code/timers.h:
+
+../Generated_Code/StackMacros.h:
+
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Events.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Types.h:
@@ -142,6 +171,8 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/PE_Const.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/IO_Map.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL0.h:
 
@@ -155,12 +186,6 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h:
 
-C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stddef.h:
-
-C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef:
-
-C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h:
-
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/UTIL1.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Sources/Util/GlobalVariables.h:
@@ -169,19 +194,7 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS.h:
 
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/projdefs.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOSConfig.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portable.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/portmacro.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/mpu_wrappers.h:
-
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/task.h:
-
-C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/list.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/TU0.h:
 
@@ -247,6 +260,10 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/queue.h:
 
+C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/event_groups.h:
+
+C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/timers.h:
+
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/GI2C0.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/CsIO0.h:
@@ -274,11 +291,3 @@ C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Cod
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/FreeRTOS0.h:
 
 C:/Users/Judah/Documents/GitHub/M0PlusFreeRTOS/M0PlusFreeRTOSClass/Generated_Code/Cpu.h:
-
-../Generated_Code/FreeRTOS.h:
-
-../Generated_Code/task.h:
-
-../Generated_Code/timers.h:
-
-../Generated_Code/StackMacros.h:

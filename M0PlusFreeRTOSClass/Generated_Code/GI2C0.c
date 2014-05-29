@@ -4,13 +4,15 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : GenericI2C
-**     Version     : Component 01.017, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.020, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-27, 17:55, # CodeGen: 187
+**     Date/Time   : 2014-05-28, 14:07, # CodeGen: 200
 **     Abstract    :
 **         This component implements a generic I2C driver wrapper to work both with LDD and non-LDD I2C components.
 **     Settings    :
 **          Component name                                 : GI2C0
+**          Wait                                           : WAIT0
+**          Support STOP_NOSTART                           : yes
 **          Write Buffer Size                              : 16
 **          non-LDD I2C                                    : Disabled
 **          LDD I2C                                        : Enabled
@@ -38,7 +40,7 @@
 **         Init              - void GI2C0_Init(void);
 **
 **     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2013, all rights reserved.
+**     Copyright : (c) Copyright Erich Styger, 2013-2014, all rights reserved.
 **     http          : www.mcuoneclipse.com
 **     This an open source software implementing software using Processor Expert.
 **     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
@@ -517,7 +519,7 @@ byte GI2C0_ProbeACK(void* data, word dataSize, GI2C0_EnumSendFlags flags, word W
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

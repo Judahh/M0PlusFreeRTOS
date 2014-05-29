@@ -7,10 +7,10 @@
 #include "TaskBuzzer.h"
 
 void taskBuzzerWork(void) {
-	Buzzer_SetVal();
-	FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
-	Buzzer_ClrVal();
-	FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
+//	Buzzer_SetVal();
+//	FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
+//	Buzzer_ClrVal();
+//	FreeRTOS0_vTaskDelay(1000 / portTICK_RATE_MS);
 }
 
 /**************************************************************************/
@@ -56,7 +56,6 @@ signed portBASE_TYPE taskBuzzerStart(void) {
  */
 /**************************************************************************/
 signed portBASE_TYPE taskBuzzerStop(void) {
-	MMA0_Deinit();
 	if (!taskHandles[taskBuzzerHandle])
 		return 0;
 

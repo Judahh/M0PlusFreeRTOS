@@ -8,6 +8,7 @@
 "./Generated_Code/heap_3.o"
 "./Generated_Code/heap_2.o"
 "./Generated_Code/heap_1.o"
+"./Generated_Code/event_groups.o"
 "./Generated_Code/croutine.o"
 "./Generated_Code/WAIT0.o"
 "./Generated_Code/Vectors.o"

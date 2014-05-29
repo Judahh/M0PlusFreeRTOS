@@ -4,64 +4,65 @@
 **     Project     : ProcessorExpert
 **     Processor   : MKL25Z128VLK4
 **     Component   : Utility
-**     Version     : Component 01.095, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.104, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2014-05-27, 17:55, # CodeGen: 187
+**     Date/Time   : 2014-05-28, 14:07, # CodeGen: 200
 **     Abstract    :
 **          Contains various utility functions.
 **     Settings    :
 **          Component name                                 : UTIL0
 **     Contents    :
-**         strcpy                  - void UTIL0_strcpy(byte *dst, size_t dstSize, const unsigned char *src);
-**         strcat                  - void UTIL0_strcat(byte *dst, size_t dstSize, const unsigned char *src);
-**         chcat                   - void UTIL0_chcat(byte *dst, size_t dstSize, byte ch);
-**         Num8sToStr              - void UTIL0_Num8sToStr(byte *dst, size_t dstSize, signed char val);
-**         Num8uToStr              - void UTIL0_Num8uToStr(byte *dst, size_t dstSize, byte val);
-**         Num16sToStr             - void UTIL0_Num16sToStr(byte *dst, size_t dstSize, int16_t val);
-**         Num16uToStr             - void UTIL0_Num16uToStr(byte *dst, size_t dstSize, word val);
-**         Num32uToStr             - void UTIL0_Num32uToStr(byte *dst, size_t dstSize, dword val);
-**         Num32sToStr             - void UTIL0_Num32sToStr(byte *dst, size_t dstSize, long val);
-**         Num16sToStrFormatted    - void UTIL0_Num16sToStrFormatted(byte *dst, size_t dstSize, int16_t val, char...
-**         Num16uToStrFormatted    - void UTIL0_Num16uToStrFormatted(byte *dst, size_t dstSize, word val, char...
-**         Num32uToStrFormatted    - void UTIL0_Num32uToStrFormatted(byte *dst, size_t dstSize, dword val, char...
-**         Num32sToStrFormatted    - void UTIL0_Num32sToStrFormatted(byte *dst, size_t dstSize, long val, char...
-**         strcatNum8u             - void UTIL0_strcatNum8u(byte *dst, size_t dstSize, byte val);
-**         strcatNum8s             - void UTIL0_strcatNum8s(byte *dst, size_t dstSize, signed char val);
-**         strcatNum16u            - void UTIL0_strcatNum16u(byte *dst, size_t dstSize, word val);
-**         strcatNum16s            - void UTIL0_strcatNum16s(byte *dst, size_t dstSize, int16_t val);
-**         strcatNum32u            - void UTIL0_strcatNum32u(byte *dst, size_t dstSize, dword val);
-**         strcatNum32s            - void UTIL0_strcatNum32s(byte *dst, size_t dstSize, long val);
-**         strcatNum16uFormatted   - void UTIL0_strcatNum16uFormatted(byte *dst, size_t dstSize, word val, char...
-**         strcatNum16sFormatted   - void UTIL0_strcatNum16sFormatted(byte *dst, size_t dstSize, int16_t val, char...
-**         strcatNum32uFormatted   - void UTIL0_strcatNum32uFormatted(byte *dst, size_t dstSize, dword val, char...
-**         strcatNum32sFormatted   - void UTIL0_strcatNum32sFormatted(byte *dst, size_t dstSize, long val, char...
-**         strcatNum8Hex           - void UTIL0_strcatNum8Hex(byte *dst, size_t dstSize, byte num);
-**         strcatNum16Hex          - void UTIL0_strcatNum16Hex(byte *dst, size_t dstSize, word num);
-**         strcatNum24Hex          - void UTIL0_strcatNum24Hex(byte *dst, size_t dstSize, dword num);
-**         strcatNum32Hex          - void UTIL0_strcatNum32Hex(byte *dst, size_t dstSize, dword num);
-**         strcatNum32sDotValue100 - void UTIL0_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num);
-**         IsLeapYear              - bool UTIL0_IsLeapYear(word year);
-**         WeekDay                 - byte UTIL0_WeekDay(word year, byte month, byte day);
-**         ReadEscapedName         - byte UTIL0_ReadEscapedName(const unsigned char *filename, byte *destname,...
+**         strcpy                  - void UTIL0_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src);
+**         strcat                  - void UTIL0_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src);
+**         chcat                   - void UTIL0_chcat(uint8_t *dst, size_t dstSize, uint8_t ch);
+**         Num8sToStr              - void UTIL0_Num8sToStr(uint8_t *dst, size_t dstSize, signed char val);
+**         Num8uToStr              - void UTIL0_Num8uToStr(uint8_t *dst, size_t dstSize, uint8_t val);
+**         Num16sToStr             - void UTIL0_Num16sToStr(uint8_t *dst, size_t dstSize, int16_t val);
+**         Num16uToStr             - void UTIL0_Num16uToStr(uint8_t *dst, size_t dstSize, uint16_t val);
+**         Num32uToStr             - void UTIL0_Num32uToStr(uint8_t *dst, size_t dstSize, uint32_t val);
+**         Num32sToStr             - void UTIL0_Num32sToStr(uint8_t *dst, size_t dstSize, int32_t val);
+**         Num16sToStrFormatted    - void UTIL0_Num16sToStrFormatted(uint8_t *dst, size_t dstSize, int16_t val,...
+**         Num16uToStrFormatted    - void UTIL0_Num16uToStrFormatted(uint8_t *dst, size_t dstSize, uint16_t val,...
+**         Num32uToStrFormatted    - void UTIL0_Num32uToStrFormatted(uint8_t *dst, size_t dstSize, uint32_t val,...
+**         Num32sToStrFormatted    - void UTIL0_Num32sToStrFormatted(uint8_t *dst, size_t dstSize, int32_t val,...
+**         strcatNum8u             - void UTIL0_strcatNum8u(uint8_t *dst, size_t dstSize, uint8_t val);
+**         strcatNum8s             - void UTIL0_strcatNum8s(uint8_t *dst, size_t dstSize, signed char val);
+**         strcatNum16u            - void UTIL0_strcatNum16u(uint8_t *dst, size_t dstSize, uint16_t val);
+**         strcatNum16s            - void UTIL0_strcatNum16s(uint8_t *dst, size_t dstSize, int16_t val);
+**         strcatNum32u            - void UTIL0_strcatNum32u(uint8_t *dst, size_t dstSize, uint32_t val);
+**         strcatNum32s            - void UTIL0_strcatNum32s(uint8_t *dst, size_t dstSize, int32_t val);
+**         strcatNum16uFormatted   - void UTIL0_strcatNum16uFormatted(uint8_t *dst, size_t dstSize, uint16_t val,...
+**         strcatNum16sFormatted   - void UTIL0_strcatNum16sFormatted(uint8_t *dst, size_t dstSize, int16_t val,...
+**         strcatNum32uFormatted   - void UTIL0_strcatNum32uFormatted(uint8_t *dst, size_t dstSize, uint32_t val,...
+**         strcatNum32sFormatted   - void UTIL0_strcatNum32sFormatted(uint8_t *dst, size_t dstSize, int32_t val,...
+**         strcatNum8Hex           - void UTIL0_strcatNum8Hex(uint8_t *dst, size_t dstSize, uint8_t num);
+**         strcatNum16Hex          - void UTIL0_strcatNum16Hex(uint8_t *dst, size_t dstSize, uint16_t num);
+**         strcatNum24Hex          - void UTIL0_strcatNum24Hex(uint8_t *dst, size_t dstSize, uint32_t num);
+**         strcatNum32Hex          - void UTIL0_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num);
+**         strcatNum32sDotValue100 - void UTIL0_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num);
+**         IsLeapYear              - bool UTIL0_IsLeapYear(uint16_t year);
+**         WeekDay                 - byte UTIL0_WeekDay(uint16_t year, uint8_t month, uint8_t day);
+**         ReadEscapedName         - byte UTIL0_ReadEscapedName(const unsigned char *filename, uint8_t *destname,...
 **         xatoi                   - byte UTIL0_xatoi(const unsigned char **str, int32_t *res);
-**         ScanDate                - byte UTIL0_ScanDate(const unsigned char **str, byte *day, byte *month, word...
-**         ScanTime                - byte UTIL0_ScanTime(const unsigned char **str, byte *hour, byte *minute, byte...
-**         ScanDecimal8uNumber     - byte UTIL0_ScanDecimal8uNumber(const unsigned char **str, byte *val);
+**         ScanDate                - byte UTIL0_ScanDate(const unsigned char **str, uint8_t *day, uint8_t *month,...
+**         ScanTime                - byte UTIL0_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t...
+**         ScanDecimal8uNumber     - byte UTIL0_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
 **         ScanDecimal8sNumber     - byte UTIL0_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
-**         ScanDecimal16uNumber    - byte UTIL0_ScanDecimal16uNumber(const unsigned char **str, word *val);
+**         ScanDecimal16uNumber    - byte UTIL0_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
 **         ScanDecimal16sNumber    - byte UTIL0_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
 **         ScanDecimal32uNumber    - byte UTIL0_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
-**         ScanDecimal32sNumber    - byte UTIL0_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val);
-**         ScanHex8uNumber         - byte UTIL0_ScanHex8uNumber(const unsigned char **str, byte *val);
-**         ScanHex8uNumberNoPrefix - byte UTIL0_ScanHex8uNumberNoPrefix(const unsigned char **str, byte *val);
-**         ScanHex16uNumber        - byte UTIL0_ScanHex16uNumber(const unsigned char **str, word *val);
-**         ScanHex32uNumber        - byte UTIL0_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
+**         ScanDecimal32sNumber    - byte UTIL0_ScanDecimal32sNumber(const unsigned char **str, int32_t *val);
+**         ScanHex8uNumber         - byte UTIL0_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
+**         ScanHex8uNumberNoPrefix - byte UTIL0_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
+**         ScanHex16uNumber        - byte UTIL0_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
+**         ScanHex32uNumber        - uint8_t UTIL0_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
+**         ScanSeparatedNumbers    - uint8_t UTIL0_ScanSeparatedNumbers(const unsigned char **str, uint8_t...
 **         strcmp                  - int16_t UTIL0_strcmp(const char *, const char *);
 **         strncmp                 - int16_t UTIL0_strncmp(const char *, const char *, size_t size);
-**         strFind                 - int16_t UTIL0_strFind(byte *str, byte *subStr);
-**         strtailcmp              - byte UTIL0_strtailcmp(byte *str, byte *tail);
+**         strFind                 - int16_t UTIL0_strFind(uint8_t *str, uint8_t *subStr);
+**         strtailcmp              - byte UTIL0_strtailcmp(uint8_t *str, uint8_t *tail);
 **         strlen                  - word UTIL0_strlen(const char *);
-**         strCutTail              - byte UTIL0_strCutTail(byte *str, byte *tail);
+**         strCutTail              - byte UTIL0_strCutTail(uint8_t *str, uint8_t *tail);
 **
 **     License   :  Open Source (LGPL)
 **     Copyright : (c) Copyright Erich Styger, 2014, all rights reserved.
@@ -102,8 +103,13 @@
 
 #include <stddef.h>
 
+typedef enum {
+  UTIL0_SEP_NUM_TYPE_UINT8, /* uint8_t number type */
+  UTIL0_SEP_NUM_TYPE_UINT8_HEX_NO_PREFIX /* uint8_t hex number type, no 0x prefix */
+} UTIL0_SeparatedNumberType;
 
-void UTIL0_strcpy(byte *dst, size_t dstSize, const unsigned char *src);
+
+void UTIL0_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcpy (component Utility)
@@ -120,7 +126,7 @@ void UTIL0_strcpy(byte *dst, size_t dstSize, const unsigned char *src);
 ** ===================================================================
 */
 
-void UTIL0_strcat(byte *dst, size_t dstSize, const unsigned char *src);
+void UTIL0_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcat (component Utility)
@@ -137,7 +143,7 @@ void UTIL0_strcat(byte *dst, size_t dstSize, const unsigned char *src);
 ** ===================================================================
 */
 
-void UTIL0_Num16sToStr(byte *dst, size_t dstSize, int16_t val);
+void UTIL0_Num16sToStr(uint8_t *dst, size_t dstSize, int16_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num16sToStr (component Utility)
@@ -153,7 +159,7 @@ void UTIL0_Num16sToStr(byte *dst, size_t dstSize, int16_t val);
 ** ===================================================================
 */
 
-void UTIL0_Num16sToStrFormatted(byte *dst, size_t dstSize, int16_t val, char fill, byte nofFill);
+void UTIL0_Num16sToStrFormatted(uint8_t *dst, size_t dstSize, int16_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num16sToStrFormatted (component Utility)
@@ -171,7 +177,7 @@ void UTIL0_Num16sToStrFormatted(byte *dst, size_t dstSize, int16_t val, char fil
 ** ===================================================================
 */
 
-void UTIL0_strcatNum16s(byte *dst, size_t dstSize, int16_t val);
+void UTIL0_strcatNum16s(uint8_t *dst, size_t dstSize, int16_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum16s (component Utility)
@@ -187,7 +193,7 @@ void UTIL0_strcatNum16s(byte *dst, size_t dstSize, int16_t val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum16sFormatted(byte *dst, size_t dstSize, int16_t val, char fill, byte nofFill);
+void UTIL0_strcatNum16sFormatted(uint8_t *dst, size_t dstSize, int16_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum16sFormatted (component Utility)
@@ -206,7 +212,7 @@ void UTIL0_strcatNum16sFormatted(byte *dst, size_t dstSize, int16_t val, char fi
 ** ===================================================================
 */
 
-void UTIL0_strcatNum8Hex(byte *dst, size_t dstSize, byte num);
+void UTIL0_strcatNum8Hex(uint8_t *dst, size_t dstSize, uint8_t num);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum8Hex (component Utility)
@@ -223,7 +229,7 @@ void UTIL0_strcatNum8Hex(byte *dst, size_t dstSize, byte num);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum16Hex(byte *dst, size_t dstSize, word num);
+void UTIL0_strcatNum16Hex(uint8_t *dst, size_t dstSize, uint16_t num);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum16Hex (component Utility)
@@ -240,7 +246,7 @@ void UTIL0_strcatNum16Hex(byte *dst, size_t dstSize, word num);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum32s(byte *dst, size_t dstSize, long val);
+void UTIL0_strcatNum32s(uint8_t *dst, size_t dstSize, int32_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum32s (component Utility)
@@ -256,7 +262,7 @@ void UTIL0_strcatNum32s(byte *dst, size_t dstSize, long val);
 ** ===================================================================
 */
 
-void UTIL0_Num32sToStr(byte *dst, size_t dstSize, long val);
+void UTIL0_Num32sToStr(uint8_t *dst, size_t dstSize, int32_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num32sToStr (component Utility)
@@ -272,7 +278,7 @@ void UTIL0_Num32sToStr(byte *dst, size_t dstSize, long val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum32Hex(byte *dst, size_t dstSize, dword num);
+void UTIL0_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum32Hex (component Utility)
@@ -289,7 +295,7 @@ void UTIL0_strcatNum32Hex(byte *dst, size_t dstSize, dword num);
 ** ===================================================================
 */
 
-bool UTIL0_IsLeapYear(word year);
+bool UTIL0_IsLeapYear(uint16_t year);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_IsLeapYear (component Utility)
@@ -303,7 +309,7 @@ bool UTIL0_IsLeapYear(word year);
 ** ===================================================================
 */
 
-byte UTIL0_WeekDay(word year, byte month, byte day);
+uint8_t UTIL0_WeekDay(uint16_t year, uint8_t month, uint8_t day);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_WeekDay (component Utility)
@@ -321,7 +327,7 @@ byte UTIL0_WeekDay(word year, byte month, byte day);
 ** ===================================================================
 */
 
-void UTIL0_chcat(byte *dst, size_t dstSize, byte ch);
+void UTIL0_chcat(uint8_t *dst, size_t dstSize, uint8_t ch);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_chcat (component Utility)
@@ -338,7 +344,7 @@ void UTIL0_chcat(byte *dst, size_t dstSize, byte ch);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum32u(byte *dst, size_t dstSize, dword val);
+void UTIL0_strcatNum32u(uint8_t *dst, size_t dstSize, uint32_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum32u (component Utility)
@@ -354,7 +360,7 @@ void UTIL0_strcatNum32u(byte *dst, size_t dstSize, dword val);
 ** ===================================================================
 */
 
-void UTIL0_Num32uToStr(byte *dst, size_t dstSize, dword val);
+void UTIL0_Num32uToStr(uint8_t *dst, size_t dstSize, uint32_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num32uToStr (component Utility)
@@ -370,7 +376,7 @@ void UTIL0_Num32uToStr(byte *dst, size_t dstSize, dword val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum32uFormatted(byte *dst, size_t dstSize, dword val, char fill, byte nofFill);
+void UTIL0_strcatNum32uFormatted(uint8_t *dst, size_t dstSize, uint32_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum32uFormatted (component Utility)
@@ -389,7 +395,7 @@ void UTIL0_strcatNum32uFormatted(byte *dst, size_t dstSize, dword val, char fill
 ** ===================================================================
 */
 
-void UTIL0_Num32uToStrFormatted(byte *dst, size_t dstSize, dword val, char fill, byte nofFill);
+void UTIL0_Num32uToStrFormatted(uint8_t *dst, size_t dstSize, uint32_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num32uToStrFormatted (component Utility)
@@ -407,7 +413,7 @@ void UTIL0_Num32uToStrFormatted(byte *dst, size_t dstSize, dword val, char fill,
 ** ===================================================================
 */
 
-void UTIL0_strcatNum24Hex(byte *dst, size_t dstSize, dword num);
+void UTIL0_strcatNum24Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum24Hex (component Utility)
@@ -424,7 +430,7 @@ void UTIL0_strcatNum24Hex(byte *dst, size_t dstSize, dword num);
 ** ===================================================================
 */
 
-byte UTIL0_ReadEscapedName(const unsigned char *filename, byte *destname, size_t maxlen, size_t *lenRead, size_t *lenWritten, const char *terminators);
+uint8_t UTIL0_ReadEscapedName(const unsigned char *filename, uint8_t *destname, size_t maxlen, size_t *lenRead, size_t *lenWritten, const char *terminators);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ReadEscapedName (component Utility)
@@ -456,7 +462,7 @@ byte UTIL0_ReadEscapedName(const unsigned char *filename, byte *destname, size_t
 ** ===================================================================
 */
 
-byte UTIL0_xatoi(const unsigned char **str, int32_t *res);
+uint8_t UTIL0_xatoi(const unsigned char **str, int32_t *res);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_xatoi (component Utility)
@@ -472,7 +478,7 @@ byte UTIL0_xatoi(const unsigned char **str, int32_t *res);
 ** ===================================================================
 */
 
-byte UTIL0_ScanDate(const unsigned char **str, byte *day, byte *month, word *year);
+uint8_t UTIL0_ScanDate(const unsigned char **str, uint8_t *day, uint8_t *month, uint16_t *year);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDate (component Utility)
@@ -492,7 +498,7 @@ byte UTIL0_ScanDate(const unsigned char **str, byte *day, byte *month, word *yea
 ** ===================================================================
 */
 
-byte UTIL0_ScanTime(const unsigned char **str, byte *hour, byte *minute, byte *second, byte *hSecond);
+uint8_t UTIL0_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t *minute, uint8_t *second, uint8_t *hSecond);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanTime (component Utility)
@@ -516,7 +522,7 @@ byte UTIL0_ScanTime(const unsigned char **str, byte *hour, byte *minute, byte *s
 ** ===================================================================
 */
 
-byte UTIL0_ScanDecimal16uNumber(const unsigned char **str, word *val);
+uint8_t UTIL0_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDecimal16uNumber (component Utility)
@@ -532,7 +538,7 @@ byte UTIL0_ScanDecimal16uNumber(const unsigned char **str, word *val);
 ** ===================================================================
 */
 
-byte UTIL0_ScanDecimal8uNumber(const unsigned char **str, byte *val);
+uint8_t UTIL0_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDecimal8uNumber (component Utility)
@@ -548,7 +554,7 @@ byte UTIL0_ScanDecimal8uNumber(const unsigned char **str, byte *val);
 ** ===================================================================
 */
 
-void UTIL0_Num16uToStr(byte *dst, size_t dstSize, word val);
+void UTIL0_Num16uToStr(uint8_t *dst, size_t dstSize, uint16_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num16uToStr (component Utility)
@@ -564,7 +570,7 @@ void UTIL0_Num16uToStr(byte *dst, size_t dstSize, word val);
 ** ===================================================================
 */
 
-void UTIL0_Num8sToStr(byte *dst, size_t dstSize, signed char val);
+void UTIL0_Num8sToStr(uint8_t *dst, size_t dstSize, signed char val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num8sToStr (component Utility)
@@ -580,7 +586,7 @@ void UTIL0_Num8sToStr(byte *dst, size_t dstSize, signed char val);
 ** ===================================================================
 */
 
-void UTIL0_Num8uToStr(byte *dst, size_t dstSize, byte val);
+void UTIL0_Num8uToStr(uint8_t *dst, size_t dstSize, uint8_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num8uToStr (component Utility)
@@ -596,7 +602,7 @@ void UTIL0_Num8uToStr(byte *dst, size_t dstSize, byte val);
 ** ===================================================================
 */
 
-void UTIL0_Num16uToStrFormatted(byte *dst, size_t dstSize, word val, char fill, byte nofFill);
+void UTIL0_Num16uToStrFormatted(uint8_t *dst, size_t dstSize, uint16_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num16uToStrFormatted (component Utility)
@@ -614,7 +620,7 @@ void UTIL0_Num16uToStrFormatted(byte *dst, size_t dstSize, word val, char fill, 
 ** ===================================================================
 */
 
-void UTIL0_Num32sToStrFormatted(byte *dst, size_t dstSize, long val, char fill, byte nofFill);
+void UTIL0_Num32sToStrFormatted(uint8_t *dst, size_t dstSize, int32_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_Num32sToStrFormatted (component Utility)
@@ -632,7 +638,7 @@ void UTIL0_Num32sToStrFormatted(byte *dst, size_t dstSize, long val, char fill, 
 ** ===================================================================
 */
 
-void UTIL0_strcatNum16u(byte *dst, size_t dstSize, word val);
+void UTIL0_strcatNum16u(uint8_t *dst, size_t dstSize, uint16_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum16u (component Utility)
@@ -648,7 +654,7 @@ void UTIL0_strcatNum16u(byte *dst, size_t dstSize, word val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum16uFormatted(byte *dst, size_t dstSize, word val, char fill, byte nofFill);
+void UTIL0_strcatNum16uFormatted(uint8_t *dst, size_t dstSize, uint16_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum16uFormatted (component Utility)
@@ -667,7 +673,7 @@ void UTIL0_strcatNum16uFormatted(byte *dst, size_t dstSize, word val, char fill,
 ** ===================================================================
 */
 
-void UTIL0_strcatNum32sFormatted(byte *dst, size_t dstSize, long val, char fill, byte nofFill);
+void UTIL0_strcatNum32sFormatted(uint8_t *dst, size_t dstSize, int32_t val, char fill, uint8_t nofFill);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum32sFormatted (component Utility)
@@ -686,7 +692,7 @@ void UTIL0_strcatNum32sFormatted(byte *dst, size_t dstSize, long val, char fill,
 ** ===================================================================
 */
 
-byte UTIL0_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
+uint8_t UTIL0_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDecimal32uNumber (component Utility)
@@ -702,7 +708,7 @@ byte UTIL0_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum8u(byte *dst, size_t dstSize, byte val);
+void UTIL0_strcatNum8u(uint8_t *dst, size_t dstSize, uint8_t val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum8u (component Utility)
@@ -718,7 +724,7 @@ void UTIL0_strcatNum8u(byte *dst, size_t dstSize, byte val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum8s(byte *dst, size_t dstSize, signed char val);
+void UTIL0_strcatNum8s(uint8_t *dst, size_t dstSize, signed char val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum8s (component Utility)
@@ -787,7 +793,7 @@ void UTIL0_strcatNum8s(byte *dst, size_t dstSize, signed char val);
 ** ===================================================================
 */
 
-byte UTIL0_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
+uint8_t UTIL0_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanHex32uNumber (component Utility)
@@ -803,7 +809,7 @@ byte UTIL0_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
 ** ===================================================================
 */
 
-byte UTIL0_ScanHex16uNumber(const unsigned char **str, word *val);
+uint8_t UTIL0_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanHex16uNumber (component Utility)
@@ -819,7 +825,7 @@ byte UTIL0_ScanHex16uNumber(const unsigned char **str, word *val);
 ** ===================================================================
 */
 
-byte UTIL0_ScanHex8uNumber(const unsigned char **str, byte *val);
+uint8_t UTIL0_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanHex8uNumber (component Utility)
@@ -835,7 +841,7 @@ byte UTIL0_ScanHex8uNumber(const unsigned char **str, byte *val);
 ** ===================================================================
 */
 
-byte UTIL0_strtailcmp(byte *str, byte *tail);
+uint8_t UTIL0_strtailcmp(uint8_t *str, uint8_t *tail);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strtailcmp (component Utility)
@@ -852,7 +858,7 @@ byte UTIL0_strtailcmp(byte *str, byte *tail);
 ** ===================================================================
 */
 
-byte UTIL0_strCutTail(byte *str, byte *tail);
+uint8_t UTIL0_strCutTail(uint8_t *str, uint8_t *tail);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strCutTail (component Utility)
@@ -870,7 +876,7 @@ byte UTIL0_strCutTail(byte *str, byte *tail);
 ** ===================================================================
 */
 
-byte UTIL0_ScanHex8uNumberNoPrefix(const unsigned char **str, byte *val);
+uint8_t UTIL0_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanHex8uNumberNoPrefix (component Utility)
@@ -886,7 +892,7 @@ byte UTIL0_ScanHex8uNumberNoPrefix(const unsigned char **str, byte *val);
 ** ===================================================================
 */
 
-void UTIL0_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num);
+void UTIL0_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strcatNum32sDotValue100 (component Utility)
@@ -904,7 +910,7 @@ void UTIL0_strcatNum32sDotValue100(byte *dst, size_t dstSize, long num);
 ** ===================================================================
 */
 
-byte UTIL0_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
+uint8_t UTIL0_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDecimal8sNumber (component Utility)
@@ -920,7 +926,7 @@ byte UTIL0_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
 ** ===================================================================
 */
 
-byte UTIL0_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
+uint8_t UTIL0_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDecimal16sNumber (component Utility)
@@ -936,7 +942,7 @@ byte UTIL0_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
 ** ===================================================================
 */
 
-byte UTIL0_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val);
+byte UTIL0_ScanDecimal32sNumber(const unsigned char **str, int32_t *val);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_ScanDecimal32sNumber (component Utility)
@@ -952,7 +958,7 @@ byte UTIL0_ScanDecimal32sNumber(const unsigned char **str, uint32_t *val);
 ** ===================================================================
 */
 
-int16_t UTIL0_strFind(byte *str, byte *subStr);
+int16_t UTIL0_strFind(uint8_t *str, uint8_t *subStr);
 /*
 ** ===================================================================
 **     Method      :  UTIL0_strFind (component Utility)
@@ -970,6 +976,27 @@ int16_t UTIL0_strFind(byte *str, byte *subStr);
 ** ===================================================================
 */
 
+uint8_t UTIL0_ScanSeparatedNumbers(const unsigned char **str, uint8_t *values, uint8_t nofValues, char separator, UTIL0_SeparatedNumberType numberType);
+/*
+** ===================================================================
+**     Method      :  UTIL0_ScanSeparatedNumbers (component Utility)
+**     Description :
+**         Scans multiple numbers separated by character, e.g. "123.68.
+**         5.3"
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         str             - String to scan. It returns as well until
+**                           where it has scanned
+**       * values          - Pointer to array where to store the
+**                           values
+**         nofValues       - Number of values in the array
+**         separator       - Character separator, e.g. '.'
+**         numberType      - type of number to scan
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+
 /* END UTIL0. */
 
 #endif
@@ -980,7 +1007,7 @@ int16_t UTIL0_strFind(byte *str, byte *subStr);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 10.3 [05.08]
+**     This file was created by Processor Expert 10.3 [05.09]
 **     for the Freescale Kinetis series of microcontrollers.
 **
 ** ###################################################################

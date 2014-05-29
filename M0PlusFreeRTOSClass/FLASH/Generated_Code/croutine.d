@@ -14,10 +14,14 @@ Generated_Code/croutine.o: ../Generated_Code/croutine.c \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
  C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h \
- ../Generated_Code/projdefs.h ../Generated_Code/FreeRTOSConfig.h \
- ../Generated_Code/portable.h ../Generated_Code/portmacro.h \
- ../Generated_Code/mpu_wrappers.h ../Generated_Code/task.h \
- ../Generated_Code/list.h ../Generated_Code/croutine.h
+ ../Generated_Code/FreeRTOSConfig.h ../Generated_Code/PE_Types.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
+ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
+ ../Generated_Code/projdefs.h ../Generated_Code/portable.h \
+ ../Generated_Code/portmacro.h ../Generated_Code/mpu_wrappers.h \
+ ../Generated_Code/task.h ../Generated_Code/list.h \
+ ../Generated_Code/croutine.h
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -49,9 +53,17 @@ C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h
 
 C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
 
-../Generated_Code/projdefs.h:
-
 ../Generated_Code/FreeRTOSConfig.h:
+
+../Generated_Code/PE_Types.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint:
+
+C:/Freescale/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
+
+../Generated_Code/projdefs.h:
 
 ../Generated_Code/portable.h:
 
